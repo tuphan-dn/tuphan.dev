@@ -1,8 +1,10 @@
+import CsrProvider from 'providers/csr.provider'
+
 import 'styles/global.scss'
 
 export const metadata = {
   title: 'Tu Phan',
-  description: 'Tu Phan: My Little Corner',
+  description: 'Tu Phan: My Little Corner.',
 }
 
 export default function RootLayout({
@@ -11,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -25,7 +27,9 @@ export default function RootLayout({
         />
         <link href="/iconsax/style.css" rel="stylesheet" />
       </head>
-      <body>{children}</body>
+      <body>
+        <CsrProvider>{children}</CsrProvider>
+      </body>
     </html>
   )
 }
