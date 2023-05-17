@@ -1,0 +1,33 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a {
+  @apply text-gray-950 dark:text-gray-50;
+}
+
+h1 {
+  @apply text-9xl font-bold;
+}
+
+h2 {
+  @apply text-7xl font-bold;
+}
+
+h3 {
+  @apply text-5xl font-bold;
+}
+
+h4 {
+  @apply text-3xl font-bold;
+}
+
+h5 {
+  @apply text-xl font-bold;
+}
+
+p {
+  @apply text-base font-normal;
+}

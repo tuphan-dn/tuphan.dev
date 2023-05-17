@@ -2,6 +2,10 @@
   "name": "tuphan.dev",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Tu Phan",
+    "email": "tuphan@descartes.network"
+  },
   "scripts": {
     "dev": "concurrently --names DEV,LINT -c cyan,yellow 'yarn dev:watch' 'yarn lint:watch'",
     "dev:watch": "next dev -p 9494",
@@ -13,6 +17,7 @@
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
     "daisyui": "^2.51.6",
+    "iconsax-react": "^0.0.8",
     "next": "13.4.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",

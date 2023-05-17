@@ -1,4 +1,5 @@
 import CsrProvider from 'providers/csr.provider'
+import UiProvider from 'providers/ui.provider'
 
 import 'styles/global.scss'
 
@@ -13,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" data-theme="dark">
+    <html lang="en" data-theme="light">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -25,10 +26,11 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
-        <link href="/iconsax/style.css" rel="stylesheet" />
       </head>
       <body>
-        <CsrProvider>{children}</CsrProvider>
+        <CsrProvider>
+          <UiProvider>{children}</UiProvider>
+        </CsrProvider>
       </body>
     </html>
   )

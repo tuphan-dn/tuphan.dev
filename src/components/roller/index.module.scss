@@ -4,10 +4,12 @@
   width: 80px;
   height: 80px;
 }
+
 .lds-roller div {
   animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   transform-origin: 40px 40px;
 }
+
 .lds-roller div:after {
   content: ' ';
   display: block;
@@ -15,9 +17,17 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #fff;
   margin: -4px 0 0 -4px;
 }
+
+[data-theme='light'] .lds-roller div:after {
+  background: #000;
+}
+
+[data-theme='dark'] .lds-roller div:after {
+  background: #fff;
+}
+
 .lds-roller div:nth-child(1) {
   animation-delay: -0.036s;
 }
@@ -74,6 +84,7 @@
   top: 56px;
   left: 12px;
 }
+
 @keyframes lds-roller {
   0% {
     transform: rotate(0deg);

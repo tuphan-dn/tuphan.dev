@@ -1,22 +1,33 @@
 'use client'
-import { useState } from 'react'
+
+import { Moon, Sun1 } from 'iconsax-react'
+import Brand from 'components/brand'
+
+import { useTheme } from 'providers/ui.provider'
 
 export default function Header() {
-  const [theme, setTheme] = useState<Theme>('light')
+  const { theme, setTheme } = useTheme()
 
   return (
-    <header className="bg-white dark:bg-black">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
-        <div>
-          <p className="dark:to-white">Header</p>
+    <header className="sticky top-0 rounded-b-sm bg-gray-100 dark:bg-gray-900">
+      <nav className="flex items-center space-x-2 p-4">
+        <div className="flex-auto ">
+          <Brand onClick={() => window.location.reload()} />
         </div>
-        <div>
-          <input
-            type="checkbox"
-            className="toggle"
-            onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
-            checked={theme === 'dark'}
-          />
+        <div className="flex items-center">
+          <label className="swap swap-rotate">
+            <input
+              type="checkbox"
+              onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
+              checked={theme === 'dark'}
+            />
+            <div className="swap-on">
+              <Moon variant="Bold" />
+            </div>
+            <div className="swap-off">
+              <Sun1 variant="Bold" />
+            </div>
+          </label>
         </div>
       </nav>
     </header>

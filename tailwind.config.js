@@ -1,21 +1,29 @@
 /** @type {import('tailwindcss').Config} */
+const daisyui = require('daisyui/src/colors/themes')
+
 module.exports = {
   darkMode: ['class', '[data-theme="dark"]'],
   content: [
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-    },
-  },
   plugins: [require('daisyui')],
   daisyui: {
-    themes: ['light', 'dark'],
+    themes: [
+      {
+        light: {
+          ...daisyui['[data-theme=light]'],
+          primary: '#1bf1bb',
+          secondary: '#4f3cc9',
+        },
+      },
+      {
+        dark: {
+          ...daisyui['[data-theme=dark]'],
+          primary: '#1bf1bb',
+          secondary: '#4f3cc9',
+        },
+      },
+    ],
   },
 }
