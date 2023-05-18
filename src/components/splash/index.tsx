@@ -27,7 +27,7 @@ export default function Splash({ open }: SplashProps) {
   return (
     <div className={styles['splash-mark']} style={{ display }}>
       <div className={styles['splash-container']}>
-        <Roller style={{ marginTop: 12 }} />
+        <Roller style={{ marginTop: -40 }} />
       </div>
     </div>
   )

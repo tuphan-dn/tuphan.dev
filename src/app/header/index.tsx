@@ -9,12 +9,32 @@ export default function Header() {
   const { theme, setTheme } = useTheme()
 
   return (
-    <header className="sticky top-0 rounded-b-sm bg-gray-100 dark:bg-gray-900">
+    <header className="sticky top-0 backdrop-blur">
       <nav className="flex items-center space-x-2 p-4">
         <div className="flex-auto ">
           <Brand onClick={() => window.location.reload()} />
         </div>
-        <div className="flex items-center">
+        <div>
+          <a
+            className="btn btn-xs btn-ghost"
+            href="https://twitter.com/phan_sontu"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Twitter
+          </a>
+        </div>
+        <div>
+          <a
+            className="btn btn-xs btn-ghost"
+            href="https://github.com/tuphan-dn"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Github
+          </a>
+        </div>
+        <div className="flex items-center !ml-3">
           <label className="swap swap-rotate">
             <input
               type="checkbox"
