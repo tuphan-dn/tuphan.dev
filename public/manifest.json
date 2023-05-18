@@ -1,0 +1,22 @@
+{
+  "name": "Desig Wallet",
+  "description": "A Blockchain-Agnostic Multisig Wallet by Pro-Cryptographers & for Pro-Cryptoplayers.",
+  "version": "0.0.7",
+  "author": "hi@desig.io",
+  "homepage_url": "https://desig.io/",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Open the popup"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": ["storage"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  }
+}
