@@ -2,7 +2,7 @@
  * Environment
  */
 const getEnv = () => {
-  switch (process.env.NEXT_PUBLIC_ENV) {
+  switch (process.env.NODE_ENV) {
     case 'development':
       return 'development'
     case 'production':
