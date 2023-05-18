@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export type BrandLogoProps = {
   size?: number
 }
@@ -6,7 +8,7 @@ export function BrandLogo({ size = 32 }: BrandLogoProps) {
   return (
     <div className="avatar">
       <div className={`mask mask-squircle`} style={{ width: size }}>
-        <img src="/tuphan.png" alt="tuphan.dev" />
+        <Image src="/tuphan.png" alt="tuphan.dev" width={size} height={size} />
       </div>
     </div>
   )
