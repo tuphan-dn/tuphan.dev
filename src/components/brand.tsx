@@ -21,13 +21,11 @@ export type BrandProps = {
 export default function Brand({ onClick = () => {} }: BrandProps) {
   return (
     <div
-      className="flex items-center space-x-2 hover:cursor-pointer"
+      className="flex shrink items-center space-x-2 hover:cursor-pointer"
       onClick={onClick}
     >
       <BrandLogo />
-      <div>
-        <p>tuphan.dev</p>
-      </div>
+      <p>tuphan.dev</p>
     </div>
   )
 }

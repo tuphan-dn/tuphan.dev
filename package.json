@@ -9,9 +9,7 @@
   "scripts": {
     "dev": "concurrently --names DEV,LINT -c cyan,yellow 'yarn dev:watch' 'yarn lint:watch'",
     "dev:watch": "next dev -p 9494",
-    "build": "NEXT_PUBLIC_ENV=production next build",
-    "prebuild:cx": "yarn build",
-    "build:cx": "mv out/_next out/next && sed -i 's/\\/_next/\\/next/g' out/**.html",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "lint:watch": "nodemon --watch src --ext ts,tsx --exec 'next lint'"

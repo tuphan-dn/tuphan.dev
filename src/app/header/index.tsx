@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 backdrop-blur">
       <nav className="flex items-center space-x-2 p-4">
-        <div className="flex-auto ">
+        <div className="flex-auto">
           <Brand onClick={() => window.location.reload()} />
         </div>
         <div>

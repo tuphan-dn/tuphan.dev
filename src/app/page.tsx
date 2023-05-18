@@ -11,22 +11,14 @@ export default function Home() {
     () => {
       if (loading) setLoading(false)
     },
-    5000,
+    10000,
     [loading],
   )
 
   return (
     <Fragment>
       <Header />
-      <main className="flex min-h-[calc(100vh-64px-1rem)] space-x-4 ml-4 mb-4 p-4 rounded-l-xl bg-slate-100 dark:bg-slate-900">
-        <button
-          className={`btn-primary btn ${loading ? 'loading' : ''}`}
-          onClick={() => setLoading(true)}
-        >
-          Nothing
-        </button>
-        <input type="date" className="input" />
-      </main>
+      <main className="flex min-h-[calc(100vh-64px-1rem)] space-x-4 mx-4 mb-4 p-4 rounded-3xl bg-slate-100 dark:bg-slate-900 bg-[url('/panel_light.jpg')] dark:bg-[url('/panel_dark.jpg')] bg-center bg-cover transition-all"></main>
     </Fragment>
   )
 }
