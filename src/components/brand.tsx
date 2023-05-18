@@ -4,6 +4,8 @@ export type BrandLogoProps = {
   size?: number
 }
 
+console.log(process.env.NODE_ENV)
+
 export function BrandLogo({ size = 32 }: BrandLogoProps) {
   return (
     <div className="avatar">
