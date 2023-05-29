@@ -1,6 +1,6 @@
 'use client'
 
-import { Moon, Sun1 } from 'iconsax-react'
+import { Moon, Sun, Twitter, Github } from 'lucide-react'
 import Brand from 'components/brand'
 
 import { useTheme } from 'providers/ui.provider'
@@ -16,21 +16,23 @@ export default function Header() {
         </div>
         <div>
           <a
-            className="btn btn-xs btn-ghost"
+            className="btn btn-xs btn-ghost gap-2"
             href="https://twitter.com/phan_sontu"
             target="_blank"
             rel="noreferrer"
           >
+            <Twitter className="h-3 w-3" />
             Twitter
           </a>
         </div>
         <div>
           <a
-            className="btn btn-xs btn-ghost"
+            className="btn btn-xs btn-ghost gap-2"
             href="https://github.com/tuphan-dn"
             target="_blank"
             rel="noreferrer"
           >
+            <Github className="h-3 w-3" />
             Github
           </a>
         </div>
@@ -42,10 +44,10 @@ export default function Header() {
               checked={theme === 'dark'}
             />
             <div className="swap-on">
-              <Moon variant="Bold" />
+              <Moon />
             </div>
             <div className="swap-off">
-              <Sun1 variant="Bold" />
+              <Sun />
             </div>
           </label>
         </div>

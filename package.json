@@ -17,7 +17,7 @@
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
     "daisyui": "^2.51.6",
-    "iconsax-react": "^0.0.8",
+    "lucide-react": "^0.223.0",
     "next": "13.4.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
