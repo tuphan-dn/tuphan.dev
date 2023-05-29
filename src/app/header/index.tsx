@@ -44,10 +44,10 @@ export default function Header() {
               checked={theme === 'dark'}
             />
             <div className="swap-on">
-              <Moon />
+              <Moon className="w-6 h-6" />
             </div>
             <div className="swap-off">
-              <Sun />
+              <Sun className="w-6 h-6" />
             </div>
           </label>
         </div>
