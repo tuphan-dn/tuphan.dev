@@ -21,7 +21,7 @@ export default function Header() {
             target="_blank"
             rel="noreferrer"
           >
-            <Twitter className="h-3 w-3" />
+            <Twitter className="h-3 w-3 fill-current" />
             Twitter
           </a>
         </div>
@@ -32,7 +32,7 @@ export default function Header() {
             target="_blank"
             rel="noreferrer"
           >
-            <Github className="h-3 w-3" />
+            <Github className="h-3 w-3 fill-current" />
             Github
           </a>
         </div>
