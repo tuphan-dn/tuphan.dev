@@ -17,16 +17,21 @@ export function BrandLogo({ size = 32 }: BrandLogoProps) {
 export type BrandProps = {
   onClick?: () => void
   size?: number
+  named?: boolean
 }
 
-export default function Brand({ onClick = () => {}, size }: BrandProps) {
+export default function Brand({
+  onClick = () => {},
+  size,
+  named = true,
+}: BrandProps) {
   return (
     <div
       className="flex shrink items-center gap-3 hover:cursor-pointer"
       onClick={onClick}
     >
       <BrandLogo size={size} />
-      <p>tuphan.dev</p>
+      {named && <p>tuphan.dev</p>}
     </div>
   )
 }

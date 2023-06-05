@@ -1,3 +1,4 @@
+import CsrProvider from 'providers/csr.provider'
 import UiProvider from 'providers/ui.provider'
 
 import 'styles/global.scss'
@@ -27,7 +28,9 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <UiProvider>{children}</UiProvider>
+        <CsrProvider>
+          <UiProvider>{children}</UiProvider>
+        </CsrProvider>
       </body>
     </html>
   )

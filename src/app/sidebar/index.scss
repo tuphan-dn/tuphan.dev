@@ -1,0 +1,24 @@
+.sidebar {
+  &.open {
+    @apply min-w-[240px];
+    .swap {
+      @apply place-content-end;
+    }
+    .menu {
+      @apply min-w-[240px];
+    }
+    .menu-option {
+      display: block !important;
+    }
+  }
+
+  @apply h-screen transition-all;
+  .swap {
+    @apply place-content-start;
+  }
+  .menu {
+    .menu-option {
+      display: none;
+    }
+  }
+}
