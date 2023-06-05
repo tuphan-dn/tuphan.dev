@@ -19,10 +19,14 @@ export default function Sidebar() {
 
   return (
     <aside className={`sidebar ${!open ? '' : 'open'}`}>
-      <ul className="menu rounded-box p-2 flex flex-col h-full">
+      <ul className="menu menu-lg rounded-box p-2 flex flex-col h-full">
         <li className="flex-auto">
           <a>
-            <Brand size={24} named={open} />
+            <Brand
+              size={24}
+              named={open}
+              style={{ marginLeft: -4, marginRight: -4 }}
+            />
           </a>
         </li>
         <li>
@@ -31,7 +35,7 @@ export default function Sidebar() {
             target="_blank"
             rel="noreferrer"
           >
-            <Twitter className="h-6 w-6 fill-current" />
+            <Twitter className="h-4 w-4" />
             <p className="menu-option">Twitter</p>
           </a>
         </li>
@@ -41,7 +45,7 @@ export default function Sidebar() {
             target="_blank"
             rel="noreferrer"
           >
-            <Github className="h-6 w-6 fill-current" />
+            <Github className="h-4 w-4" />
             <p className="menu-option">Github</p>
           </a>
         </li>
@@ -54,10 +58,10 @@ export default function Sidebar() {
                 checked={theme === 'dark'}
               />
               <p className="swap-on">
-                <Moon className="w-6 h-6" />
+                <Moon className="w-4 h-4" />
               </p>
               <p className="swap-off">
-                <Sun className="w-6 h-6" />
+                <Sun className="w-4 h-4" />
               </p>
             </label>
             <p className="menu-option">
@@ -73,10 +77,10 @@ export default function Sidebar() {
               checked={open}
             />
             <p className="swap-on">
-              <PanelLeftClose className="h-6 w-6" />
+              <PanelLeftClose className="h-4 w-4" />
             </p>
             <p className="swap-off">
-              <PanelLeftOpen className="h-6 w-6" />
+              <PanelLeftOpen className="h-4 w-4" />
             </p>
           </label>
         </li>

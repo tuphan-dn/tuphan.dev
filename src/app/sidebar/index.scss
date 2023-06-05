@@ -18,6 +18,7 @@
   }
   .menu {
     .menu-option {
+      @apply text-xs;
       display: none;
     }
   }

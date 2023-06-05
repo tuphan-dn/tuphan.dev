@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { CSSProperties } from 'react'
 
 export type BrandLogoProps = {
   size?: number
@@ -15,18 +16,21 @@ export function BrandLogo({ size = 32 }: BrandLogoProps) {
 }
 
 export type BrandProps = {
+  style?: CSSProperties
   onClick?: () => void
   size?: number
   named?: boolean
 }
 
 export default function Brand({
+  style = {},
   onClick = () => {},
-  size,
+  size = 32,
   named = true,
 }: BrandProps) {
   return (
     <div
+      style={style}
       className="flex shrink items-center gap-3 hover:cursor-pointer"
       onClick={onClick}
     >
