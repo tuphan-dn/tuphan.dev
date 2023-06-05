@@ -64,9 +64,7 @@ export default function Sidebar() {
                 <Sun className="w-4 h-4" />
               </p>
             </label>
-            <p className="menu-option">
-              {theme === 'light' ? 'Light Theme' : 'Dark Theme'}
-            </p>
+            <p className="menu-option capitalize">{`${theme} theme`}</p>
           </span>
         </li>
         <li>
