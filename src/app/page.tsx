@@ -2,6 +2,7 @@
 import { Fragment, useState } from 'react'
 import { useDebounce } from 'react-use'
 
+import Sidebar from './sidebar'
 import Header from './header'
 
 export default function Home() {
@@ -17,8 +18,15 @@ export default function Home() {
 
   return (
     <Fragment>
-      <Header />
-      <main className="flex min-h-[calc(100vh-64px-1rem)] space-x-4 mx-4 mb-4 p-4 rounded-3xl bg-slate-100 dark:bg-slate-900 bg-[url('/panel_light.jpg')] dark:bg-[url('/panel_dark.jpg')] bg-center bg-cover transition-all"></main>
+      <main className="flex w-full">
+        <Sidebar />
+        <div className="flex flex-col flex-auto p-2">
+          <div className="w-full">
+            <Header />
+          </div>
+          <div className="flex-auto w-full rounded-3xl bg-slate-100 dark:bg-slate-900 bg-[url('/panel_light.jpg')] dark:bg-[url('/panel_dark.jpg')] bg-center bg-cover transition-all"></div>
+        </div>
+      </main>
     </Fragment>
   )
 }

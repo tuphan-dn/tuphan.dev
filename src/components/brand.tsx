@@ -16,15 +16,16 @@ export function BrandLogo({ size = 32 }: BrandLogoProps) {
 
 export type BrandProps = {
   onClick?: () => void
+  size?: number
 }
 
-export default function Brand({ onClick = () => {} }: BrandProps) {
+export default function Brand({ onClick = () => {}, size }: BrandProps) {
   return (
     <div
-      className="flex shrink items-center space-x-2 hover:cursor-pointer"
+      className="flex shrink items-center gap-3 hover:cursor-pointer"
       onClick={onClick}
     >
-      <BrandLogo />
+      <BrandLogo size={size} />
       <p>tuphan.dev</p>
     </div>
   )
