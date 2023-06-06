@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 
 import Brand from 'components/brand'
 import {
@@ -34,11 +33,10 @@ const routes = [
 export default function Sidebar() {
   const [open, setOpen] = useState(false)
   const { theme, setTheme } = useTheme()
-  const pathname = usePathname()
 
   return (
     <aside className={`sidebar ${!open ? '' : 'open'}`}>
-      <ul className="menu menu-lg rounded-box p-2 flex flex-col h-full">
+      <ul className="menu menu-lg rounded-box flex flex-col h-full">
         <li>
           <a href="/">
             <Brand
@@ -50,8 +48,10 @@ export default function Sidebar() {
         </li>
         {routes.map(({ route, name, Logo }) => (
           <li key={route}>
-            <Link href={route} className={route === pathname ? 'active' : ''}>
-              <Logo className="h-4 w-4" />
+            <Link href={route}>
+              <p>
+                <Logo className="h-4 w-4" />
+              </p>
               <p className="menu-option">{name}</p>
             </Link>
           </li>

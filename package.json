@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
-    "daisyui": "^2.51.6",
+    "daisyui": "^3.0.3",
     "lucide-react": "^0.223.0",
     "next": "13.4.2",
     "react": "18.2.0",

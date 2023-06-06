@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const daisyui = require('daisyui/src/colors/themes')
+const daisyui = require('daisyui/src/theming/themes')
 
 module.exports = {
   darkMode: ['class', '[data-theme="dark"]'],

@@ -1,4 +1,17 @@
 .sidebar {
+  height: 100lvh;
+
+  @apply transition-all;
+  .swap {
+    @apply place-content-start;
+  }
+  .menu {
+    .menu-option {
+      @apply text-xs;
+      display: none;
+    }
+  }
+
   &.open {
     @apply min-w-[240px];
     .swap {
@@ -9,17 +22,6 @@
     }
     .menu-option {
       display: block !important;
-    }
-  }
-
-  @apply h-screen transition-all;
-  .swap {
-    @apply place-content-start;
-  }
-  .menu {
-    .menu-option {
-      @apply text-xs;
-      display: none;
     }
   }
 }
