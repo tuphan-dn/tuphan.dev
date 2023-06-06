@@ -1,8 +1,13 @@
+'use client'
 import { useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 import Brand from 'components/brand'
 import {
+  Gamepad,
   Github,
+  Joystick,
   Moon,
   PanelLeftClose,
   PanelLeftOpen,
@@ -13,15 +18,29 @@ import {
 import './index.scss'
 import { useTheme } from 'providers/ui.provider'
 
+const routes = [
+  {
+    route: '/snes',
+    name: 'SNES',
+    Logo: Gamepad,
+  },
+  {
+    route: '/gba',
+    name: 'GBA',
+    Logo: Joystick,
+  },
+]
+
 export default function Sidebar() {
   const [open, setOpen] = useState(false)
   const { theme, setTheme } = useTheme()
+  const pathname = usePathname()
 
   return (
     <aside className={`sidebar ${!open ? '' : 'open'}`}>
       <ul className="menu menu-lg rounded-box p-2 flex flex-col h-full">
-        <li className="flex-auto">
-          <a>
+        <li>
+          <a href="/">
             <Brand
               size={24}
               named={open}
@@ -29,6 +48,15 @@ export default function Sidebar() {
             />
           </a>
         </li>
+        {routes.map(({ route, name, Logo }) => (
+          <li key={route}>
+            <Link href={route} className={route === pathname ? 'active' : ''}>
+              <Logo className="h-4 w-4" />
+              <p className="menu-option">{name}</p>
+            </Link>
+          </li>
+        ))}
+        <li className="flex-auto invisible"></li>
         <li>
           <a
             href="https://twitter.com/phan_sontu"
