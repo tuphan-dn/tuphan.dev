@@ -12,7 +12,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:watch": "nodemon --watch src --ext ts,tsx --exec 'next lint'"
+    "lint:watch": "nodemon --watch src --ext ts,tsx --exec 'next lint'",
+    "preserve": "yarn build",
+    "serve": "gh-pages -d build"
   },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
@@ -37,6 +39,7 @@
     "eslint-config-next": "^13.4.2",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^5.0.0",
     "nodemon": "^2.0.22",
     "postcss": "^8.4.23",
     "rehype-slug": "^5.1.0",
