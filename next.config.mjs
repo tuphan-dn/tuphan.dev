@@ -8,6 +8,9 @@ const repo = (process.env.GITHUB_REPOSITORY || '').replace(/.*?\//, '')
 const assetPrefix = isGithubActions ? `/${repo}/` : ''
 const basePath = isGithubActions ? `/${repo}` : '/'
 
+console.log(isGithubActions, repo)
+console.log(assetPrefix, basePath)
+
 const withMDX = configMDX({
   extension: /\.mdx?$/,
   options: {
