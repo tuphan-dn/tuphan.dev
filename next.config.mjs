@@ -4,9 +4,9 @@ import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
 
 const isGithubActions = process.env.GITHUB_ACTIONS || false
-const repo = (process.env.GITHUB_REPOSITORY || '').replace(/.*?\//, '')
-// const assetPrefix = isGithubActions ? `/${repo}/` : ''
-const basePath = isGithubActions ? `/${repo}` : ''
+const repo = isGithubActions
+  ? `/${process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')}`
+  : ''
 
 const withMDX = configMDX({
   extension: /\.mdx?$/,
@@ -17,8 +17,8 @@ const withMDX = configMDX({
 })
 
 const nextConfig = {
-  // assetPrefix,
-  basePath,
+  assetPrefix: repo,
+  basePath: repo,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   output: 'export',
   images: { unoptimized: true },
