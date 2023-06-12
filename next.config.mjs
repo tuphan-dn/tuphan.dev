@@ -19,6 +19,9 @@ const withMDX = configMDX({
 const nextConfig = {
   assetPrefix: repo,
   basePath: repo,
+  env: {
+    basePath: repo,
+  },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   output: 'export',
   images: { unoptimized: true },
