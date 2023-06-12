@@ -9,7 +9,12 @@ export function BrandLogo({ size = 32 }: BrandLogoProps) {
   return (
     <div className="avatar">
       <div className={'mask mask-squircle'} style={{ width: size }}>
-        <Image src="/tuphan.png" alt="tuphan.dev" width={size} height={size} />
+        <Image
+          src={`${process.env.BASE_PATH}/tuphan.png`}
+          alt="tuphan.dev"
+          width={size}
+          height={size}
+        />
       </div>
     </div>
   )
