@@ -13,7 +13,7 @@
     "start": "next start",
     "lint": "next lint",
     "lint:watch": "nodemon --watch src --ext ts,tsx --exec 'next lint'",
-    "preserve": "yarn build",
+    "preserve": "yarn build && touch ./out/.nojekyll",
     "serve": "gh-pages -d out"
   },
   "dependencies": {
