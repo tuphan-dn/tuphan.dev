@@ -3,11 +3,6 @@ import configMDX from '@next/mdx'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
 
-const isGithubActions = process.env.GITHUB_ACTIONS || false
-const repo = (process.env.GITHUB_REPOSITORY || '').replace(/.*?\//, '')
-const assetPrefix = isGithubActions ? `/${repo}/` : ''
-const basePath = isGithubActions ? `/${repo}` : '/'
-
 const withMDX = configMDX({
   extension: /\.mdx?$/,
   options: {
@@ -17,8 +12,6 @@ const withMDX = configMDX({
 })
 
 const nextConfig = {
-  assetPrefix,
-  basePath,
   experimental: {
     appDir: true,
   },
