@@ -7,6 +7,14 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  theme: {
+    extend: {
+      backgroundImage: {
+        'light-home': "url(/panel_light.jpg')",
+        'dark-home': "url('/panel_dark.jpg')",
+      },
+    },
+  },
   plugins: [require('daisyui')],
   daisyui: {
     themes: [

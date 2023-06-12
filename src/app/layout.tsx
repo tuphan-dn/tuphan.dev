@@ -6,8 +6,8 @@ import Sidebar from './sidebar'
 import 'styles/global.scss'
 
 export const metadata = {
-  title: 'Tu Phan',
-  description: 'Tu Phan: My Little Corner.',
+  title: 'tuphan.dev',
+  description: 'Tu Phan: The place where I experiment next-gen technologies.',
 }
 
 export default function RootLayout({
