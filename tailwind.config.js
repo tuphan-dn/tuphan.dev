@@ -14,14 +14,18 @@ module.exports = {
         light: {
           ...daisyui['[data-theme=light]'],
           primary: '#2B86FF',
+          'primary-content': '#ffffff',
           secondary: '#FFA42B',
+          'secondary-content': '#000000',
         },
       },
       {
         dark: {
           ...daisyui['[data-theme=dark]'],
           primary: '#2B86FF',
+          'primary-content': '#ffffff',
           secondary: '#FFA42B',
+          'secondary-content': '#000000',
         },
       },
     ],
