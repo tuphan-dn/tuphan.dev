@@ -2,7 +2,7 @@
 import { useState } from 'react'
 
 import { useCounter } from 'hooks/useCounter'
-import Modal from 'components/daisyui/modal'
+import Modal from 'components/modal'
 
 export default function Snes() {
   const [open, setOpen] = useState(false)
