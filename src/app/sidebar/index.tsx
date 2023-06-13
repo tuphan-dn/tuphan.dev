@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import {
+  Box,
   Gamepad,
   Github,
   Joystick,
@@ -27,6 +28,11 @@ const routes = [
     route: '/gba',
     name: 'GBA',
     Logo: Joystick,
+  },
+  {
+    route: '/modelviewer',
+    name: 'Model Viewer',
+    Logo: Box,
   },
 ]
 
