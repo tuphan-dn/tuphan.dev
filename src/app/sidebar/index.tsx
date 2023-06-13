@@ -2,20 +2,19 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-import Brand from 'components/brand'
 import {
   Gamepad,
   Github,
   Joystick,
-  Moon,
   PanelLeftClose,
   PanelLeftOpen,
-  Sun,
   Twitter,
 } from 'lucide-react'
+import Brand from 'components/brand'
+import Island from 'components/island'
+import ThemeSwitch from './themeSwitch'
 
 import './index.scss'
-import { useTheme } from 'providers/ui.provider'
 
 const routes = [
   {
@@ -32,7 +31,6 @@ const routes = [
 
 export default function Sidebar() {
   const [open, setOpen] = useState(false)
-  const { theme, setTheme } = useTheme()
 
   return (
     <aside className={`sidebar ${!open ? '' : 'open'}`}>
@@ -78,22 +76,9 @@ export default function Sidebar() {
           </a>
         </li>
         <li>
-          <span onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
-            <label className="swap swap-rotate">
-              <input
-                type="checkbox"
-                onChange={(e) => setTheme(e.target.checked ? 'light' : 'dark')}
-                checked={theme === 'dark'}
-              />
-              <p className="swap-on">
-                <Moon className="w-4 h-4" />
-              </p>
-              <p className="swap-off">
-                <Sun className="w-4 h-4" />
-              </p>
-            </label>
-            <p className="menu-option capitalize">{`${theme} theme`}</p>
-          </span>
+          <Island>
+            <ThemeSwitch />
+          </Island>
         </li>
         <li>
           <label className="swap swap-rotate">
