@@ -1,7 +1,6 @@
 import UiProvider from 'providers/ui.provider'
 
 import Sidebar from './sidebar'
-import Island from 'components/island'
 
 import 'styles/global.scss'
 
@@ -32,9 +31,7 @@ export default function RootLayout({
       <body>
         <UiProvider>
           <main className="flex w-full">
-            <Island>
-              <Sidebar />
-            </Island>
+            <Sidebar />
             <div className="flex flex-col flex-auto pr-2 py-2">{children}</div>
           </main>
         </UiProvider>
