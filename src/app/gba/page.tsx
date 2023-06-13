@@ -1,5 +1,26 @@
 'use client'
 
+import { useCounter } from 'hooks/useCounter'
+
 export default function Gba() {
-  return <p>GBA</p>
+  const { counter, decrease } = useCounter(({ counter, decrease }) => ({
+    counter,
+    decrease,
+  }))
+
+  return (
+    <div className="flex gap-2">
+      <div className="basis-3/12">
+        <p>GBA</p>
+      </div>
+      <div className="basis-3/12">
+        <p>Counter: {counter}</p>
+      </div>
+      <div className="basis-6/12">
+        <button className="btn btn-secondary w-full" onClick={decrease}>
+          Decrease
+        </button>
+      </div>
+    </div>
+  )
 }
