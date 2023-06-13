@@ -1,9 +1,0 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[392],{9772:function(e,n,t){Promise.resolve().then(t.bind(t,9168))},9168:function(e,n,t){"use strict";t.r(n),t.d(n,{default:function(){return s}});var r=t(9268),o=t(6006);function s(){let e=(0,o.useCallback)(()=>{let e=document.getElementById("snes_modal");e&&e.showModal()},[]),n=(0,o.useCallback)(()=>{let e=document.getElementById("snes_modal");e&&e.close()},[]);return(0,r.jsxs)("div",{children:[(0,r.jsx)("button",{className:"btn btn-primary",onClick:e,children:"Open"}),(0,r.jsx)("dialog",{id:"snes_modal",className:"modal",children:(0,r.jsxs)("div",{className:"flex flex-col gap-2 modal-box",children:[(0,r.jsx)("p",{children:"SNES"}),(0,r.jsx)("button",{className:"btn btn-primary",onClick:n,children:"Close"})]})})]})}},3177:function(e,n,t){"use strict";/**
- * @license React
- * react-jsx-runtime.production.min.js
- *
- * Copyright (c) Meta Platforms, Inc. and affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */var r=t(6006),o=Symbol.for("react.element"),s=(Symbol.for("react.fragment"),Object.prototype.hasOwnProperty),l=r.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,c={key:!0,ref:!0,__self:!0,__source:!0};function a(e,n,t){var r,a={},i=null,u=null;for(r in void 0!==t&&(i=""+t),void 0!==n.key&&(i=""+n.key),void 0!==n.ref&&(u=n.ref),n)s.call(n,r)&&!c.hasOwnProperty(r)&&(a[r]=n[r]);if(e&&e.defaultProps)for(r in n=e.defaultProps)void 0===a[r]&&(a[r]=n[r]);return{$$typeof:o,type:e,key:i,ref:u,props:a,_owner:l.current}}n.jsx=a,n.jsxs=a},9268:function(e,n,t){"use strict";e.exports=t(3177)}},function(e){e.O(0,[667,139,744],function(){return e(e.s=9772)}),_N_E=e.O()}]);
