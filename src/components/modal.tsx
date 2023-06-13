@@ -21,10 +21,10 @@ export default function Modal({
       <input type="checkbox" className="modal-toggle" checked={open} />
       <div className="modal">
         <div className="flex flex-col gap-2 modal-box">
-          <div className="flex">
+          <div className="flex align-top">
             <div className="flex-auto">{title}</div>
             <button
-              className="btn btn-circle btn-ghost btn-xs"
+              className="btn btn-square btn-ghost btn-xs"
               onClick={onCancel}
             >
               <X />

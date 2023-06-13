@@ -10,13 +10,13 @@ export default function Gba() {
 
   return (
     <div className="flex gap-2">
-      <div className="basis-3/12">
+      <div className="basis-4/12">
         <p>GBA</p>
       </div>
-      <div className="basis-3/12">
+      <div className="basis-4/12">
         <p>Counter: {counter}</p>
       </div>
-      <div className="basis-6/12">
+      <div className="basis-4/12">
         <button className="btn btn-secondary w-full" onClick={decrease}>
           Decrease
         </button>
