@@ -55,7 +55,7 @@ export default function Sidebar() {
               <p>
                 <Logo className="h-4 w-4" />
               </p>
-              <p className="menu-option font-bold">{name}</p>
+              <p className="menu-option font-semibold">{name}</p>
             </Link>
           </li>
         ))}
@@ -80,6 +80,7 @@ export default function Sidebar() {
             <p className="menu-option">Github</p>
           </a>
         </li>
+        <span className="divider mx-4 my-0"></span>
         <li>
           <Island>
             <ThemeSwitch />
