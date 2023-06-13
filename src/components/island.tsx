@@ -4,7 +4,7 @@ import { Fragment, ReactNode } from 'react'
 
 import Splash from 'components/splash'
 
-export default dynamic(
+const Island = dynamic(
   () =>
     Promise.resolve(({ children }: { children: ReactNode }) => {
       return <Fragment>{children}</Fragment>
@@ -14,3 +14,5 @@ export default dynamic(
     loading: () => <Splash open />,
   },
 )
+
+export default Island
