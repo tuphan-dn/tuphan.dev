@@ -18,7 +18,7 @@ export default function Modal({
 }: ModalProps) {
   return (
     <Fragment>
-      <input type="checkbox" className="modal-toggle" checked={open} />
+      <input type="checkbox" className="modal-toggle" checked={open} readOnly />
       <div className="modal">
         <div className="flex flex-col gap-2 modal-box">
           <div className="flex align-top">
