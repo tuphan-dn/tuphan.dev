@@ -8,6 +8,7 @@ import {
   Gamepad,
   Github,
   Joystick,
+  Newspaper,
   PanelLeftClose,
   PanelLeftOpen,
   Twitter,
@@ -33,6 +34,11 @@ const routes = [
     route: '/modelviewer',
     name: 'Model Viewer',
     Logo: Box,
+  },
+  {
+    route: '/news',
+    name: 'News',
+    Logo: Newspaper,
   },
 ]
 

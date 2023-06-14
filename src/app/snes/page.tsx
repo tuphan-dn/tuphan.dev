@@ -10,25 +10,21 @@ export default function Snes() {
   const increase = useCounter(({ increase }) => increase)
 
   return (
-    <div className="flex gap-2">
-      <button className="btn btn-primary" onClick={() => setOpen(true)}>
-        Open
-      </button>
+    <div className="grid grid-cols-12 gap-2">
+      <div className="col-span-12">
+        <button className="btn btn-primary" onClick={() => setOpen(true)}>
+          Open
+        </button>
+      </div>
       <Modal title={<h5>SNES</h5>} open={open} onCancel={() => setOpen(false)}>
-        <div className="flex flex-col gap-2">
-          <p>Counter: {counter}</p>
-          <div className="flex gap-2">
-            <div className="basis-6/12">
-              <button className="btn w-full" onClick={() => setOpen(false)}>
-                Close
-              </button>
-            </div>
-            <div className="basis-6/12">
-              <button className="btn btn-primary w-full" onClick={increase}>
-                Increase
-              </button>
-            </div>
-          </div>
+        <div className="grid grid-cols-12 gap-2">
+          <p className="col-span-12">Counter: {counter}</p>
+          <button className="btn col-span-6" onClick={() => setOpen(false)}>
+            Close
+          </button>
+          <button className="btn btn-primary col-span-6" onClick={increase}>
+            Increase
+          </button>
         </div>
       </Modal>
     </div>
