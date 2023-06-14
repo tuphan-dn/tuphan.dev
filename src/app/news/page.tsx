@@ -13,7 +13,10 @@ export default function News() {
       <div className="col-span-12">
         <div className="grid grid-cols-12 gap-8 @container">
           {data.map((news, i) => (
-            <div key={i} className="col-span-6 @lg:col-span-4 @4xl:col-span-3">
+            <div
+              key={i}
+              className="col-span-12 @lg:col-span-6 @2xl:col-span-4 @4xl:col-span-3 @6xl:col-span-2"
+            >
               <NewsCard {...news} />
             </div>
           ))}
