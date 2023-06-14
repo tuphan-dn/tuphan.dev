@@ -1,6 +1,9 @@
+import { ReactNode } from 'react'
+
 import UiProvider from 'providers/ui.provider'
 
 import Sidebar from './sidebar'
+import Message from 'components/message/page'
 
 import 'styles/global.scss'
 
@@ -9,11 +12,7 @@ export const metadata = {
   description: 'Tu Phan: My Little Corner.',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" data-theme="light">
       <head>
@@ -34,6 +33,7 @@ export default function RootLayout({
             <Sidebar />
             <div className="flex flex-col flex-auto pr-2 py-2">{children}</div>
           </main>
+          <Message />
         </UiProvider>
       </body>
     </html>

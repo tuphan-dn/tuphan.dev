@@ -2,6 +2,9 @@
 import { useEffect } from 'react'
 import { useAsync } from 'react-use'
 
+import { usePushMessage } from 'components/message/store'
+import { waitAsync } from 'helpers/utils'
+
 export type NewsType = {
   id: string
   name: string
@@ -19,11 +22,19 @@ const getMockData = async (route: string): Promise<NewsType[]> => {
 }
 
 export const useNews = () => {
+  const pushMessage = usePushMessage()
   const { error, value } = useAsync(async () => getMockData('/news'))
 
   useEffect(() => {
-    if (error) console.error(error.message)
+    if (error) pushMessage('alert-error', error.message)
   }, [error])
+
+  useAsync(async () => {
+    for (const { name } of value || []) {
+      await waitAsync(1000)
+      pushMessage('alert-success', `Welcome ${name}!`)
+    }
+  }, [value])
 
   return value || []
 }
