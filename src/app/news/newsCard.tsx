@@ -1,4 +1,5 @@
 'use client'
+import { usePushMessage } from 'components/message/store'
 import dayjs from 'dayjs'
 
 import { NewsType } from 'hooks/useNews'
@@ -13,6 +14,8 @@ export default function NewsCard({
   avatar,
   createdAt,
 }: NewsCardProps) {
+  const pushMessage = usePushMessage()
+
   return (
     <div className="card w-full h-full shadow-xl image-full">
       <figure>
@@ -22,7 +25,14 @@ export default function NewsCard({
         <h2 className="card-title">{name}</h2>
         <p>{dayjs(createdAt).format('DD/MM/YYYY, h:mm A')}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Connect</button>
+          <button
+            className="btn btn-primary"
+            onClick={() =>
+              pushMessage('alert-success', `Connect to ${name} successfully!`)
+            }
+          >
+            Connect
+          </button>
         </div>
       </div>
     </div>

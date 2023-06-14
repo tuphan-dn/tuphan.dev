@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import { useAsync } from 'react-use'
 
 import { usePushMessage } from 'components/message/store'
-import { waitAsync } from 'helpers/utils'
 
 export type NewsType = {
   id: string
@@ -28,13 +27,6 @@ export const useNews = () => {
   useEffect(() => {
     if (error) pushMessage('alert-error', error.message)
   }, [error])
-
-  useAsync(async () => {
-    for (const { name } of value || []) {
-      await waitAsync(1000)
-      pushMessage('alert-success', `Welcome ${name}!`)
-    }
-  }, [value, pushMessage])
 
   return value || []
 }
