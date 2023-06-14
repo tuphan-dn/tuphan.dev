@@ -26,7 +26,7 @@ export const useNews = () => {
 
   useEffect(() => {
     if (error) pushMessage('alert-error', error.message)
-  }, [error])
+  }, [error, pushMessage])
 
   return value || []
 }
