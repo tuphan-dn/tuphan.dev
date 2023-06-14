@@ -34,7 +34,7 @@ export const useNews = () => {
       await waitAsync(1000)
       pushMessage('alert-success', `Welcome ${name}!`)
     }
-  }, [value])
+  }, [value, pushMessage])
 
   return value || []
 }
