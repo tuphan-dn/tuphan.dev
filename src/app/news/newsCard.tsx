@@ -28,11 +28,7 @@ export default function NewsCard({
           <button
             className="btn btn-primary"
             onClick={() =>
-              pushMessage(
-                'alert-success',
-                `Connect to ${name} successfully! Connect to ${name} successfully! Connect to ${name} successfully!`,
-                -1,
-              )
+              pushMessage('alert-success', `Connect to ${name} successfully!`)
             }
           >
             Connect
