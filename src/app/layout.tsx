@@ -1,7 +1,9 @@
-import CsrProvider from 'providers/csr.provider'
+import { ReactNode } from 'react'
+
 import UiProvider from 'providers/ui.provider'
 
 import Sidebar from './sidebar'
+import Message from 'components/message/page'
 
 import 'styles/global.scss'
 
@@ -10,11 +12,7 @@ export const metadata = {
   description: 'Tu Phan: The place where I experiment next-gen technologies.',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" data-theme="light">
       <head>
@@ -30,16 +28,13 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <CsrProvider>
-          <UiProvider>
-            <main className="flex w-full">
-              <Sidebar />
-              <div className="flex flex-col flex-auto pr-2 py-2">
-                {children}
-              </div>
-            </main>
-          </UiProvider>
-        </CsrProvider>
+        <UiProvider>
+          <main className="flex w-full">
+            <Sidebar />
+            <div className="flex flex-col flex-auto pr-2 py-2">{children}</div>
+          </main>
+          <Message />
+        </UiProvider>
       </body>
     </html>
   )

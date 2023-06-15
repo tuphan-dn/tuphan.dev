@@ -4,9 +4,10 @@ const daisyui = require('daisyui/src/theming/themes')
 module.exports = {
   darkMode: ['class', '[data-theme="dark"]'],
   content: [
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/app/**/*.{js,ts,jsx,tsx}',
   ],
+<<<<<<< HEAD
   theme: {
     extend: {
       backgroundImage: {
@@ -16,6 +17,9 @@ module.exports = {
     },
   },
   plugins: [require('daisyui')],
+=======
+  plugins: [require('@tailwindcss/container-queries'), require('daisyui')],
+>>>>>>> develop
   daisyui: {
     themes: [
       {

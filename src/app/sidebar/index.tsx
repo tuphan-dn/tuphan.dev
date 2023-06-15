@@ -1,21 +1,23 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
-import Brand from 'components/brand'
 import {
+  Box,
   Gamepad,
   Github,
   Joystick,
-  Moon,
+  Newspaper,
   PanelLeftClose,
   PanelLeftOpen,
-  Sun,
   Twitter,
 } from 'lucide-react'
+import Brand from 'components/brand'
+import Island from 'components/island'
+import ThemeSwitch from './themeSwitch'
 
 import './index.scss'
-import { useTheme } from 'providers/ui.provider'
 
 const routes = [
   {
@@ -28,16 +30,26 @@ const routes = [
     name: 'GBA',
     Logo: Joystick,
   },
+  {
+    route: '/modelviewer',
+    name: 'Model Viewer',
+    Logo: Box,
+  },
+  {
+    route: '/news',
+    name: 'News',
+    Logo: Newspaper,
+  },
 ]
 
 export default function Sidebar() {
   const [open, setOpen] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const pathname = usePathname()
 
   return (
     <aside className={`sidebar ${!open ? '' : 'open'}`}>
       <ul className="menu menu-lg rounded-box flex flex-col h-full">
-        <li>
+        <li className="mb-8">
           <a href="/">
             <Brand
               size={24}
@@ -48,11 +60,14 @@ export default function Sidebar() {
         </li>
         {routes.map(({ route, name, Logo }) => (
           <li key={route}>
-            <Link href={route}>
+            <Link
+              href={route}
+              className={pathname.startsWith(route) ? 'focus' : ''}
+            >
               <p>
                 <Logo className="h-4 w-4" />
               </p>
-              <p className="menu-option">{name}</p>
+              <p className="menu-option font-semibold">{name}</p>
             </Link>
           </li>
         ))}
@@ -77,23 +92,11 @@ export default function Sidebar() {
             <p className="menu-option">Github</p>
           </a>
         </li>
+        <span className="divider mx-4 my-0"></span>
         <li>
-          <span onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
-            <label className="swap swap-rotate">
-              <input
-                type="checkbox"
-                onChange={(e) => setTheme(e.target.checked ? 'light' : 'dark')}
-                checked={theme === 'dark'}
-              />
-              <p className="swap-on">
-                <Moon className="w-4 h-4" />
-              </p>
-              <p className="swap-off">
-                <Sun className="w-4 h-4" />
-              </p>
-            </label>
-            <p className="menu-option capitalize">{`${theme} theme`}</p>
-          </span>
+          <Island>
+            <ThemeSwitch />
+          </Island>
         </li>
         <li>
           <label className="swap swap-rotate">
