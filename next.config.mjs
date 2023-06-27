@@ -27,17 +27,18 @@ const nextConfig = {
   output: 'export',
   images: { unoptimized: true },
   webpack(config, { isServer }) {
-    if (!isServer)
+    if (!isServer) {
       config.plugins.push(
         new NextFederationPlugin({
           name: 'mario',
           filename: 'index.js',
-          remotes: {
-            bootstrap:
-              'luigi@https://tuphan-dn.github.io/mf.tuphan.dev/index.js',
-          },
+          // remotes: {
+          //   bootstrap:
+          //     'luigi@https://tuphan-dn.github.io/mf.tuphan.dev/index.js',
+          // },
         }),
       )
+    }
     return config
   },
 }

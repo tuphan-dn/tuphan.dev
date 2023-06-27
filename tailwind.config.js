@@ -7,7 +7,6 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}',
     './src/app/**/*.{js,ts,jsx,tsx}',
   ],
-<<<<<<< HEAD
   theme: {
     extend: {
       backgroundImage: {
@@ -16,10 +15,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require('daisyui')],
-=======
   plugins: [require('@tailwindcss/container-queries'), require('daisyui')],
->>>>>>> develop
   daisyui: {
     themes: [
       {
