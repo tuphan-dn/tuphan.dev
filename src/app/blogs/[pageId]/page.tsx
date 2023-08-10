@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 
 import { NotionRenderer } from 'react-notion-x'
 import { Tweet } from 'react-tweet'
-import { Equation } from 'react-notion-x/build/third-party/equation'
+import { Equation } from './equation'
 import { Code } from './code'
 import Skeleton from './skeleton'
 import PageHeader from './header'
