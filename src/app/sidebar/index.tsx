@@ -1,5 +1,5 @@
 'use client'
-import { ReactNode, useState } from 'react'
+import { Fragment, ReactNode, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -48,7 +48,7 @@ export default function Sidebar({ children }: SidebarProps) {
   )
 
   return (
-    <>
+    <Fragment>
       {/* Overlay */}
       <div
         className={'overlay max-md:mobile' + (open ? ' open' : '')}
@@ -156,6 +156,6 @@ export default function Sidebar({ children }: SidebarProps) {
           {children}
         </section>
       </main>
-    </>
+    </Fragment>
   )
 }
