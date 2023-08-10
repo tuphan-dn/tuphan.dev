@@ -4,10 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import {
-  Box,
-  Gamepad,
   Github,
-  Joystick,
   Menu,
   Newspaper,
   PanelLeftClose,
@@ -23,23 +20,8 @@ import { useKey } from 'react-use'
 
 const routes = [
   {
-    route: '/snes',
-    name: 'SNES',
-    Logo: Gamepad,
-  },
-  {
-    route: '/gba',
-    name: 'GBA',
-    Logo: Joystick,
-  },
-  {
-    route: '/modelviewer',
-    name: 'Model Viewer',
-    Logo: Box,
-  },
-  {
-    route: '/news',
-    name: 'News',
+    route: '/blogs',
+    name: 'Blogs',
     Logo: Newspaper,
   },
 ]
@@ -160,6 +142,9 @@ export default function Sidebar({ children }: SidebarProps) {
               <Brand size={24} named />
             </a>
             <div className="flex-auto" />
+            <Island Loading={MenuLoading}>
+              <ThemeSwitch />
+            </Island>
             <li>
               <a onClick={() => setOpen(true)} href="#">
                 <Menu className="menu-logo" />

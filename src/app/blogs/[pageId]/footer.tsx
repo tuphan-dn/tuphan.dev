@@ -1,13 +1,13 @@
 'use client'
 import dayjs from 'dayjs'
 
-import { useAcademyPage } from '@/hooks/blogs.hook'
+import { useBlogsPage } from '@/hooks/blogs.hook'
 import Link from 'next/link'
 
 function Recommend({ pageId }: { pageId: string }) {
   const {
     data: { metadata },
-  } = useAcademyPage(pageId)
+  } = useBlogsPage(pageId)
 
   if (!metadata)
     return <div className="w-full h-64 bg-base-300 rounded-xl animate-pulse" />

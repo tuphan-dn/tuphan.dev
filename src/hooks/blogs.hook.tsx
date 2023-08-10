@@ -11,24 +11,20 @@ export const TAGS = [
     tag: '',
   },
   {
-    title: 'Ecosystem',
-    tag: 'Ecosystem',
+    title: 'Research',
+    tag: 'Research',
   },
   {
-    title: '🎉 Events',
-    tag: 'Events',
+    title: 'Dev',
+    tag: 'Dev',
   },
   {
-    title: 'SenSwap',
-    tag: 'SenSwap',
+    title: 'Cryptography',
+    tag: 'Cryptography',
   },
   {
-    title: '🧑‍💻 Coding Camp II',
-    tag: 'Camp 2',
-  },
-  {
-    title: 'Coding Camp I',
-    tag: 'Camp 1',
+    title: 'DeFi',
+    tag: 'DeFi',
   },
   {
     title: 'Others',
@@ -85,7 +81,7 @@ export const useBlogsPaging = (pageIds: string[], metadata: PageMap) => {
   }
 }
 
-export const useAcademyPage = (
+export const useBlogsPage = (
   pageId: string,
 ): {
   data: Partial<{

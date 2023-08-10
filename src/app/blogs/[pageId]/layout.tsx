@@ -12,7 +12,7 @@ export async function generateMetadata({
   const { metadata } = await getDatabase()
   const { title, description, thumbnail } = metadata[pageId]
   return {
-    title: `Sentre Academy | ${title}`,
+    title: `tuphan.dev Blogs | ${title}`,
     description,
     metadataBase: new URL(deplConfig.host),
     openGraph: {

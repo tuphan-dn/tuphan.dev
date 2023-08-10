@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import dayjs from 'dayjs'
 
-import { Pin } from 'lucide-react'
+import { Sparkle } from 'lucide-react'
 
 export type SignatureProps = {
   pageId: string
@@ -30,7 +30,7 @@ export default function Signature({
           <p className="flex-auto text-sm opacity-60">
             {dayjs(publishedAt).format('MMM DD, YYYY')}
           </p>
-          <Pin className="w-4 h-4 fill-inherit" />
+          <Sparkle className="w-5 h-5 fill-accent text-accent" />
         </div>
         <h2 className="card-title">{title}</h2>
         <p className="opacity-60 flex-auto">{description}</p>

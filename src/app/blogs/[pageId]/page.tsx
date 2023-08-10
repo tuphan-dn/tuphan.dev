@@ -14,7 +14,7 @@ import PageFooter from './footer'
 
 import { usePushMessage } from '@/components/message/store'
 import { useTheme } from '@/providers/ui.provider'
-import { useAcademyPage } from '@/hooks/blogs.hook'
+import { useBlogsPage } from '@/hooks/blogs.hook'
 
 export default function Page({
   params: { pageId },
@@ -27,7 +27,7 @@ export default function Page({
   const {
     data: { map, recommends },
     error,
-  } = useAcademyPage(pageId)
+  } = useBlogsPage(pageId)
 
   useEffect(() => {
     if (error) {

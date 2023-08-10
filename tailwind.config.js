@@ -17,6 +17,7 @@ module.exports = {
           'primary-content': '#ffffff',
           secondary: '#FFA42B',
           'secondary-content': '#000000',
+          'base-content': '#1f2937',
         },
       },
       {
@@ -26,6 +27,7 @@ module.exports = {
           'primary-content': '#ffffff',
           secondary: '#FFA42B',
           'secondary-content': '#000000',
+          'base-content': '#D5DAE4',
         },
       },
     ],
