@@ -1,8 +1,9 @@
 'use client'
-import { usePushMessage } from 'components/message/store'
 import dayjs from 'dayjs'
 
-import { NewsType } from 'hooks/useNews'
+import { NewsType } from '@/hooks/useNews'
+
+import { usePushMessage } from '@/components/message/store'
 
 export type NewsCardProps = NewsType & {
   onClick?: () => void

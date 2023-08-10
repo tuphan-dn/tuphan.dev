@@ -1,8 +1,8 @@
 'use client'
 import { useState } from 'react'
 
-import { useCounter } from 'hooks/useCounter'
-import Modal from 'components/modal'
+import { useCounter } from '@/hooks/useCounter'
+import Modal from '@/components/modal'
 
 export default function Snes() {
   const [open, setOpen] = useState(false)
@@ -16,7 +16,7 @@ export default function Snes() {
           Open
         </button>
       </div>
-      <Modal title={<h5>SNES</h5>} open={open} onCancel={() => setOpen(false)}>
+      <Modal open={open} onCancel={() => setOpen(false)}>
         <div className="grid grid-cols-12 gap-2">
           <p className="col-span-12">Counter: {counter}</p>
           <button className="btn col-span-6" onClick={() => setOpen(false)}>

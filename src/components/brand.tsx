@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import { CSSProperties } from 'react'
 
@@ -31,11 +32,11 @@ export default function Brand({
   return (
     <div
       style={style}
-      className="flex shrink items-center gap-3 hover:cursor-pointer"
+      className="flex flex-row items-center gap-2 cursor-pointer"
       onClick={onClick}
     >
       <BrandLogo size={size} />
-      {named && <p>tuphan.dev</p>}
+      {named && <p className="font-bold">tuphan.dev</p>}
     </div>
   )
 }

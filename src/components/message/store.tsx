@@ -15,6 +15,7 @@ export type MessageProps = {
   type: MessageType
   message: string
   ttl: number
+  onClick: () => void
 }
 
 export type MessageStore = {
@@ -41,12 +42,23 @@ export const useMessage = create(
 export function usePushMessage() {
   const register = useMessage(({ register }) => register)
   const push = useCallback(
-    (type: MessageType, message: string, ttl = 5000) => {
+    (
+      type: MessageType,
+      message: string,
+      {
+        ttl = 5000,
+        onClick = () => {},
+      }: {
+        ttl?: number
+        onClick?: () => void
+      } = {},
+    ) => {
       return register({
         id: v4(),
         type,
         message,
         ttl,
+        onClick,
       })
     },
     [register],

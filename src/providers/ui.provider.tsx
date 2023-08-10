@@ -1,9 +1,9 @@
 'use client'
-import { Fragment, ReactNode, useEffect } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { create } from 'zustand'
 import { persist, createJSONStorage, devtools } from 'zustand/middleware'
 
-import { env } from 'configs/env'
+import { env } from '@/configs/env'
 
 /**
  * Store
@@ -53,5 +53,5 @@ export default function UiProvider({ children }: { children: ReactNode }) {
     document.documentElement.setAttribute('data-theme', theme)
   }, [theme])
 
-  return <Fragment>{children}</Fragment>
+  return <>{children}</>
 }

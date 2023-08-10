@@ -2,7 +2,7 @@
 
 import NewsCard from './newsCard'
 
-import { useNews } from 'hooks/useNews'
+import { useNews } from '@/hooks/useNews'
 
 export default function News() {
   const data = useNews()

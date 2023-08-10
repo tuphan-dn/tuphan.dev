@@ -1,15 +1,15 @@
 import { ReactNode } from 'react'
 
-import UiProvider from 'providers/ui.provider'
+import UiProvider from '@/providers/ui.provider'
 
 import Sidebar from './sidebar'
-import Message from 'components/message/page'
+import Message from '@/components/message'
 
-import 'styles/global.scss'
+import '@/styles/global.scss'
 
 export const metadata = {
   title: 'Tu Phan',
-  description: 'Tu Phan: My Little Corner.',
+  description: 'Tu Phan: my little corner.',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -27,12 +27,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           rel="stylesheet"
         />
       </head>
-      <body>
+      <body className="w-full flex flex-row">
         <UiProvider>
-          <main className="flex w-full">
-            <Sidebar />
-            <div className="flex flex-col flex-auto pr-2 py-2">{children}</div>
-          </main>
+          <Sidebar>{children}</Sidebar>
           <Message />
         </UiProvider>
       </body>

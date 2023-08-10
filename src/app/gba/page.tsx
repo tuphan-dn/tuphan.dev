@@ -1,6 +1,6 @@
 'use client'
 
-import { useCounter } from 'hooks/useCounter'
+import { useCounter } from '@/hooks/useCounter'
 
 export default function Gba() {
   const { counter, decrease } = useCounter(({ counter, decrease }) => ({

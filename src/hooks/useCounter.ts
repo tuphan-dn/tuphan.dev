@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
 import { immer } from 'zustand/middleware/immer'
 
-import { env } from 'configs/env'
+import { env } from '@/configs/env'
 
 export type CounterStore = {
   counter: number

@@ -1,28 +1,56 @@
-.sidebar {
-  height: 100dvh;
-  @apply sticky top-0;
+@tailwind utilities;
 
-  @apply transition-all;
-  .swap {
-    @apply place-content-start;
-  }
+.sidebar {
+  @apply sticky top-0 bg-base-100 transition-all;
+
   .menu {
     .menu-option {
-      @apply text-xs;
-      display: none;
+      @apply text-sm hidden;
+    }
+    .menu-logo {
+      @apply h-5 w-5;
+    }
+    li.disabled > a {
+      @apply cursor-not-allowed;
+    }
+  }
+}
+
+.sidebar.vertical {
+  @apply h-[100dvh] z-40;
+
+  &.open {
+    .menu {
+      @apply min-w-[14rem];
+      .menu-option {
+        display: inherit;
+      }
     }
   }
 
-  &.open {
-    @apply min-w-[240px];
-    .swap {
-      @apply place-content-end;
+  @responsive {
+    &.mobile {
+      @apply fixed -translate-x-full top-0;
     }
-    .menu {
-      @apply min-w-[240px];
+    &.mobile.open {
+      @apply translate-x-0;
     }
-    .menu-option {
-      display: block !important;
+  }
+}
+
+.sidebar.horizontal {
+  @apply w-full z-30;
+}
+
+.overlay {
+  @apply fixed w-[100vw] h-[100dvh] top-0 left-0 bg-base-300 opacity-60 backdrop-blur-xl cursor-pointer transition-all z-40 hidden;
+
+  @responsive {
+    &.mobile {
+      @apply hidden;
+    }
+    &.mobile.open {
+      @apply block;
     }
   }
 }

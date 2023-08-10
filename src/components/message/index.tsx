@@ -8,7 +8,7 @@ export default function Message() {
   const messages = useMessage(({ messages }) => messages)
 
   return (
-    <div className="toast toast-bottom toast-end whitespace-break-spaces">
+    <div className="toast toast-bottom toast-end">
       {messages.map((msg) => (
         <Alert key={msg.id} {...msg} />
       ))}

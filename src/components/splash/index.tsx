@@ -26,10 +26,7 @@ export default function Splash({ open }: SplashProps) {
   return (
     <div className={styles['splash-mark']} style={{ display }}>
       <div className={styles['splash-container']}>
-        <span
-          className="loading loading-ring loading-lg text-primary"
-          style={{ marginTop: -40 }}
-        />
+        <span className="loading loading-ring loading-lg text-primary -mt-16" />
       </div>
     </div>
   )

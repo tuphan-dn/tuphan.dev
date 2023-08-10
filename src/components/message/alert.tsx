@@ -1,5 +1,5 @@
 'use client'
-import { CSSProperties, useEffect } from 'react'
+import { CSSProperties, useEffect, useState } from 'react'
 import { useTween } from 'react-use'
 
 import {
@@ -13,6 +13,8 @@ import {
 
 import { MessageProps, MessageType, useMessage } from './store'
 
+const ONE_YEAR = 365 * 24 * 60 * 60 * 1000
+
 export function AlertIcon({ type }: { type: MessageType }) {
   if (type === 'alert-error') return <XCircle />
   if (type === 'alert-warning') return <AlertTriangle />
@@ -21,8 +23,15 @@ export function AlertIcon({ type }: { type: MessageType }) {
   return <HelpCircle />
 }
 
-export default function Alert({ id, type, message, ttl }: MessageProps) {
-  const t = useTween('linear', ttl)
+export default function Alert({
+  id,
+  type,
+  message,
+  ttl,
+  onClick,
+}: MessageProps) {
+  const [hover, setHover] = useState(false)
+  const t = useTween('linear', ttl, hover ? ONE_YEAR : 0)
   const unregister = useMessage(({ unregister }) => unregister)
 
   useEffect(() => {
@@ -30,11 +39,14 @@ export default function Alert({ id, type, message, ttl }: MessageProps) {
   }, [t, ttl, id, unregister])
 
   return (
-    <div className={'alert ' + type}>
+    <div
+      className={'cursor-pointer alert max-w-sm ' + type}
+      onClick={() => onClick()}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
       <AlertIcon type={type} />
-      <div>
-        <p>{message}</p>
-      </div>
+      <p className="whitespace-normal">{message}</p>
       <div
         className="radial-progress cursor-pointer"
         style={
@@ -44,9 +56,12 @@ export default function Alert({ id, type, message, ttl }: MessageProps) {
             '--thickness': ttl >= 0 ? '2px' : '0px',
           } as CSSProperties
         }
-        onClick={() => unregister(id)}
+        onClick={(e) => {
+          e.stopPropagation()
+          return unregister(id)
+        }}
       >
-        <X />
+        <X className="w-5 h-5" />
       </div>
     </div>
   )

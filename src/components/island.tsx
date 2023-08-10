@@ -1,18 +1,27 @@
 'use client'
 import dynamic from 'next/dynamic'
-import { Fragment, ReactNode } from 'react'
+import { Fragment, ReactNode, useMemo } from 'react'
 
-import Splash from 'components/splash'
+export type IslandProps = {
+  children: ReactNode
+  Loading?: React.FC
+}
 
-const Island = dynamic(
-  () =>
-    Promise.resolve(({ children }: { children: ReactNode }) => {
-      return <Fragment>{children}</Fragment>
-    }),
-  {
-    ssr: false,
-    loading: () => <Splash open />,
-  },
-)
+export default function Island({ children, Loading = Fragment }: IslandProps) {
+  const Lazy = useMemo(
+    () =>
+      dynamic(
+        () =>
+          Promise.resolve(({ children }: { children: ReactNode }) => {
+            return <Fragment>{children}</Fragment>
+          }),
+        {
+          ssr: false,
+          loading: () => <Loading />,
+        },
+      ),
+    [Loading],
+  )
 
-export default Island
+  return <Lazy>{children}</Lazy>
+}
