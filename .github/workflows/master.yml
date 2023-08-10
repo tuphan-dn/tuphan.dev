@@ -3,6 +3,8 @@ name: Automatic Deployment
 on:
   push:
     branches: [master]
+  schedule:
+    - cron: '5 * * * *'
 
 jobs:
   build:
@@ -12,11 +14,5 @@ jobs:
         run: echo Start deploying tuphan.dev
       - name: Checkout git
         uses: actions/checkout@v3
-      - name: Install dependencies
-        run: yarn install
-      - name: Deploy core to gh-pages branch
-        run: |
-          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          yarn serve -u "github-actions-bot <support+actions@github.com>"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish to Cloudflare Pages
+        run: curl -X POST ${{ secrets.CLOUDFLARE_PAGES_DEPLOY_HOOK }}
