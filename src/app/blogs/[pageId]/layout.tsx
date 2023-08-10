@@ -16,6 +16,8 @@ export async function generateMetadata({
     description,
     metadataBase: new URL(deplConfig.host),
     openGraph: {
+      title,
+      description,
       images: [thumbnail],
     },
   }
