@@ -2,6 +2,7 @@
 import { Fragment, ReactNode, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useKey } from 'react-use'
 
 import {
   Github,
@@ -16,7 +17,6 @@ import Island from '@/components/island'
 import ThemeSwitch from './themeSwitch'
 
 import './index.scss'
-import { useKey } from 'react-use'
 
 const routes = [
   {

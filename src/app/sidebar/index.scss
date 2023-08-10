@@ -1,34 +1,34 @@
 @tailwind utilities;
 
-.sidebar {
-  @apply sticky top-0 bg-base-100 transition-all;
+@layer utilities {
+  .sidebar {
+    @apply sticky top-0 bg-base-100 transition-all;
 
-  .menu {
-    .menu-option {
-      @apply text-sm hidden;
-    }
-    .menu-logo {
-      @apply h-5 w-5;
-    }
-    li.disabled > a {
-      @apply cursor-not-allowed;
-    }
-  }
-}
-
-.sidebar.vertical {
-  @apply h-[100dvh] z-40;
-
-  &.open {
     .menu {
-      @apply min-w-[14rem];
       .menu-option {
-        display: inherit;
+        @apply text-sm hidden;
+      }
+      .menu-logo {
+        @apply h-5 w-5;
+      }
+      li.disabled > a {
+        @apply cursor-not-allowed;
       }
     }
   }
 
-  @responsive {
+  .sidebar.vertical {
+    @apply h-[100dvh] z-40;
+
+    &.open {
+      .menu {
+        @apply min-w-[14rem];
+        .menu-option {
+          display: inherit;
+        }
+      }
+    }
+
     &.mobile {
       @apply fixed -translate-x-full top-0;
     }
@@ -36,16 +36,14 @@
       @apply translate-x-0;
     }
   }
-}
 
-.sidebar.horizontal {
-  @apply w-full z-30;
-}
+  .sidebar.horizontal {
+    @apply w-full z-30;
+  }
 
-.overlay {
-  @apply fixed w-[100vw] h-[100dvh] top-0 left-0 bg-base-300 opacity-60 backdrop-blur-xl cursor-pointer transition-all z-40 hidden;
+  .overlay {
+    @apply fixed w-[100vw] h-[100dvh] top-0 left-0 bg-base-300 opacity-60 backdrop-blur-xl cursor-pointer transition-all z-40 hidden;
 
-  @responsive {
     &.mobile {
       @apply hidden;
     }
