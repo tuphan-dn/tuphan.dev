@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'light-home': "url(/panel_light.jpg')",
+        'light-home': "url('/panel_light.jpg')",
         'dark-home': "url('/panel_dark.jpg')",
       },
     },

@@ -28,14 +28,22 @@ const nextConfig = {
   images: { unoptimized: true },
   webpack(config, { isServer }) {
     if (!isServer) {
+      console.log(isServer)
       config.plugins.push(
         new NextFederationPlugin({
-          name: 'mario',
-          filename: 'index.js',
-          // remotes: {
-          //   bootstrap:
-          //     'luigi@https://tuphan-dn.github.io/mf.tuphan.dev/index.js',
-          // },
+          name: 'tuphan',
+          filename: 'static/chunks/remoteEntry.js',
+          remotes: {
+            //   bootstrap:
+            //     'luigi@https://tuphan-dn.github.io/mf.tuphan.dev/index.js',
+          },
+          exposes: {},
+          shared: {
+            react: {
+              requiredVersion: false,
+              singleton: true,
+            },
+          },
         }),
       )
     }

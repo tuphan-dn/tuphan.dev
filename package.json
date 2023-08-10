@@ -19,20 +19,20 @@
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
     "@tailwindcss/container-queries": "^0.1.1",
-    "daisyui": "^3.1.0",
+    "daisyui": "^3.1.7",
     "dayjs": "^1.11.8",
     "immer": "^10.0.2",
-    "lucide-react": "^0.223.0",
-    "next": "^13.4.7",
+    "lucide-react": "^0.258.0",
+    "next": "^13.4.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-use": "^17.4.0",
     "uuid": "^9.0.0",
-    "zustand": "^4.3.8"
+    "zustand": "^4.3.9"
   },
   "devDependencies": {
     "@mdx-js/loader": "^2.3.0",
-    "@module-federation/nextjs-mf": "6.5.2-rc4.0",
+    "@module-federation/nextjs-mf": "^7.0.0",
     "@next/mdx": "^13.4.2",
     "@types/node": "20.1.7",
     "@types/react": "^18.2.14",
@@ -50,7 +50,7 @@
     "postcss": "^8.4.23",
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
-    "sass": "^1.62.1",
+    "sass": "^1.63.6",
     "tailwindcss": "^3.3.2",
     "typescript": "^5.0.4",
     "webpack": "^5.86.0"
