@@ -9,7 +9,10 @@ export default function ThemeSwitch() {
 
   return (
     <li>
-      <a onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+      <a
+        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+        href="#"
+      >
         <label className="swap swap-rotate">
           <input
             type="checkbox"
