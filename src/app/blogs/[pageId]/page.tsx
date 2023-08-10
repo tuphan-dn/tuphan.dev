@@ -2,11 +2,11 @@
 import { useEffect } from 'react'
 import { PageBlock } from 'notion-types'
 import { useRouter } from 'next/navigation'
-import { Code } from 'react-notion-x/build/third-party/code'
-import { Equation } from 'react-notion-x/build/third-party/equation'
 
 import { NotionRenderer } from 'react-notion-x'
 import { Tweet } from 'react-tweet'
+import { Equation } from 'react-notion-x/build/third-party/equation'
+import { Code } from './code'
 import Skeleton from './skeleton'
 import PageHeader from './header'
 import PageCollection from './collection'
