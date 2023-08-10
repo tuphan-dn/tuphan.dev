@@ -12,6 +12,12 @@ export const metadata = {
   title: 'Tu Phan',
   description:
     "I'm a cryptographer and working on blockchain technology currently. I cofounded sentre.io, and desig.io. Welcome to my little corner 🙏",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  icons: '/icon.png',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {

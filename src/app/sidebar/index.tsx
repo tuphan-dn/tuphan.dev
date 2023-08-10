@@ -7,9 +7,9 @@ import { useKey } from 'react-use'
 import {
   Github,
   Menu,
-  Newspaper,
   PanelLeftClose,
   PanelLeftOpen,
+  Scroll,
   Twitter,
 } from 'lucide-react'
 import Brand from '@/components/brand'
@@ -22,7 +22,7 @@ const routes = [
   {
     route: '/blogs',
     name: 'Blogs',
-    Logo: Newspaper,
+    Logo: Scroll,
   },
 ]
 
@@ -63,7 +63,7 @@ export default function Sidebar({ children }: SidebarProps) {
             <a href="/">
               <Brand
                 size={24}
-                style={{ marginLeft: -4, marginRight: -4 }}
+                style={{ marginLeft: -2, marginRight: -2 }}
                 named={open}
               />
             </a>
