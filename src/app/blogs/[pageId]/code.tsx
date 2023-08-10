@@ -1,6 +1,8 @@
 'use client'
 import dynamic from 'next/dynamic'
 
+import 'prismjs/themes/prism-tomorrow.css'
+
 export const Code = dynamic(() =>
   import('react-notion-x/build/third-party/code').then(async ({ Code }) => {
     await Promise.all([

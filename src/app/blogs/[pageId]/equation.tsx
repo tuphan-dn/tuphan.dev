@@ -1,15 +1,16 @@
 'use client'
-import Katex from '@matejmazur/react-katex'
+import { InlineMath, BlockMath } from 'react-katex'
 import { useNotionContext } from 'react-notion-x'
 import { EquationBlock } from 'notion-types'
 import { getBlockTitle } from 'notion-utils'
+
+import 'katex/dist/katex.min.css'
 
 export const Equation = ({
   block,
   math,
   inline = false,
   className,
-  ...rest
 }: {
   block: EquationBlock
   math?: string
@@ -19,25 +20,23 @@ export const Equation = ({
   const { recordMap } = useNotionContext()
   math = math || getBlockTitle(block, recordMap)
   if (!math) return null
+  if (inline)
+    return (
+      <span
+        role="button"
+        tabIndex={0}
+        className={'notion-equation notion-equation-inline ' + className}
+      >
+        <InlineMath math={math} />
+      </span>
+    )
   return (
     <span
       role="button"
       tabIndex={0}
-      className={
-        'notion-equation' +
-        (inline ? ' notion-equation-inline ' : ' notion-equation-block ') +
-        className
-      }
+      className={'notion-equation notion-equation-block ' + className}
     >
-      <Katex
-        math={math}
-        settings={{
-          throwOnError: false,
-          strict: false,
-          displayMode: !inline,
-        }}
-        {...rest}
-      />
+      <BlockMath math={math} />
     </span>
   )
 }
