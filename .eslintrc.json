@@ -3,14 +3,18 @@
     "next/core-web-vitals",
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
-    "react/react-in-jsx-scope": 0,
-    "@typescript-eslint/no-empty-function": 0,
-    "@typescript-eslint/no-explicit-any": 0,
-    "@next/next/no-page-custom-font": 0,
-    "@next/next/no-img-element": 0
+    "no-extra-semi": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_" }
+    ],
+    "@next/next/no-page-custom-font": "off",
+    "@next/next/no-img-element": "off"
   }
 }
