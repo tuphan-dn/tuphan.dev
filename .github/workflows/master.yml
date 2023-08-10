@@ -1,14 +1,14 @@
 name: Automatic Deployment
 
 on:
-  push:
-    branches: [master]
   schedule:
     - cron: '5 * * * *'
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.ref_name }}
     steps:
       - name: Welcome
         run: echo Start deploying tuphan.dev
