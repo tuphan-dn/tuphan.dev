@@ -1,0 +1,31 @@
+@import 'react-notion-x/src/styles.css';
+@import 'prismjs/themes/prism-tomorrow.css';
+@import 'katex/dist/katex.min.css';
+
+.notion {
+  font-family: inherit;
+  & > * {
+    @apply p-0;
+  }
+
+  .notion-page {
+    img,
+    iframe,
+    video {
+      @apply rounded-xl;
+    }
+  }
+
+  .notion-asset-wrapper-video > div {
+    height: unset !important;
+    width: unset !important;
+  }
+
+  .notion-equation {
+    @apply overflow-visible;
+
+    & > span {
+      @apply flex flex-row justify-center;
+    }
+  }
+}

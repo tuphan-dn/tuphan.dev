@@ -6,9 +6,13 @@ declare namespace JSX {
   }
 }
 
-interface Window {
-  ethereum: any
-  desig: {
-    uid: IUID
-  }
+type PageMetadata = {
+  title: string
+  publishedAt: number
+  tags: string[]
+  description: string
+  thumbnail: string
+  pinned: boolean
 }
+
+type PageMap = Record<string, PageMetadata>
