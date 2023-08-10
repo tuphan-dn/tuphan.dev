@@ -5,8 +5,7 @@ import './index.scss'
 
 export const metadata: Metadata = {
   title: 'tuphan.dev Blogs',
-  description:
-    "I'm a cryptographer and working on blockchain technology currently. Here is where I share my thought related to the work.",
+  description: 'Here is where I share my thought related to the work.',
 }
 
 export default function BlogsLayout({ children }: { children: ReactNode }) {

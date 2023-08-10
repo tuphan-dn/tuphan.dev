@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import Script from 'next/script'
 
 import UiProvider from '@/providers/ui.provider'
 
@@ -9,13 +10,15 @@ import '@/styles/global.scss'
 
 export const metadata = {
   title: 'Tu Phan',
-  description: 'Tu Phan: my little corner.',
+  description:
+    "I'm a cryptographer and working on blockchain technology currently. I cofounded sentre.io, and desig.io. Welcome to my little corner 🙏",
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" data-theme="light">
       <head>
+        {/* Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -26,6 +29,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
+        {/* Google Analytics */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-W9D63C4M87"
+        />
+        <Script id="google-analytics">
+          {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-W9D63C4M87');`}
+        </Script>
       </head>
       <body className="w-full flex flex-row">
         <UiProvider>
