@@ -36,7 +36,7 @@ export default function Brand({
       onClick={onClick}
     >
       <BrandLogo size={size} />
-      {named && <p className="font-bold">tuphan.dev</p>}
+      {named && <p className="font-semibold">tuphan.dev</p>}
     </div>
   )
 }
