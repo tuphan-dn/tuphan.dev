@@ -19,6 +19,7 @@ import Island from '@/components/island'
 import ThemeSwitch from './themeSwitch'
 
 import './index.scss'
+import BuildInfo from './buildInfo'
 
 const routes = [
   {
@@ -110,6 +111,9 @@ export default function Sidebar({ children }: SidebarProps) {
           </li>
           <Island Loading={MenuLoading}>
             <ThemeSwitch />
+          </Island>
+          <Island Loading={MenuLoading}>
+            <BuildInfo />
           </Island>
           <li onClick={() => setOpen(!open)}>
             <span className="flex flex-row gap-1 items-center justify-between">
