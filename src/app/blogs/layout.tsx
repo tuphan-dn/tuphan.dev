@@ -9,9 +9,5 @@ export const metadata: Metadata = {
 }
 
 export default function BlogsLayout({ children }: { children: ReactNode }) {
-  return (
-    <div className="w-full grid grid-cols-12 gap-2">
-      <div className="col-span-full">{children}</div>
-    </div>
-  )
+  return <div className="w-full">{children}</div>
 }

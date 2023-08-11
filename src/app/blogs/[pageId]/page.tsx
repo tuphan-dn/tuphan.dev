@@ -38,25 +38,23 @@ export default function Page({
 
   if (!map || !recommends) return <Skeleton />
   return (
-    <div className="grid grid-cols-12 gap-8">
-      <NotionRenderer
-        recordMap={map}
-        fullPage={true}
-        darkMode={theme === 'dark'}
-        className="col-span-full overflow-clip rounded-3xl border border-base-200"
-        components={{
-          Header: ({ block }: { block: PageBlock }) => (
-            <PageHeader block={block} map={map} />
-          ),
-          Collection: ({ block }: { block: PageBlock }) => (
-            <PageCollection block={block} map={map} />
-          ),
-          Tweet,
-          Code,
-          Equation,
-        }}
-        footer={<PageFooter pageIds={recommends} />}
-      />
-    </div>
+    <NotionRenderer
+      recordMap={map}
+      fullPage={true}
+      darkMode={theme === 'dark'}
+      className="col-span-full overflow-clip rounded-3xl border border-base-200"
+      components={{
+        Header: ({ block }: { block: PageBlock }) => (
+          <PageHeader block={block} map={map} />
+        ),
+        Collection: ({ block }: { block: PageBlock }) => (
+          <PageCollection block={block} map={map} />
+        ),
+        Tweet,
+        Code,
+        Equation,
+      }}
+      footer={<PageFooter pageIds={recommends} />}
+    />
   )
 }
