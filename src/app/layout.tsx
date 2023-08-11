@@ -17,7 +17,10 @@ export const metadata = {
     initialScale: 1,
     maximumScale: 1,
   },
-  icons: '/icon.png',
+  icons: {
+    icon: '/icon.png',
+    apple: '/icon.png',
+  },
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
