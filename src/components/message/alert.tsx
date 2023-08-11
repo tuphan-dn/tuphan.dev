@@ -1,6 +1,7 @@
 'use client'
 import { CSSProperties, useEffect, useState } from 'react'
 import { useTween } from 'react-use'
+import classNames from 'classnames'
 
 import {
   AlertTriangle,
@@ -40,7 +41,7 @@ export default function Alert({
 
   return (
     <div
-      className={'cursor-pointer alert max-w-sm ' + type}
+      className={classNames('cursor-pointer alert max-w-sm', type)}
       onClick={() => onClick()}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}

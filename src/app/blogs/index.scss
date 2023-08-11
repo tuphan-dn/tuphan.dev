@@ -9,12 +9,4 @@
   .notion-hr {
     @apply border-b-2;
   }
-
-  .notion-equation {
-    @apply overflow-visible;
-
-    & > span {
-      @apply flex flex-row justify-center;
-    }
-  }
 }
