@@ -37,7 +37,7 @@ export default function PageFooter({ pageIds }: PageFooterProps) {
     <div className="w-full flex flex-row justify-center p-4">
       <div className="w-full max-w-[720px] grid grid-cols-12 gap-4 @container">
         <div className="col-span-full divider">
-          <h5 className="opacity-60">Only For You</h5>
+          <h5 className="opacity-60">Suggested</h5>
         </div>
         {pageIds.map((pageId) => (
           <div
