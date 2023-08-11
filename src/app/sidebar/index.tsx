@@ -101,7 +101,7 @@ export default function Sidebar({ children }: SidebarProps) {
           </li>
           <li>
             <a
-              href="https://twitter.com/SentreProtocol"
+              href="https://twitter.com/phan_sontu"
               target="_blank"
               rel="noreferrer"
             >
