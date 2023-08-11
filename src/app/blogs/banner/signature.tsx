@@ -15,7 +15,7 @@ export default function Signature({
 }: SignatureProps) {
   return (
     <Link
-      className="card card-side h-full w-full bg-base-100 rounded-box shadow grid grid-cols-12 gap-4 overflow-clip @container"
+      className="card min-[672px]:card-side h-full w-full bg-base-100 rounded-box shadow grid grid-cols-12 gap-4 overflow-clip @container"
       href={`/blogs/${pageId}`}
     >
       <figure className="col-span-full @2xl:col-span-6">
