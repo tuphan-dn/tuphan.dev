@@ -8,6 +8,7 @@ import classNames from 'classnames'
 import {
   Github,
   Menu,
+  Paintbrush,
   PanelLeftClose,
   PanelLeftOpen,
   Scroll,
@@ -24,6 +25,11 @@ const routes = [
     route: '/blogs',
     name: 'Blogs',
     Logo: Scroll,
+  },
+  {
+    route: '/pixel',
+    name: 'Pixel',
+    Logo: Paintbrush,
   },
 ]
 
