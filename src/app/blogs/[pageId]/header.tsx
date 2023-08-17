@@ -19,7 +19,7 @@ export default function PageHeader({ block, map }: PageHeaderProps) {
       <button className="btn btn-sm btn-ghost rounded-full" onClick={back}>
         <ArrowLeft className="w-4 h-4" /> Back
       </button>
-      <p className="text-sm font-bold flex-auto text-end truncate opacity-60">
+      <p className="text-sm font-bold flex-auto text-end truncate opacity-60 mr-4">
         {title}
       </p>
     </div>
