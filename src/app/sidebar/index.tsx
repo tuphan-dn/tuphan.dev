@@ -17,9 +17,9 @@ import {
 import Brand from '@/components/brand'
 import Island from '@/components/island'
 import ThemeSwitch from './themeSwitch'
+import BuildInfo from './buildInfo'
 
 import './index.scss'
-import BuildInfo from './buildInfo'
 
 const routes = [
   {
