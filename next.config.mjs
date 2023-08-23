@@ -2,11 +2,7 @@
 import configMDX from '@next/mdx'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
-
-const isGithubActions = process.env.GITHUB_ACTIONS || false
-const repo = isGithubActions
-  ? `/${process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')}`
-  : ''
+import configPWA from 'next-pwa'
 
 const withMDX = configMDX({
   extension: /\.mdx?$/,
@@ -16,15 +12,12 @@ const withMDX = configMDX({
   },
 })
 
+const withPWA = configPWA({ dest: 'public' })
+
 const nextConfig = {
-  assetPrefix: repo,
-  basePath: repo,
-  env: {
-    basePath: repo,
-  },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   output: 'export',
   images: { unoptimized: true },
 }
 
-export default withMDX(nextConfig)
+export default withPWA(withMDX(nextConfig))
