@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { Metadata } from 'next'
 import Script from 'next/script'
 
 import UiProvider from '@/providers/ui.provider'
@@ -8,7 +9,7 @@ import Message from '@/components/message'
 
 import '@/styles/global.scss'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Tu Phan',
   description:
     "I'm a cryptographer and working on blockchain technology currently. I cofounded sentre.io, and desig.io. Welcome to my little corner 🙏",
@@ -18,9 +19,13 @@ export const metadata = {
     maximumScale: 1,
   },
   icons: {
-    icon: '/icon.png',
-    apple: '/icon.png',
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
+  manifest: '/manifest.json',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
