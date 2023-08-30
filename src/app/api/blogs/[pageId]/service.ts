@@ -10,9 +10,10 @@ export const getDatabase = async () => {
   const block = { ...map.block }
   Object.keys(block).forEach((pageId) => {
     const {
-      value: { type, parent_table },
+      value: { type, parent_table, content },
     } = block[pageId]
-    if (type !== 'page' || parent_table !== 'collection') delete block[pageId]
+    if (type !== 'page' || parent_table !== 'collection' || !content)
+      delete block[pageId]
   })
 
   // Metadata
