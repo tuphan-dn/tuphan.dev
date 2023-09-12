@@ -23,8 +23,8 @@ export const TAGS = [
     tag: 'Cryptography',
   },
   {
-    title: 'CS1',
-    tag: 'CS1',
+    title: 'CS01',
+    tag: 'CS01',
   },
   {
     title: 'Others',
