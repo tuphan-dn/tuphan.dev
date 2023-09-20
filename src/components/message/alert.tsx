@@ -41,7 +41,7 @@ export default function Alert({
 
   return (
     <div
-      className={classNames('cursor-pointer alert max-w-sm', type)}
+      className={classNames('cursor-pointer alert max-w-sm shadow-xl', type)}
       onClick={() => onClick()}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
