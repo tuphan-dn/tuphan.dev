@@ -1,5 +1,5 @@
 import BlogsHeader from './header'
-import Banner from './banner'
+import Banner from '../api'
 import BlogsNavigation from './navigation'
 import Shelf from './shelf'
 import BlogsPagination from './pagination'
