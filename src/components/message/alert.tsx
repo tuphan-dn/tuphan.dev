@@ -1,6 +1,6 @@
 'use client'
-import { CSSProperties, useEffect, useState } from 'react'
-import { useTween } from 'react-use'
+import { CSSProperties, useState } from 'react'
+import { useInterval } from 'react-use'
 import classNames from 'classnames'
 
 import {
@@ -13,8 +13,6 @@ import {
 } from 'lucide-react'
 
 import { MessageProps, MessageType, useMessage } from './store'
-
-const ONE_YEAR = 365 * 24 * 60 * 60 * 1000
 
 export function AlertIcon({ type }: { type: MessageType }) {
   if (type === 'alert-error') return <XCircle />
@@ -32,12 +30,16 @@ export default function Alert({
   onClick,
 }: MessageProps) {
   const [hover, setHover] = useState(false)
-  const t = useTween('linear', ttl, hover ? ONE_YEAR : 0)
+  const [counter, setCounter] = useState(0)
   const unregister = useMessage(({ unregister }) => unregister)
 
-  useEffect(() => {
-    if (t === 1 && ttl >= 0) unregister(id)
-  }, [t, ttl, id, unregister])
+  useInterval(
+    () => {
+      if (counter >= 100) unregister(id)
+      else setCounter(counter + 1)
+    },
+    hover ? null : Math.round(ttl / 100),
+  )
 
   return (
     <div
@@ -52,7 +54,7 @@ export default function Alert({
         className="radial-progress cursor-pointer"
         style={
           {
-            '--value': t * 100,
+            '--value': counter,
             '--size': '2rem',
             '--thickness': ttl >= 0 ? '2px' : '0px',
           } as CSSProperties
