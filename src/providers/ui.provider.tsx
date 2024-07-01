@@ -16,7 +16,7 @@ export default function UiProvider({ children }: { children: ReactNode }) {
     <ThemeProvider enableSystem>
       {children}
       <AppProgressBar
-        color="#3b82f6"
+        color="#0086fc"
         options={{ showSpinner: false }}
         shallowRouting
       />
