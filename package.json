@@ -1,26 +1,51 @@
 {
   "name": "open-blogy-me",
+  "description": "The markdown 📜 template blog with 👀-pleasant colors and animation; Especially, 🎉 open-source and 🔋 batteries-included.",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently --names DEV,LINT -c cyan,yellow 'pnpm dev:watch' 'pnpm lint:watch'",
+    "dev:watch": "next dev --port 3000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:watch": "nodemon --watch src --ext ts,tsx --exec 'next lint' --signal SIGTERM"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.4"
+    "@icons-pack/react-simple-icons": "^9.6.0",
+    "axios": "^1.7.2",
+    "copy-to-clipboard": "^3.3.3",
+    "dayjs": "^1.11.11",
+    "immer": "^10.1.1",
+    "keyboardjs": "^2.7.0",
+    "lucide-react": "^0.399.0",
+    "next": "14.2.4",
+    "next-nprogress-bar": "^2.3.12",
+    "next-themes": "^0.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-use": "^17.5.0",
+    "server-only": "^0.0.1",
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "postcss": "^8",
+    "@eslint/compat": "^1.1.0",
+    "@tailwindcss/typography": "^0.5.13",
+    "@types/node": "^20.14.9",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
+    "daisyui": "^4.12.10",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.4",
+    "eslint-plugin-react": "^7.34.3",
+    "nodemon": "^3.1.4",
+    "postcss": "^8.4.39",
+    "sass": "^1.77.6",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.4"
+    "typescript": "^5.5.2"
   }
 }
