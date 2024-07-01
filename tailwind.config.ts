@@ -15,18 +15,34 @@ const config: Config = {
     themes: [
       {
         light: {
-          ...require('daisyui/src/theming/themes')['light'],
-          primary: '#0ea5e9', // sky-500
-          'primary-content': '#e0f2fe', // sky-100
-          secondary: '#0f172a', // slate-900
-          'secondary-content': '#f1f5f9', // slate-100
+          'color-scheme': 'light',
+          // Main colors
+          primary: '#343433',
+          'primary-content': '#ffffff',
+          secondary: '#b2a79a',
+          'secondary-content': '#ffffff',
+          // Subsidised colors
+          accent: '#6187fe',
+          'accent-content': '#d4deff',
+          neutral: '#747485',
+          'neutral-content': '#ffffff',
+          // Informative colors
+          info: '#e9f2ff',
+          'info-content': '#0086fc',
+          success: '#e3eee2',
+          'success-content': '#00C454',
+          error: '#fff0f0',
+          'error-content': '#ff4e4e',
+          warning: '#fefae6',
+          'warning-content': '#f6c30f',
+          // Base colors
+          'base-100': '#ffffff',
+          'base-200': '#fbfaf9',
+          'base-300': '#f7f4f3',
+          'base-content': '#474645',
         },
         dark: {
-          ...require('daisyui/src/theming/themes')['dark'],
-          primary: '#0ea5e9', // sky-500
-          'primary-content': '#e0f2fe', // sky-100
-          secondary: '#f1f5f9', // slate-100
-          'secondary-content': '#0f172a', // slate-900
+          'color-scheme': 'dark',
         },
       },
     ],
