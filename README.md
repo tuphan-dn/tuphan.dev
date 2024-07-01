@@ -1,1 +1,1 @@
-# open-blogy-me
+# Open Blogy.Me
