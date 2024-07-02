@@ -7,7 +7,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     pre: ({ defaultValue, children, ...props }) => {
       return (
         <pre {...props}>
-          <div className="w-full p-2 flex flex-row items-center bg-base-100 text-base-content font-sans">
+          <div className="w-full p-2 flex flex-row items-center bg-base-200 text-base-content font-sans">
             <span className="grow ml-2 text-xs opacity-60">
               {props['aria-label']}
             </span>
