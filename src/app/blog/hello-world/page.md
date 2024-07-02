@@ -25,28 +25,28 @@ Math formula $$\frac{a}{b}$$
 
 Checkout my React component:
 
-```tsx filename="awesome.tsx"
+```tsx label="awesome.tsx"
 import Animal from 'animal'
 
 const cat = new Animal('Cat')
 cat.speak()
 ```
 
-```mdx filename="table.mdx"
+```mdx label="table.mdx"
 | Syntax    | Description |   Test Text |
 | :-------- | :---------: | ----------: |
 | Header    |    Title    | Here's this |
 | Paragraph |    Text     |    And more |
 ```
 
-```tsx filename="awesome.tsx" group="animal" label="Typescript or Javascript"
+```tsx label="awesome.tsx" group="animal"
 import Animal from 'animal'
 
 const cat = new Animal('Cat')
 cat.speak()
 ```
 
-```rs filename="awesome.rs" group="animal" label="Rust"
+```rs label="awesome.rs" group="animal"
 use animal;
 
 const cat = animal::new('Cat');

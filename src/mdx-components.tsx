@@ -6,7 +6,6 @@ import Tablist, { Tab } from './components/md/tabs'
 declare module 'react' {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
     'data-content'?: string
-    'data-filename'?: string
     'data-group'?: string
     'data-label'?: string
   }
@@ -20,7 +19,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
           {children}
           <div className="w-full p-2 flex flex-row items-center bg-base-100 text-base-content font-sans">
             <span className="grow ml-2 text-xs opacity-60">
-              {props['data-filename']}
+              {props['data-label']}
             </span>
             <Clipboard
               className="btn btn-xs btn-square btn-ghost"

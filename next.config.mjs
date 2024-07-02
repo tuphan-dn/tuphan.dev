@@ -17,27 +17,27 @@ const rehypeExtendedHighlight =
     /** @type {import('hast').Root} */ tree,
     /** @type {import('vfile').VFile} */ file,
   ) => {
-    visit(tree, (node) => {
-      if (node?.type === 'element' && node?.tagName === 'pre') {
-        const [child] = node.children
-        if (child.tagName === 'code') {
-          const attr = parseAttrs(child.data?.meta)
-          node.properties['data-content'] = child.children?.[0].value
-          node.properties['data-filename'] = attr['filename']
-          node.properties['data-group'] = attr['group']
-          node.properties['data-label'] = attr['label']
-        }
-      }
+    visit(tree, 'element', (node) => {
+      if (node.tagName !== 'pre') return
+      visit(node, 'element', (child) => {
+        if (child.tagName !== 'code') return
+        const attr = parseAttrs(child.data?.meta)
+        console.log(attr)
+        node.properties['data-content'] = child.children?.[0].value
+        node.properties['data-group'] = attr['group']
+        node.properties['data-label'] = attr['label']
+      })
     })
     rehypeHighlight(options)(tree, file)
   }
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 }
 
 const withMDX = createMDX({
+  extension: /\.mdx?$/,
   options: {
     remarkPlugins: [remarkGfm, remarkMath, remarkToc, remarkSlug],
     rehypePlugins: [rehypeExtendedHighlight, rehypeKatex],
