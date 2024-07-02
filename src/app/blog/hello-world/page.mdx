@@ -1,5 +1,9 @@
 # Welcome to my MDX page!
 
+## Contents
+
+## GFM
+
 This is some **bold** and _italics_ text.
 
 This is a list in markdown:
@@ -8,25 +12,43 @@ This is a list in markdown:
 - Two
 - Three
 
+| Syntax    | Description |   Test Text |
+| :-------- | :---------: | ----------: |
+| Header    |    Title    | Here's this |
+| Paragraph |    Text     |    And more |
+
+## Math
+
 Math formula $$\frac{a}{b}$$
+
+## Code
 
 Checkout my React component:
 
-```tsx aria-label="awesome.tsx"
+```tsx filename="awesome.tsx"
 import Animal from 'animal'
 
 const cat = new Animal('Cat')
 cat.speak()
 ```
 
-```mdx aria-label="table.mdx"
+```mdx filename="table.mdx"
 | Syntax    | Description |   Test Text |
 | :-------- | :---------: | ----------: |
 | Header    |    Title    | Here's this |
 | Paragraph |    Text     |    And more |
 ```
 
-| Syntax    | Description |   Test Text |
-| :-------- | :---------: | ----------: |
-| Header    |    Title    | Here's this |
-| Paragraph |    Text     |    And more |
+```tsx filename="awesome.tsx" group="animal" label="Typescript or Javascript"
+import Animal from 'animal'
+
+const cat = new Animal('Cat')
+cat.speak()
+```
+
+```rs filename="awesome.rs" group="animal" label="Rust"
+use animal;
+
+const cat = animal::new('Cat');
+cat.speak();
+```
