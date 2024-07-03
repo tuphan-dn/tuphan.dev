@@ -53,6 +53,7 @@
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.4",
     "eslint-plugin-react": "^7.34.3",
+    "isomorphic-git": "^1.26.4",
     "nodemon": "^3.1.4",
     "postcss": "^8.4.39",
     "reflect-metadata": "^0.2.2",
@@ -63,6 +64,7 @@
     "remark-toc": "^9.0.0",
     "sass": "^1.77.6",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.2",
+    "unist-util-visit": "^5.0.0"
   }
 }

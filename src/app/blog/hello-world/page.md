@@ -19,7 +19,11 @@ This is a list in markdown:
 
 ## Math
 
-Math formula $$\frac{a}{b}$$
+Math formula $y = ax^2 + bx + c$
+
+$$
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$
 
 ## Code
 
@@ -51,4 +55,11 @@ use animal;
 
 const cat = animal::new('Cat');
 cat.speak();
+```
+
+```py label="awesome.py" group="animal"
+from animal import Animal
+
+cat = Animal('Cat')
+cat.speak()
 ```
