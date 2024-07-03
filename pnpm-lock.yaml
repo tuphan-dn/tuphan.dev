@@ -70,6 +70,9 @@ devDependencies:
   '@eslint/compat':
     specifier: ^1.1.0
     version: 1.1.0
+  '@gears-bot/rehype':
+    specifier: 1.0.1-next.13
+    version: 1.0.1-next.13
   '@mdx-js/loader':
     specifier: ^3.0.1
     version: 3.0.1(webpack@5.92.1)
@@ -100,9 +103,6 @@ devDependencies:
   '@typescript-eslint/eslint-plugin':
     specifier: ^7.14.1
     version: 7.14.1(@typescript-eslint/parser@7.14.1)(eslint@8.57.0)(typescript@5.5.2)
-  attributes-parser:
-    specifier: ^2.2.2
-    version: 2.2.2
   autoprefixer:
     specifier: ^10.4.19
     version: 10.4.19(postcss@8.4.39)
@@ -133,9 +133,6 @@ devDependencies:
   reflect-metadata:
     specifier: ^0.2.2
     version: 0.2.2
-  rehype-highlight:
-    specifier: ^7.0.0
-    version: 7.0.0
   rehype-katex:
     specifier: ^7.0.0
     version: 7.0.0
@@ -160,9 +157,6 @@ devDependencies:
   typescript:
     specifier: ^5.5.2
     version: 5.5.2
-  unist-util-visit:
-    specifier: ^5.0.0
-    version: 5.0.0
 
 packages:
 
@@ -217,6 +211,15 @@ packages:
   /@eslint/js@8.57.0:
     resolution: {integrity: sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dev: true
+
+  /@gears-bot/rehype@1.0.1-next.13:
+    resolution: {integrity: sha512-tOBR4kqTezly3cmijH6F8zdU/UymScBHkiOytoVAgalZvcJQ4/cz8FNDMsSDSc8IIILFPW08vvzie0vo5hhBVQ==}
+    engines: {node: '20'}
+    dependencies:
+      attributes-parser: 2.2.2
+      rehype-highlight: 7.0.0
+      unist-util-visit: 5.0.0
     dev: true
 
   /@humanwhocodes/config-array@0.11.14:

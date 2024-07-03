@@ -15,6 +15,7 @@
 
 # production
 /build
+/plugins/*.js
 
 # misc
 .DS_Store

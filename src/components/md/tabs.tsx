@@ -1,47 +1,64 @@
 'use client'
 import {
-  Children,
-  type ComponentProps,
+  DetailedHTMLProps,
   Fragment,
-  cloneElement,
-  isValidElement,
-  useMemo,
+  HTMLAttributes,
   type ReactNode,
 } from 'react'
-import { v4 } from 'uuid'
+import clsx from 'clsx'
 
-export default function Tablist({
+import Clipboard from '@/components/clipboard'
+
+declare module 'react' {
+  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+    'data-content'?: string
+    'data-group'?: string
+    'data-label'?: string
+  }
+}
+
+export default function Pre({
+  ['data-content']: content,
   children,
-  name = v4(),
-}: {
-  children: ReactNode
-  name?: string
-}) {
-  const tabs = useMemo(
-    () =>
-      Children.map(children, (child, i) => {
-        if (!isValidElement<ComponentProps<typeof Tab>>(child)) return child
-        return cloneElement(child, { name, defaultChecked: !i })
-      }),
-    [children, name],
+  className,
+  ...props
+}: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>) {
+  return (
+    <pre
+      className={clsx(
+        className,
+        'relative p-0 rounded-box ring-2 ring-base-300 group',
+      )}
+      {...props}
+    >
+      <Clipboard
+        className="invisible group-hover:visible absolute top-2 right-2 btn btn-xs btn-square btn-ghost"
+        iconClassName="w-3 h-3 opacity-60"
+        content={content?.toString() || ''}
+      />
+      {children}
+    </pre>
   )
+}
+
+export function Tabs({ children }: { children: ReactNode }) {
   return (
     <div role="tablist" className="tabs tabs-bordered">
-      {tabs}
+      {children}
     </div>
   )
 }
 
 export function Tab({
   label,
+  group,
   children,
   defaultChecked = false,
-  name = '',
 }: {
-  label?: string
+  label: string
+  group: string
   children: ReactNode
   defaultChecked?: boolean
-  name?: string
 }) {
   return (
     <Fragment>
@@ -50,7 +67,7 @@ export function Tab({
         role="tab"
         className="tab first:ml-4 last:mr-4 relative top-4 text-xs opacity-60 checked:opacity-100"
         aria-label={label}
-        name={name}
+        name={group}
         defaultChecked={defaultChecked}
       />
       <div role="tabpanel" className="tab-content">
