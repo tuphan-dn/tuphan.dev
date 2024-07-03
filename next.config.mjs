@@ -1,30 +1,14 @@
 import createMDX from '@next/mdx'
-import { visit } from 'unist-util-visit'
-import { log } from 'isomorphic-git'
-import fs from 'fs'
-import { relative } from 'path'
 
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import remarkToc from 'remark-toc'
 import remarkSlug from 'remark-slug'
 import rehypeKatex from 'rehype-katex'
-import { rehypeExtendedHighlight } from '@gears-bot/rehype'
-
-export const rehypeContributors = () => async (tree, file) => {
-  const {
-    history: [filepath],
-  } = file
-  const commits = await log({
-    fs,
-    dir: import.meta.dirname,
-    filepath: relative(import.meta.dirname, filepath),
-    force: true,
-    follow: true,
-    depth: 10,
-  })
-  console.log(commits)
-}
+import {
+  rehypeExtendedHighlight,
+  rehypeGitContributors,
+} from '@gears-bot/rehype'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -38,7 +22,7 @@ const withMDX = createMDX({
     rehypePlugins: [
       [rehypeExtendedHighlight, { tabsName: 'Tabs', tabName: 'Tab' }],
       rehypeKatex,
-      rehypeContributors,
+      [rehypeGitContributors, { compName: 'Contributors' }],
     ],
   },
 })

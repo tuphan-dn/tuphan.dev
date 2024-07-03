@@ -17,12 +17,17 @@ declare module 'react' {
   }
 }
 
+export type PreProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLPreElement>,
+  HTMLPreElement
+>
+
 export default function Pre({
   ['data-content']: content,
   children,
   className,
   ...props
-}: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>) {
+}: PreProps) {
   return (
     <pre
       className={clsx(
@@ -41,7 +46,9 @@ export default function Pre({
   )
 }
 
-export function Tabs({ children }: { children: ReactNode }) {
+export type TabsProps = { children: ReactNode }
+
+export function Tabs({ children }: TabsProps) {
   return (
     <div role="tablist" className="tabs tabs-bordered">
       {children}
@@ -49,17 +56,19 @@ export function Tabs({ children }: { children: ReactNode }) {
   )
 }
 
+export type TabProps = {
+  label: string
+  group: string
+  children: ReactNode
+  defaultChecked?: boolean
+}
+
 export function Tab({
   label,
   group,
   children,
   defaultChecked = false,
-}: {
-  label: string
-  group: string
-  children: ReactNode
-  defaultChecked?: boolean
-}) {
+}: TabProps) {
   return (
     <Fragment>
       <input

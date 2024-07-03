@@ -71,8 +71,8 @@ devDependencies:
     specifier: ^1.1.0
     version: 1.1.0
   '@gears-bot/rehype':
-    specifier: 1.0.1-next.13
-    version: 1.0.1-next.13
+    specifier: 1.1.0-next.2
+    version: 1.1.0-next.2
   '@mdx-js/loader':
     specifier: ^3.0.1
     version: 3.0.1(webpack@5.92.1)
@@ -219,11 +219,12 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@gears-bot/rehype@1.0.1-next.13:
-    resolution: {integrity: sha512-tOBR4kqTezly3cmijH6F8zdU/UymScBHkiOytoVAgalZvcJQ4/cz8FNDMsSDSc8IIILFPW08vvzie0vo5hhBVQ==}
+  /@gears-bot/rehype@1.1.0-next.2:
+    resolution: {integrity: sha512-YPKPekxK617DuRUSK0XtYKpQxxao6kR7WQeYy6I5I7QjFz3C2/nSPAsyZtbd7JyN02NgpsTyn53AlFS2Wtb7+A==}
     engines: {node: '20'}
     dependencies:
       attributes-parser: 2.2.2
+      isomorphic-git: 1.26.4
       rehype-highlight: 7.0.0
       unist-util-visit: 5.0.0
     dev: true
