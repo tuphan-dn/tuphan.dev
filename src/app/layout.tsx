@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Blogy.me',
   description:
     'The markdown 📜 template blog with 👀-pleasant colors and animation; Especially, 🎉 open-source and 🔋 batteries-included.',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_HOST || ''),
 }
 
 export default function Layout({ children }: { children: ReactNode }) {

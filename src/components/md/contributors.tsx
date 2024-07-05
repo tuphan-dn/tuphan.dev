@@ -18,19 +18,14 @@ export default function Contributors({ value }: ContributorsProps) {
 
   return (
     <span className="mb-16 flex flex-row gap-2 items-center flex-wrap">
-      <span className="text-xs opacity-60">
-        {dayjs(updatedAt).format('hh:mm:ss DD MMMM, YYYY')} by
-      </span>
+      <p className="text-xs opacity-60">
+        {dayjs(updatedAt).format('DD MMMM, YYYY')} by
+      </p>
       {authors.map(({ name, email }, i) => (
-        <a
-          key={`${name}/${email}`}
-          href={`mailto:${email}`}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <p key={`${name}/${email}`}>
           {name}
           {!i && authors.length > 1 ? ',' : ''}
-        </a>
+        </p>
       ))}
     </span>
   )
