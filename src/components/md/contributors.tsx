@@ -17,12 +17,12 @@ export default function Contributors({ value }: ContributorsProps) {
   }, [authors])
 
   return (
-    <span className="mb-16 flex flex-row gap-2 items-center flex-wrap">
-      <p className="text-xs opacity-60">
+    <span className="mb-16 flex flex-row gap-1 items-center flex-wrap">
+      <p className="text-sm opacity-60">
         {dayjs(updatedAt).format('DD MMMM, YYYY')} by
       </p>
       {authors.map(({ name, email }, i) => (
-        <p key={`${name}/${email}`}>
+        <p key={`${name}/${email}`} className="text-sm font-semibold">
           {name}
           {!i && authors.length > 1 ? ',' : ''}
         </p>
