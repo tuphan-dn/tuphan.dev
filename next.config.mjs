@@ -5,6 +5,7 @@ import remarkMath from 'remark-math'
 import remarkToc from 'remark-toc'
 import remarkSlug from 'remark-slug'
 import rehypeKatex from 'rehype-katex'
+import rehypeMdxImportMedia from 'rehype-mdx-import-media'
 import {
   rehypeExtendedHighlight,
   rehypeGitContributors,
@@ -20,8 +21,9 @@ const withMDX = createMDX({
   options: {
     remarkPlugins: [remarkGfm, remarkMath, remarkToc, remarkSlug],
     rehypePlugins: [
-      [rehypeExtendedHighlight, { tabsName: 'Tabs', tabName: 'Tab' }],
       rehypeKatex,
+      [rehypeMdxImportMedia, { elementAttributeNameCase: 'html' }],
+      [rehypeExtendedHighlight, { tabsName: 'Tabs', tabName: 'Tab' }],
       [rehypeGitContributors, { compName: 'Contributors' }],
     ],
   },

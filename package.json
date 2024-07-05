@@ -57,6 +57,7 @@
     "postcss": "^8.4.39",
     "reflect-metadata": "^0.2.2",
     "rehype-katex": "^7.0.0",
+    "rehype-mdx-import-media": "^1.2.0",
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
     "remark-slug": "^7.0.1",

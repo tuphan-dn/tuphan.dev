@@ -19,6 +19,8 @@ This is a list in markdown:
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco [Laboris](https://www.youtube.com), [Nisi](https://www.youtube.com) ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+![The Cat](./mew.png)
+
 ## Math
 
 Math formula $y = ax^2 + bx + c$
@@ -68,6 +70,6 @@ cat.speak()
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco [Laboris](https://www.youtube.com), [Nisi](https://www.youtube.com) ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-![A bowl of ice cream](https://plus.unsplash.com/premium_vector-1714341161381-71f531e36b8f?q=80&w=2824&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)
+![Cats and ducks](https://i.imgur.com/DIhbSrb.jpeg)
 
 Turpis massa tincidunt dui ut ornare. Odio aenean sed adipiscing diam. Amet mattis vulputate enim nulla. Eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu. Ultrices sagittis orci a scelerisque purus semper. Pulvinar sapien et ligula ullamcorper malesuada proin libero nunc. Cursus vitae congue mauris rhoncus aenean. Tempus egestas sed sed risus. Fringilla ut morbi tincidunt augue interdum velit. Quis lectus nulla at volutpat diam ut venenatis tellus in. Elementum curabitur vitae nunc sed velit.
