@@ -1,7 +1,5 @@
 # Welcome to my MDX page!
 
-## Contents
-
 ## GFM
 
 This is some **bold** and _italics_ text.
@@ -68,7 +66,13 @@ cat = Animal('Cat')
 cat.speak()
 ```
 
+## Long text heading: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
+
+### Sunheading with links
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco [Laboris](https://www.youtube.com), [Nisi](https://www.youtube.com) ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+### Sunheading with images & links
 
 ![Cats and ducks](https://i.imgur.com/DIhbSrb.jpeg)
 

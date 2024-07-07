@@ -1,0 +1,24 @@
+.toc-anchor.toc {
+  @apply -m-[0.1rem];
+  .toc-level {
+    @apply list-disc list-inside m-0 p-0 marker:text-base-content/50;
+    .toc-item {
+      @apply m-0 p-0 text-xs leading-3;
+      a {
+        @apply hidden;
+      }
+    }
+  }
+}
+.toc-content.toc {
+  @apply pt-6 px-4 m-4 w-64 bg-base-100 rounded-box shadow-lg border-2 border-base-300;
+  .toc-level {
+    @apply list-none px-0 m-0 mb-6;
+    .toc-item {
+      @apply px-2 m-0;
+      a {
+        @apply text-base-content decoration-base-content no-underline opacity-60 hover:opacity-100 truncate block font-normal;
+      }
+    }
+  }
+}

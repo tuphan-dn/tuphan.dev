@@ -10,8 +10,6 @@ export default function Link({ className, ...props }: LinkProps) {
         'transition-all text-info-content decoration-2 underline-offset-2 hover:underline-offset-4 decoration-info-content/20 hover:decoration-info-content/60',
         className,
       )}
-      target="_blank"
-      rel="noreferrer"
       {...props}
     />
   )

@@ -4,7 +4,17 @@ const config: Config = {
   darkMode: ['selector', '[data-theme="dark"]'],
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        'pop-in': {
+          from: { opacity: '0', transform: 'scaleX(0.95) scaleY(0.95)' },
+          to: { opacity: '1', transform: 'scaleX(1) scaleY(1)' },
+        },
+      },
+      animation: {
+        'pop-in': 'pop-in 200ms cubic-bezier(0, 0, 0.2, 1)',
+      },
+    },
   },
   plugins: [require('@tailwindcss/typography'), require('daisyui')],
   daisyui: {
