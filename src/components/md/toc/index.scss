@@ -1,10 +1,16 @@
 .toc-anchor.toc {
   @apply -m-[0.1rem];
   .toc-level {
-    @apply list-disc list-inside m-0 p-0 marker:text-base-content/50;
+    @apply list-disc list-inside m-0 p-0 marker:text-base-content/10;
     .toc-item {
       @apply m-0 p-0 text-xs leading-3;
-      a {
+      &.active {
+        @apply marker:text-base-content;
+        & li {
+          @apply marker:text-base-content/10;
+        }
+      }
+      & > a {
         @apply hidden;
       }
     }
@@ -16,8 +22,13 @@
     @apply list-none px-0 m-0 mb-6;
     .toc-item {
       @apply px-2 m-0;
-      a {
-        @apply text-base-content decoration-base-content no-underline opacity-60 hover:opacity-100 truncate block font-normal;
+      &.active {
+        & > a {
+          @apply text-base-content;
+        }
+      }
+      & > a {
+        @apply text-base-content/50 hover:text-base-content decoration-base-content no-underline truncate block font-normal;
       }
     }
   }
