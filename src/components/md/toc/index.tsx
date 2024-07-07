@@ -1,6 +1,14 @@
 'use client'
-import { useEffect, useRef, useState, type ComponentProps } from 'react'
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ComponentProps,
+} from 'react'
 import clsx from 'clsx'
+
+import Island from '@/components/island'
 
 import './index.scss'
 
@@ -9,11 +17,17 @@ export type TocProps = ComponentProps<'nav'>
 export default function Toc({ className, ...props }: TocProps) {
   const [id, setId] = useState('')
   const ref = useRef<HTMLDivElement>(null)
+  const [prose] =
+    typeof document !== 'undefined'
+      ? document.getElementsByClassName('prose')
+      : []
+
+  const headings = useMemo(() => {
+    return prose?.querySelectorAll('h1, h2, h3') || []
+  }, [prose])
 
   useEffect(() => {
     function scroll() {
-      const [prose] = document.getElementsByClassName('prose')
-      const headings = prose?.querySelectorAll('h1, h2, h3') || []
       for (const heading of Array.from(headings)) {
         const { top, bottom } = heading.getBoundingClientRect()
         if (top >= 0 && bottom <= window.innerHeight) return setId(heading.id)
@@ -26,7 +40,7 @@ export default function Toc({ className, ...props }: TocProps) {
     scroll() // Init
     window.addEventListener('scroll', scroll)
     return () => window.removeEventListener('scroll', scroll)
-  }, [])
+  }, [headings])
 
   useEffect(() => {
     if (id) {
@@ -45,18 +59,21 @@ export default function Toc({ className, ...props }: TocProps) {
       className="fixed top-[50%] -translate-y-[50%] right-0 cursor-pointer group z-10"
       ref={ref}
     >
+      <div className="group-hover:hidden animate-pop-in rounded-box bg-base-100 shadow-lg border-2 border-base-300 p-1 m-1 flex flex-col gap-1">
+        <Island>
+          {Array.from(headings).map((heading) => (
+            <div
+              key={heading.id}
+              className={clsx('w-1 h-1 rounded transition-all', {
+                'bg-base-content/10': heading.id !== id,
+                'bg-base-content': heading.id === id,
+              })}
+            />
+          ))}
+        </Island>
+      </div>
       <nav
-        className={clsx(
-          'toc-anchor block group-hover:hidden animate-pop-in',
-          className,
-        )}
-        {...props}
-      />
-      <nav
-        className={clsx(
-          'toc-content hidden group-hover:block animate-pop-in',
-          className,
-        )}
+        className={clsx('hidden group-hover:block animate-pop-in', className)}
         {...props}
       />
     </div>
