@@ -31,10 +31,7 @@ export default function Theme({ className }: ThemeProps) {
 
   return (
     <button
-      className={clsx(
-        'btn btn-circle btn-xs !border-none !outline-none',
-        className,
-      )}
+      className={clsx('btn btn-circle btn-xs btn-ghost', className)}
       onClick={onTheme}
     >
       <MotionIcon
