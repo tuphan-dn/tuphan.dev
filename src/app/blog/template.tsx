@@ -20,7 +20,7 @@ export default function Template({ children }: { children: ReactNode }) {
 
   return (
     <div className="w-full flex flex-col gap-4 items-center">
-      <div className="-m-6 w-[calc(100%+3rem)] px-6 py-2 border-b-2 border-base-300">
+      <div className="-m-6 w-[calc(100%+3rem)] px-6 py-2 bg-base-100 border-b-2 border-base-300 sticky top-0 z-10">
         <div className="breadcrumbs text-sm">
           <ul>
             {slugs.map(({ name, href }) => (

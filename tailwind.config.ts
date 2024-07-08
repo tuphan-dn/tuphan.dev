@@ -50,10 +50,10 @@ const config: Config = {
         dark: {
           'color-scheme': 'dark',
           // Main colors
-          primary: '#343433',
-          'primary-content': '#ffffff',
-          secondary: '#b2a79a',
-          'secondary-content': '#ffffff',
+          primary: '#ffffff',
+          'primary-content': '#343433',
+          secondary: '#ffffff',
+          'secondary-content': '#b2a79a',
           // Subsidised colors
           accent: '#6187fe',
           'accent-content': '#d4deff',
@@ -69,10 +69,10 @@ const config: Config = {
           warning: '#fefae6',
           'warning-content': '#f6c30f',
           // Base colors
-          'base-100': '#ffffff',
-          'base-200': '#fbfaf9',
-          'base-300': '#f7f4f3',
-          'base-content': '#474645',
+          'base-100': '#000000',
+          'base-200': '#000000',
+          'base-300': '#000000',
+          'base-content': '#ffffff',
         },
       },
     ],
