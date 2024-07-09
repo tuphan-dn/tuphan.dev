@@ -4,11 +4,11 @@ import Editor from '@monaco-editor/react'
 
 export default function Page() {
   return (
-    <div className="w-full h-full grid grid-cols-12 gap-0">
-      <div className="col-span-6 h-full">
+    <div className="w-full h-full flex flex-col sm:flex-row">
+      <div className="flex-1">
         <Editor theme="vs-dark" defaultLanguage="markdown" defaultValue="" />
       </div>
-      <div className="col-span-6"></div>
+      <div className="flex-1 bg-base-300"></div>
     </div>
   )
 }
