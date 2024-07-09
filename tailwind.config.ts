@@ -5,6 +5,12 @@ const config: Config = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
+      width: {
+        a4: '1280px',
+      },
+      maxWidth: {
+        a4: '1280px',
+      },
       keyframes: {
         'pop-in': {
           from: { opacity: '0', transform: 'scaleX(0.95) scaleY(0.95)' },

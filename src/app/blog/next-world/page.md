@@ -4,7 +4,7 @@
 
 ## GFM
 
-This is some **bold** and _italics_ text.
+Experience NFTs in their intended format with our full rich media support. Interact with everything, including video, audio, images, and interactive content. The best collectors manage their collections in Gears Bot.
 
 This is a list in markdown:
 

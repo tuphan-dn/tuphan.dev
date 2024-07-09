@@ -44,7 +44,6 @@ function Nav({ className, ...props }: TocProps) {
       const actives =
         ref?.current?.querySelectorAll(`li:has(> a[href="#${id}"])`) || []
       for (const active of actives) active.classList.add('active')
-
       const inactives =
         ref?.current?.querySelectorAll(`li:not(:has(> a[href="#${id}"]))`) || []
       for (const inactive of inactives) inactive.classList.remove('active')
