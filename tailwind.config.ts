@@ -6,10 +6,10 @@ const config: Config = {
   theme: {
     extend: {
       width: {
-        a4: '1280px',
+        a4: '768px',
       },
       maxWidth: {
-        a4: '1280px',
+        a4: '768px',
       },
       keyframes: {
         'pop-in': {

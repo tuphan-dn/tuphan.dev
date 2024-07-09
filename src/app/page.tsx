@@ -1,9 +1,10 @@
 'use client'
-import { useCallback } from 'react'
 import axios from 'axios'
 import dayjs from 'dayjs'
 import { useRouter } from 'next-nprogress-bar'
 import useSWR from 'swr'
+import { motion } from 'framer-motion'
+import { ArrowUpRight } from 'lucide-react'
 
 export default function Page() {
   const { push } = useRouter()
@@ -12,34 +13,32 @@ export default function Page() {
     return data
   })
 
-  const onSpeech = useCallback(() => {
-    const speech = new SpeechSynthesisUtterance()
-    speech.text =
-      "We're excited to share a major feature addition to Family, Previews. Enabled by our collaboration with Blowfish, Previews offers an unprecedented level of user control and transparency when navigating the world of Ethereum."
-    speech.lang = 'en'
-    window.speechSynthesis?.speak(speech)
-  }, [])
-
   return (
-    <div className="w-full flex flex-col gap-4 p-4">
-      <p>Home</p>
-      <button className="btn btn-primary" onClick={onSpeech}>
-        Listen to the Blog
-      </button>
-      <div className="w-full max-w-a4 p-4 grid grid-cols-12 gap-4">
+    <div className="w-full flex flex-col gap-4 items-center">
+      <div className="w-full max-w-a4 p-6 grid grid-cols-12 gap-0">
         {(data?.children || []).map(
-          ({ title, description, updatedAt, route }) => (
-            <div
+          ({ title, description, updatedAt, route }, i) => (
+            <motion.div
               key={title}
-              className="col-span-full flex flex-col gap-4 p-4 bg-base-200 border-2 border-base-300 rounded-3xl cursor-pointer"
+              className="col-span-full grid grid-cols-12 gap-4 py-16 border-b border-base-300 cursor-pointer relative group"
               onClick={() => push(route)}
+              initial={{ y: 8 * (i + 1), opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
             >
-              <h1>{title}</h1>
-              <p className="text-sm">{description}</p>
-              <p className="text-xs opacity-60">
+              <span className="col-span-full sm:col-span-2 text-xs opacity-60 mt-1">
                 {dayjs(updatedAt).format('DD MMMM, YYYY')}
+              </span>
+              <h2 className="col-span-full max-sm:mb-2 sm:col-span-4 font-semibold -mt-1">
+                {title}
+              </h2>
+              <p className="col-span-full sm:col-span-6 text-sm tracking-tight opacity-60">
+                {description}
               </p>
-            </div>
+              <button className="btn btn-circle btn-outline btn-sm absolute bottom-4 left-0 hidden transition-all group-hover:flex">
+                <ArrowUpRight className="w-4 h-4" />
+              </button>
+            </motion.div>
           ),
         )}
       </div>

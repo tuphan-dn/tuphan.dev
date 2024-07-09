@@ -1,4 +1,4 @@
-# Next World
+# Experience NFTs in their intended format with our full rich media support.
 
 ## Contents
 

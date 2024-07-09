@@ -4,6 +4,7 @@ import { useSelectedLayoutSegments } from 'next/navigation'
 import useSWR from 'swr'
 import axios from 'axios'
 import dayjs from 'dayjs'
+import { motion } from 'framer-motion'
 
 import Link from 'next/link'
 
@@ -30,19 +31,29 @@ export default function Template({ children }: { children: ReactNode }) {
       <div className="-m-6 w-[calc(100%+3rem)] px-6 py-2 bg-base-100 border-b-2 border-base-300 sticky top-0 z-10">
         <div className="breadcrumbs text-sm">
           <ul>
-            {slugs.map(({ name, href }) => (
-              <li key={href}>
+            {slugs.map(({ name, href }, i) => (
+              <motion.li
+                key={href}
+                initial={{ x: 16 * (i + 1), opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+              >
                 <Link className="opacity-60 capitalize" href={href}>
                   {name.replace('-', ' ')}
                 </Link>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>
       </div>
-      <article className="w-full my-32 prose prose-p:tracking-[-.25px]">
+      <motion.article
+        className="w-full my-32 prose prose-p:tracking-[-.25px]"
+        initial={{ y: 64, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         {children}
-      </article>
+      </motion.article>
       <div className="w-full max-w-[65ch] grid grid-cols-12 gap-4">
         <div className="col-span-full divider divider-vertical m-0" />
         {(data?.children || []).map(
