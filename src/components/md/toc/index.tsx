@@ -14,17 +14,14 @@ import './index.scss'
 
 export type TocProps = ComponentProps<'nav'>
 
-export default function Toc({ className, ...props }: TocProps) {
+function Nav({ className, ...props }: TocProps) {
   const [id, setId] = useState('')
   const ref = useRef<HTMLDivElement>(null)
-  const [prose] =
-    typeof document !== 'undefined'
-      ? document.getElementsByClassName('prose')
-      : []
 
   const headings = useMemo(() => {
+    const [prose] = document.getElementsByClassName('prose') || []
     return prose?.querySelectorAll('h1, h2, h3') || []
-  }, [prose])
+  }, [])
 
   useEffect(() => {
     function scroll() {
@@ -60,22 +57,28 @@ export default function Toc({ className, ...props }: TocProps) {
       ref={ref}
     >
       <div className="group-hover:hidden animate-pop-in rounded-box bg-base-100 shadow-lg border-2 border-base-300 p-1 m-1 flex flex-col gap-1">
-        <Island>
-          {Array.from(headings).map((heading) => (
-            <div
-              key={heading.id}
-              className={clsx('w-1 h-1 rounded transition-all', {
-                'bg-base-content/10': heading.id !== id,
-                'bg-base-content': heading.id === id,
-              })}
-            />
-          ))}
-        </Island>
+        {Array.from(headings).map((heading) => (
+          <div
+            key={heading.id}
+            className={clsx('w-1 h-1 rounded transition-all', {
+              'bg-base-content/10': heading.id !== id,
+              'bg-base-content': heading.id === id,
+            })}
+          />
+        ))}
       </div>
       <nav
         className={clsx('hidden group-hover:block animate-pop-in', className)}
         {...props}
       />
     </div>
+  )
+}
+
+export default function Toc(props: TocProps) {
+  return (
+    <Island>
+      <Nav {...props} />
+    </Island>
   )
 }
