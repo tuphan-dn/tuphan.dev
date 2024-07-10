@@ -12,6 +12,7 @@
     "lint:watch": "nodemon --watch src --ext ts,tsx --exec 'next lint' --signal SIGTERM"
   },
   "dependencies": {
+    "@headlessui/react": "^2.1.2",
     "@icons-pack/react-simple-icons": "^9.6.0",
     "@jsdevtools/rehype-toc": "^3.0.2",
     "axios": "^1.7.2",

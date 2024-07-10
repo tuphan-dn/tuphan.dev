@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { Menu } from 'lucide-react'
+import SearchButton from './searchButton'
 
 export default function Header() {
   return (
@@ -12,6 +13,7 @@ export default function Header() {
         </div>
       </Link>
       <span className="grow" />
+      <SearchButton />
       <button className="btn btn-sm btn-circle">
         <Menu className="w-4 h-4" />
       </button>

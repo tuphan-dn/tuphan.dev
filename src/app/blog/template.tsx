@@ -37,7 +37,7 @@ export default function Template({ children }: { children: ReactNode }) {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="not-prose mb-8 pb-4 border-b border-base-300 breadcrumbs text-sm">
+        <div className="sticky top-3 not-prose mb-8 pb-4 border-b border-base-300 breadcrumbs text-sm">
           <ul>
             {slugs.map(({ name, href }, i) => (
               <motion.li
