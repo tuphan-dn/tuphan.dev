@@ -28,8 +28,13 @@ export default function Template({ children }: { children: ReactNode }) {
 
   return (
     <div className="w-full flex flex-col gap-4 items-center">
-      <div className="-m-6 w-[calc(100%+3rem)] px-6 py-2 bg-base-100 border-b-2 border-base-300 sticky top-0 z-10">
-        <div className="breadcrumbs text-sm">
+      <motion.article
+        className="w-full my-16 prose prose-p:tracking-[-.25px]"
+        initial={{ y: 64, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="not-prose mb-8 pb-4 border-b border-base-300 breadcrumbs text-sm">
           <ul>
             {slugs.map(({ name, href }, i) => (
               <motion.li
@@ -45,13 +50,6 @@ export default function Template({ children }: { children: ReactNode }) {
             ))}
           </ul>
         </div>
-      </div>
-      <motion.article
-        className="w-full my-32 prose prose-p:tracking-[-.25px]"
-        initial={{ y: 64, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
         {children}
       </motion.article>
       <div className="w-full max-w-[65ch] grid grid-cols-12 gap-4">

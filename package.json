@@ -14,7 +14,6 @@
   "dependencies": {
     "@icons-pack/react-simple-icons": "^9.6.0",
     "@jsdevtools/rehype-toc": "^3.0.2",
-    "@monaco-editor/react": "^4.6.0",
     "axios": "^1.7.2",
     "clsx": "^2.1.1",
     "copy-to-clipboard": "^3.3.3",
