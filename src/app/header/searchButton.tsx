@@ -4,12 +4,23 @@ import useKeyboardJs from 'react-use/lib/useKeyboardJs'
 
 import { Search } from 'lucide-react'
 import Modal from '@/components/ui/modal'
+import Island from '@/components/island'
 
 import { isMac } from '@/lib/utils'
 
+function Kbd() {
+  return (
+    <span className="join opacity-40">
+      <kbd className="kbd kbd-xs join-item -ml-[0.375rem]">
+        {isMac() ? '⌘' : 'ctrl'}
+      </kbd>
+      <kbd className="kbd kbd-xs join-item">k</kbd>
+    </span>
+  )
+}
+
 export default function SearchButton() {
   const [open, setOpen] = useState(false)
-
   const [, e] = useKeyboardJs(isMac() ? 'command + k' : 'ctrl + k')
 
   useEffect(() => {
@@ -19,12 +30,9 @@ export default function SearchButton() {
   return (
     <Fragment>
       <button className="btn btn-sm rounded-full" onClick={() => setOpen(true)}>
-        <span className="join opacity-40">
-          <kbd className="kbd kbd-xs join-item -ml-[0.375rem]">
-            {isMac() ? '⌘' : 'ctrl'}
-          </kbd>
-          <kbd className="kbd kbd-xs join-item">k</kbd>
-        </span>
+        <Island>
+          <Kbd />
+        </Island>
         <Search className="w-3 h-3 ml-1" />
       </button>
       <Modal open={open} onCancel={() => setOpen(false)} closable={false}>

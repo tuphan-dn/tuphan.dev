@@ -3,10 +3,11 @@ import { useMemo, type ReactNode } from 'react'
 import { useSelectedLayoutSegments } from 'next/navigation'
 import useSWR from 'swr'
 import axios from 'axios'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import Link from 'next/link'
 import { BlogCard } from '@/components/blog'
+import { Play, Share2, ThumbsUp } from 'lucide-react'
 
 export default function Template({ children }: { children: ReactNode }) {
   const segments = useSelectedLayoutSegments()
@@ -37,21 +38,54 @@ export default function Template({ children }: { children: ReactNode }) {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="sticky top-3 not-prose mb-8 pb-4 border-b border-base-300 breadcrumbs text-sm">
-          <ul>
-            {slugs.map(({ name, href }, i) => (
-              <motion.li
-                key={href}
-                initial={{ x: 16 * (i + 1), opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Link className="opacity-60 capitalize" href={href}>
-                  {name.replace('-', ' ')}
-                </Link>
-              </motion.li>
-            ))}
-          </ul>
+        <div className="not-prose mb-16 flex flex-col gap-0">
+          <div className="breadcrumbs text-sm">
+            <ul>
+              <AnimatePresence>
+                {slugs.map(({ name, href }, i) => (
+                  <motion.li
+                    key={href}
+                    initial={{ x: 16 * (i + 1), opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: 16 * (i + 1), opacity: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Link className="opacity-60 capitalize" href={href}>
+                      {name.replace('-', ' ')}
+                    </Link>
+                  </motion.li>
+                ))}
+              </AnimatePresence>
+            </ul>
+          </div>
+          <div className="w-full flex flex-row gap-2 justify-end py-3 border-y border-base-300">
+            <motion.button
+              className="btn btn-circle btn-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <ThumbsUp className="h-4 w-4" />
+            </motion.button>
+            <motion.button
+              className="btn btn-circle btn-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Share2 className="h-4 w-4" />
+            </motion.button>
+            <span className="grow" />
+            <motion.button
+              className="btn btn-sm rounded-full"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Play className="w-4 h-4 fill-base-content" />
+              Listen to Article
+            </motion.button>
+          </div>
         </div>
         {children}
       </motion.article>
