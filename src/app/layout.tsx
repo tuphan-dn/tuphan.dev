@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import UiProvider from '@/providers/ui.provider'
 
 export const metadata: Metadata = {
-  title: 'Blogy.me',
+  title: 'tuphan.dev',
   description:
     'The markdown 📜 template blog with 👀-pleasant colors and animation; Especially, 🎉 open-source and 🔋 batteries-included.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_HOST || ''),

@@ -1,1 +1,1 @@
-# Open Blogy.Me
+# tuphan.dev

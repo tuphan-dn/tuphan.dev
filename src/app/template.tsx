@@ -6,7 +6,7 @@ import Footer from './footer'
 
 export default function Template({ children }: { children: ReactNode }) {
   return (
-    <main className="w-full min-h-dvh flex flex-col gap-0 bg-base-100">
+    <main className="w-full min-h-dvh bg-base-100 flex flex-col gap-0 justify-center">
       <header className="w-full sticky top-0 z-10">
         <Header />
       </header>
