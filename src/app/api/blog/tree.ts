@@ -1,3 +1,34 @@
+import { readFileSync } from 'fs'
+import { scan } from 'dree'
+import { fromMarkdown } from 'mdast-util-from-markdown'
+import { select } from 'unist-util-select'
+import { toString } from 'mdast-util-to-string'
+
+export function onDreeFile(node: ExtendedDree) {
+  const file = readFileSync(node.path)
+  const md = fromMarkdown(file)
+  const heading = select('heading > text', md) || {}
+  const paragraph = select('paragraph', md) || {}
+  node.title = toString(heading)
+  node.description = toString(paragraph)
+}
+
+export function dreelize(root: string): ExtendedDree | null {
+  const dree = scan<ExtendedDree>(
+    root,
+    {
+      size: false,
+      sizeInBytes: false,
+      hash: false,
+      matches: '**/page.{md,mdx}',
+      extensions: ['md', 'mdx'],
+      stat: true,
+    },
+    onDreeFile,
+  )
+  return dree
+}
+
 export function trielize(
   parentRoute: string,
   { name, children = [], stat }: ExtendedDree,
