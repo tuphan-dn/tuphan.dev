@@ -14,12 +14,12 @@
   "dependencies": {
     "@headlessui/react": "^2.1.2",
     "@icons-pack/react-simple-icons": "^9.6.0",
-    "@jsdevtools/rehype-toc": "^3.0.2",
     "axios": "^1.7.2",
     "clsx": "^2.1.1",
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.11",
     "dree": "^5.0.7",
+    "flexsearch": "^0.7.43",
     "framer-motion": "^11.2.12",
     "immer": "^10.1.1",
     "keyboardjs": "^2.7.0",
@@ -43,6 +43,7 @@
   "devDependencies": {
     "@eslint/compat": "^1.1.0",
     "@gears-bot/rehype": "1.1.0",
+    "@jsdevtools/rehype-toc": "^3.0.2",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^14.2.4",

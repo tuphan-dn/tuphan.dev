@@ -23,7 +23,7 @@ const withMDX = createMDX({
     rehypePlugins: [
       rehypeKatex,
       [rehypeMdxImportMedia, { elementAttributeNameCase: 'html' }],
-      [rehypeToc, {}],
+      rehypeToc,
       [rehypeExtendedHighlight, { tabsName: 'Tabs', tabName: 'Tab' }],
       [rehypeGitContributors, { compName: 'Contributors' }],
     ],

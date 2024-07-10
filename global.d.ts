@@ -1,7 +1,8 @@
 type ExtendedDree = Omit<import('dree').Dree, 'children'> & {
   title: string
   description: string
-  children: ExtendedDree[]
+  content: string[]
+  children?: ExtendedDree[]
 }
 
 type Tree = {
@@ -9,6 +10,7 @@ type Tree = {
   children: Tree[]
   title: string
   description: string
+  content: string
   createdAt: Date
   updatedAt: Date
 }

@@ -20,3 +20,7 @@ This is a list in markdown:
 | :-------- | :---------: | ----------: |
 | Header    |    Title    | Here's this |
 | Paragraph |    Text     |    And more |
+
+$$
+\frac{a}{b}
+$$

@@ -1,6 +1,10 @@
 import { readFileSync } from 'fs'
 import { scan } from 'dree'
 import { fromMarkdown } from 'mdast-util-from-markdown'
+// import { gfm } from 'micromark-extension-gfm'
+// import { gfmFromMarkdown } from 'mdast-util-gfm'
+// import { math } from 'micromark-extension-math'
+// import { mathFromMarkdown } from 'mdast-util-math'
 import { select, selectAll } from 'unist-util-select'
 import { toString } from 'mdast-util-to-string'
 
@@ -9,18 +13,33 @@ export function onDreeFile(node: ExtendedDree) {
   const md = fromMarkdown(file)
   const heading = select('heading > text', md) || {}
   const paragraph = select('paragraph', md) || {}
-  const value = selectAll('heading, paragraph', md)
-  console.log('======================================================')
-  value.forEach((e) => {
-    console.log(e)
-    const raw = toString(e)
-    console.log(raw)
-  })
+  const text = selectAll('heading, paragraph', md)
   node.title = toString(heading)
   node.description = toString(paragraph)
+  node.content = text.map((e) => toString(e))
 }
 
-export function dreelize(root: string): ExtendedDree | null {
+// export function onDreeSearch(node: ExtendedDree) {
+//   const file = readFileSync(node.path)
+//   const md = fromMarkdown(file)
+//   const text = selectAll('heading, paragraph', md)
+//   node.content = text.map((e) => toString(e))
+// }
+
+// export function onDreeSpeech(node: ExtendedDree) {
+//   const file = readFileSync(node.path)
+//   const md = fromMarkdown(file, {
+//     extensions: [gfm(), math()],
+//     mdastExtensions: [gfmFromMarkdown(), mathFromMarkdown()],
+//   })
+//   const text = selectAll('heading, paragraph', md)
+//   node.content = text.map((e) => toString(e))
+// }
+
+export function dreelize(
+  root: string,
+  onFile: (node: ExtendedDree) => void = onDreeFile,
+): ExtendedDree | null {
   const dree = scan<ExtendedDree>(
     root,
     {
@@ -31,7 +50,7 @@ export function dreelize(root: string): ExtendedDree | null {
       extensions: ['md', 'mdx'],
       stat: true,
     },
-    onDreeFile,
+    onFile,
   )
   return dree
 }
@@ -42,7 +61,7 @@ export function trielize(
 ): Tree {
   const route = `${parentRoute}/${name}`
   const index = children.findIndex(({ type }) => type === 'file')
-  const [only = { title: '', description: '', value: '' }] =
+  const [only = { title: '', description: '', value: '', content: [] }] =
     index >= 0 ? children.splice(index, 1) : []
   return {
     route,
@@ -51,5 +70,6 @@ export function trielize(
     description: only.description,
     updatedAt: stat?.mtime || new Date(),
     createdAt: stat?.birthtime || new Date(),
+    content: only.content.join('\n') || '',
   }
 }
