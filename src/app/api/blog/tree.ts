@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs'
 import { scan } from 'dree'
 import { fromMarkdown } from 'mdast-util-from-markdown'
-import { select } from 'unist-util-select'
+import { select, selectAll } from 'unist-util-select'
 import { toString } from 'mdast-util-to-string'
 
 export function onDreeFile(node: ExtendedDree) {
@@ -9,6 +9,13 @@ export function onDreeFile(node: ExtendedDree) {
   const md = fromMarkdown(file)
   const heading = select('heading > text', md) || {}
   const paragraph = select('paragraph', md) || {}
+  const value = selectAll('heading, paragraph', md)
+  console.log('======================================================')
+  value.forEach((e) => {
+    console.log(e)
+    const raw = toString(e)
+    console.log(raw)
+  })
   node.title = toString(heading)
   node.description = toString(paragraph)
 }

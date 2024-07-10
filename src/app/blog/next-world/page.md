@@ -2,6 +2,10 @@
 
 ## Contents
 
+> This a simple quote
+
+**Many sections are considered as a paragraph**
+
 ## GFM
 
 Experience NFTs in their intended format with our full rich media support. Interact with everything, including video, audio, images, and interactive content. The best collectors manage their collections in Gears Bot.
