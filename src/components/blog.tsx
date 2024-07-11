@@ -3,17 +3,21 @@ import dayjs from 'dayjs'
 
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
+import Tags from './tags'
 
-export function BlogCard({ title, route, description, updatedAt }: Tree) {
+export function BlogCard({ title, tags, route, description, updatedAt }: Tree) {
   return (
     <Link
       key={title}
       className="w-full grid grid-cols-12 gap-4 py-16 border-t border-base-300 cursor-pointer relative group"
       href={route}
     >
-      <span className="col-span-full sm:col-span-2 text-xs opacity-60 mt-1">
-        {dayjs(updatedAt).format('DD MMMM, YYYY')}
-      </span>
+      <div className="col-span-full sm:col-span-2 mt-1 flex flex-col gap-4">
+        <p className="text-xs opacity-60">
+          {dayjs(updatedAt).format('DD MMMM, YYYY')}
+        </p>
+        <Tags value={tags} />
+      </div>
       <h2 className="col-span-full max-sm:mb-2 sm:col-span-4 font-semibold -mt-1">
         {title}
       </h2>

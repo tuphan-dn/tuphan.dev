@@ -1,5 +1,5 @@
 +++
-tags = "news, nft"
+tags = "news, nft, hero, queen, price, king, princes, many, test-ingasdsadasdasd"
 +++
 
 # Experience NFTs in their intended format with our full rich media support.

@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { BlogCard } from '@/components/blog'
 import { Play, Share2, ThumbsUp } from 'lucide-react'
+import Tags from '@/components/tags'
 
 export default function Template({ children }: { children: ReactNode }) {
   const segments = useSelectedLayoutSegments()
@@ -87,20 +88,8 @@ export default function Template({ children }: { children: ReactNode }) {
             </motion.button>
           </div>
         </div>
-        <div className="not-prose flex flex-row gap-2 mt-3">
-          {(data?.tags || []).map((tag, i) => (
-            <motion.a
-              key={tag}
-              className="badge badge-outline"
-              href={`/?tag=${tag}`}
-              initial={{ x: 16 * (i + 1), opacity: 0 }}
-              animate={{ x: 0, opacity: 0.6 }}
-              whileHover={{ opacity: 1, transition: { duration: 0 } }}
-              transition={{ duration: 0.5 }}
-            >
-              {tag}
-            </motion.a>
-          ))}
+        <div className="not-prose w-full">
+          <Tags value={data?.tags} />
         </div>
         {children}
       </motion.article>
