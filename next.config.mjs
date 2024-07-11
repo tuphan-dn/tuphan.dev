@@ -3,6 +3,7 @@ import createMDX from '@next/mdx'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import remarkSlug from 'remark-slug'
+import remarkFrontmatter from 'remark-frontmatter'
 import rehypeKatex from 'rehype-katex'
 import rehypeMdxImportMedia from 'rehype-mdx-import-media'
 import rehypeToc from '@jsdevtools/rehype-toc'
@@ -19,7 +20,12 @@ const nextConfig = {
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkGfm, remarkMath, remarkSlug],
+    remarkPlugins: [
+      remarkGfm,
+      remarkMath,
+      remarkSlug,
+      [remarkFrontmatter, ['yaml', 'toml']],
+    ],
     rehypePlugins: [
       rehypeKatex,
       [rehypeMdxImportMedia, { elementAttributeNameCase: 'html' }],

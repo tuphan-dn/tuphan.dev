@@ -1,3 +1,7 @@
++++
+tags = "news, mdx"
++++
+
 # Welcome to my MDX page!
 
 ## GFM
