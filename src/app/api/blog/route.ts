@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { resolve } from 'path'
 import { dreelize, trielize } from './tree'
 import { z } from 'zod'
-import FlexSearch from 'flexsearch'
+import Fuse from 'fuse.js'
 
 const PostDto = z.object({ q: z.string() })
 
@@ -35,12 +35,11 @@ class Route {
     if (!dree) return NextResponse.json('Not Found', { status: 404 })
     const tree = trielize('', dree)
     const nodes = flattenTree(tree)
-    const index = new FlexSearch.Document<Omit<Tree, 'children'>>({
-      document: { id: 'route', index: ['title', 'description', 'content'] },
-      resolution: 5,
+    const index = new Fuse(nodes, {
+      ignoreLocation: true,
+      keys: ['title', 'description', 'content'],
     })
-    nodes.forEach((node) => index.add(node))
-    const re = index.search(q)
+    const re = index.search(q).map(({ item }) => item)
     return NextResponse.json(re)
   }
 }

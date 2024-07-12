@@ -24,7 +24,10 @@ export function onDreeFile(node: ExtendedDree) {
   node.title = toString(heading)
   node.tags = tags.split(',').map((e) => e.trim())
   node.description = toString(paragraph)
-  node.content = text.map((e) => toString(e))
+  node.content = text
+    .map((e) => toString(e))
+    .join(' ')
+    .replaceAll('\n', ' ')
 }
 
 export function dreelize(
@@ -53,7 +56,7 @@ export function trielize(
   const route = `${parentRoute}/${name}`
   const index = children.findIndex(({ type }) => type === 'file')
   const [
-    only = { title: '', tags: [], description: '', value: '', content: [] },
+    only = { title: '', tags: [], description: '', value: '', content: '' },
   ] = index >= 0 ? children.splice(index, 1) : []
   return {
     route,
@@ -63,6 +66,6 @@ export function trielize(
     description: only.description,
     updatedAt: stat?.mtime || new Date(),
     createdAt: stat?.birthtime || new Date(),
-    content: only.content.join('\n') || '',
+    content: only.content || '',
   }
 }

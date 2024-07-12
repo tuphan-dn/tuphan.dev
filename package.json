@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently --names DEV,LINT -c cyan,yellow 'pnpm dev:watch' 'pnpm lint:watch'",
+    "dev": "concurrently --names DEV,LNT -c cyan,yellow 'pnpm dev:watch' 'pnpm lint:watch'",
     "dev:watch": "next dev --port 3000",
     "build": "next build",
     "start": "next start",
@@ -19,8 +19,8 @@
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.11",
     "dree": "^5.0.7",
-    "flexsearch": "^0.7.43",
     "framer-motion": "^11.2.12",
+    "fuse.js": "^7.0.0",
     "immer": "^10.1.1",
     "keyboardjs": "^2.7.0",
     "lucide-react": "^0.399.0",

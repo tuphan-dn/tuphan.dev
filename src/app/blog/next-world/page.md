@@ -1,5 +1,5 @@
 +++
-tags = "news, nft, hero, queen, price, king, princes, many, test-ingasdsadasdasd"
+tags = "news, nft"
 +++
 
 # Experience NFTs in their intended format with our full rich media support.
@@ -28,3 +28,5 @@ This is a list in markdown:
 $$
 \frac{a}{b}
 $$
+
+Pokemon only here
