@@ -36,7 +36,7 @@ export function BlogCard({
 }
 
 export function LiteBlogCard({
-  data: { title, tags, route, description, updatedAt },
+  data: { title, route, description },
 }: {
   data: Omit<Tree, 'children'> & { children?: Tree[] }
 }) {

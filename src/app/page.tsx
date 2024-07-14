@@ -4,10 +4,18 @@ import useSWR from 'swr'
 import { motion } from 'framer-motion'
 
 import { BlogCard } from '@/components/blog'
+import Tags from '@/components/tags'
 
 export default function Page() {
-  const { data } = useSWR('/api/blog', async (api: string) => {
-    const { data } = await axios.get<Tree>(api)
+  const { data: { children: blogs = [] } = {} } = useSWR(
+    '/api/blog',
+    async (api: string) => {
+      const { data } = await axios.get<Tree>(api)
+      return data
+    },
+  )
+  const { data: tags = [] } = useSWR('/api/tag', async (api: string) => {
+    const { data } = await axios.get<string[]>(api)
     return data
   })
 
@@ -30,9 +38,12 @@ export default function Page() {
           I usually write about Computer Science (Web3, WebDev, Cryptography,
           and Math), and also a few MBA stuffs (cause I&apos;m learning it).
         </motion.p>
+        <div className="w-full">
+          <Tags value={tags} />
+        </div>
       </div>
       <div className="w-full max-w-a4 p-6 grid grid-cols-12 gap-0">
-        {(data?.children || []).map((node, i) => (
+        {blogs.map((node, i) => (
           <motion.div
             key={node.title}
             className="col-span-full"

@@ -22,7 +22,10 @@ export function onDreeFile(node: ExtendedDree) {
     .object({ tags: z.string().default('') })
     .parse(toml.parse(toString(matter)))
   node.title = toString(heading)
-  node.tags = tags.split(',').map((e) => e.trim())
+  node.tags = tags
+    .split(',')
+    .map((e) => e.trim())
+    .filter((e) => !!e)
   node.description = toString(paragraph)
   node.content = text
     .map((e) => toString(e))
