@@ -40,7 +40,7 @@ export default function Page() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <BlogCard {...node} />
+            <BlogCard data={node} />
           </motion.div>
         ))}
       </div>

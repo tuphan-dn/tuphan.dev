@@ -1,12 +1,17 @@
 'use client'
 import { Fragment, useEffect, useState } from 'react'
 import useKeyboardJs from 'react-use/lib/useKeyboardJs'
+import { useAsync } from 'react-use'
+import axios from 'axios'
+import clsx from 'clsx'
 
 import { Search } from 'lucide-react'
 import Modal from '@/components/ui/modal'
 import Island from '@/components/island'
+import { LiteBlogCard } from '@/components/blog'
 
-import { isMac } from '@/lib/utils'
+import { delay, isMac } from '@/lib/utils'
+import { useThrottle } from '@/lib/hooks/useThrottle'
 
 function Kbd() {
   return (
@@ -21,7 +26,21 @@ function Kbd() {
 
 export default function SearchButton() {
   const [open, setOpen] = useState(false)
+  const [keyword, setKeyword] = useState('')
   const [, e] = useKeyboardJs(isMac() ? 'command + k' : 'ctrl + k')
+
+  const q = useThrottle(keyword, 500)
+  const { value = [], loading } = useAsync(async () => {
+    if (!q || q.length < 3) return []
+    const { data } = await axios.post<Array<Omit<Tree, 'children'>>>(
+      '/api/blog',
+      {
+        q,
+      },
+    )
+    await delay(1000)
+    return data
+  }, [q])
 
   useEffect(() => {
     if (e) setOpen(true)
@@ -43,12 +62,30 @@ export default function SearchButton() {
               type="text"
               className="grow text-sm"
               placeholder="Type here to search..."
+              value={keyword}
+              onChange={(e) => setKeyword(e.target.value)}
               data-autofocus
             />
             <kbd className="kbd kbd-sm">Esc</kbd>
           </label>
-          <div className="col-span-full">
-            <p>Some text</p>
+          <div
+            className={clsx('col-span-full flex flex-row justify-center', {
+              hidden: !loading,
+            })}
+          >
+            <span className="loading loading-spinner loading-sm" />
+          </div>
+          <div
+            className={clsx('col-span-full grid grid-cols-12 gap-2', {
+              hidden: loading || !value.length,
+            })}
+          >
+            <p className="opacity-60 font-bold">Blogs</p>
+            {value.map((data) => (
+              <div key={data.route} className="col-span-full">
+                <LiteBlogCard data={data} />
+              </div>
+            ))}
           </div>
         </div>
       </Modal>
