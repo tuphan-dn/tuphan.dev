@@ -27,7 +27,7 @@ export default function Menu() {
         </motion.span>
         <Link
           className="btn btn-ghost btn-sm flex flex-row gap-4 justify-start items-center font-normal"
-          href="https://x.com/phan_sontu"
+          href="/resume"
           target="_blank"
         >
           <Clipboard className="w-4 h-4" />
