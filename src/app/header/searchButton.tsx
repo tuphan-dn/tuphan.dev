@@ -1,5 +1,6 @@
 'use client'
 import { Fragment, useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import useKeyboardJs from 'react-use/lib/useKeyboardJs'
 import { useAsync } from 'react-use'
 import axios from 'axios'
@@ -30,6 +31,7 @@ export default function SearchButton() {
   const [open, setOpen] = useState(false)
   const [keyword, setKeyword] = useState('')
   const [, e] = useKeyboardJs(isMac() ? 'command + k' : 'ctrl + k')
+  const pathname = usePathname()
 
   const { data: tags = [] } = useSWR('/api/tag', async (api: string) => {
     const { data } = await axios.get<string[]>(api)
@@ -52,6 +54,10 @@ export default function SearchButton() {
   useEffect(() => {
     if (e) setOpen(true)
   }, [e])
+
+  useEffect(() => {
+    if (pathname) setOpen(false)
+  }, [pathname])
 
   return (
     <Fragment>

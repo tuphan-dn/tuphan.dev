@@ -6,8 +6,8 @@ import axios from 'axios'
 import { motion, AnimatePresence } from 'framer-motion'
 
 import Link from 'next/link'
-import { BlogCard } from '@/components/blog'
 import { Play, Share2, ThumbsUp } from 'lucide-react'
+import { BlogCard } from '@/components/blog'
 import Tags from '@/components/tags'
 
 export default function Template({ children }: { children: ReactNode }) {

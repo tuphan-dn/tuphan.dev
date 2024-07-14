@@ -17,7 +17,7 @@ export default function PlayButton() {
     >
       <Island>
         <ReactPlayer
-          className="hidden"
+          className="invisible !w-dvw !h-dvh fixed top-0 left-0 pointer-events-none"
           url="https://soundcloud.com/sontuph/city-pop-rain-lofi-ghibli-inspired-atmosphere-for-study-chillout-focus-relax"
           playing={playing}
           loop
