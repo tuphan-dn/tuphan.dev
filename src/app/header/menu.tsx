@@ -14,7 +14,7 @@ export default function Menu() {
       </PopoverButton>
       <PopoverPanel
         anchor={{ gap: 5 }}
-        className="z-10 flex flex-col p-2 border-2 border-base-200 bg-base-100 rounded-box w-60 shadow-lg animate-pop-in"
+        className="z-10 flex flex-col p-2 border-2 border-base-300 bg-base-100 rounded-box w-60 shadow-lg animate-pop-in"
       >
         {/* About */}
         <motion.span

@@ -28,7 +28,7 @@ export default function Modal({
       onClose={onCancel}
     >
       <DialogPanel
-        className={clsx('modal-box', {
+        className={clsx('modal-box border-2 border-base-300', {
           [width]: !!width,
           [height]: !!height,
         })}
