@@ -1,6 +1,10 @@
 'use client'
 import { motion } from 'framer-motion'
 
+import Link from 'next/link'
+
+const MotionLink = motion(Link)
+
 export type TagsProps = {
   value?: string[]
 }
@@ -9,7 +13,7 @@ export default function Tags({ value = [] }: TagsProps) {
   return (
     <div className="flex flex-row flex-wrap gap-2">
       {value.map((tag, i) => (
-        <motion.a
+        <MotionLink
           key={tag}
           className="badge badge-outline badge-sm truncate"
           href={`/?tag=${tag}`}
@@ -19,7 +23,7 @@ export default function Tags({ value = [] }: TagsProps) {
           transition={{ duration: 0.5 }}
         >
           {tag}
-        </motion.a>
+        </MotionLink>
       ))}
     </div>
   )
