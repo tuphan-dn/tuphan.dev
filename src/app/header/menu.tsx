@@ -18,7 +18,7 @@ export default function Menu() {
       >
         {/* About */}
         <motion.span
-          className="text-xs font-bold opacity-60 mx-3 my-2"
+          className="text-xs font-light opacity-60 mx-3 mb-2 mt-4"
           initial={{ opacity: 0, x: 8 }}
           animate={{ opacity: 0.6, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -27,7 +27,7 @@ export default function Menu() {
         </motion.span>
         <Link
           className="btn btn-ghost btn-sm flex flex-row gap-4 justify-start items-center font-normal"
-          href="/resume"
+          href="/Curriculum_Vitae.pdf"
           target="_blank"
         >
           <Clipboard className="w-4 h-4" />
@@ -55,7 +55,7 @@ export default function Menu() {
         </Link>
         {/* Contacts */}
         <motion.span
-          className="text-xs font-bold opacity-60 mx-3 mb-2 mt-4"
+          className="text-xs font-light opacity-60 mx-3 mb-2 mt-4"
           initial={{ opacity: 0, x: 8 }}
           animate={{ opacity: 0.6, x: 0 }}
           transition={{ duration: 0.5 }}
