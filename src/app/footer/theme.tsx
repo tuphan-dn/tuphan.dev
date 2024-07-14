@@ -31,7 +31,7 @@ export default function Theme({ className }: ThemeProps) {
 
   return (
     <button
-      className={clsx('btn btn-circle btn-xs btn-ghost', className)}
+      className={clsx('btn btn-square btn-xs btn-ghost', className)}
       onClick={onTheme}
     >
       <MotionIcon

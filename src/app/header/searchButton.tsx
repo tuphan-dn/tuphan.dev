@@ -10,10 +10,10 @@ import { Search } from 'lucide-react'
 import Modal from '@/components/ui/modal'
 import Island from '@/components/island'
 import { LiteBlogCard } from '@/components/blog'
+import Tags from '@/components/tags'
 
 import { delay, isMac } from '@/lib/utils'
 import { useThrottle } from '@/lib/hooks/useThrottle'
-import Tags from '@/components/tags'
 
 function Kbd() {
   return (
@@ -63,7 +63,7 @@ export default function SearchButton() {
       </button>
       <Modal open={open} onCancel={() => setOpen(false)} closable={false}>
         <div className="grid grid-cols-12 gap-8">
-          <label className="col-span-full -m-6 mb-0 input input-lg bg-base-200 !border-none !outline-none flex items-center gap-6">
+          <label className="col-span-full -m-6 mb-0 input input-lg bg-base-200 !border-none !outline-none flex flex-row items-center gap-6">
             <Search className="w-4 h-4" />
             <input
               type="text"
@@ -97,7 +97,7 @@ export default function SearchButton() {
               hidden: loading || !value.length,
             })}
           >
-            <p className="opacity-60 font-semibold">Blogs</p>
+            <p className="opacity-60 text-sm font-semibold">BLOGS</p>
             {value.map((data) => (
               <div key={data.route} className="col-span-full">
                 <LiteBlogCard data={data} />

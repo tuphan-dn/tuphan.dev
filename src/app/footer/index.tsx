@@ -1,7 +1,9 @@
 'use client'
 
+import { SiX } from '@icons-pack/react-simple-icons'
 import Island from '@/components/island'
 import Theme from './theme'
+import ToTop from './totop'
 
 export default function Footer() {
   return (
@@ -10,8 +12,13 @@ export default function Footer() {
         tuphan.dev © {new Date().getFullYear()}
       </p>
       <span className="grow" />
+      <button className="btn btn-xs btn-ghost btn-square">
+        <SiX className="w-3 h-3" />
+      </button>
+      <span className="divider divider-horizontal m-0" />
       <Island>
         <Theme />
+        <ToTop />
       </Island>
     </div>
   )

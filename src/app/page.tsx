@@ -27,7 +27,7 @@ export default function Page() {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          Blog
+          blog
         </motion.h1>
         <motion.p
           className="opacity-60"
@@ -36,7 +36,7 @@ export default function Page() {
           transition={{ duration: 0.5 }}
         >
           I usually write about Computer Science (Web3, WebDev, Cryptography,
-          and Math), and also a few MBA stuffs (cause I&apos;m learning it).
+          and Math), and also some MBA stuffs (because I&apos;m learning it).
         </motion.p>
         <div className="w-full">
           <Tags value={tags} />
