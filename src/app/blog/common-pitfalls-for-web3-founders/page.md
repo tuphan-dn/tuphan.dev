@@ -77,9 +77,9 @@ Ask everyone on your team to do this too.
 
 At my previous startup I asked one of my best friends to join me. I had known him for 10 years. It was extremely awkward, and it took me a month of convincing. He ended up joining me. He also convinced one of his former colleagues to join, and so on. The network multiplies.
 
-**The second best way to recruit talents is to go through your community**, ie, people who know you but whom you may not know.
+**The second best way to recruit talents is to go through your community**, i.e., people who know you but whom you may not know.
 
-If you have a discord/Telegram community, ask your community if they or their friends are interested in working with you. If you have a Twitter/newsletter, post your jobs there. Ask your allies (eg, investors) to retweet. If one of your investors has a large Twitter/newsletter audience, ask them if they can help post your jobs.
+If you have a Discord/Telegram community, ask your community if they or their friends are interested in working with you. If you have a Twitter/newsletter, post your jobs there. Ask your allies (eg, investors) to retweet. If one of your investors has a large Twitter/newsletter audience, ask them if they can help post your jobs.
 
 In retrospect this should be obvious. You want to tap into your loyal followers instead of people who don’t even know you.
 
