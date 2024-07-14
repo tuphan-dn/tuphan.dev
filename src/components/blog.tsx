@@ -16,7 +16,7 @@ export function BlogCard({
     (e: MouseEvent<HTMLDivElement>, route: string) => {
       e.preventDefault()
       e.stopPropagation()
-      push(route)
+      push(route, { scroll: true })
     },
     [push],
   )

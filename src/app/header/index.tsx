@@ -1,9 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { Menu } from 'lucide-react'
 import SearchButton from './searchButton'
 import PlayButton from './playButton'
+import Menu from './menu'
 
 export default function Header() {
   return (
@@ -16,9 +16,7 @@ export default function Header() {
       <PlayButton />
       <span className="grow" />
       <SearchButton />
-      <button className="btn btn-sm btn-circle">
-        <Menu className="w-4 h-4" />
-      </button>
+      <Menu />
     </div>
   )
 }

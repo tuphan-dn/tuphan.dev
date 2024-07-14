@@ -3,7 +3,7 @@ import { useState } from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
-import { Music } from 'lucide-react'
+import { Disc3 } from 'lucide-react'
 import ReactPlayer from 'react-player/soundcloud'
 import Island from '@/components/island'
 
@@ -35,7 +35,7 @@ export default function PlayButton() {
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
       >
-        <Music className="w-2 h-2 text-base-100" />
+        <Disc3 className="w-4 h-4 text-base-100" />
       </motion.div>
     </button>
   )
