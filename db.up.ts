@@ -7,8 +7,10 @@ import { frontmatter } from 'micromark-extension-frontmatter'
 import { frontmatterFromMarkdown } from 'mdast-util-frontmatter'
 import toml from 'toml'
 import { z } from 'zod'
+import { resolve } from 'path'
+import { writeFileSync } from 'fs'
 
-export function onDreeFile(node: ExtendedDree) {
+function onDreeFile(node: ExtendedDree) {
   const file = readFileSync(node.path)
   const md = fromMarkdown(file, {
     extensions: [frontmatter(['yaml', 'toml'])],
@@ -33,7 +35,7 @@ export function onDreeFile(node: ExtendedDree) {
     .replaceAll('\n', ' ')
 }
 
-export function dreelize(
+function dreelize(
   root: string,
   onFile: (node: ExtendedDree) => void = onDreeFile,
 ): ExtendedDree | null {
@@ -52,7 +54,7 @@ export function dreelize(
   return dree
 }
 
-export function trielize(
+function trielize(
   parentRoute: string,
   { name, children = [], stat }: ExtendedDree,
 ): Tree {
@@ -72,3 +74,11 @@ export function trielize(
     content: only.content || '',
   }
 }
+
+// Parse data
+const root = resolve(process.cwd(), './src/app/blog')
+const dree = dreelize(root)
+if (!dree) throw new Error('Empty contents')
+const tree = trielize('', dree)
+// Write
+writeFileSync('src/db/tree.json', JSON.stringify(tree, null, 2))

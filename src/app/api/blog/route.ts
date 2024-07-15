@@ -1,9 +1,8 @@
 import { Body, Injectable } from '@/interceptor'
 import { NextRequest, NextResponse } from 'next/server'
-import { resolve } from 'path'
-import { dreelize, trielize } from './tree'
 import { z } from 'zod'
 import Fuse from 'fuse.js'
+import { tree } from '@/db'
 
 const PostDto = z.object({ q: z.string() })
 
@@ -17,10 +16,6 @@ function flattenTree({
 class Route {
   @Injectable()
   static async GET() {
-    const root = resolve(process.cwd(), './src/app/blog')
-    const dree = dreelize(root)
-    if (!dree) return NextResponse.json('Not Found', { status: 404 })
-    const tree = trielize('', dree)
     return NextResponse.json(tree)
   }
 
@@ -30,10 +25,6 @@ class Route {
     @Body(PostDto) { q }: z.infer<typeof PostDto>,
   ) {
     if (!q || q.length < 3) throw new Error('Bad Reuqest')
-    const root = resolve(process.cwd(), './src/app/blog')
-    const dree = dreelize(root)
-    if (!dree) return NextResponse.json('Not Found', { status: 404 })
-    const tree = trielize('', dree)
     const nodes = flattenTree(tree)
     const index = new Fuse(nodes, {
       ignoreLocation: true,

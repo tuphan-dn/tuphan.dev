@@ -1,7 +1,6 @@
+import { tree } from '@/db'
 import { Injectable } from '@/interceptor'
 import { NextResponse } from 'next/server'
-import { resolve } from 'path'
-import { dreelize, trielize } from '../blog/tree'
 
 function flattenTree({
   children = [],
@@ -13,10 +12,6 @@ function flattenTree({
 class Route {
   @Injectable()
   static async GET() {
-    const root = resolve(process.cwd(), './src/app/blog')
-    const dree = dreelize(root)
-    if (!dree) return NextResponse.json([])
-    const tree = trielize('', dree)
     const nodes = flattenTree(tree)
     const raw = nodes.map(({ tags }) => tags).flat()
     const tags = Object.entries(

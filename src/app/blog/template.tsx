@@ -6,7 +6,7 @@ import axios from 'axios'
 import { motion, AnimatePresence } from 'framer-motion'
 
 import Link from 'next/link'
-import { Play, Share2, ThumbsUp } from 'lucide-react'
+import { Play, Share2 } from 'lucide-react'
 import { BlogCard } from '@/components/blog'
 import Tags from '@/components/tags'
 
