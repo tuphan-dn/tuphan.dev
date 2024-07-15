@@ -1,3 +1,8 @@
++++
+tags = "news, mdx"
+date = "11 July, 2024"
++++
+
 # Beautiful & consistent icons: Made by the community.
 
 ## Packages support

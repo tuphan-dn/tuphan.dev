@@ -17,7 +17,7 @@ export default function Tags({ value = [] }: TagsProps) {
           key={tag}
           className="badge badge-outline badge-sm truncate"
           href={`/?tag=${tag}`}
-          initial={{ x: 16 * (i + 1), opacity: 0 }}
+          initial={{ x: Math.min(8 * (i + 1), 64), opacity: 0 }}
           animate={{ x: 0, opacity: 0.6 }}
           whileHover={{ opacity: 1, transition: { duration: 0 } }}
           transition={{ duration: 0.5 }}

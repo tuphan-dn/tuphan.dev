@@ -4,6 +4,7 @@ type ExtendedDree = Omit<import('dree').Dree, 'children'> & {
   description: string
   content: string
   children?: ExtendedDree[]
+  date: Date
 }
 
 type Tree = {
@@ -13,6 +14,5 @@ type Tree = {
   tags: string[]
   description: string
   content: string
-  createdAt: Date
-  updatedAt: Date
+  date: Date
 }

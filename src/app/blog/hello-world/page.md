@@ -1,8 +1,9 @@
 +++
 tags = "news, mdx"
+date = "11 July, 2024"
 +++
 
-# Welcome to my MDX page!
+# Hello World
 
 ## GFM
 

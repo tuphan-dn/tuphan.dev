@@ -1,3 +1,8 @@
++++
+tags = "book, mba"
+date = "15 July, 2024"
++++
+
 # Chapter 2 — Elementary Principles of Composition
 
 ## 12. Choose a suitable design and hold to it.

@@ -19,9 +19,8 @@ export default function Menu() {
         {/* About */}
         <motion.span
           className="text-xs font-light opacity-60 mx-3 mb-2 mt-4"
-          initial={{ opacity: 0, x: 8 }}
-          animate={{ opacity: 0.6, x: 0 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.6 }}
         >
           ABOUT ME
         </motion.span>
@@ -56,9 +55,8 @@ export default function Menu() {
         {/* Contacts */}
         <motion.span
           className="text-xs font-light opacity-60 mx-3 mb-2 mt-4"
-          initial={{ opacity: 0, x: 8 }}
-          animate={{ opacity: 0.6, x: 0 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.6 }}
         >
           CONTACTS
         </motion.span>

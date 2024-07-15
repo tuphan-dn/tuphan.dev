@@ -20,14 +20,18 @@ function onDreeFile(node: ExtendedDree) {
   const heading = select('root > heading', md) || {}
   const paragraph = select('root > paragraph', md) || {}
   const text = selectAll('heading, paragraph', md)
-  const { tags } = z
-    .object({ tags: z.string().default('') })
+  const { tags, date } = z
+    .object({
+      tags: z.string().default(''),
+      date: z.coerce.date().default(new Date()),
+    })
     .parse(toml.parse(toString(matter)))
   node.title = toString(heading)
   node.tags = tags
     .split(',')
     .map((e) => e.trim())
     .filter((e) => !!e)
+  node.date = date
   node.description = toString(paragraph)
   node.content = text
     .map((e) => toString(e))
@@ -47,7 +51,6 @@ function dreelize(
       hash: false,
       matches: '**/page.{md,mdx}',
       extensions: ['md', 'mdx'],
-      stat: true,
     },
     onFile,
   )
@@ -56,22 +59,34 @@ function dreelize(
 
 function trielize(
   parentRoute: string,
-  { name, children = [], stat }: ExtendedDree,
+  { name, children = [] }: ExtendedDree,
 ): Tree {
   const route = `${parentRoute}/${name}`
   const index = children.findIndex(({ type }) => type === 'file')
   const [
-    only = { title: '', tags: [], description: '', value: '', content: '' },
+    only = {
+      title: '',
+      tags: [],
+      description: '',
+      value: '',
+      content: '',
+      date: new Date(),
+    },
   ] = index >= 0 ? children.splice(index, 1) : []
   return {
     route,
-    children: children.map((child) => trielize(route, child)),
+    children: children
+      .map((child) => trielize(route, child))
+      .sort((a, b) => {
+        if (a.date > b.date) return -1
+        if (b.date > a.date) return 1
+        return 0
+      }),
     title: only.title,
     tags: only.tags,
     description: only.description,
-    updatedAt: stat?.mtime || new Date(),
-    createdAt: stat?.birthtime || new Date(),
     content: only.content || '',
+    date: only.date,
   }
 }
 

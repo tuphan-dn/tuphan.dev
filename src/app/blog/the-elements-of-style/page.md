@@ -1,5 +1,6 @@
 +++
 tags = "book, mba"
+date = "13 July, 2024"
 +++
 
 # The Elements of Style

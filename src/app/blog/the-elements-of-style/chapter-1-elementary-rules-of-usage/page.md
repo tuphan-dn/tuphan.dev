@@ -1,5 +1,6 @@
 +++
 tags = "book, mba"
+date = "14 July, 2024"
 +++
 
 # Chapter 1 — Elementary Rules of Usage

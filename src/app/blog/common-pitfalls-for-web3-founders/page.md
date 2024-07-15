@@ -1,5 +1,6 @@
 +++
 tags = "startup, mba"
+date = "12 July, 2024"
 +++
 
 # Common pitfalls for Web3 founders

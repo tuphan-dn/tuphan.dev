@@ -7,7 +7,7 @@ import { ArrowUpRight } from 'lucide-react'
 import Tags from './tags'
 
 export function BlogCard({
-  data: { title, tags, route, description, updatedAt },
+  data: { title, tags, route, description, date },
 }: {
   data: Tree
 }) {
@@ -28,7 +28,7 @@ export function BlogCard({
     >
       <div className="col-span-full sm:col-span-2 mt-1 flex flex-col gap-4">
         <p className="text-xs opacity-60">
-          {dayjs(updatedAt).format('DD MMMM, YYYY')}
+          {dayjs(date).format('DD MMMM, YYYY')}
         </p>
         <Tags value={tags} />
       </div>

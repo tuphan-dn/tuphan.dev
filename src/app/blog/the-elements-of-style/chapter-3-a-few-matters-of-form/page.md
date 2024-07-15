@@ -1,3 +1,8 @@
++++
+tags = "book, mba"
+date = "16 July, 2024"
++++
+
 # Chapter 3 — A Few Matters of Form
 
 Colloquialisms. If you use a colloquialism or a slang word or phrase, simply use it; do not draw attention to it by enclosing it in quotation marks. To do so is to put on airs, as though you were inviting the reader to join you in a select society of those who know better.
