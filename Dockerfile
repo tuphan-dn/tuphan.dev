@@ -13,7 +13,7 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 RUN --mount=type=secret,id=NEXT_PUBLIC_HOST \
     NEXT_PUBLIC_HOST="$(cat /run/secrets/NEXT_PUBLIC_HOST)" \
-    pnpm build
+    pnpm ci:build
 # Remove dev deps
 RUN pnpm prune --prod
 

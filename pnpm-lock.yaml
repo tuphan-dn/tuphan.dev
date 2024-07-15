@@ -202,9 +202,6 @@ devDependencies:
   unist-util-select:
     specifier: ^5.1.0
     version: 5.1.0
-  unist-util-visit:
-    specifier: ^5.0.0
-    version: 5.0.0
 
 packages:
 
