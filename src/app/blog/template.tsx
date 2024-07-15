@@ -66,14 +66,6 @@ export default function Template({ children }: { children: ReactNode }) {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              <ThumbsUp className="h-4 w-4" />
-            </motion.button>
-            <motion.button
-              className="btn btn-circle btn-sm"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
               <Share2 className="h-4 w-4" />
             </motion.button>
             <span className="grow" />
