@@ -10,7 +10,6 @@ import Tags from './tags'
 
 export function useBlog(route: string) {
   return useSWR(`/api${route}`, async (api: string) => {
-    console.log(api)
     const { data } = await axios.get<Blog>(api)
     return data
   })
