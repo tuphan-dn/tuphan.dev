@@ -99,6 +99,8 @@ function trielize(
       .sort((a, b) => {
         if (a.date > b.date) return -1
         if (b.date > a.date) return 1
+        if (a.title > b.title) return -1
+        if (b.title > a.title) return 1
         return 0
       }),
     title: only.title,
