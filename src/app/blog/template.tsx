@@ -40,6 +40,19 @@ export default function Template({ children }: { children: ReactNode }) {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
+        <div className="not-prose fixed top-[50%] -translate-y-[50%] left-0 cursor-pointer group z-10 group">
+          <div className="flex flex-col transition-all gap-1 group-hover:gap-2 m-1 p-1 group-hover:p-2 bg-base-100 rounded-box shadow-lg border-2 border-base-300">
+            <span className="w-1 h-1 rounded-full transition-all flex group-hover:hidden bg-base-content" />
+            <span className="w-1 h-3 rounded-full transition-all flex group-hover:hidden bg-base-300" />
+            <button className="btn btn-square btn-sm transition-all hidden group-hover:flex">
+              <Play className="w-4 h-4 fill-base-content" />
+            </button>
+            <div className="join join-vertical transition-all hidden group-hover:flex">
+              <FacebookShare className="join-item" />
+              <TwitterShare className="join-item" />
+            </div>
+          </div>
+        </div>
         <div className="not-prose mb-16 flex flex-col gap-0">
           <div className="breadcrumbs text-sm">
             <ul>
