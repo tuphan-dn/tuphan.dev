@@ -4,8 +4,7 @@ import { headers } from 'next/headers'
 import { table } from '@/db'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const href = headers().get('referer') || ''
-  const { pathname } = new URL(href)
+  const pathname = headers().get('x-forwarded-pathname') || ''
   const { title, description } =
     table.find(({ route }) => route === pathname) || {}
   return {
