@@ -12,7 +12,9 @@ export default function Share({
   children: ReactNode
 }) {
   const href = useMemo(() => {
-    const params = new URLSearchParams({ u: location.href }).toString()
+    const params = new URLSearchParams({
+      u: typeof location !== 'undefined' ? location.href : '#',
+    }).toString()
     return `${url}?${params}`
   }, [url])
 
