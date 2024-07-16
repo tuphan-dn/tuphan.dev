@@ -1,18 +1,17 @@
 import 'server-only'
 import { z } from 'zod'
-import treejson from './tree.json'
+import tablejson from './table.json'
 
-const TreeDto: z.ZodType<Tree> = z
-  .object({
+const TableDto: z.ZodType<Blog[]> = z.array(
+  z.object({
     route: z.string(),
     title: z.string(),
     tags: z.array(z.string()),
     description: z.string(),
     content: z.string(),
     date: z.coerce.date(),
-  })
-  .extend({
-    children: z.lazy(() => TreeDto.array()),
-  })
+    children: z.array(z.string()),
+  }),
+)
 
-export const tree = TreeDto.parse(treejson)
+export const table = TableDto.parse(tablejson)

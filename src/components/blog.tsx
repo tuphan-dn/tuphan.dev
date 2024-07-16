@@ -2,16 +2,26 @@
 import { type MouseEvent, useCallback } from 'react'
 import dayjs from 'dayjs'
 import { useRouter } from 'next-nprogress-bar'
+import useSWR from 'swr'
+import axios from 'axios'
 
 import { ArrowUpRight } from 'lucide-react'
 import Tags from './tags'
 
-export function BlogCard({
-  data: { title, tags, route, description, date },
-}: {
-  data: Tree
-}) {
+export function useBlog(route: string) {
+  return useSWR(`/api${route}`, async (api: string) => {
+    console.log(api)
+    const { data } = await axios.get<Blog>(api)
+    return data
+  })
+}
+
+export function BlogCard({ route }: { route: string }) {
   const { push } = useRouter()
+  const {
+    data: { date = new Date(), tags = [], title = '', description = '' } = {},
+  } = useBlog(route)
+
   const onClick = useCallback(
     (e: MouseEvent<HTMLDivElement>, route: string) => {
       e.preventDefault()
@@ -45,12 +55,10 @@ export function BlogCard({
   )
 }
 
-export function LiteBlogCard({
-  data: { title, route, description },
-}: {
-  data: Omit<Tree, 'children'> & { children?: Tree[] }
-}) {
+export function LiteBlogCard({ route }: { route: string }) {
   const { push } = useRouter()
+  const { data: { title = '', description = '' } = {} } = useBlog(route)
+
   const onClick = useCallback(
     (e: MouseEvent<HTMLDivElement>, route: string) => {
       e.preventDefault()
@@ -68,7 +76,9 @@ export function LiteBlogCard({
       <h3 className="col-span-full font-semibold tracking-tight leading-tight">
         {title}
       </h3>
-      <p className="col-span-full text-sm opacity-60">{description}</p>
+      <p className="col-span-full text-sm opacity-60 line-clamp-2">
+        {description}
+      </p>
     </div>
   )
 }

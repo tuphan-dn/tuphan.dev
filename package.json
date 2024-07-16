@@ -4,14 +4,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently --names DEV,LNT,DBU -c cyan,yellow,magenta 'pnpm dev:watch' 'pnpm lint:watch' 'pnpm db:watch'",
+    "dev": "concurrently --names DEV,LNT,MGR -c cyan,yellow,magenta 'pnpm dev:watch' 'pnpm lint:watch' 'pnpm migrate:watch'",
     "dev:watch": "next dev --port 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "lint:watch": "nodemon --watch src --ext ts,tsx --exec 'next lint' --signal SIGTERM",
-    "db": "tsx db.up.ts",
-    "db:watch": "nodemon --watch db.up.ts --watch src --ext md,mdx --exec 'pnpm db' --signal SIGTERM",
+    "migrate": "tsx db.up.ts",
+    "migrate:watch": "nodemon --watch db.up.ts --watch src --ext md,mdx --exec 'pnpm migrate' --signal SIGTERM",
     "ci:build": "pnpm db && pnpm build"
   },
   "dependencies": {
@@ -48,6 +48,7 @@
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^14.2.4",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/typography": "^0.5.13",
     "@types/mdx": "^2.0.13",
     "@types/node": "^20.14.9",

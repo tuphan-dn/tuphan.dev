@@ -12,10 +12,10 @@ import Tags from '@/components/tags'
 
 export default function Template({ children }: { children: ReactNode }) {
   const segments = useSelectedLayoutSegments()
-  const { data } = useSWR(
+  const { data: { tags = [], children: routes = [] } = {} } = useSWR(
     `/api/blog/${segments.join('/')}`,
     async (api: string) => {
-      const { data } = await axios.get<Tree>(api)
+      const { data } = await axios.get<Blog>(api)
       return data
     },
   )
@@ -81,20 +81,20 @@ export default function Template({ children }: { children: ReactNode }) {
           </div>
         </div>
         <div className="not-prose w-full">
-          <Tags value={data?.tags} />
+          <Tags value={tags} />
         </div>
         {children}
       </motion.article>
       <div className="w-full max-w-[65ch] grid grid-cols-12 gap-4">
-        {(data?.children || []).map((node, i) => (
+        {[...routes].reverse().map((route, i) => (
           <motion.div
-            key={node.title}
+            key={route}
             className="col-span-full"
             initial={{ y: 8 * (i + 1), opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <BlogCard data={node} />
+            <BlogCard route={route} />
           </motion.div>
         ))}
       </div>

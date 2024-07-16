@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs'
-import { scan } from 'dree'
+import { scan, type Dree } from 'dree'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { select, selectAll } from 'unist-util-select'
 import { toString } from 'mdast-util-to-string'
@@ -10,39 +10,26 @@ import { z } from 'zod'
 import { resolve } from 'path'
 import { writeFileSync } from 'fs'
 
-function onDreeFile(node: ExtendedDree) {
-  const file = readFileSync(node.path)
-  const md = fromMarkdown(file, {
-    extensions: [frontmatter(['yaml', 'toml'])],
-    mdastExtensions: [frontmatterFromMarkdown(['yaml', 'toml'])],
-  })
-  const matter = select('root > toml', md)
-  const heading = select('root > heading', md) || {}
-  const paragraph = select('root > paragraph', md) || {}
-  const text = selectAll('heading, paragraph', md)
-  const { tags, date } = z
-    .object({
-      tags: z.string().default(''),
-      date: z.coerce.date().default(new Date()),
-    })
-    .parse(toml.parse(toString(matter)))
-  node.title = toString(heading)
-  node.tags = tags
-    .split(',')
-    .map((e) => e.trim())
-    .filter((e) => !!e)
-  node.date = date
-  node.description = toString(paragraph)
-  node.content = text
-    .map((e) => toString(e))
-    .join(' ')
-    .replaceAll('\n', ' ')
+type ExtendedDree = Omit<Dree, 'children'> & {
+  title: string
+  tags: string[]
+  description: string
+  content: string
+  children?: ExtendedDree[]
+  date: Date
 }
 
-function dreelize(
-  root: string,
-  onFile: (node: ExtendedDree) => void = onDreeFile,
-): ExtendedDree | null {
+type Tree = {
+  route: string
+  children: Tree[]
+  title: string
+  tags: string[]
+  description: string
+  content: string
+  date: Date
+}
+
+function dreelize(root: string): ExtendedDree | null {
   const dree = scan<ExtendedDree>(
     root,
     {
@@ -52,7 +39,39 @@ function dreelize(
       matches: '**/page.{md,mdx}',
       extensions: ['md', 'mdx'],
     },
-    onFile,
+    (node) => {
+      const file = readFileSync(node.path)
+      const md = fromMarkdown(file, {
+        extensions: [frontmatter(['yaml', 'toml'])],
+        mdastExtensions: [frontmatterFromMarkdown(['yaml', 'toml'])],
+      })
+      const matter = select('root > toml', md)
+      const heading = select('root > heading', md) || {}
+      const paragraph = select('root > paragraph', md) || {}
+      const text = selectAll('heading, paragraph', md)
+      const { tags, date } = z
+        .object({
+          tags: z
+            .string()
+            .default('')
+            .transform((tags) =>
+              tags
+                .split(',')
+                .map((e) => e.trim())
+                .filter((e) => !!e),
+            ),
+          date: z.coerce.date().default(new Date()),
+        })
+        .parse(toml.parse(toString(matter)))
+      node.title = toString(heading)
+      node.tags = tags
+      node.date = date
+      node.description = toString(paragraph)
+      node.content = text
+        .map((e) => toString(e))
+        .join(' ')
+        .replaceAll('\n', ' ')
+    },
   )
   return dree
 }
@@ -90,10 +109,18 @@ function trielize(
   }
 }
 
+function flatten({ children = [], ...node }: Tree): Blog[] {
+  return [
+    { ...node, children: children.map(({ route }) => route) },
+    ...children.map((child) => flatten(child)).flat(),
+  ]
+}
+
 // Parse data
 const root = resolve(process.cwd(), './src/app/blog')
 const dree = dreelize(root)
 if (!dree) throw new Error('Empty contents')
 const tree = trielize('', dree)
-// Write
-writeFileSync('src/db/tree.json', JSON.stringify(tree, null, 2))
+// Write table
+const table = flatten(tree)
+writeFileSync('src/db/table.json', JSON.stringify(table, null, 2))

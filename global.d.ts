@@ -1,15 +1,6 @@
-type ExtendedDree = Omit<import('dree').Dree, 'children'> & {
-  title: string
-  tags: string[]
-  description: string
-  content: string
-  children?: ExtendedDree[]
-  date: Date
-}
-
-type Tree = {
+type Blog = {
   route: string
-  children: Tree[]
+  children: string[]
   title: string
   tags: string[]
   description: string

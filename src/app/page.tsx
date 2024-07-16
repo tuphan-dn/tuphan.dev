@@ -10,7 +10,7 @@ export default function Page() {
   const { data: { children: blogs = [] } = {} } = useSWR(
     '/api/blog',
     async (api: string) => {
-      const { data } = await axios.get<Tree>(api)
+      const { data } = await axios.get<Blog>(api)
       return data
     },
   )
@@ -43,15 +43,15 @@ export default function Page() {
         </div>
       </div>
       <div className="w-full max-w-a4 p-6 grid grid-cols-12 gap-0">
-        {blogs.map((node, i) => (
+        {blogs.map((route, i) => (
           <motion.div
-            key={node.title}
+            key={route}
             className="col-span-full"
             initial={{ y: 8 * (i + 1), opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            <BlogCard data={node} />
+            <BlogCard route={route} />
           </motion.div>
         ))}
       </div>

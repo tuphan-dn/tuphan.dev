@@ -41,12 +41,9 @@ export default function SearchButton() {
   const q = useThrottle(keyword, 500)
   const { value = [], loading } = useAsync(async () => {
     if (!q || q.length < 3) return []
-    const { data } = await axios.post<Array<Omit<Tree, 'children'>>>(
-      '/api/blog',
-      {
-        q,
-      },
-    )
+    const { data } = await axios.post<Array<Blog>>('/api/blog', {
+      q,
+    })
     await delay(1000)
     return data
   }, [q])
@@ -68,8 +65,8 @@ export default function SearchButton() {
         <Search className="w-3 h-3 ml-1" />
       </button>
       <Modal open={open} onCancel={() => setOpen(false)} closable={false}>
-        <div className="grid grid-cols-12 gap-8">
-          <label className="col-span-full -m-6 mb-0 input input-lg rounded-b-none bg-base-200 !border-none !outline-none flex flex-row items-center gap-6">
+        <div className="grid grid-cols-12 gap-8 relative">
+          <label className="sticky -top-6 z-10 col-span-full -m-6 mb-0 input input-lg rounded-b-none bg-base-200 !border-none !outline-none flex flex-row items-center gap-6">
             <Search className="w-4 h-4" />
             <input
               type="text"
@@ -104,9 +101,9 @@ export default function SearchButton() {
             })}
           >
             <p className="opacity-60 text-sm font-semibold">BLOGS</p>
-            {value.map((data) => (
-              <div key={data.route} className="col-span-full">
-                <LiteBlogCard data={data} />
+            {value.map(({ route }) => (
+              <div key={route} className="col-span-full">
+                <LiteBlogCard route={route} />
               </div>
             ))}
           </div>
