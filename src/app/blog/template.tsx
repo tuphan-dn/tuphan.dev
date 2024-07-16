@@ -7,12 +7,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 import Link from 'next/link'
 import { Play } from 'lucide-react'
-import { SiFacebook, SiX } from '@icons-pack/react-simple-icons'
 import { BlogCard } from '@/components/blog'
 import Tags from '@/components/tags'
-import Share from './share'
-
-const MotionShare = motion(Share)
+import { FacebookShare, TwitterShare } from './share'
 
 export default function Template({ children }: { children: ReactNode }) {
   const segments = useSelectedLayoutSegments()
@@ -64,22 +61,8 @@ export default function Template({ children }: { children: ReactNode }) {
             </ul>
           </div>
           <div className="w-full flex flex-row gap-2 justify-end py-3 border-y border-base-300">
-            <MotionShare
-              url="https://www.facebook.com/sharer/sharer.php"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <SiFacebook className="h-4 w-4" />
-            </MotionShare>
-            <motion.button
-              className="btn btn-circle btn-sm"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <SiX className="h-4 w-4" />
-            </motion.button>
+            <FacebookShare />
+            <TwitterShare />
             <span className="grow" />
             <motion.button
               className="btn btn-sm rounded-full"
