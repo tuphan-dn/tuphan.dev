@@ -7,12 +7,12 @@
     "dev": "concurrently --names DEV,LNT,MGR -c cyan,yellow,magenta 'pnpm dev:watch' 'pnpm lint:watch' 'pnpm migrate:watch'",
     "dev:watch": "next dev --port 3000",
     "build": "next build",
+    "ci:build": "pnpm migrate && pnpm build",
     "start": "next start",
     "lint": "next lint",
     "lint:watch": "nodemon --watch src --ext ts,tsx --exec 'next lint' --signal SIGTERM",
     "migrate": "tsx db.up.ts",
-    "migrate:watch": "nodemon --watch db.up.ts --watch src --ext md,mdx --exec 'pnpm migrate' --signal SIGTERM",
-    "ci:build": "pnpm db && pnpm build"
+    "migrate:watch": "nodemon --watch db.up.ts --watch src --ext md,mdx --exec 'pnpm migrate' --signal SIGTERM"
   },
   "dependencies": {
     "@headlessui/react": "^2.1.2",
