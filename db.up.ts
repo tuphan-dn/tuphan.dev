@@ -9,6 +9,7 @@ import toml from 'toml'
 import { z } from 'zod'
 import { resolve } from 'path'
 import { writeFileSync } from 'fs'
+import lunr from 'lunr'
 
 type ExtendedDree = Omit<Dree, 'children'> & {
   title: string
@@ -126,3 +127,12 @@ const tree = trielize('', dree)
 // Write table
 const table = flatten(tree)
 writeFileSync('src/db/table.json', JSON.stringify(table, null, 2))
+// Write index
+const document = lunr(function () {
+  this.ref('route')
+  this.field('title')
+  this.field('description')
+  this.field('content')
+  table.forEach((doc) => this.add(doc))
+})
+writeFileSync('src/db/index.json', JSON.stringify(document, null, 2))

@@ -1,8 +1,8 @@
 import { Body, Injectable, Params } from '@/interceptor'
 import { type NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
-import { table } from '@/db'
-import lunr from 'lunr'
+import { Index } from 'lunr'
+import { index, table } from '@/db'
 
 const GetDto = z.object({ slug: z.array(z.string()).default([]) })
 const PostDto = z.object({
@@ -38,13 +38,7 @@ class Route {
     _req: NextRequest,
     @Body(PostDto) { q }: z.infer<typeof PostDto>,
   ) {
-    const document = lunr(function () {
-      this.ref('route')
-      this.field('title')
-      this.field('description')
-      this.field('content')
-      table.forEach((doc) => this.add(doc))
-    })
+    const document = Index.load(index)
     const results = document.search(q)
     const data = results.filter(({ score }) => score >= 1).map(({ ref }) => ref)
     return NextResponse.json(data)
