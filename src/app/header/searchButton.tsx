@@ -41,7 +41,7 @@ export default function SearchButton() {
   const q = useThrottle(keyword, 500)
   const { value = [], loading } = useAsync(async () => {
     if (!q || q.length < 3) return []
-    const { data } = await axios.post<Array<Blog>>('/api/blog', {
+    const { data } = await axios.post<string[]>('/api/blog', {
       q,
     })
     await delay(1000)
@@ -101,7 +101,7 @@ export default function SearchButton() {
             })}
           >
             <p className="opacity-60 text-sm font-semibold">BLOGS</p>
-            {value.map(({ route }) => (
+            {value.map((route) => (
               <div key={route} className="col-span-full">
                 <LiteBlogCard route={route} />
               </div>

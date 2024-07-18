@@ -1,11 +1,16 @@
 import { Body, Injectable, Params } from '@/interceptor'
 import { type NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
-import Fuse from 'fuse.js'
 import { table } from '@/db'
+import lunr from 'lunr'
 
 const GetDto = z.object({ slug: z.array(z.string()).default([]) })
-const PostDto = z.object({ q: z.string().min(3) })
+const PostDto = z.object({
+  q: z
+    .string()
+    .min(3)
+    .transform((e) => e.replace(/[^a-zA-Z0-9]/g, ' ')),
+})
 const ResponseDto = z.object({
   route: z.string(),
   title: z.string(),
@@ -33,12 +38,15 @@ class Route {
     _req: NextRequest,
     @Body(PostDto) { q }: z.infer<typeof PostDto>,
   ) {
-    const index = new Fuse(table, {
-      ignoreLocation: true,
-      keys: ['title', 'description', 'content'],
+    const document = lunr(function () {
+      this.ref('route')
+      this.field('title')
+      this.field('description')
+      this.field('content')
+      table.forEach((doc) => this.add(doc))
     })
-    const results = index.search(q).map(({ item }) => item)
-    const data = z.array(ResponseDto).parse(results)
+    const results = document.search(q)
+    const data = results.filter(({ score }) => score >= 1).map(({ ref }) => ref)
     return NextResponse.json(data)
   }
 }
