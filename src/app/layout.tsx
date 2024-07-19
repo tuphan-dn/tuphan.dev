@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 import type { Metadata } from 'next'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 import UiProvider from '@/providers/ui.provider'
 
@@ -51,6 +52,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           </main>
         </UiProvider>
       </body>
+      <GoogleAnalytics gaId="G-ZYEVZRRV45" />
     </html>
   )
 }
