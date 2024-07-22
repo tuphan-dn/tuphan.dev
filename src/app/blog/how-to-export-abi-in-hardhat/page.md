@@ -130,4 +130,4 @@ contract SecondCounter {
 
 ```
 
-Then the compiler will generate 2 artifacts `Counter.sol:FirstCounter` and `Counter.sol:SecondCounter`. From that, you can optionally generate your defired contract ABI. For example, `only: [':FirstCounter$']`, or `only: [':SecondCounter$']`, or even both contracts `only: [':FirstCounter$', ':SecondCounter$']`.
+Then the compiler will generate 2 artifacts `Counter.sol:FirstCounter` and `Counter.sol:SecondCounter`. From that, you can optionally generate your desired contract ABI. For example, `only: [':FirstCounter$']`, or `only: [':SecondCounter$']`, or even both contracts `only: [':FirstCounter$', ':SecondCounter$']`.

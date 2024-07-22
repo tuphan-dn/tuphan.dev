@@ -9,11 +9,16 @@ const MotionLink = motion(Link)
 export type TagsProps = {
   value?: string[]
   active?: string
+  className?: string
 }
 
-export default function Tags({ value = [], active }: TagsProps) {
+export default function Tags({
+  className = 'flex flex-row flex-wrap gap-1',
+  value = [],
+  active,
+}: TagsProps) {
   return (
-    <div className="flex flex-row flex-wrap gap-2">
+    <div className={className}>
       <MotionLink
         className={clsx('badge badge-sm truncate', {
           'badge-outline': !!active,

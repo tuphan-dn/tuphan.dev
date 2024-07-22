@@ -20,7 +20,9 @@ function TagList() {
     const { data } = await axios.get<string[]>(api)
     return data
   })
-  return <Tags value={tags} active={tag} />
+  return (
+    <Tags className="flex flex-row flex-wrap gap-2" value={tags} active={tag} />
+  )
 }
 
 function BlogList() {
