@@ -1,3 +1,8 @@
++++
+tags = "evm, hardhat"
+date = "22 July, 2024"
++++
+
 # How to export ABI in Hardhat?
 
 This Typescript tutorial is to export the contract ABI by `hardhat-abi-exporter` in `hardhat.config.ts`. As the result, you will got an `abi` folder that contains your ABI.
@@ -97,7 +102,7 @@ On every compilation, the abi generator will rerun automatically. The `abi/Count
 
 ## Under the Hood
 
-Let's say we modify a contract file `Counter.sol`
+Let's say we modify the contract file `Counter.sol`
 
 ```solidity label="Counter.sol" group="new-contract"
 // SPDX-License-Identifier: MIT

@@ -119,7 +119,7 @@ export default function Template({ children }: { children: ReactNode }) {
         <p className="font-bold">You have questions?</p>
         <p className="flex flex-row gap-1">
           <span className="opacity-60">
-            To ask questions you can create issues on
+            To ask questions, you can create issues on
           </span>
           <Link
             className="text-info-content hover:underline flex flex-row gap-1"
