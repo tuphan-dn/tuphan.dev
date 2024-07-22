@@ -65,6 +65,8 @@
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.4",
     "eslint-plugin-react": "^7.34.3",
+    "highlightjs-solidity": "^2.0.6",
+    "lowlight": "^3.1.0",
     "mdast-util-from-markdown": "^2.0.1",
     "mdast-util-frontmatter": "^2.0.1",
     "mdast-util-to-string": "^4.0.0",

@@ -11,6 +11,8 @@ import {
   rehypeExtendedHighlight,
   rehypeGitContributors,
 } from '@gears-bot/rehype'
+import { all } from 'lowlight'
+import { solidity } from 'highlightjs-solidity'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -31,7 +33,10 @@ const withMDX = createMDX({
       rehypeKatex,
       [rehypeMdxImportMedia, { elementAttributeNameCase: 'html' }],
       rehypeToc,
-      [rehypeExtendedHighlight, { tabsName: 'Tabs', tabName: 'Tab' }],
+      [
+        rehypeExtendedHighlight,
+        { tabsName: 'Tabs', tabName: 'Tab', languages: { ...all, solidity } },
+      ],
       [rehypeGitContributors, { compName: 'Contributors' }],
     ],
   },

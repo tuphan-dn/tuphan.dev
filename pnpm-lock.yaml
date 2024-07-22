@@ -151,6 +151,12 @@ devDependencies:
   eslint-plugin-react:
     specifier: ^7.34.3
     version: 7.34.3(eslint@8.57.0)
+  highlightjs-solidity:
+    specifier: ^2.0.6
+    version: 2.0.6
+  lowlight:
+    specifier: ^3.1.0
+    version: 3.1.0
   mdast-util-from-markdown:
     specifier: ^2.0.1
     version: 2.0.1
@@ -3166,6 +3172,10 @@ packages:
   /highlight.js@11.9.0:
     resolution: {integrity: sha512-fJ7cW7fQGCYAkgv4CPfwFHrfd/cLS4Hau96JuJ+ZTOWhjnhoeN1ub1tFmALm/+lW5z4WCAuAV9bm05AP0mS6Gw==}
     engines: {node: '>=12.0.0'}
+    dev: true
+
+  /highlightjs-solidity@2.0.6:
+    resolution: {integrity: sha512-DySXWfQghjm2l6a/flF+cteroJqD4gI8GSdL4PtvxZSsAHie8m3yVe2JFoRg03ROKT6hp2Lc/BxXkqerNmtQYg==}
     dev: true
 
   /hyphenate-style-name@1.1.0:
