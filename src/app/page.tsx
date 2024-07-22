@@ -1,4 +1,5 @@
 'use client'
+import { Suspense } from 'react'
 import axios from 'axios'
 import useSWR from 'swr'
 import { motion } from 'framer-motion'
@@ -7,9 +8,23 @@ import { useSearchParams } from 'next/navigation'
 import { BlogCard } from '@/components/blog'
 import Tags from '@/components/tags'
 
-export default function Page() {
+function useTag() {
   const params = useSearchParams()
   const tag = params.get('tag') || ''
+  return tag
+}
+
+function TagList() {
+  const tag = useTag()
+  const { data: tags = [] } = useSWR('/api/tag', async (api: string) => {
+    const { data } = await axios.get<string[]>(api)
+    return data
+  })
+  return <Tags value={tags} active={tag} />
+}
+
+function BlogList() {
+  const tag = useTag()
   const { data: blogs = [] } = useSWR(
     [tag ? '/api/tag' : '/api/blog', tag],
     async ([api, tag]: [string, string]) => {
@@ -21,11 +36,20 @@ export default function Page() {
       return data
     },
   )
-  const { data: tags = [] } = useSWR('/api/tag', async (api: string) => {
-    const { data } = await axios.get<string[]>(api)
-    return data
-  })
+  return blogs.map((route, i) => (
+    <motion.div
+      key={route}
+      className="col-span-full"
+      initial={{ y: 8 * (i + 1), opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <BlogCard route={route} />
+    </motion.div>
+  ))
+}
 
+export default function Page() {
   return (
     <div className="w-full flex flex-col gap-4 items-center">
       <div className="w-full max-w-a4 flex flex-col gap-6 p-6 my-16">
@@ -46,21 +70,15 @@ export default function Page() {
           and Math), and also some MBA stuffs (because I&apos;m learning it).
         </motion.p>
         <div className="w-full">
-          <Tags value={tags} active={tag} all />
+          <Suspense>
+            <TagList />
+          </Suspense>
         </div>
       </div>
       <div className="w-full max-w-a4 p-6 grid grid-cols-12 gap-0">
-        {blogs.map((route, i) => (
-          <motion.div
-            key={route}
-            className="col-span-full"
-            initial={{ y: 8 * (i + 1), opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <BlogCard route={route} />
-          </motion.div>
-        ))}
+        <Suspense>
+          <BlogList />
+        </Suspense>
       </div>
     </div>
   )
