@@ -6,7 +6,12 @@ import axios from 'axios'
 import { motion, AnimatePresence } from 'framer-motion'
 
 import Link from 'next/link'
-import { CornerDownRight, Play } from 'lucide-react'
+import {
+  CornerDownRight,
+  ExternalLink,
+  MessageSquareText,
+  Play,
+} from 'lucide-react'
 import { BlogCard } from '@/components/blog'
 import Tags from '@/components/tags'
 import { FacebookShare, TwitterShare } from './share'
@@ -39,6 +44,7 @@ export default function Template({ children }: { children: ReactNode }) {
           <span className="w-1 h-1 rounded-full transition-all flex group-hover:hidden bg-base-content" />
           <span className="w-1 h-3 rounded-full transition-all flex group-hover:hidden bg-base-300" />
           <span className="w-1 h-1 rounded-full transition-all flex group-hover:hidden bg-base-300" />
+          <span className="w-1 h-1 rounded-full transition-all flex group-hover:hidden bg-base-300" />
           <button className="btn btn-square btn-sm transition-all hidden group-hover:flex">
             <Play className="w-4 h-4 fill-base-content" />
           </button>
@@ -46,6 +52,12 @@ export default function Template({ children }: { children: ReactNode }) {
             <FacebookShare className="join-item" />
             <TwitterShare className="join-item" />
           </div>
+          <Link
+            className="btn btn-square btn-sm transition-all hidden group-hover:flex"
+            href="#question"
+          >
+            <MessageSquareText className="w-4 h-4" />
+          </Link>
           <Link
             className="btn btn-square btn-sm transition-all hidden group-hover:flex"
             href="#suggestion"
@@ -100,6 +112,25 @@ export default function Template({ children }: { children: ReactNode }) {
         </div>
         {children}
       </motion.article>
+      <div
+        id="question"
+        className="w-full max-w-[65ch] bg-base-200 border-2 border-base-300 p-4 rounded-box flex flex-col gap-1"
+      >
+        <p className="font-bold">You have questions?</p>
+        <p className="flex flex-row gap-1">
+          <span className="opacity-60">
+            To ask questions you can create issues on
+          </span>
+          <Link
+            className="text-info-content hover:underline flex flex-row gap-1"
+            href="https://github.com/tuphan-dn/tuphan.dev/issues"
+            target="_blank"
+          >
+            my Github.
+            <ExternalLink className="w-3 h-3" />
+          </Link>
+        </p>
+      </div>
       <div
         id="suggestion"
         className="w-full max-w-[65ch] grid grid-cols-12 gap-4"
