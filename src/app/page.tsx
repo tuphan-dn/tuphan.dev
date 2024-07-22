@@ -2,15 +2,22 @@
 import axios from 'axios'
 import useSWR from 'swr'
 import { motion } from 'framer-motion'
+import { useSearchParams } from 'next/navigation'
 
 import { BlogCard } from '@/components/blog'
 import Tags from '@/components/tags'
 
 export default function Page() {
-  const { data: { children: blogs = [] } = {} } = useSWR(
-    '/api/blog',
-    async (api: string) => {
-      const { data } = await axios.get<Blog>(api)
+  const params = useSearchParams()
+  const tag = params.get('tag') || ''
+  const { data: blogs = [] } = useSWR(
+    [tag ? '/api/tag' : '/api/blog', tag],
+    async ([api, tag]: [string, string]) => {
+      if (!tag) {
+        const { data: { children = [] } = {} } = await axios.get<Blog>(api)
+        return children
+      }
+      const { data } = await axios.post<string[]>(api, { tag })
       return data
     },
   )
@@ -39,7 +46,7 @@ export default function Page() {
           and Math), and also some MBA stuffs (because I&apos;m learning it).
         </motion.p>
         <div className="w-full">
-          <Tags value={tags} />
+          <Tags value={tags} active={tag} all />
         </div>
       </div>
       <div className="w-full max-w-a4 p-6 grid grid-cols-12 gap-0">
