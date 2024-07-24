@@ -5,9 +5,7 @@ import { NextResponse, type NextRequest } from 'next/server'
 import { z } from 'zod'
 import { fromZodError } from 'zod-validation-error'
 import { env } from '@/configs/env'
-import { COOKIE_NAME, verify } from '@/lib/auth'
 
-const AuthMetadataKey = Symbol('inject:auth')
 const QueryMetadataKey = Symbol('inject:query')
 const BodyMetadataKey = Symbol('inject:body')
 const FormMetadataKey = Symbol('inject:form')
@@ -34,23 +32,6 @@ export function Injectable() {
     ) {
       try {
         const args: [NextRequest, ...any[]] = [req]
-        // Auth
-        const metaauth:
-          | { index: number; whitelist?: string[]; loose: boolean }
-          | undefined = Reflect.getOwnMetadata(
-          AuthMetadataKey,
-          target,
-          propertyKey,
-        )
-        if (metaauth) {
-          const { value } = cookies().get(COOKIE_NAME) || {}
-          const userId = await verify(value)
-          if (!userId && !metaauth.loose)
-            return NextResponse.json('Unauthorized request', { status: 401 })
-          if (metaauth.whitelist && !metaauth.whitelist.includes(userId))
-            return NextResponse.json('Unauthorized request', { status: 401 })
-          if (metaauth.index >= 0) args[metaauth.index] = userId
-        }
         // Query
         const metaquery: { index: number; dto?: z.ZodObject<any> } | undefined =
           Reflect.getOwnMetadata(QueryMetadataKey, target, propertyKey)
@@ -111,46 +92,6 @@ export function Injectable() {
         return NextResponse.json(er.message, { status: 500 })
       }
     }
-  }
-}
-
-/**
- * Auth decorator
- * You can use for either a static method or a method parameter
- * For example:
- * ```
- * @Auth()
- * static async GET() { ... }
- *
- * static async POST(@Auth() userId: string) { ... }
- * ```
- * @param opts Authentication options
- * @param opts.whitelist The list of allowed emails
- * @param opts.loose If true, the unauthorized request can be bypassed
- */
-export function Auth({
-  whitelist,
-  loose = false,
-}: {
-  whitelist?: string[]
-  loose?: boolean
-} = {}) {
-  return function (
-    target: any,
-    propertyKey: string,
-    descriptorOrIndex: PropertyDescriptor | number,
-  ) {
-    if (Reflect.getOwnMetadata(AuthMetadataKey, target, propertyKey))
-      throw new Error(
-        `Cannot accept multiple @Auth() in a single method ${propertyKey}`,
-      )
-    const index = typeof descriptorOrIndex === 'number' ? descriptorOrIndex : -1
-    Reflect.defineMetadata(
-      AuthMetadataKey,
-      { index, whitelist, loose },
-      target,
-      propertyKey,
-    )
   }
 }
 
