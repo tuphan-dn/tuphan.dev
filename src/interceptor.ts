@@ -1,6 +1,5 @@
 import 'server-only'
 import 'reflect-metadata'
-import { cookies } from 'next/headers'
 import { NextResponse, type NextRequest } from 'next/server'
 import { z } from 'zod'
 import { fromZodError } from 'zod-validation-error'
