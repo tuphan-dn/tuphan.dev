@@ -11,8 +11,8 @@ const FormMetadataKey = Symbol('inject:form')
 const ParamsMetadataKey = Symbol('inject:params')
 
 /**
- * Allow to all decorator work correctly
- * The side effect of this decorator is to handle exceptions (aka. try/catch) the api
+ * Allow to all decorators work correctly
+ * The side effect of this decorator is to handle exceptions (aka. try/catch)
  * So we highly recommmend to use it every api
  */
 export function Injectable() {
