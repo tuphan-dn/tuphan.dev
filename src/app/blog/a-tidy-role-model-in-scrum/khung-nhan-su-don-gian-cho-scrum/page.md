@@ -5,13 +5,13 @@ date = "30 July, 2024"
 
 # Khung nhân sự cơ bản cho scrum
 
-_Scrum là một phương pháp agile trong phát triển phần mềm. Tron bài viết này, chúng ta sẽ tập trung vào khung nhân sự và phạm vi hoạt động của các nhân sự đó trong một nhóm nhỏ._
+_Scrum là một phương pháp agile trong phát triển phần mềm. Trong bài viết này, chúng ta sẽ tập trung vào khung nhân sự và phạm vi hoạt động của các nhân sự đó trong một nhóm nhỏ._
 
-> Các danh xưng nhân sự được xem như danh từ, vì thế tác giả sẽ không dịch các vị trí này sang từ Tiếng Việt tương ứng.
+> Các chức danh nhân sự được xem như danh từ, vì thế tác giả sẽ không dịch các chức danh này sang từ Tiếng Việt tương ứng.
 
 ## Product Owner (PO)
 
-Họ có thể là khách hàng, nhà phát triển, hay bất kỳ ai có các ý tưởng cải thiện sản phẩm. Họ phải tạo các thẻ nhiệm vụ để giải thích tính năng một cách hoàn chỉnh.
+Họ có thể là khách hàng, nhà phát triển, hay bất kỳ ai sở hữu những ý tưởng cải thiện sản phẩm. Họ phải tạo ra được các thẻ nhiệm vụ tương ứng để giải thích tính năng một cách hoàn chỉnh.
 
 Trong một dự án, chúng ta có thể có một PO.
 
@@ -19,13 +19,13 @@ Trong một dự án, chúng ta có thể có một PO.
 
 > Một vài tài liệu cũng gọi PM là ScrumMaster.
 
-Họ đã thành thục và có khả năng vận hành một cấu trúc Scrum. Ngoài ra, họ cũng phải huấn luyện các nhà phát triển mới để quen và làm việc được với Scrum.
+Họ buộc phải thành thục và có khả năng vận hành một cấu trúc Scrum. Ngoài ra, họ cũng phải huấn luyện các nhà phát triển mới để quen và làm việc được với Scrum.
 
 Trong một dự án, chúng ta cần một PM.
 
 ## Developers
 
-Đây là một khái niệm tương đối rộng và không nên giới hạn chỉ cho nhóm lập trình viên. Developers có nghĩa là lập trình viên, nhà thiết kế, chuyên viên tiếp thị, cố vấn viên, và là bất kỳ ai có thể xử lý các thẻ nhiệm vụ.
+Đây là một khái niệm tương đối rộng và không nên giới hạn chỉ cho nhóm lập trình viên. Developer có nghĩa là lập trình viên, nhà thiết kế, chuyên viên tiếp thị, cố vấn viên, và là bất kỳ ai có thể xử lý các thẻ nhiệm vụ.
 
 Trong một dự án, chúng ta cần nhiều Developer.
 
