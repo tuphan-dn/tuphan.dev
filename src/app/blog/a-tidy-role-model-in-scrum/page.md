@@ -7,6 +7,8 @@ date = "30 July, 2024"
 
 _Scrum is an agile method for software development. In this article, we focus on the roles and its scopes in a small team. Vietnamese is available below._
 
+![Scrum Process](./scrum-process.jpg)
+
 ## Product Owner (PO)
 
 They can be users, developers, or anyone with ideas to improve the product. They must create an issue ticket to explain the features completely.
