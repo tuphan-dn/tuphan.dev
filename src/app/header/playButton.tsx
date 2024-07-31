@@ -26,7 +26,7 @@ export default function PlayButton() {
       chillout
       <motion.div
         className={clsx(
-          'w-4 h-4 rounded-full bg-base-content flex flex-col items-center justify-center animate-[spin_2s_linear_infinite]',
+          'w-4 h-4 rounded-full bg-base-content flex flex-col items-center justify-center shrink animate-[spin_2s_linear_infinite]',
           {
             '[animation-play-state:running]': playing,
             '[animation-play-state:paused]': !playing,
