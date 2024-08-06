@@ -1,9 +1,9 @@
 +++
-tags = "agile, mba"
+tags = "agile, mba, 🇻🇳"
 date = "30 July, 2024"
 +++
 
-# Khung nhân sự cơ bản cho scrum
+# Khung nhân sự cơ bản cho Scrum
 
 _Scrum là một phương pháp agile trong phát triển phần mềm. Trong bài viết này, chúng ta sẽ tập trung vào khung nhân sự và phạm vi hoạt động của các nhân sự đó trong một nhóm nhỏ._
 

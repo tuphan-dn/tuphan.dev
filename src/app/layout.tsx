@@ -23,10 +23,6 @@ export default function Layout({ children }: { children: ReactNode }) {
           rel="stylesheet"
         />
         <link
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap"
-          rel="stylesheet"
-        />
-        <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/tokyo-night-dark.min.css"
         />
