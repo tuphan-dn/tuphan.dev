@@ -7,12 +7,14 @@ import { frontmatter } from 'micromark-extension-frontmatter'
 import { frontmatterFromMarkdown } from 'mdast-util-frontmatter'
 import toml from 'toml'
 import { z } from 'zod'
-import { resolve } from 'path'
+import { resolve, parse } from 'path'
 import { writeFileSync } from 'fs'
+import { util } from 'webpack'
 import lunr from 'lunr'
 
 type ExtendedDree = Omit<Dree, 'children'> & {
   title: string
+  image: string
   tags: string[]
   description: string
   content: string
@@ -24,6 +26,7 @@ type Tree = {
   route: string
   children: Tree[]
   title: string
+  image: string
   tags: string[]
   description: string
   content: string
@@ -50,6 +53,7 @@ function dreelize(root: string): ExtendedDree | null {
       const heading = select('root > heading', md) || {}
       const paragraph = select('root > paragraph', md) || {}
       const text = selectAll('heading, paragraph', md)
+      const images = selectAll('image', md)
       const { tags, date } = z
         .object({
           tags: z
@@ -64,7 +68,26 @@ function dreelize(root: string): ExtendedDree | null {
           date: z.coerce.date().default(new Date()),
         })
         .parse(toml.parse(toString(matter)))
+      const [image = ''] = images.map((image) => {
+        try {
+          const { url } = Object.assign({ url: '' }, image)
+          const { dir } = parse(node.path)
+          const { name, ext } = parse(url)
+          const img = readFileSync(resolve(dir, url))
+          const hash = util
+            .createHash('xxhash64')
+            .update(img)
+            .digest('hex')
+            .toString()
+            .substring(0, 8)
+          const out = `/_next/static/media/${name}.${hash}${ext}`
+          return out
+        } catch {
+          return ''
+        }
+      })
       node.title = toString(heading)
+      node.image = image
       node.tags = tags
       node.date = date
       node.description = toString(paragraph)
@@ -86,6 +109,7 @@ function trielize(
   const [
     only = {
       title: '',
+      image: '',
       tags: [],
       description: '',
       value: '',
@@ -105,6 +129,7 @@ function trielize(
         return 0
       }),
     title: only.title,
+    image: only.image,
     tags: only.tags,
     description: only.description,
     content: only.content || '',

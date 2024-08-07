@@ -1,6 +1,6 @@
 +++
 tags = "evm, layer2, 🇻🇳"
-date = "5 August, 2024"
+date = "6 August, 2024"
 +++
 
 # Khả dụng dữ liệu (Data Availability) để làm gì?
