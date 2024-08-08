@@ -14,6 +14,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_HOST || ''),
 }
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+}
+
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">

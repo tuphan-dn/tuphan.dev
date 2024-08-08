@@ -65,7 +65,7 @@ export default function SearchButton() {
         <Search className="w-3 h-3 ml-1" />
       </button>
       <Modal open={open} onCancel={() => setOpen(false)} closable={false}>
-        <div className="grid grid-cols-12 gap-8 relative">
+        <div className="grid grid-cols-12 gap-y-8 relative">
           <label className="sticky -top-6 z-10 col-span-full -m-6 mb-0 input input-lg rounded-b-none bg-base-200 !border-none !outline-none flex flex-row items-center gap-6">
             <Search className="w-4 h-4" />
             <input
