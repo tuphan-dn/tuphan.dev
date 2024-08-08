@@ -11,6 +11,7 @@ import { resolve, parse } from 'path'
 import { writeFileSync } from 'fs'
 import { util } from 'webpack'
 import lunr from 'lunr'
+import { isURL } from '@/lib/utils'
 
 type ExtendedDree = Omit<Dree, 'children'> & {
   title: string
@@ -54,23 +55,10 @@ function dreelize(root: string): ExtendedDree | null {
       const paragraph = select('root > paragraph', md) || {}
       const text = selectAll('heading, paragraph', md)
       const images = selectAll('image', md)
-      const { tags, date } = z
-        .object({
-          tags: z
-            .string()
-            .default('')
-            .transform((tags) =>
-              tags
-                .split(',')
-                .map((e) => e.trim())
-                .filter((e) => !!e),
-            ),
-          date: z.coerce.date().default(new Date()),
-        })
-        .parse(toml.parse(toString(matter)))
       const [image = ''] = images.map((image) => {
         try {
           const { url } = Object.assign({ url: '' }, image)
+          if (isURL(url)) return url
           const { dir } = parse(node.path)
           const { name, ext } = parse(url)
           const img = readFileSync(resolve(dir, url))
@@ -86,6 +74,20 @@ function dreelize(root: string): ExtendedDree | null {
           return ''
         }
       })
+      const { tags, date } = z
+        .object({
+          tags: z
+            .string()
+            .default('')
+            .transform((tags) =>
+              tags
+                .split(',')
+                .map((e) => e.trim())
+                .filter((e) => !!e),
+            ),
+          date: z.coerce.date().default(new Date()),
+        })
+        .parse(toml.parse(toString(matter)))
       node.title = toString(heading)
       node.image = image
       node.tags = tags
