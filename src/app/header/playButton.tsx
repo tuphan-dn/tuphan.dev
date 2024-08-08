@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react'
 import clsx from 'clsx'
-import { motion } from 'framer-motion'
 
 import { Disc3 } from 'lucide-react'
 import ReactPlayer from 'react-player/soundcloud'
@@ -24,19 +23,15 @@ export default function PlayButton() {
         />
       </Island>
       chillout
-      <motion.div
+      <Disc3
         className={clsx(
-          'w-4 h-4 rounded-full bg-base-content flex flex-col items-center justify-center shrink animate-[spin_2s_linear_infinite]',
+          'w-4 h-4 bg-base-content text-base-100 rounded-full animate-[spin_2s_linear_infinite]',
           {
             '[animation-play-state:running]': playing,
             '[animation-play-state:paused]': !playing,
           },
         )}
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-      >
-        <Disc3 className="w-4 h-4 text-base-100" />
-      </motion.div>
+      />
     </button>
   )
 }

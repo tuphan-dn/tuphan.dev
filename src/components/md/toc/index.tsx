@@ -55,7 +55,7 @@ function Nav({ className, ...props }: TocProps) {
       className="fixed top-[50%] -translate-y-[50%] right-0 cursor-pointer group z-10"
       ref={ref}
     >
-      <div className="group-hover:hidden animate-pop-in rounded-box bg-base-100 shadow-lg border-2 border-base-300 p-1 m-1 flex flex-col gap-1">
+      <div className="group-hover:hidden animate-pop-in p-1 m-1 flex flex-col gap-1">
         {Array.from(headings).map((heading) => (
           <div
             key={heading.id}

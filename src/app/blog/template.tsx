@@ -40,7 +40,7 @@ export default function Template({ children }: { children: ReactNode }) {
   return (
     <div className="w-full flex flex-col gap-4 items-center">
       <div className="fixed top-[50%] -translate-y-[50%] left-0 cursor-pointer group z-10 group">
-        <div className="flex flex-col transition-all gap-1 group-hover:gap-2 m-1 p-1 group-hover:p-2 bg-base-100 rounded-box shadow-lg border-2 border-base-300">
+        <div className="flex flex-col transition-all gap-1 group-hover:gap-2 m-1 p-1 group-hover:p-2 group-hover:bg-base-100 group-hover:rounded-box group-hover:shadow-lg group-hover:border-2 group-hover:border-base-300">
           <span className="w-1 h-1 rounded-full transition-all flex group-hover:hidden bg-base-content" />
           <span className="w-1 h-3 rounded-full transition-all flex group-hover:hidden bg-base-300" />
           <span className="w-1 h-1 rounded-full transition-all flex group-hover:hidden bg-base-300" />
@@ -117,16 +117,16 @@ export default function Template({ children }: { children: ReactNode }) {
         className="w-full max-w-[65ch] bg-base-200 border-2 border-base-300 p-4 rounded-box flex flex-col gap-1"
       >
         <p className="font-bold">You have questions?</p>
-        <p className="flex flex-row gap-1">
+        <p>
           <span className="opacity-60">
-            To ask questions, you can create issues on
+            To ask questions, you can create issues on{' '}
           </span>
           <Link
-            className="text-info-content hover:underline flex flex-row gap-1"
+            className="text-info-content hover:underline inline-flex"
             href="https://github.com/tuphan-dn/tuphan.dev/issues"
             target="_blank"
           >
-            my Github.
+            my GitHub.
             <ExternalLink className="w-3 h-3" />
           </Link>
         </p>

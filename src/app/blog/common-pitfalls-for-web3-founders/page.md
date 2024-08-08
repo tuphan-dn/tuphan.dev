@@ -1,5 +1,5 @@
 +++
-tags = "startup, mba"
+tags = "mba"
 date = "12 July, 2024"
 +++
 

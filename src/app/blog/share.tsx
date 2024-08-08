@@ -4,10 +4,11 @@ import { motion } from 'framer-motion'
 
 import Link from 'next/link'
 import { SiFacebook, SiX } from '@icons-pack/react-simple-icons'
+import Island from '@/components/island'
 
 const MotionLink = motion(Link)
 
-export function FacebookShare({ className = '' }: { className?: string }) {
+function ClientFacebookShare({ className = '' }: { className?: string }) {
   const params = new URLSearchParams({
     u: typeof location !== 'undefined' ? location.href : '#',
   }).toString()
@@ -25,7 +26,15 @@ export function FacebookShare({ className = '' }: { className?: string }) {
   )
 }
 
-export function TwitterShare({ className = '' }: { className?: string }) {
+export function FacebookShare({ className = '' }: { className?: string }) {
+  return (
+    <Island>
+      <ClientFacebookShare className={className} />
+    </Island>
+  )
+}
+
+function ClientTwitterShare({ className = '' }: { className?: string }) {
   const params = new URLSearchParams({
     url: typeof location !== 'undefined' ? location.href : '#',
   }).toString()
@@ -40,5 +49,13 @@ export function TwitterShare({ className = '' }: { className?: string }) {
     >
       <SiX className="h-4 w-4" />
     </MotionLink>
+  )
+}
+
+export function TwitterShare({ className = '' }: { className?: string }) {
+  return (
+    <Island>
+      <ClientTwitterShare className={className} />
+    </Island>
   )
 }

@@ -11,15 +11,6 @@ const PostDto = z.object({
     .min(3)
     .transform((e) => e.replace(/[^a-zA-Z0-9]/g, ' ')),
 })
-const ResponseDto = z.object({
-  route: z.string(),
-  title: z.string(),
-  tags: z.array(z.string()),
-  description: z.string(),
-  content: z.string(),
-  date: z.coerce.date(),
-  children: z.array(z.string()),
-})
 
 class Route {
   @Injectable()
@@ -28,8 +19,7 @@ class Route {
     @Params(GetDto) { slug }: z.infer<typeof GetDto>,
   ) {
     const pathname = ['/blog', ...slug].join('/')
-    const node = table.find(({ route }) => route === pathname)
-    const data = ResponseDto.parse(node)
+    const data = table.find(({ route }) => route === pathname)
     return NextResponse.json(data)
   }
 
