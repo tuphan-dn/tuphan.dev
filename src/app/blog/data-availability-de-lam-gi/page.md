@@ -11,7 +11,7 @@ date = "6 August, 2024"
 
 ## Vấn đề của các blockchain nguyên khối (monolithic)
 
-Hiện tại PoW Ethereum, Bitcoin là các blokchain với kiến trúc nguyên khối. Tất cả công việc như thuật toán đồng thuận, kiểm tra khả dụng dữ liệu, thực thi giao dịch, vân vân, sẽ được triển khai trên một lớp (layer) duy nhất. Mỗi node sẽ làm một bản sao về dữ liệu của một node khác. Vì vậy, nó làm gia tăng gánh nặng khi tất cả các nodes phải thực hiện liên tục các công việc trùng lặp như tải dữ liệu, kiểm tra dữ liệu, lưu dữ liệu, phản hồi dữ liệu. Kết quả là tiêu tốn băng thông, làm giảm hiệu suất toàn mạng.
+Hiện tại PoW Ethereum, Bitcoin là các blockchain với kiến trúc nguyên khối. Tất cả công việc như thuật toán đồng thuận, kiểm tra khả dụng dữ liệu, thực thi giao dịch, vân vân, sẽ được triển khai trên một lớp (layer) duy nhất. Mỗi node sẽ làm một bản sao về dữ liệu của một node khác. Vì vậy, nó làm gia tăng gánh nặng khi tất cả các nodes phải thực hiện liên tục các công việc trùng lặp như tải dữ liệu, kiểm tra dữ liệu, lưu dữ liệu, phản hồi dữ liệu. Kết quả là tiêu tốn băng thông, làm giảm hiệu suất toàn mạng.
 
 Ngoài ra, dữ liệu cho mỗi nodes sẽ tích luỹ rất lớn theo thời gian. Để xử lý, cấu hình phần cứng thường được yêu cầu ở mức cao. Điều này ngăn chặn khả năng tham gia của nhiều thành phần "yếu thế" ví dụ như máy tính cá nhân, thiết bị di động, thiết bị nhúng, và từ đó vô tình dẫn đến một sự tập trung có tính kỹ thuật.
 
