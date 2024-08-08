@@ -1,9 +1,9 @@
 'use client'
-import { useMemo, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import { useSelectedLayoutSegments } from 'next/navigation'
+import { motion } from 'framer-motion'
 import useSWR from 'swr'
 import axios from 'axios'
-import { motion, AnimatePresence } from 'framer-motion'
 
 import Link from 'next/link'
 import {
@@ -15,6 +15,7 @@ import {
 import { BlogCard } from '@/components/blog'
 import Tags from '@/components/tags'
 import { FacebookShare, TwitterShare } from './share'
+import Navigation from './navigation'
 
 export default function Template({ children }: { children: ReactNode }) {
   const segments = useSelectedLayoutSegments()
@@ -24,17 +25,6 @@ export default function Template({ children }: { children: ReactNode }) {
       const { data } = await axios.get<Blog>(api)
       return data
     },
-  )
-
-  const slugs = useMemo(
-    () => [
-      { name: 'blog', href: '/' },
-      ...segments.map((segment, i, segments) => ({
-        name: segment,
-        href: ['/blog', ...segments.slice(0, i), segment].join('/'),
-      })),
-    ],
-    [segments],
   )
 
   return (
@@ -73,25 +63,7 @@ export default function Template({ children }: { children: ReactNode }) {
         transition={{ duration: 0.5 }}
       >
         <div className="not-prose mb-16 flex flex-col gap-0">
-          <div className="breadcrumbs text-sm">
-            <ul>
-              <AnimatePresence>
-                {slugs.map(({ name, href }, i) => (
-                  <motion.li
-                    key={href}
-                    initial={{ x: 16 * (i + 1), opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: 16 * (i + 1), opacity: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <Link className="opacity-60 capitalize" href={href}>
-                      {name.replace('-', ' ')}
-                    </Link>
-                  </motion.li>
-                ))}
-              </AnimatePresence>
-            </ul>
-          </div>
+          <Navigation />
           <div className="w-full flex flex-row gap-2 justify-end py-3 border-y border-base-300">
             <FacebookShare />
             <TwitterShare />
