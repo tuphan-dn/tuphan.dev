@@ -112,7 +112,7 @@ contract Counter {
   uint256 public counter;
 
   constructor(uint256 init) {
-    owner = msg.sender; // will be the transaction's signer
+    owner = tx.origin; // will be the transaction's signer
     counter = init;
   }
 

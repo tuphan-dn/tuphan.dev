@@ -1,5 +1,4 @@
 'use client'
-import { Suspense } from 'react'
 import axios from 'axios'
 import useSWR from 'swr'
 import { motion } from 'framer-motion'
@@ -7,6 +6,7 @@ import { useSearchParams } from 'next/navigation'
 
 import { BlogCard } from '@/components/blog'
 import Tags from '@/components/tags'
+import Island from '@/components/island'
 
 function useTag() {
   const params = useSearchParams()
@@ -28,13 +28,9 @@ function TagList() {
 function BlogList() {
   const tag = useTag()
   const { data: blogs = [] } = useSWR(
-    [tag ? '/api/tag' : '/api/blog', tag],
-    async ([api, tag]: [string, string]) => {
-      if (!tag) {
-        const { data: { children = [] } = {} } = await axios.get<Blog>(api)
-        return children
-      }
-      const { data } = await axios.post<string[]>(api, { tag })
+    ['/api/blog', tag],
+    async ([api, t]: [string, string]) => {
+      const { data } = await axios.post<string[]>(api, { t })
       return data
     },
   )
@@ -73,15 +69,15 @@ export default function Page() {
           it.
         </motion.p>
         <div className="w-full">
-          <Suspense>
+          <Island>
             <TagList />
-          </Suspense>
+          </Island>
         </div>
       </div>
       <div className="w-full max-w-a4 p-6 grid grid-cols-12 gap-0">
-        <Suspense>
+        <Island>
           <BlogList />
-        </Suspense>
+        </Island>
       </div>
     </div>
   )

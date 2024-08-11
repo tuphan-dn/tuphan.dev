@@ -9,7 +9,11 @@ const PostDto = z.object({
   q: z
     .string()
     .min(3)
-    .transform((e) => e.replace(/[^a-zA-Z0-9]/g, ' ')),
+    .transform((e) => e.replace(/[^a-zA-Z0-9]/g, ' '))
+    .optional(),
+  t: z.string().optional(),
+  limit: z.number().default(10),
+  offset: z.number().default(0),
 })
 
 class Route {
@@ -26,12 +30,28 @@ class Route {
   @Injectable()
   static async POST(
     _req: NextRequest,
-    @Body(PostDto) { q }: z.infer<typeof PostDto>,
+    @Body(PostDto) { q, t, limit, offset }: z.infer<typeof PostDto>,
   ) {
-    const document = Index.load(index)
-    const results = document.search(q)
-    const data = results.filter(({ score }) => score >= 1).map(({ ref }) => ref)
-    return NextResponse.json(data)
+    console.log(limit, offset)
+    if (q) {
+      const document = Index.load(index)
+      const results = document.search(q)
+      const data = results
+        .filter(({ score }) => score >= 1)
+        .map(({ ref }) => ref)
+        .slice(offset, offset + limit)
+      return NextResponse.json(data)
+    }
+    if (t) {
+      const data = table
+        .filter(({ tags }) => tags.includes(t))
+        .map(({ route }) => route)
+        .slice(offset, offset + limit)
+      return NextResponse.json(data)
+    }
+    const { children: data = [] } =
+      table.find(({ route }) => route === '/blog') || {}
+    return NextResponse.json(data.slice(offset, offset + limit))
   }
 }
 
