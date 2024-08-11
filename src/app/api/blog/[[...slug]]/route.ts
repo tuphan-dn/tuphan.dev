@@ -32,7 +32,6 @@ class Route {
     _req: NextRequest,
     @Body(PostDto) { q, t, limit, offset }: z.infer<typeof PostDto>,
   ) {
-    console.log(limit, offset)
     if (q) {
       const document = Index.load(index)
       const results = document.search(q)
