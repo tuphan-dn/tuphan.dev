@@ -32,7 +32,7 @@ export default function Pre({
     <pre
       className={clsx(
         className,
-        'relative p-0 rounded-box ring-2 ring-base-300 group',
+        'grid p-0 rounded-box ring-2 ring-base-300 group',
       )}
       {...props}
     >
