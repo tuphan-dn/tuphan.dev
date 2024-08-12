@@ -27,7 +27,6 @@ export default function Menu() {
         <Link
           className="btn btn-ghost btn-sm flex flex-row gap-4 justify-start items-center font-normal"
           href="/"
-          target="_blank"
         >
           <Rss className="w-4 h-4" />
           Blog
