@@ -31,7 +31,7 @@ export default function Template({ children }: { children: ReactNode }) {
     <div className="w-full flex flex-col gap-4 items-center">
       <div className="fixed top-[50%] -translate-y-[50%] left-0 cursor-pointer group z-10 group">
         <div className="flex flex-col transition-all gap-1 group-hover:gap-2 m-1 p-1 group-hover:p-2 group-hover:bg-base-100 group-hover:rounded-box group-hover:shadow-lg group-hover:border-2 group-hover:border-base-300">
-          <span className="w-1 h-1 rounded-full transition-all flex group-hover:hidden bg-base-content" />
+          <span className="w-1 h-1 rounded-full transition-all flex group-hover:hidden bg-base-300" />
           <span className="w-1 h-3 rounded-full transition-all flex group-hover:hidden bg-base-300" />
           <span className="w-1 h-1 rounded-full transition-all flex group-hover:hidden bg-base-300" />
           <span className="w-1 h-1 rounded-full transition-all flex group-hover:hidden bg-base-300" />
