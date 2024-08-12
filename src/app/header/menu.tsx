@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion'
 
 import Link from 'next/link'
-import { ArrowUpRight, Clipboard, Mail, MenuIcon } from 'lucide-react'
+import { ArrowUpRight, Clipboard, Mail, MenuIcon, Rss } from 'lucide-react'
 import { SiGithub, SiX } from '@icons-pack/react-simple-icons'
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 
@@ -16,6 +16,22 @@ export default function Menu() {
         anchor={{ gap: 5 }}
         className="z-10 flex flex-col p-2 border-2 border-base-300 bg-base-100 rounded-box w-60 shadow-lg animate-pop-in"
       >
+        {/* Menu */}
+        <motion.span
+          className="text-xs font-light opacity-60 mx-3 mb-2 mt-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.6 }}
+        >
+          MENU
+        </motion.span>
+        <Link
+          className="btn btn-ghost btn-sm flex flex-row gap-4 justify-start items-center font-normal"
+          href="/"
+          target="_blank"
+        >
+          <Rss className="w-4 h-4" />
+          Blog
+        </Link>
         {/* About */}
         <motion.span
           className="text-xs font-light opacity-60 mx-3 mb-2 mt-4"
@@ -24,14 +40,6 @@ export default function Menu() {
         >
           ABOUT ME
         </motion.span>
-        <Link
-          className="btn btn-ghost btn-sm flex flex-row gap-4 justify-start items-center font-normal"
-          href="/Curriculum_Vitae.pdf"
-          target="_blank"
-        >
-          <Clipboard className="w-4 h-4" />
-          Resumé
-        </Link>
         <Link
           className="btn btn-ghost btn-sm flex flex-row gap-4 justify-start items-center font-normal group"
           href="https://x.com/phan_sontu"
@@ -51,6 +59,14 @@ export default function Menu() {
           <SiGithub className="w-4 h-4" />
           <span className="grow text-left">GitHub</span>
           <ArrowUpRight className="w-4 h-4 hidden group-hover:flex animate-pop-in" />
+        </Link>
+        <Link
+          className="btn btn-ghost btn-sm flex flex-row gap-4 justify-start items-center font-normal"
+          href="/Curriculum_Vitae.pdf"
+          target="_blank"
+        >
+          <Clipboard className="w-4 h-4" />
+          Resumé
         </Link>
         {/* Contacts */}
         <motion.span
