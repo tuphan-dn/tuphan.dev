@@ -35,9 +35,7 @@ $$
 
 ## Verify
 
-Collect $(R_x,s)$.
-
-Verify the equation:
+Collect $(R_x,s)$ and verify the equation:
 
 $$
 R_x \overset{?}{=} [s^{-1}(H(m)G+R_xPub)]_x
@@ -63,9 +61,7 @@ $$
 
 ## Verify
 
-Collect $(R,s)$.
-
-Verify the equation:
+Collect $(R,s)$ and verify the equation:
 
 $$
 R \overset{?}{=} sG - H(R,Pub,m)Pub
@@ -89,9 +85,7 @@ $$
 
 ## Verify
 
-Collect $(s,m)$.
-
-Verify the equation:
+Collect $(s,m)$ and verify the equation:
 
 $$
 e(sG) \overset{?}{=} e(Pub,H)
