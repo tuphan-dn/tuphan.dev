@@ -23,7 +23,7 @@ export default function Modal({
 }: ModalProps) {
   return (
     <Dialog
-      className={clsx('modal', { 'modal-open': open })}
+      className={clsx('modal', { 'modal-open backdrop-blur-sm': open })}
       open={open}
       onClose={onCancel}
     >

@@ -5,7 +5,7 @@ import { ThemeProvider } from 'next-themes'
 import { AppProgressBar } from 'next-nprogress-bar'
 import Message from '@/components/message'
 
-import '@/styles/globals.scss'
+import '@/styles/global.scss'
 
 /**
  * Provider

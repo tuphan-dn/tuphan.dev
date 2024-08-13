@@ -13,6 +13,7 @@ import {
 } from '@gears-bot/rehype'
 import { all } from 'lowlight'
 import { solidity } from 'highlightjs-solidity'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -38,6 +39,7 @@ const withMDX = createMDX({
         { tabsName: 'Tabs', tabName: 'Tab', languages: { ...all, solidity } },
       ],
       [rehypeGitContributors, { compName: 'Contributors' }],
+      [rehypeAutolinkHeadings, { behavior: 'append' }],
     ],
   },
 })

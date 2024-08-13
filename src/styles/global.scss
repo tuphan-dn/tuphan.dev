@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import './typography.scss';
+@import './autolink.scss';
 
 html {
   font-family: 'Inter', sans-serif;
