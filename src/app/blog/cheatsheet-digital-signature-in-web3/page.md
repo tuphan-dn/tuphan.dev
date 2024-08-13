@@ -88,5 +88,5 @@ $$
 Collect $(s,m)$ and verify the equation:
 
 $$
-e(sG) \overset{?}{=} e(Pub,H)
+e(s,G) \overset{?}{=} e(Pub,H)
 $$
