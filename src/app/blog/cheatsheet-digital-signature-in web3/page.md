@@ -3,7 +3,7 @@ tags = "cryptography, math"
 date = "13 August, 2024"
 +++
 
-# Digital Signature Cheatsheet
+# Cheatsheet: Digital Signature in Web3
 
 Digital signature algorithms are used to ensure the authenticity and integrity of digital messages or documents. Three popular digital signature algorithms are ECDSA, EdDSA, and BLS.
 
@@ -11,7 +11,7 @@ Digital signature algorithms are used to ensure the authenticity and integrity o
 
 ECDSA is a widely used digital signature algorithm based on elliptic curve cryptography and widely adopted in well-known blockchains namely Bitcoin and Ethereum.
 
-EdDSA is another digital signature algorithm also based on elliptic curve. It is designed to be faster and more secure than ECDSA. Furthermore, Schnorr signature is more friendly to multi-party computing than ECDSA.
+Schnorr Signature (EdDSA) is another digital signature algorithm also based on elliptic curve. It is designed to be faster and more secure than ECDSA. Furthermore, Schnorr signature is more friendly to multi-party computing than ECDSA.
 
 BLS is a digital signature algorithm that uses bilinear pairings to achieve a more efficient and compact signature, which originally targets to zero-knowledge domains.
 
