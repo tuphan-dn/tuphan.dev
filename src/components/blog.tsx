@@ -1,5 +1,5 @@
 'use client'
-import { type MouseEvent, useCallback } from 'react'
+import { Fragment, type MouseEvent, useCallback } from 'react'
 import dayjs from 'dayjs'
 import { useRouter } from 'next-nprogress-bar'
 import useSWR from 'swr'
@@ -32,19 +32,19 @@ export function BlogCard({ route }: { route: string }) {
 
   return (
     <div
-      className="w-full grid grid-cols-12 gap-4 py-16 border-t border-base-300 cursor-pointer relative group"
+      className="w-full grid grid-cols-6 gap-4 py-16 border-t border-base-300 cursor-pointer relative group"
       onClick={(e) => onClick(e, route)}
     >
-      <div className="col-span-full sm:col-span-2 mt-1 flex flex-col gap-4">
+      <div className="col-span-full sm:col-span-1 sm:mt-1 flex flex-col gap-2">
         <p className="text-xs opacity-60">
           {dayjs(date).format('DD MMMM, YYYY')}
         </p>
         <Tags value={tags} />
       </div>
-      <h2 className="col-span-full max-sm:mb-2 sm:col-span-4 font-semibold tracking-tight -mt-1">
+      <h2 className="col-span-full sm:col-span-2 font-semibold tracking-tight sm:-mt-1">
         {title}
       </h2>
-      <p className="col-span-full sm:col-span-6 text-sm opacity-60">
+      <p className="col-span-full sm:col-span-3 text-sm opacity-60">
         {description}
       </p>
       <button className="btn btn-circle btn-outline btn-sm absolute bottom-4 left-0 hidden transition-all group-hover:flex">

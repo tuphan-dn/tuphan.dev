@@ -39,7 +39,7 @@ export default function Layout({ children }: { children: ReactNode }) {
           crossOrigin="anonymous"
         />
       </head>
-      <body>
+      <body className="overflow-x-hidden">
         <UiProvider>
           <main className="w-full min-h-dvh bg-base-100 flex flex-col gap-0 justify-center">
             <header className="w-full sticky top-0 z-10">
