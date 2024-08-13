@@ -17,7 +17,7 @@ export default function Contributors({ value }: ContributorsProps) {
   }, [authors])
 
   return (
-    <span className="flex flex-row gap-1 items-center flex-wrap">
+    <span className="not-prose flex flex-row gap-1 items-center flex-wrap mt-2 mb-10">
       <p className="text-sm opacity-60">
         {dayjs(updatedAt).format('DD MMMM, YYYY')} by
       </p>
