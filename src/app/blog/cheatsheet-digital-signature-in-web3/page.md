@@ -80,7 +80,7 @@ For an $EC$ of $(\mathbb{G},G)$, and a bilinear pairing function $e: \mathbb{G} 
 With a hash-to-the-curve function $H$, open the signature:
 
 $$
-s=PrivH
+s=PrivH(m)
 $$
 
 ## Verify
@@ -88,5 +88,5 @@ $$
 Collect $(s,m)$ and verify the equation:
 
 $$
-e(s,G) \overset{?}{=} e(Pub,H)
+e(s,G) \overset{?}{=} e(Pub,H(m))
 $$
