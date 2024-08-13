@@ -13,6 +13,8 @@ EdDSA is another digital signature algorithm also based on elliptic curve. It is
 
 BLS is a digital signature algorithm that uses bilinear pairings to achieve a more efficient and compact signature, which originally targets to zero-knowledge domains.
 
+---
+
 # ECDSA
 
 ## Key Generation
@@ -39,6 +41,8 @@ $$
 R_x \overset{?}{=} [s^{-1}(H(m)G+R_xPub)]_x
 $$
 
+---
+
 # Schnorr (EdDSA)
 
 ## Key Generation
@@ -64,6 +68,8 @@ Verify the equation:
 $$
 R \overset{?}{=} sG - H(R,Pub,m)Pub
 $$
+
+---
 
 # BLS
 
