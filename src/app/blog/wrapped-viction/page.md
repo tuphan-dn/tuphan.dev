@@ -21,6 +21,14 @@ For example, Uniswap is designed to work with ERC20 but ETH. In order to let ETH
 
 Wrap VICTION will follow VRC20 (aka. ERC20) standard. When people send VIC to the WVIC contract (with or without `msg.data`), the contract will mint the same amount WVIC to the sender. To unwrap and withdraw VIC, people call `burn`.
 
+```mermaid
+graph LR;
+    WVIC-->Wrap;
+    WVIC-->Unwrap;
+    Wrap-->Transfer;
+    Unwrap-->Burn;
+```
+
 For convenience, instead of rewriting the ERC20 contracts, we will use the [`@openzeppelin/contracts`](https://www.npmjs.com/package/@openzeppelin/contracts).
 
 ```bash label="npm" group="install"
@@ -73,3 +81,5 @@ We also define a `burn` function so that the contract can subtract the amount of
 1. You cannot burn your allowance. If someone approve x WVIC to you, you cannot burn it directly. To do it, you may call `transferFrom` to your wallet to possess the tokens first before you can burn it.
 
 2. You can define `fallback` only and remove `receive`. The `fallback` function is invoked in both case of transferring transaction with or without `msg.data`. However, to avoid compiler warning, I did define both `fallback` and `receive`.
+
+3. Pegged tokens $\neq$ Wrapped tokens.

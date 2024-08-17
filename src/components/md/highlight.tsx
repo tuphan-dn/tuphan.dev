@@ -3,11 +3,14 @@ import {
   DetailedHTMLProps,
   Fragment,
   HTMLAttributes,
+  useEffect,
   type ReactNode,
 } from 'react'
 import clsx from 'clsx'
+import mermaid from 'mermaid'
 
 import Clipboard from '@/components/clipboard'
+import Island from '@/components/island'
 
 declare module 'react' {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
@@ -22,27 +25,34 @@ export type PreProps = DetailedHTMLProps<
   HTMLPreElement
 >
 
-export default function Pre({
-  ['data-content']: content,
-  children,
-  className,
-  ...props
-}: PreProps) {
+function PreClient({ className, ...props }: PreProps) {
+  useEffect(() => {
+    mermaid.initialize({ startOnLoad: true })
+    mermaid.contentLoaded()
+  }, [])
+
   return (
     <pre
-      className={clsx(
-        className,
-        'grid p-0 rounded-box ring-2 ring-base-300 group',
-      )}
+      className={clsx(className, 'p-0 rounded-box', {
+        'flex flex-row justify-center bg-secondary': className === 'mermaid',
+      })}
       {...props}
-    >
+    />
+  )
+}
+
+export default function Pre({ ['data-content']: content, ...props }: PreProps) {
+  return (
+    <div className="relative my-6 group">
       <Clipboard
         className="invisible group-hover:visible absolute top-2 right-2 btn btn-xs btn-square btn-ghost"
-        iconClassName="w-3 h-3 opacity-60"
+        iconClassName="w-3 h-3 text-base-300 opacity-60"
         content={content?.toString() || ''}
       />
-      {children}
-    </pre>
+      <Island>
+        <PreClient {...props} />
+      </Island>
+    </div>
   )
 }
 
@@ -80,7 +90,9 @@ export function Tab({
         defaultChecked={defaultChecked}
       />
       <div role="tabpanel" className="tab-content">
-        {children}
+        <div className="grid grid-cols-1">
+          <div className="col-span-full">{children}</div>
+        </div>
       </div>
     </Fragment>
   )

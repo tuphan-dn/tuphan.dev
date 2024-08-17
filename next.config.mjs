@@ -14,6 +14,7 @@ import {
 import { all } from 'lowlight'
 import { solidity } from 'highlightjs-solidity'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeMermaid from 'rehype-mermaid'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -40,6 +41,7 @@ const withMDX = createMDX({
       ],
       [rehypeGitContributors, { compName: 'Contributors' }],
       [rehypeAutolinkHeadings, { behavior: 'append' }],
+      [rehypeMermaid, { strategy: 'pre-mermaid' }],
     ],
   },
 })
