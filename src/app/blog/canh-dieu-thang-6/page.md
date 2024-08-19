@@ -25,6 +25,6 @@ Trời tối dần, chúng tôi càng nối dài cuộn chỉ để con diều b
 
 Quan thời gian, cánh diều của tháng 6 càng ngày càng mờ nhạt dần khi nhiều thứ cuộc sống cứ chen chúc nhau mà lấp đầy trí nhớ, nhưng dù sao đi nữa thì nó vẫn mãi tồn tại ở đó, trên đầu đám trẻ đang đuổi bắt nhau giữa ánh chiều vàng.
 
-![Ảnh chụp màn hình Cánh diều tháng 6](./canh-dieu-thang-6.jpg)
+_Có lẽ là Tí viết, chỉ biết ảnh được lưu lại vào 1/6/2021._
 
-_Có lẽ là Tí viết, chỉ biết ảnh được lưu lại vào 1/6/2021_
+![Ảnh chụp màn hình bài Cánh diều tháng 6](./canh-dieu-thang-6.jpg)

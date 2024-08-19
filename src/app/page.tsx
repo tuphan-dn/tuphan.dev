@@ -1,4 +1,5 @@
 'use client'
+import { useCallback, useState } from 'react'
 import axios from 'axios'
 import useSWR from 'swr'
 import { motion } from 'framer-motion'
@@ -7,6 +8,7 @@ import { useSearchParams } from 'next/navigation'
 import { BlogCard } from '@/components/blog'
 import Tags from '@/components/tags'
 import Island from '@/components/island'
+import InfiniteLoading from '@/components/infiniteLoading'
 
 function useTag() {
   const params = useSearchParams()
@@ -27,24 +29,43 @@ function TagList() {
 
 function BlogList() {
   const tag = useTag()
-  const { data: blogs = [] } = useSWR(
-    ['/api/blog', tag],
-    async ([api, t]: [string, string]) => {
-      const { data } = await axios.post<string[]>(api, { t })
-      return data
-    },
+  const [blogs, setBlogs] = useState<string[]>([])
+  const [disabled, setDisabled] = useState(false)
+
+  const onLoad = useCallback(async () => {
+    if (disabled) return
+    const offset = blogs.length
+    const limit = 10
+    const { data } = await axios.post<string[]>('/api/blog', {
+      t: tag,
+      limit,
+      offset,
+    })
+    const next = [...blogs]
+    if (data.length === limit) setDisabled(false)
+    else setDisabled(true)
+    for (let i = 0; i < data.length; i++) next[offset + i] = data[i]
+    return setBlogs(next)
+  }, [blogs, tag, disabled])
+
+  return (
+    <>
+      {blogs.map((route, i) => (
+        <motion.div
+          key={route}
+          className="col-span-full"
+          initial={{ y: 8 * (i + 1), opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <BlogCard route={route} />
+        </motion.div>
+      ))}
+      <div className="col-span-full flex flex-row justify-center">
+        <InfiniteLoading onLoad={onLoad} disabled={disabled} />
+      </div>
+    </>
   )
-  return blogs.map((route, i) => (
-    <motion.div
-      key={route}
-      className="col-span-full"
-      initial={{ y: 8 * (i + 1), opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      <BlogCard route={route} />
-    </motion.div>
-  ))
 }
 
 export default function Page() {
