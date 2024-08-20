@@ -1,6 +1,6 @@
 'use client'
 import { useCallback, useEffect, useState } from 'react'
-import axios from 'axios'
+import ky from 'ky'
 import useSWR from 'swr'
 import { motion } from 'framer-motion'
 import { useSearchParams } from 'next/navigation'
@@ -22,7 +22,7 @@ function useTag() {
 function TagList() {
   const tag = useTag()
   const { data: tags = [] } = useSWR('/api/tag', async (api: string) => {
-    const { data } = await axios.get<string[]>(api)
+    const data = await ky.get(api).json<string[]>()
     return data
   })
   return (
@@ -41,11 +41,15 @@ function BlogList() {
   const offset = blogs.length
 
   const onLoad = useCallback(async () => {
-    const { data } = await axios.post<string[]>('/api/blog', {
-      t: tag,
-      limit,
-      offset,
-    })
+    const data = await ky
+      .post('/api/blog', {
+        json: {
+          t: tag,
+          limit,
+          offset,
+        },
+      })
+      .json<string[]>()
     return setData(({ blogs: [...blogs] }) => {
       data.forEach((item, i) => (blogs[offset + i] = item))
       return { disabled: data.length !== limit, blogs }
@@ -71,8 +75,8 @@ function BlogList() {
       ))}
       <div className="col-span-full flex flex-row justify-center">
         <InfiniteLoading onLoad={onLoad} disabled={disabled} />
-        <p className={clsx('text-xs opacity-20', { hidden: !disabled })}>
-          You reached the bottom
+        <p className={clsx('text-xs', { hidden: !disabled })}>
+          <span className="opacity-25">You reached the bottom</span> 🎉
         </p>
       </div>
     </>

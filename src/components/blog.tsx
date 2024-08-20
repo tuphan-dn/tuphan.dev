@@ -3,14 +3,14 @@ import { type MouseEvent, useCallback } from 'react'
 import dayjs from 'dayjs'
 import { useRouter } from 'next-nprogress-bar'
 import useSWR from 'swr'
-import axios from 'axios'
+import ky from 'ky'
 
 import { ArrowUpRight } from 'lucide-react'
 import Tags from './tags'
 
 export function useBlog(route: string) {
   return useSWR(`/api${route}`, async (api: string) => {
-    const { data } = await axios.get<Blog>(api)
+    const data = await ky.get(api).json<Blog>()
     return data
   })
 }

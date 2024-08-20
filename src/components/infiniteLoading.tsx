@@ -28,7 +28,6 @@ export default function InfiniteLoading({
   )
 
   const [{ loading }, load] = useAsyncFn(async () => {
-    await delay(1000) // For better UX
     await onLoad()
   }, [onLoad])
 

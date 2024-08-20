@@ -3,17 +3,15 @@ import { useMemo } from 'react'
 import { useSelectedLayoutSegments } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import useSWR from 'swr'
-import axios from 'axios'
+import ky from 'ky'
 
 import Link from 'next/link'
 
 function NavLink({ href }: { href: string }) {
   const { data: name = '#' } = useSWR(href, async (api: string) => {
     if (api === '/') return 'Blog'
-    const { data: { title = '#' } = {} } = await axios.get<Blog | undefined>(
-      `/api/${api}`,
-    )
-    return title
+    const data = await ky.get(`/api/${api}`).json<Blog | undefined>()
+    return data?.title || '#'
   })
   return (
     <Link className="opacity-60" href={href}>

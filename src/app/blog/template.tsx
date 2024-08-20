@@ -3,7 +3,7 @@ import { type ReactNode } from 'react'
 import { useSelectedLayoutSegments } from 'next/navigation'
 import { motion } from 'framer-motion'
 import useSWR from 'swr'
-import axios from 'axios'
+import ky from 'ky'
 
 import Link from 'next/link'
 import {
@@ -22,7 +22,7 @@ export default function Template({ children }: { children: ReactNode }) {
   const { data: { tags = [], children: routes = [] } = {} } = useSWR(
     `/api/blog/${segments.join('/')}`,
     async (api: string) => {
-      const { data } = await axios.get<Blog>(api)
+      const data = await ky.get(api).json<Blog>()
       return data
     },
   )

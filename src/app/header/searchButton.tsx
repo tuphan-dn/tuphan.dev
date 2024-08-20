@@ -3,7 +3,7 @@ import { Fragment, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import useKeyboardJs from 'react-use/lib/useKeyboardJs'
 import { useAsync } from 'react-use'
-import axios from 'axios'
+import ky from 'ky'
 import clsx from 'clsx'
 import useSWR from 'swr'
 
@@ -34,16 +34,14 @@ export default function SearchButton() {
   const pathname = usePathname()
 
   const { data: tags = [] } = useSWR('/api/tag', async (api: string) => {
-    const { data } = await axios.get<string[]>(api)
+    const data = await ky.get(api).json<string[]>()
     return data
   })
 
   const q = useThrottle(keyword, 500)
   const { value = [], loading } = useAsync(async () => {
     if (!q || q.length < 3) return []
-    const { data } = await axios.post<string[]>('/api/blog', {
-      q,
-    })
+    const data = await ky.post('/api/blog', { json: { q } }).json<string[]>()
     await delay(1000)
     return data
   }, [q])
