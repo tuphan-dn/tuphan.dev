@@ -1,53 +1,56 @@
 'use client'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
-
-import Link from 'next/link'
-
-const MotionLink = motion(Link)
+import { useRouter } from 'next-nprogress-bar'
 
 export type TagsProps = {
   value?: string[]
   active?: string
   className?: string
+  readOnly?: boolean
 }
 
 export default function Tags({
   className = 'flex flex-row flex-wrap gap-1',
   value = [],
   active,
+  readOnly = false,
 }: TagsProps) {
+  const { push } = useRouter()
+
   return (
     <div className={className}>
-      <MotionLink
+      <motion.div
         className={clsx('badge badge-sm truncate', {
           'badge-outline': !!active,
           'badge-primary': !active,
           hidden: typeof active !== 'string',
+          'cursor-pointer': !readOnly,
         })}
-        href="/"
+        onClick={() => !readOnly && push('/')}
         initial={{ x: 0, opacity: 0 }}
         animate={{ x: 0, opacity: 0.6 }}
         whileHover={{ opacity: 1, transition: { duration: 0 } }}
         transition={{ duration: 0.5 }}
       >
         all
-      </MotionLink>
+      </motion.div>
       {value.map((tag, i) => (
-        <MotionLink
+        <motion.div
           key={tag}
           className={clsx('badge badge-sm truncate', {
             'badge-outline': active !== tag,
             'badge-primary': active === tag,
+            'cursor-pointer': !readOnly,
           })}
-          href={`/?tag=${tag}`}
+          onClick={() => !readOnly && push(`/?tag=${tag}`)}
           initial={{ x: Math.min(8 * (i + 1), 64), opacity: 0 }}
           animate={{ x: 0, opacity: 0.6 }}
           whileHover={{ opacity: 1, transition: { duration: 0 } }}
           transition={{ duration: 0.5 }}
         >
           {tag}
-        </MotionLink>
+        </motion.div>
       ))}
     </div>
   )

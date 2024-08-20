@@ -1,10 +1,9 @@
 'use client'
-import { type MouseEvent, useCallback } from 'react'
 import dayjs from 'dayjs'
-import { useRouter } from 'next-nprogress-bar'
 import useSWR from 'swr'
 import ky from 'ky'
 
+import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import Tags from './tags'
 
@@ -16,30 +15,20 @@ export function useBlog(route: string) {
 }
 
 export function BlogCard({ route }: { route: string }) {
-  const { push } = useRouter()
   const {
     data: { date = new Date(), tags = [], title = '', description = '' } = {},
   } = useBlog(route)
 
-  const onClick = useCallback(
-    (e: MouseEvent<HTMLDivElement>, route: string) => {
-      e.preventDefault()
-      e.stopPropagation()
-      push(route, { scroll: true })
-    },
-    [push],
-  )
-
   return (
-    <div
+    <Link
       className="w-full grid grid-cols-6 gap-4 py-16 border-t border-base-300 cursor-pointer relative group"
-      onClick={(e) => onClick(e, route)}
+      href={route}
     >
       <div className="col-span-full sm:col-span-1 sm:mt-1 flex flex-col gap-2">
         <p className="text-xs opacity-60">
           {dayjs(date).format('DD MMMM, YYYY')}
         </p>
-        <Tags value={tags} />
+        <Tags value={tags} readOnly />
       </div>
       <h2 className="col-span-full sm:col-span-2 font-semibold tracking-tight sm:-mt-1">
         {title}
@@ -50,27 +39,17 @@ export function BlogCard({ route }: { route: string }) {
       <button className="btn btn-circle btn-outline btn-sm absolute bottom-4 left-0 hidden transition-all group-hover:flex">
         <ArrowUpRight className="w-4 h-4" />
       </button>
-    </div>
+    </Link>
   )
 }
 
 export function LiteBlogCard({ route }: { route: string }) {
-  const { push } = useRouter()
   const { data: { title = '', description = '' } = {} } = useBlog(route)
 
-  const onClick = useCallback(
-    (e: MouseEvent<HTMLDivElement>, route: string) => {
-      e.preventDefault()
-      e.stopPropagation()
-      push(route)
-    },
-    [push],
-  )
-
   return (
-    <div
+    <Link
       className="w-full grid grid-cols-12 gap-2 py-6 border-t border-base-300 cursor-pointer relative group"
-      onClick={(e) => onClick(e, route)}
+      href={route}
     >
       <h3 className="col-span-full font-semibold tracking-tight leading-tight">
         {title}
@@ -78,6 +57,6 @@ export function LiteBlogCard({ route }: { route: string }) {
       <p className="col-span-full text-sm opacity-60 line-clamp-2">
         {description}
       </p>
-    </div>
+    </Link>
   )
 }
