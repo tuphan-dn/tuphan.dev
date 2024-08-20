@@ -5,11 +5,13 @@ date = "10 Auguest, 2023"
 
 # Account Abstraction in Nutshell
 
+> In this article, I will summary the history of AA development. Going through EIP-3074, EIP-2938, and EIP-4337 in simple language will hopefully give you the sense of AA.
+
 Importantly, we must be clear that Account Abstraction is not a SOLUTION, it’s a GOAL. The goal is to answer the question “How can I interact with Ethereum without paying fee?”. Based on that primitive desire, there is a wide range of proposals trying to solve and also developing many use-cases. EIP-3074, EIP-2938, and EIP-4337 are three different approaches with their pros and cons. **THEY AIN’T INHERIT OR EXTEND EACH OTHER.**
 
 ![Reveal Account Abstraction](./scoobbb.jpg)
 
-# EIP-3074: Contract Delegation
+## EIP-3074: Contract Delegation
 
 > Propose AUTH & AUTHCALL Opcodes to the set of EVM instructions.
 
@@ -23,7 +25,7 @@ With **Contract Delegation**, it seems easier now. Your boss will grant the root
 
 > In fact, EIP-3074’s leading motivation is “sponsored transactions” when another wallet (your wallet) can pay fee instead of the permissioned wallet (your boss’ wallet)
 
-# EIP-2938: Account Abstraction
+## EIP-2938: Account Abstraction
 
 > The first methodical attempt to Account Abstraction.
 
@@ -50,7 +52,7 @@ With EIP-2938, smartcontracts now are able to pay fees and act as an EOA wallet.
 
 ![A simple flow on AA](./Smartcontract.png)
 
-# EIP-3074 & EIP-2938’s drawbacks
+## EIP-3074 & EIP-2938’s drawbacks
 
 To apply these 2 EIPs, a consensus-level upgrades in Ethereum protocol is required. That vital requirement created a barrier of tech complexity and needed time for implementation and testing.
 
@@ -58,7 +60,7 @@ Plus, they both introduce new transaction system which increase complexity for o
 
 To tackle the challenge, EIP-4337 was introducing AA without adjusting the Ethereum protocol.
 
-# EIP-4337**: Account Abstraction Using Alt Mempool**
+## EIP-4337: Account Abstraction Using Alt Mempool
 
 Let’s image that now rather than generated a new EOA wallet for a new user, we deploy a smartcontract and send it as his/her abstract account. Every time a user interacts with the wall contract, they will send the info of the call to a new class named **Bundler** and this actor will sign, also pay fees for the actual transaction.
 
@@ -73,7 +75,7 @@ Giving a simple example of AA below will help you understand how the AA could wo
 
 ![Account Abstraction’s Orchestration from https://blog.jarrodwatts.com/](./account-abstractions-orchestration.avif)
 
-## Wallet Contract aka. Abstract Account
+### Wallet Contract aka. Abstract Account
 
 In this wallet, it will implements some data and functions like this:
 
@@ -107,10 +109,10 @@ In the mining node’s perspective, the guy who actually interact with the block
 
 > In the above example, users still need a EOA wallet for authentication, but in the near future, Gmail Token, Phone Verification can be alternatives.
 
-## Bundler Motivation
+### Bundler Motivation
 
 The financial motivation of the bundler class is fee. These fees actually come from users but in many methods like top-up balances, ERC-20, sponsorship, etc.
 
-# Conclusion
+## Conclusion
 
 In this articles, I have skipped multiple details and complex concepts like `EntryPoint` contract, `Paymaster` , and many others. Most of them were low concepts of implementation, and contributed fewer insight for an intuitive overview in AA. If you are trying to look for a technical implementation of AA, highly recommend to original materials from [EIPs](https://eips.ethereum.org/).
