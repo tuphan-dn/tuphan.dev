@@ -1,5 +1,5 @@
 'use client'
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import useKeyboardJs from 'react-use/lib/useKeyboardJs'
 import { useAsync } from 'react-use'
@@ -13,7 +13,7 @@ import Island from '@/components/island'
 import { LiteBlogCard } from '@/components/blog'
 import Tags from '@/components/tags'
 
-import { delay, isMac } from '@/lib/utils'
+import { isMac } from '@/lib/utils'
 import { useThrottle } from '@/lib/hooks/useThrottle'
 
 function Kbd() {
@@ -42,7 +42,6 @@ export default function SearchButton() {
   const { value = [], loading } = useAsync(async () => {
     if (!q || q.length < 3) return []
     const data = await ky.post('/api/blog', { json: { q } }).json<string[]>()
-    await delay(1000)
     return data
   }, [q])
 
@@ -55,7 +54,7 @@ export default function SearchButton() {
   }, [pathname])
 
   return (
-    <Fragment>
+    <>
       <button className="btn btn-sm rounded-full" onClick={() => setOpen(true)}>
         <Island>
           <Kbd />
@@ -107,6 +106,6 @@ export default function SearchButton() {
           </div>
         </div>
       </Modal>
-    </Fragment>
+    </>
   )
 }

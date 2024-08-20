@@ -4,7 +4,6 @@ import { useAsyncFn, useIntersection } from 'react-use'
 import clsx from 'clsx'
 
 import { useSignalEdge } from '@/lib/hooks/useSignal'
-import { delay } from '@/lib/utils'
 
 export type InfiniteLoadingProps = {
   onLoad: () => Promise<void>
@@ -27,10 +26,7 @@ export default function InfiniteLoading({
     true,
   )
 
-  const [{ loading }, load] = useAsyncFn(async () => {
-    await delay(1000) // For better UX
-    await onLoad()
-  }, [onLoad])
+  const [{ loading }, load] = useAsyncFn(onLoad, [onLoad])
 
   useEffect(() => {
     if (loadable) load()
