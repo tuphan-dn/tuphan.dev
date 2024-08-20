@@ -1,6 +1,6 @@
 +++
 tags = "evm"
-date = "10 Auguest, 2023"
+date = "10 August, 2023"
 +++
 
 # Account Abstraction in Nutshell
