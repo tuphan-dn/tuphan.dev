@@ -1,14 +1,17 @@
 'use client'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import axios from 'axios'
 import useSWR from 'swr'
 import { motion } from 'framer-motion'
 import { useSearchParams } from 'next/navigation'
+import clsx from 'clsx'
 
 import { BlogCard } from '@/components/blog'
 import Tags from '@/components/tags'
 import Island from '@/components/island'
 import InfiniteLoading from '@/components/infiniteLoading'
+
+import { useSignalSwitch } from '@/lib/hooks/useSignal'
 
 function useTag() {
   const params = useSearchParams()
@@ -29,24 +32,29 @@ function TagList() {
 
 function BlogList() {
   const tag = useTag()
-  const [blogs, setBlogs] = useState<string[]>([])
-  const [disabled, setDisabled] = useState(false)
+  const reset = useSignalSwitch(tag)
+  const [{ disabled, blogs }, setData] = useState<{
+    disabled: boolean
+    blogs: string[]
+  }>({ disabled: false, blogs: [] })
+  const limit = 2
+  const offset = blogs.length
 
   const onLoad = useCallback(async () => {
-    if (disabled) return
-    const offset = blogs.length
-    const limit = 10
     const { data } = await axios.post<string[]>('/api/blog', {
       t: tag,
       limit,
       offset,
     })
-    const next = [...blogs]
-    if (data.length === limit) setDisabled(false)
-    else setDisabled(true)
-    for (let i = 0; i < data.length; i++) next[offset + i] = data[i]
-    return setBlogs(next)
-  }, [blogs, tag, disabled])
+    return setData(({ blogs: [...blogs] }) => {
+      data.forEach((item, i) => (blogs[offset + i] = item))
+      return { disabled: data.length !== limit, blogs }
+    })
+  }, [limit, offset, tag])
+
+  useEffect(() => {
+    if (reset) setData({ disabled: false, blogs: [] })
+  }, [reset])
 
   return (
     <>
@@ -63,6 +71,9 @@ function BlogList() {
       ))}
       <div className="col-span-full flex flex-row justify-center">
         <InfiniteLoading onLoad={onLoad} disabled={disabled} />
+        <p className={clsx('text-xs opacity-20', { hidden: !disabled })}>
+          You reached the bottom
+        </p>
       </div>
     </>
   )

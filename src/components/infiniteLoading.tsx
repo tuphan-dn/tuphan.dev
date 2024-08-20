@@ -1,8 +1,10 @@
 'use client'
-import { useAsync, useWindowScroll } from 'react-use'
+import { useEffect, useRef } from 'react'
+import { useAsyncFn, useIntersection } from 'react-use'
 import clsx from 'clsx'
 
-import { useSignal } from '@/lib/hooks/useSignal'
+import { useSignalEdge } from '@/lib/hooks/useSignal'
+import { delay } from '@/lib/utils'
 
 export type InfiniteLoadingProps = {
   onLoad: () => Promise<void>
@@ -13,15 +15,26 @@ export default function InfiniteLoading({
   onLoad,
   disabled = false,
 }: InfiniteLoadingProps) {
-  const { y } = useWindowScroll()
-  const loadable = useSignal(
-    y + window.innerHeight >= document.body.offsetHeight && !disabled,
+  const ref = useRef<HTMLSpanElement>(null)
+  const intersection = useIntersection(ref, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 1,
+  })
+  const loadable = useSignalEdge(
+    intersection?.intersectionRatio === 1 && !disabled,
+    false,
     true,
   )
 
-  const { loading } = useAsync(async () => {
-    if (loadable) await onLoad()
-  }, [loadable, onLoad])
+  const [{ loading }, load] = useAsyncFn(async () => {
+    await delay(1000) // For better UX
+    await onLoad()
+  }, [onLoad])
+
+  useEffect(() => {
+    if (loadable) load()
+  }, [loadable, load])
 
   return (
     <span
@@ -29,6 +42,7 @@ export default function InfiniteLoading({
         'opacity-0': !loading,
         'opacity-60': loading,
       })}
+      ref={ref}
     />
   )
 }
