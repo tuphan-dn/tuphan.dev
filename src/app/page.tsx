@@ -37,7 +37,7 @@ function BlogList() {
     disabled: boolean
     blogs: string[]
   }>({ disabled: false, blogs: [] })
-  const limit = 2
+  const limit = 10
   const offset = blogs.length
 
   const onLoad = useCallback(async () => {
