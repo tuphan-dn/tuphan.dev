@@ -27,13 +27,13 @@ Trong bài toán này, ta thấy một mẫu hình rất phổ biến của Mult
 
 1️⃣ Nếu nhóm chỉ có 2 nhà nghiên cứu, lời giải trên sẽ không đủ an toàn. Cụ thể, nhà nghiên cứu $\mathbb{X}_1$ sẽ có các thông tin sau toàn bộ giao thức:
 
-$
-\begin{align}
+$$
+\begin{aligned}
 S_2 &= X - S_1 \\
 s_{22} &= S_2 - s_{12} \\
 X_2 &= s_{21} + s_{22}
-\end{align}
-$
+\end{aligned}
+$$
 
 2️⃣ Nếu một nhà nghiên cứu có sai xót trong tính toán và gửi kết quả sai thì sẽ dẫn đến kết quả cuối cùng cũng sẽ bị sai.
 
