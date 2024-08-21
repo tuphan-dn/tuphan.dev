@@ -24,7 +24,6 @@ class Route {
   ) {
     const pathname = ['/blog', ...slug].join('/')
     const data = table.find(({ route }) => route === pathname)
-    console.log(data)
     return NextResponse.json(data)
   }
 
