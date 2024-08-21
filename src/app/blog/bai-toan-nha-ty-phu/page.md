@@ -11,7 +11,7 @@ Bài toán gốc có tên là "A Promise and Money" và là một trong những 
 
 ## Bài toán
 
-Một nhóm $n$ nhà nghiên cứu mật mã học trẻ đang rất hứng thú với máy tính lượng tử và mong muốn được mua một chiếc. Một nhà tỳ phú nọ hứa sẽ cho mỗi người một số tiền $X_i$ nhất định, với $i=1,...,n$. Nhưng nhà tỷ phú còn ràng buộc rằng mọi người trong nhóm không được tiết lộ số tiền của mỗi người. Hỏi làm sao để các nhà nghiên cứu biết được $X=\sum_{i=1}^n X_i$ đã đủ để mua máy tính chưa?
+Một nhóm $n$ nhà nghiên cứu mật mã học trẻ đang rất hứng thú với máy tính lượng tử và mong muốn được mua một chiếc. Một nhà tỷ phú nọ hứa sẽ cho mỗi người một số tiền $X_i$ nhất định, với $i=1,...,n$. Nhưng nhà tỷ phú còn ràng buộc rằng mọi người trong nhóm không được tiết lộ số tiền của mỗi người. Hỏi làm sao để các nhà nghiên cứu biết được $X=\sum_{i=1}^n X_i$ đã đủ để mua máy tính chưa?
 
 ## Lời giải
 
