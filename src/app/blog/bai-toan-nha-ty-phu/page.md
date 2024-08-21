@@ -46,3 +46,5 @@ Vì các lý do trên, một giao thức MPC để hoàn chỉnh cần nhiều y
   - Ngưỡng chịu lỗi (Threshold)
   - Phát hiện lỗi (Verifiability)
 - Tính xúc tích (Succintness)
+  - Độ dài dữ iệu (Message Length)
+  - Tính tương tác (Interactivity): Không tương tác là trường hợp tốt nhất (Non-Interactivity)
