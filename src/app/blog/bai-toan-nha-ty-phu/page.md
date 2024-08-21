@@ -23,7 +23,7 @@ $$
 
 ## Luận bàn
 
-Trong bài toán này, ta thấy một mẫu hình rất phổ biến của Multiparty Computation (MPC) khi mà nhiều bên cùng tham gia tính toán một giá trị chung ($X$) mà không để lộ thông tin bí mật của bản thân ($X_i$). Thực vậy, bài toán tỷ phú luôn là một ví dụ dễ hiểu nhưng khái quát khi giới thiệu về MPC. Tuy nhiên, vì lời giải còn đơn giản nên chúng ta cũng nhận ra một số vấn đề trong đó.
+Trong bài toán này, ta thấy một mẫu hình rất phổ biến của Multiparty Computation (MPC) khi mà nhiều bên cùng tham gia tính toán một giá trị chung ($X$) mà không để lộ thông tin bí mật của bản thân ($X_i$). Thực vậy, bài toán tỷ phú luôn là một ví dụ dễ hiểu khi giới thiệu về MPC. Tuy nhiên, vì lời giải còn đơn giản nên chúng ta cũng nhận ra một số vấn đề trong đó.
 
 1️⃣ Nếu nhóm chỉ có 2 nhà nghiên cứu, lời giải trên sẽ không đủ an toàn. Cụ thể, nhà nghiên cứu $\mathbb{X}_1$ sẽ có các thông tin sau toàn bộ giao thức:
 
@@ -35,7 +35,7 @@ X_2 &= s_{21} + s_{22}
 \end{aligned}
 $$
 
-2️⃣ Nếu một nhà nghiên cứu có sai xót trong tính toán và gửi kết quả sai thì sẽ dẫn đến kết quả cuối cùng cũng sẽ bị sai.
+2️⃣ Nếu một nhà nghiên cứu có sai sót trong tính toán và gửi kết quả sai thì sẽ dẫn đến kết quả cuối cùng cũng sẽ bị sai.
 
 3️⃣ Nếu nhóm có càng nhiều thành viên thì quá trình trao đổi sẽ càng mất thời gian, nếu một người không thể kết nối thì giao thức cũng không thể hoàn thành.
 
