@@ -3,6 +3,7 @@ import { z } from 'zod'
 import tablejson from './table.json'
 import indexjson from './index.json'
 
+// Database
 const TableDto: z.ZodType<Blog[]> = z.array(
   z.object({
     route: z.string(),
@@ -15,9 +16,18 @@ const TableDto: z.ZodType<Blog[]> = z.array(
     children: z.array(z.string()),
   }),
 )
+const data = TableDto.parse(tablejson)
+const unpublished = data
+  .filter(({ date }) => date > new Date())
+  .map(({ route }) => route)
+export const table = data
+  .filter(({ route }) => !unpublished.includes(route))
+  .map(({ children, ...props }) => ({
+    children: children.filter((route) => !unpublished.includes(route)),
+    ...props,
+  }))
 
-export const table = TableDto.parse(tablejson)
-
+// Index
 const IndexDto = z.object({
   version: z.string(),
   fields: z.array(z.string()),
@@ -25,5 +35,4 @@ const IndexDto = z.object({
   invertedIndex: z.array(z.tuple([z.string(), z.any()])),
   pipeline: z.array(z.string()),
 })
-
 export const index = IndexDto.parse(indexjson)
