@@ -7,7 +7,7 @@ date = "6 June, 2023"
 
 Bài toán gốc có tên là "A Promise and Money" và là một trong những bài toán trong cuộc thi Olympic Mật Mã - [NSUCrypto Olympiad 2019](https://nsucrypto.nsu.ru/archive/2019/round/1/section/2/task/5/#data).
 
-![Máy tính lượng tử của Google](./google-quantum-computer.webp)
+![Máy tính lượng tử của Google](./google-quantum-computer.jpg)
 
 ## Bài toán
 
