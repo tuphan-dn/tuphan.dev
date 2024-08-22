@@ -2,6 +2,7 @@ import 'server-only'
 import { z } from 'zod'
 import tablejson from './table.json'
 import indexjson from './index.json'
+import { env } from '@/configs/env'
 
 // Database
 const TableDto: z.ZodType<Blog[]> = z.array(
@@ -18,7 +19,7 @@ const TableDto: z.ZodType<Blog[]> = z.array(
 )
 const data = TableDto.parse(tablejson)
 const unpublished = data
-  .filter(({ date }) => date > new Date())
+  .filter(({ date }) => env !== 'development' && date > new Date())
   .map(({ route }) => route)
 export const table = data
   .filter(({ route }) => !unpublished.includes(route))

@@ -1,5 +1,10 @@
-import { type ComponentProps, Fragment, useMemo } from 'react'
+'use client'
+import { type ComponentProps, useMemo } from 'react'
 import clsx from 'clsx'
+
+import Zoom from 'react-medium-image-zoom'
+
+import 'react-medium-image-zoom/dist/styles.css'
 
 export type ImageProps = ComponentProps<'img'>
 
@@ -14,14 +19,16 @@ export default function Image({
     return meta
   }, [meta])
   return (
-    <Fragment>
-      <img
-        className={clsx('mb-2 rounded-box', className)}
-        src={src}
-        alt={alt}
-        {...props}
-      />
-      <span className="text-xs opacity-60">{alt}</span>
-    </Fragment>
+    <>
+      <Zoom wrapElement="span">
+        <img
+          className={clsx('mb-2 rounded-box', className)}
+          src={src}
+          alt={alt}
+          {...props}
+        />
+      </Zoom>
+      <span className="text-xs opa">{alt}</span>
+    </>
   )
 }
