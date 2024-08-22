@@ -7,7 +7,7 @@ date = "22 August, 2024"
 
 Khi đang tìm hiểu về quá trình kiểm tra dữ liệu của Optimism, trong tôi luôn có một câu hỏi rằng "Trạng thái được lưu trong `calldata` trông như thế nào?". Vì vậy, tôi đã quyết định giải quyết tất cả điều bí ẩn đằng sau những từ ngữ hoa mỹ như "Merkle Trie" hoặc "Merkle Patricia Trie" trong bài viết này một lần và mãi mãi.
 
-## Bộ nhớ của Contract
+# Bộ nhớ của Contract
 
 Tất cả các biến với độ dài cố định sẽ được trải ra liên tiếp nhau trên **storage slots**[^1]. Mỗi storage slot sẽ có số thứ tự chạy từ $0$ đến $2^{256}-1$ cho riêng nó và đồng thời trỏ đến một vùng nhớ 32 bytes. Nhiều biến với độ dài cố định (trừ `struct` và `array`) có thể được lưu trên cùng một storage slot miễn là tổng độ dài vừa đủ trong một ô nhớ. Tuy nhiên, `struct` và `array` sẽ luôn chiếm một storage slot mới trong đó các phần tử của chúng vẫn sẽ tuân theo quy luật đã nhắc đến. Trong trường hợp các contract kết thừa nhau, các vị trí ô nhớ sẽ tuân theo luật [C3 linearization](https://en.wikipedia.org/wiki/C3_linearization).
 
