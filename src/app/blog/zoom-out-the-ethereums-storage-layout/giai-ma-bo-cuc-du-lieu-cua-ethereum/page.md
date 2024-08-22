@@ -5,7 +5,7 @@ date = "22 August, 2024"
 
 # Giải mã bố cục dữ liệu của Ethereum
 
-Khi đang tìm hiểu về quá trình kiểm tra dữ liệu của Optimism, trong tôi luông có một câu hỏi rằng "Trạng thái được lưu trong `calldata` trông như thế nào?". Vì vậy, tôi đã quyết định giải quyết tất cả điều bí ẩn đằng sau những từ ngữ hoa mỹ như "Merkle Trie" hoặc "Merkle Patricia Trie" trong bài viết này một lần và mãi mãi.
+Khi đang tìm hiểu về quá trình kiểm tra dữ liệu của Optimism, trong tôi luôn có một câu hỏi rằng "Trạng thái được lưu trong `calldata` trông như thế nào?". Vì vậy, tôi đã quyết định giải quyết tất cả điều bí ẩn đằng sau những từ ngữ hoa mỹ như "Merkle Trie" hoặc "Merkle Patricia Trie" trong bài viết này một lần và mãi mãi.
 
 ## Bộ nhớ của Contract
 
