@@ -5,7 +5,7 @@ date = "23 August, 2024"
 
 # Zoom out the Ethereum's Storage Layout
 
-While I was learning the process of verification in Optimism, the question "How the state in calldata looks like?" just kept buzzing in my head. So this article will solve all the mysterious stuff behind the fancy words of "Merkle Trie" or "Merkle Patricia Trie" once and for all 😤.
+While I was learning the process of verification in Optimism, the question "How the state in `calldata` looks like?" just kept buzzing in my head. So this article will solve all the mysterious stuff behind the fancy words of "Merkle Trie" or "Merkle Patricia Trie" once and for all 😤.
 
 ---
 
@@ -37,7 +37,7 @@ $$
 
 Additionally, the data of `data[4][9].a` is locate at $x$, and the data of `data[4][9].b` is locate at $x+1$.
 
-All these knowledges is not really interesting. The thing we must notice is that the contract storage is a strip of 32-byte length slots. They key is a 32-byte integer and the value is a [RLP-encoded](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/) 32-byte integer.
+All these knowledges is not really interesting. The thing we must notice is that the contract storage is a strip of 32-byte length slots. The key is a 32-byte integer and the value is a [RLP-encoded](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/) 32-byte integer.
 
 ![Contract's Storage Layout](./contracts-storage-layout.jpg)
 
@@ -45,6 +45,48 @@ All these knowledges is not really interesting. The thing we must notice is that
 
 # Account State
 
-The account state consists of $nonce$, $balance$, $storageRoot$, and $codeHash$. Focusing on $storageRoot$, it stores the root hash of [Merkle Patricia Trie](https://ethereum.org/en/developers/docs/data-structures-and-encoding/patricia-merkle-trie/) (MPT). We know that for a pair of $(key, value)$, the key represents the path and the value is the leaf content in MPT. Mapping the knowledge into the [Contract Storage](#contract-storage), a storage slot `p` with `value` is encoded to a pair of `(keccak256(p), RLP(value))` and added to the MPT.
+The account state consists of $nonce$, $balance$, $storageRoot$, and $codeHash$. Focusing on $storageRoot$, it stores the root hash of [Merkle Patricia Trie](https://ethereum.org/en/developers/docs/data-structures-and-encoding/patricia-merkle-trie/) (MPT). We know that for a pair of $(key,value)$, the key represents the path and the value is the leaf content in MPT. Mapping the knowledge into the [Contract Storage](#contract-storage), a storage slot `p` with `value` is encoded to a pair of $(keccak256(p), RLP(value))$ and added to the MPT.
 
 ![Account State](./account-state.jpg)
+
+---
+
+# World State
+
+Every [Account State](#account-state) will be hold by an 20-byte-length address. It will form $(keccak256(addr), RLP(nonce, balance, storageRoot, codeHash))$ as an account. All accounts in the world will be organized into an MPT and yield out a $stateRoot$.
+
+![World State](./world-state.jpg)
+
+> There are 2 more tries namely Transaction Trie, and Transaction Receipt Trie, which I believe they follow the same strategy as the World State Trie.
+
+---
+
+# Block Header
+
+Push the [World State](#world-state) along with other data into a block header.
+
+![Block Header](./block-header.jpg)
+
+---
+
+# Back to Optimism
+
+Instead of executing transactions onchain and relying on the Layer 1's throughput, Optimism just does it offchain then submits the logs onto the Layer 1 (i.e. Ethereum) as a proof of execution and validation to significantly reduce the cost. The logs are states that stored in transaction's `calldata`.
+
+The submitted states includes:
+
+**Output Root.** It is a 32-byte string of $keccak256(versionByte | payload)$ where $versionByte$ is a 32-byte simple string of the [L2 Output Commitment](https://specs.optimism.io/protocol/proposals.html#l2-output-root-proposals-specification) version, and $payload$ is the concatenation of $stateRoot | withdrawalStorageRoot | latestBlockHash$.
+
+**Batch.** It is a concatenation of $(batchVersion|content)$ where
+
+$$
+\begin{aligned}
+&content = RLP(\\
+& \qquad parentHash,\\
+& \qquad epochNumber,\\
+& \qquad epochHash,\\
+& \qquad timestamp,\\
+& \qquad transactionList\\
+&)
+\end{aligned}
+$$

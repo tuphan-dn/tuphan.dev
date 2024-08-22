@@ -3,7 +3,7 @@ tags = "evm, 🇻🇳"
 date = "23 August, 2024"
 +++
 
-# Phóng to bố cục dữ liệu của Ethereum
+# Giải mã bố cục dữ liệu của Ethereum
 
 While I was learning the process of verification in Optimism, the question "How the state in calldata looks like?" just kept buzzing in my head. So this article will solve all the mysterious stuff behind the fancy words of "Merkle Trie" or "Merkle Patricia Trie" once and for all 😤.
 
