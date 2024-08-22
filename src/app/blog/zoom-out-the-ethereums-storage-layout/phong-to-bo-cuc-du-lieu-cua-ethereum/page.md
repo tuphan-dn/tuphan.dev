@@ -1,6 +1,6 @@
 +++
 tags = "evm, 🇻🇳"
-date = "22 August, 2024"
+date = "23 August, 2024"
 +++
 
 # Phóng to bố cục dữ liệu của Ethereum
