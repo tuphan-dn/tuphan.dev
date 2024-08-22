@@ -9,7 +9,7 @@ Khi đang tìm hiểu về quá trình kiểm tra dữ liệu của Optimism, tr
 
 # Bộ nhớ của Contract
 
-Tất cả các biến với độ dài cố định sẽ được trải ra liên tiếp nhau trên **storage slots**[^1]. Mỗi storage slot sẽ có số thứ tự chạy từ $0$ đến $2^{256}-1$ cho riêng nó và đồng thời trỏ đến một vùng nhớ 32 bytes. Nhiều biến với độ dài cố định (trừ `struct` và `array`) có thể được lưu trên cùng một storage slot miễn là tổng độ dài vừa đủ trong một ô nhớ. Tuy nhiên, `struct` và `array` sẽ luôn chiếm một storage slot mới trong đó các phần tử của chúng vẫn sẽ tuân theo quy luật đã nhắc đến. Trong trường hợp các contract kết thừa nhau, các vị trí ô nhớ sẽ tuân theo luật [C3 linearization](https://en.wikipedia.org/wiki/C3_linearization).
+Tất cả các biến với độ dài cố định sẽ được trải ra liên tiếp nhau trên **storage slots**[^1]. Mỗi storage slot sẽ có số thứ tự chạy từ $0$ đến $2^{256}-1$ và đồng thời trỏ đến một vùng nhớ 32 bytes. Nhiều biến với độ dài cố định (trừ `struct` và `array`) có thể được lưu trên cùng một storage slot miễn là tổng độ dài vừa đủ trong một ô nhớ. Tuy nhiên, `struct` và `array` sẽ luôn chiếm một storage slot mới trong khi các phần tử của chúng vẫn sẽ tuân theo quy luật ban đầu. Trong trường hợp các contract kết thừa nhau, các vị trí ô nhớ sẽ tuân theo luật [C3 linearization](https://en.wikipedia.org/wiki/C3_linearization).
 
 Các biến có độ dài biến động bao gồm `mapping` và `array` độ dài không xác định sẽ sử dụng Keccak-256 để tìm ra vị trí ô nhớ bắt đầu. Với một `array` ở vị trí `p`, storage slot thứ `p` sẽ lưu giá trị số lượng phần tử trong mảng và dữ liệu mảng thì sẽ được lưu ở vị trí `keccak256(p)`. Với một `mapping` ở vị trí `p`, storage slot thứ `p` sẽ không lưu gì cả và dữ liệu của khoá `k` sẽ đặt ở vị trí `keccak256(k|p)`, trong đó `|` là hàm nối mảng.
 
@@ -48,7 +48,7 @@ Tất cả những kiến thức trên thực sự không cần quá để tâm.
 
 # Account State
 
-Một Account State[^1] bao gồm $nonce$, $balance$, $storageRoot$, và $codeHash$. Tập trung vào $storageRoot$, nó chính là giá trị hash gốc của [Cây Merkle Patricia](https://ethereum.org/en/developers/docs/data-structures-and-encoding/patricia-merkle-trie/) (MPT). Như chúng ta biết rằng với một cặp $(key,value)$, $key$ sẽ đại diện cho đường dẫn đến node lá và $value$ sẽ chính là nội dung của node lá. Ánh xạ hiểu biết này với [Bộ nhớ của Contract](#bộ-nhớ-của-contract), một storage slot vị thứ `p` với giá trị `value` sẽ được mã hoá thành cặp $(keccak256(p), RLP(value))$ và thêm vào cây MPT.
+Một Account State[^1] bao gồm $nonce$, $balance$, $storageRoot$, và $codeHash$. Tập trung vào $storageRoot$, nó chính là giá trị hash gốc của [Cây Merkle Patricia](https://ethereum.org/en/developers/docs/data-structures-and-encoding/patricia-merkle-trie/) (MPT). Như chúng ta biết rằng với một cặp $(key,value)$, $key$ sẽ đại diện cho đường dẫn đến node lá và $value$ sẽ chính là nội dung của node lá. Kết hợp hiểu biết này với [Bộ nhớ của Contract](#bộ-nhớ-của-contract), một storage slot vị thứ `p` với giá trị `value` sẽ được mã hoá thành cặp $(keccak256(p), RLP(value))$ trước khi thêm vào cây MPT.
 
 ![Account State](../account-state.jpg)
 
@@ -56,7 +56,7 @@ Một Account State[^1] bao gồm $nonce$, $balance$, $storageRoot$, và $codeHa
 
 # World State
 
-Một [Account State](#account-state) sẽ được giữ bởi một địa chỉ dài 20 bytes. Nó sẽ cho ra một tài khoản dưới dạng:
+Một [Account State](#account-state) sẽ được giữ bởi một địa chỉ dài 20 bytes. Điều đó sẽ cho ra một tài khoản dưới dạng:
 
 $$
 \begin{aligned}
@@ -72,11 +72,11 @@ $$
 \end{aligned}
 $$
 
-Tất cả các tài khoản trên thế giới sẽ được tổ chức một trong một cây MPT và cuối cùng cho ra một $stateRoot$.
+Tất cả các tài khoản trên thế giới sẽ được tổ chức vào trong một cây MPT và cuối cùng cho ra một $stateRoot$.
 
 ![World State](../world-state.jpg)
 
-> Còn có thêm 2 cây nữa là Transaction Trie, và Transaction Receipt Trie, mà tôi tin rằng chúng được cấu tạo với mô hình tường tự như World State Trie.
+> Ngoài ra, còn có thêm 2 cây nữa là Transaction Trie, và Transaction Receipt Trie, mà tôi tin rằng chúng được cấu tạo với mô hình tường tự như World State Trie.
 
 ---
 
