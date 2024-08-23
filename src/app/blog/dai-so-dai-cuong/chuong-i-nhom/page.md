@@ -237,13 +237,13 @@ _(i) $(G,\cdot)$ là một nhóm;_
 
 _(ii) Với mọi $a,b \in G$, các phương trình $ax=b$ và $ya=b$ đều có nghiệm trong $G$;_
 
-_(iii) Trong $G$ có phần tử đơn vị trái $e$ và với mọi $x \in G$, tồn tại $x' \in G$ sao cho $x'x=e$._
+_(iii) Trong $G$ có phần tử đơn vị trái $e$ và với mọi $x \in G$, tồn tại $x' \in G$ sao cho $x'x=e$;_
 
 _(iv) Trong $G$ có phần tử đơn vị phải $e'$ và với mọi $x \in G$, tồn tại $x' \in G$ sao cho $xx''=e'$._
 
 **Chứng minh.** (i) $\Rightarrow$ (ii) Ta có $x=a^{-1}b$ và $y=ba^{-1}$ lần lượt là các nghiệm của phương trình $ax=b$ và $ya=b$.
 
-(ii) $\Rightarrow$ (iii) Do $G \neq \varnothing$ nên tồn tại $a_0 \in G$. Gọi $e$ là nghiệm của phương trình $ya_0=a_0$. Khi đó $e$ là phần tử đơn vị trái. Thật vậy, với $b$ là một phần tử tuỳ ý của $G$, gọi $c$ là nghiệm của phương trình $a_0x=b$, khi đó $a_0c=b$ nên
+(ii) $\Rightarrow$ (iii) Do $G \neq \text{\O}$ nên tồn tại $a_0 \in G$. Gọi $e$ là nghiệm của phương trình $ya_0=a_0$. Khi đó $e$ là phần tử đơn vị trái. Thật vậy, với $b$ là một phần tử tuỳ ý của $G$, gọi $c$ là nghiệm của phương trình $a_0x=b$, khi đó $a_0c=b$ nên
 
 $$
 eb=e(a_0c)=(ea_0)c=a_0c=b
@@ -271,6 +271,251 @@ Các kết quả trên chứng tỏ $e$ là phần tử đơn vị và $x'=x^{-1
 Tương tự ta cũng có (i) $\Rightarrow$ (ii); (ii) $\Rightarrow$ (iv) và (iv) $\Rightarrow$ (i). Do đó định lý được chứng minh. $\quad \blacksquare$
 
 ## 4. Nhóm hoán vị
+
+### 4.1. Định nghĩa
+
+Cho tập hợp $X \neq \text{\O}$ gồm $n$ phần tử (ta có thể đồng nhất $X$ với $\{1,2,...,n\}$). Khi đó tập hợ $S_n$ gồm tất cả các song ánh từ $X$ vào $X$ là một nhóm với phép hợp nối ánh xạ. Tạ gọi $S_n$ là _nhóm hoán vị_ bậc $n$.
+
+Nhóm hoán vị $S_n$ là nhóm hữu hạn có cấp $n!$, có phần tử trung hoà là ánh xạ đồng nhất $Id_X$ và phần tử nghịch đảo của $\sigma \in S_n$ là ánh xạ ngược $\sigma^{-1}$. Nhóm này không giao hoán nếu $n \ge 2$.
+
+### 4.2. Một số thuật ngữ và ký hiệu
+
+1. Mỗi phần tử $\sigma \in S_n$ được gọi là một _phép hoán vị_ hay một _phép thế_ bậc $n$ và có thể được biểu diễn bởi một ma trận loại $2 \times n$:\
+   $$
+   \begin{pmatrix}
+   1 & 2 & \cdots & n\\
+   \sigma(1) & \sigma(2) & \cdots & \sigma(n)
+   \end{pmatrix}
+   $$
+   trong đó ở dòng thứ nhất, các phần tử của tập $X$ được sắp xếp theo một thứ tự nào đó (thường là $1,2,...,n$), dòng thứ hai gồm ảnh của các phần tử tương ứng ở dòng thứ nhất qua song ánh $\sigma$.
+2. Phép hoán vị $\sigma \in S_n$ được gọi là một $r$-_chu trình_ hay một _chu trình có chiều dài_ $r$ nếu tồn tại các phần tử phân biệt $i_1,i_2,...,i_r \in X$ sao cho $\sigma(i_1)=i_2,...,\sigma(i_{r-1})=i_r,\sigma(i_r)=i_1$ và $\sigma(i)=i, \forall i \in X \backslash \{i_1,i_2,...i_r\}$. Khi đó ta viết $\sigma=(i_1i_2...i_r)$.
+
+   Hai chu trình $\sigma=(i_1i_2...i_r)$, $\sigma'=(j_1j_2...j_s)$ được gọi là _rời nhau_ hay _độc lập_ nếu $\{i_1,i_2,...,i_r\} \cap \{j_1,j_2,...,j_s\} = \text{\O}$.
+
+3. Mỗi 2-chu trình trong $S_n$ được gọi là một chuyển vị. Như vậy mỗi chuyển vị có dạng $(i,j)$ với $1 \le i \ne j \le n$.
+
+   Ví dụ:
+
+   a. Trong nhóm hoá vị $S_6$, phép hoá vị $\sigma$ xác định bởi $\sigma(1)=2,\sigma(2)=5,\sigma(3)=4,\sigma(4)=1,\sigma(5)=3,\sigma(6)=6$ được mô tả như sau:
+
+   $$
+   \sigma =
+   \begin{pmatrix}
+   1&2&3&4&5&6\\
+   2&5&4&1&3&6
+   \end{pmatrix}
+   $$
+
+   b. Trong nhóm hoán vị $S_7$, chu trình $\sigma=(1\;3\;4\;7)$ có chiều dài 4 và là phép hoán vị:
+
+   $$
+   \sigma =
+   \begin{pmatrix}
+   1&2&3&4&5&6&7\\
+   3&2&4&7&5&6&1
+   \end{pmatrix}
+   $$
+
+   c. Trong nhóm hoá vị $S_8$, chuyển vị (2 \; 5) là phép hoán vị:
+
+   $$
+   \sigma =
+   \begin{pmatrix}
+   1&2&3&4&5&6&7&8\\
+   1&5&3&4&2&6&7&8
+   \end{pmatrix}
+   $$
+
+   d. Trong nhóm hoán vị $S_5$, cho
+
+   $$
+   \begin{aligned}
+   \sigma&=(1\;2\;5\;3)\\
+   \tau&=
+   \begin{pmatrix}
+   1&2&3&4&5\\
+   4&3&5&1&2
+   \end{pmatrix}
+   \end{aligned}
+   $$
+
+   Ta có
+
+   $$
+   \begin{aligned}
+   \sigma\tau&=
+   \begin{pmatrix}
+   1&2&3&4&5\\
+   4&1&3&2&5
+   \end{pmatrix}=(1\;4\;2)\\
+   \tau\sigma&=
+   \begin{pmatrix}
+   1&2&3&4&5\\
+   3&2&4&1&5
+   \end{pmatrix}=(1\;3\;4)\\
+   \sigma^{-1}&=(3\;5\;2\;1)\\
+   \tau^{-1}&=
+   \begin{pmatrix}
+   1&2&3&4&5\\
+   4&5&2&1&3
+   \end{pmatrix}\\
+   \end{aligned}
+   $$
+
+### 4.3. Nhận xét
+
+Hai chu trình $\sigma$ và $\tau$ rời nhau thì chúng giao hoán lẫn nhau, nghĩa là $\sigma\tau=\tau\sigma$.
+
+### 4.4. Định lý
+
+_Mọi phép hoán vị bậc $n$ khác ánh xạ đồng nhất đều được phân tích thành tích các chu trình rời nhau có chiều dài lớn hơn hay bằng 2. Cách phân tích là duy nhất sai khác một sự đổi chỗ các chu trình._
+
+**Chứng minh.**
+
+1. _Sự tồn tại:_ Gọi $k$ là số các phần tử $i$ sao cho $\sigma(i) \ne i$. Chọn $i_1$ sao cho $i_2=\sigma(i_1) \ne i_1;i_3=\sigma(i_2);...;i_{j+1}=\sigma(i_j);...$ Gọi $r$ là số nhỏ nhất sao cho $\sigma(i_r) \in \{i_1;...;i_{r-1}\}$, khi đó $\sigma(i_r)=i_1$ (vì nếu $\sigma(i_r)=i_j \ne i_1$ thì ta có $\sigma(i_r)=i_j=\sigma(i_{j-1})$ nên $\sigma$ không là song ánh).
+
+   Đặt $\sigma_1 = (i_1i_2...i_r)$ và $X_1=\{i_1,i_2,...,i_r\}$. Khi đó, nếu $r=k$ thì $\sigma_1=\sigma$ nên $\sigma$ là một chu trình, nếu $r \lt k$, ta gọi $i_{r+1} \notin X_1$ là một phần tử thoả $\sigma(i_{r+1}) \ne i_{r+1}$. Thực hiện tương tự quá trình trên cho tập hợp $X_2=X \backslash X_1$ ta được chu trình $\sigma_2$ rời nhau với $\sigma_1$. Tiếp tục thực hiện như vậy, cuối cùng ta nhận được các chu trình $\sigma_1,\sigma_2,...,\sigma_p$ rời nhau từng đôi một và $\sigma=\sigma_1\sigma_2...\sigma_p$.
+
+2. _Sự duy nhất:_ Giả sử $\sigma \ne Id_X$ và $\sigma$ được phân tích dưới dạng
+
+   $$
+   \sigma = \sigma_1\sigma_2...\sigma_p = \sigma'_1\sigma'_2...\sigma'_p
+   $$
+
+   Trong đó $\sigma_1,\sigma_2,...,\sigma_p$ là các chu trình rời nhau và $\sigma'_1,\sigma'_2,...,\sigma'_p$ cũng là các chu trình rời nhau. Đặt $\sigma_1=(i_1i_2...i_r)$. Khi đó tồn tại $1 \le k \le q$ sao cho
+
+   $$
+   \sigma'_k(i_1)=\sigma(i_1)=\sigma_1(i_1)=i_2,\\
+   \sigma'_k(i_2)=\sigma(i_2)=\sigma_1(i_2)=i_3,\\
+   \cdots\\
+   \sigma'_k(i_r)=\sigma(i_r)=\sigma_1(i_r)=i_1,\\
+   $$
+
+   Do đó $\sigma'_k=\sigma_1$. Không mất tính tổng quát ta có thể giả sử $\sigma'_1=\sigma_1$. Khi đó $\sigma_2...\sigma_p=\sigma'_2...\sigma'_q$. Tiếp tục thực hiện như trên, cuối cùng ta được $p=q$ và $\sigma'_i=\sigma_i$ với mọi $1 \le i \le p$. Định lý được chứng minh. $\quad \blacksquare$
+
+   Ví dụ: Trong nhốm hoán vị $S_{10}$ ta có
+
+   $$
+   \begin{aligned}
+   \sigma &=
+   \begin{pmatrix}
+   1&2&3&4&5&6&7&8&9&10\\
+   3&2&7&9&1&4&8&5&6&10\\
+   \end{pmatrix}\\
+   &= (1\;3\;7\;8\;5)(4\;9\;6)
+   \end{aligned}
+   $$
+
+### 4.5. Bổ đề
+
+_Mọi chu trình trong $S_n$ đều được phân tích thành tích của các chuyển vị._
+
+**Chứng minh.** Cho $\sigma=(i_1i_2...i_r)$ là một chu trình. Ta có $\sigma=(i_1i_r)(i_1i_{r-1})...(i_1i_2)$. $\quad \blacksquare$
+
+### 4.6. Định lý
+
+_Mọi phép hoán vị trong $S_n$ đều được phân tích thành tích của các chuyển vị._
+
+**Chứng minh.** Suy từ [Định lý 4.4](#44-định-lý) và [Bổ đề 4.5](#45-bổ-đề). $\quad \blacksquare$
+
+Ví dụ: Với $\sigma$ như trong ví dụ trên, ta có
+
+$$
+\sigma = (1\;5)(1\;8)(1\;7)(1\;3)(4\;6)(4\;9)
+$$
+
+Nhận xét rằng sự phân tích thành tích các chuyển vị của một chu trình là không duy nhất. Do đó sự phân tích trong [Định lý 4.6](#46-định-lý) là không duy nhất. Tuy nhiên chúng ta sẽ chứng minh rằng tính chẵn lẻ của số các chuyển vị trong các phân tích là không thay đổi.
+
+### 4.7. Định nghĩa
+
+Cho $\sigma \in S_n$. Ta nói rằng $\{i,j\}$ tạo thành một _nghịch thế_ đối với $\sigma$ nếu
+
+$$
+(i-j)[\sigma(i)-\sigma(j)] \lt 0
+$$
+
+Nếu số các nghịch thế đối với $\sigma$ là $k$ thì dấu của $\sigma$, ký hiệu $sgn(\sigma)$, là hàm được định nghĩa bởi
+
+$$
+sgn(\sigma)=(-1)^k
+$$
+
+Nếu $sgn(\sigma)=1$ thì $\sigma$ được gọi là _hoán vị chẵn_, nếu $sgn(\sigma)=-1$ thì $\sigma$ được gọi là _hoán vị lẻ_.
+
+### 4.8. Nhận xét
+
+(i) $sgn(Id_X) = 1$.
+
+(ii) $sgn(\sigma) = sgn(\sigma^{-1})$.
+
+(iii) Nếu $\sigma$ là một chuyển vị thì $sgn(\sigma) = -1$.
+
+### 4.9. Định lý
+
+_Với mọi $\sigma,\tau \in S_n$ thì_
+
+$$
+sgn(\sigma\tau)=sgn(\sigma)sgn(\tau)
+$$
+
+**Chứng minh.** Gọi $k_1,k_2$ và $k$ lần lượt là số nghich thế trong $\sigma.\tau$ và $\sigma\tau$. Giả sử $1 \le i \lt j \le n$. Hoán vị $\sigma$ có thể được biểu diễn như sau:
+
+$$
+\sigma=
+\begin{pmatrix}
+\cdots & \tau(i) \cdots & \tau(j) \cdots\\
+\cdots & \sigma\tau(i) \cdots & \sigma\tau(j) \cdots
+\end{pmatrix}
+$$
+
+Khi đó
+
+1. Nếu $\tau(i) \lt \tau(j)$ và $\sigma\tau(i) \lt \sigma\tau(j)$ thì $\{i,j\}$ không là nghịch thế trong $\tau$; $(\tau(i),\tau(j))$ không là nghịch thế trong $\sigma$ và $\{i,j\}$ không là nghịch thế trong $\sigma\tau$.
+2. Nếu $\tau(i) \lt \tau(j)$ và $\sigma\tau(i) \gt \sigma\tau(j)$ thì $\{i,j\}$ không là nghịch thế trong $\tau$; $(\tau(i),\tau(j))$ là nghịch thế trong $\sigma$ và $\{i,j\}$ là nghịch thế trong $\sigma\tau$.
+3. Nếu $\tau(i) \gt \tau(j)$ và $\sigma\tau(i) \lt \sigma\tau(j)$ thì $\{i,j\}$ là nghịch thế trong $\tau$; $(\tau(i),\tau(j))$ là nghịch thế trong $\sigma$ và $\{i,j\}$ không là nghịch thế trong $\sigma\tau$.
+4. Nếu $\tau(i) \gt \tau(j)$ và $\sigma\tau(i) \gt \sigma\tau(j)$ thì $\{i,j\}$ là nghịch thế trong $\tau$; $(\tau(i),\tau(j))$ không là nghịch thế trong $\sigma$ và $\{i,j\}$ là nghịch thế trong $\sigma\tau$.
+
+Kết hợp 4 trường hợp trên ta được $k+k_1+k_2$ là một số chẵn nên $(-1)^k=(-1)^{k_1}(-1)^{k_2}$, nghĩa là
+
+$$
+sgn(\sigma\tau)=sgn(\sigma)sgn(\tau) \quad \blacksquare
+$$
+
+Từ [Bổ đề 4.5](#45-bổ-đề), [Nhận xét 4.8](#48-nhận-xét) và [Định lý 4.9](#49-định-lý) ta suy ra:
+
+### 4.10. Định lý
+
+\_Với mọi hoán vị $\sigma \in S_n$, ta có
+
+$$
+sgn(\sigma) = (-1)^l
+$$
+
+_với $l$ là số chuyển vị trong phân tích $\sigma$ thành tích các chuyển vị. Đặc biệt, tính chẵn lẻ của số các chuyển vị trong [Định lý 4.6](#46-định-lý) là duy nhất._
+
+Ví dụ: Xét tính chẵn lẻ của phép hoán vị $\sigma \in S_{10}$ sau:
+
+$$
+\begin{aligned}
+\sigma &=
+\begin{pmatrix}
+1&2&3&4&5&6&7&8&9&10\\
+3&5&6&4&8&1&7&10&2&9
+\end{pmatrix}\\
+&= (1\;3\;6)(2\;5\;8\;10\;9\;)\\
+&= (1\;6)(1\;3)(2\;9)(2\;10)(2\;8)(2\;5)
+\end{aligned}
+$$
+
+Vì $\sigma$ được viết dưới dạng tích của 6 chuyển vị nên $sgn(\sigma)=1$ nghĩa là $\sigma$ là một hoán vị chẵn.
+
+### 4.11. Hệ quả
+
+_Nếu $\sigma$ là một $r$-chu trình thì_
+
+_(i) $sgn(\sigma)=(-1)^{r-1}$;_
+
+_(ii) $\sigma$ chẵn $\Leftrightarrow$ $r$ lẻ; và $\sigma$ lẻ $\Leftrightarrow$ $r$ chẵn._
 
 ## 5. Nhóm con
 
