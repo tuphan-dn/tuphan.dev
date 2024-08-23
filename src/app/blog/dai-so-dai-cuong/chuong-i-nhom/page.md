@@ -130,7 +130,7 @@ $$
 
 ### 2.5. Ký hiệu
 
-Trong nửa nhóm $(X,\cdot)$ tích của $n$ phần tử, mỗi phần tử đều bằng $x$ được gọi là $luỹ thừa$ bậc $n$ của $x$ và được ký hiệu là $x^n$. Do Định lý [2.4](#24-định-lý) ta có
+Trong nửa nhóm $(X,\cdot)$ tích của $n$ phần tử, mỗi phần tử đều bằng $x$ được gọi là _luỹ thừa_ bậc $n$ của $x$ và được ký hiệu là $x^n$. Do Định lý [2.4](#24-định-lý) ta có
 
 $$
 x^m x^n = x^{m+n}, (x^m)^n = x^{mn}, \forall m,n \in \mathbb{N}^*
@@ -159,3 +159,41 @@ x_1...x_n &= (x_1...x_{k-1})[x_k(x_{k+1}...x_n)]\\
 $$
 
 ## 3. Khái niệm về nhóm
+
+### 3.1. Định nghĩa
+
+_Nhóm_ là một vị nhóm mà mọi phần tử đều khả đối xứng. Nói cách khác, tập hợp $G$ khác rỗng với phép toán nhân được gọi là một nhóm nếu các tính chất sau được thoả:
+
+$(G_1)$ Với mọi $x,y,z \in G, (xy)z=z(yz)$;
+
+$(G_2)$ Tồn tại $e \in G$ sao cho với mọi $x \in G, ex=xe=x&;
+
+$(G_3)$ Với mọi $x \in G$, tồn tại $x^{-1} \in G$ sao cho $xx^{-1}=x^{-1}x=e$.
+
+Nếu phép toán trên $G$ là phép cộng thì các tính chất trên trở thành:
+
+$(G_1)$ Với mọi $x,y,z \in G, (x+y)+z=z+(y+z)$;
+
+$(G_2)$ Tồn tại $0 \in G$ sao cho với mọi $x \in G, 0+x=x+0=x&;
+
+$(G_3)$ Với mọi $x \in G$, tồn tại $-x \in G$ sao cho $x+(-x)=(-x)+x=0$.
+
+Trường hợp phép toán trên nhóm $G$ giao hoán thì $G$ là _nhóm giao hoán_ hay là _nhóm Abel_.
+
+Nhóm $G$ được gọi là _nhóm hữu hạn_ khi tập hợp $G$ hữu hạn. Khi đó số phần tử của $G$ được gọi là _cấp_ của nhóm $G$. Nếu nhóm $G$ không hữu hạn thì ta nói $G$ là _nhóm vô hạn_.
+
+### 3.2. Ví dụ
+
+1. Tập hợp các số nguyên $\mathbb{Z}$ cùng với phpes cộng thông thường là một nhóm giao hoán mà ta gọi là nhóm cộng các số nguyên. Tương tự ta có nhóm công các số hữu tỷ $\mathbb{Q}$, nhóm cộng các số thực $\mathbb{R}$ và nhóm cộng các số phức $\mathbb{C}$.
+2. Tập hợp các số hữu tỷ khác không $\mathbb{Q^*}$ cùng với phép nhan thông thường là một nhóm giao hoán mà ta gọi là nhóm nhân các số hữu tỷ khác không. Tương tự ta có nhóm nhân các số thực khác không $\mathbb{R^*}$ và nhóm nhân các số phức khác không $\mathbb{C^*}$.
+3. Với $X=\{1,2,...,n\}$, đặt..
+
+   $$
+   S_n = {\sigma | \sigma: X \rightarrow X \; \text{là một song ánh}}
+   $$
+
+   Khi đó $S_n$ với phép hợp nối ánh xạ là một nhóm (có phần tử đơn vị là ánh xạ đồng nhất $Id_X$ và phần tử nghịch đảo của $\sigma \in S_n$ chính là ánh xạ ngược $\sigma^{-1}$). Ta gọi $(S_n,\circ)$ là nhóm hoán vị hay nhóm đối xứng bậc $n$. Đây là một nhóm hữu hạn có cấp $n!$ ([xem 4](#4-nhóm-hoán-vị)).
+
+4. Tập hợp $GL(n,\mathbb{R})$ gồm các ma trận vuông cấp $n$, khả nghịch với hệ số thực cùng với phép nhân ma trận là một nhóm không giao hoán với mọi $n \gt 1$ (với phần tử đơn vị là mà trận đơn vị $I_n$ và phần tử nghịch đảo của $A \in GL(n,\mathbb{R})$ chính là ma trận nghịch đảo $A^{-1}$). Ta gọi $GL(n,\mathbb{R})$ là _nhóm tuyế tính đầu đủ_ bậc $n$ (hay _nhóm tuyến tính tổng quát_ bậc $n$) trên $\mathbb{R}$.
+
+## 4. Nhóm hoán vị

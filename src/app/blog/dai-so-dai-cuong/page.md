@@ -23,7 +23,7 @@ _Thành phố Hồ Chí Minh, tháng 6 năm 2005_
 
 ## Đôi lời riêng
 
-Trước hết, tôi không phải là tác giả hay thuộc nhóm tác giả của cuốn sách **Đại số đại cương** này. Riêng bản thân tôi rất thích cuốn sách này vì sự dễ hiểu và trình bày khoa học. Tuy nhiên, cuốn sách được xuất bản dưới định dạng pdf và không hỗ trợ tìm kiếm văn bản dẫn đến việc tra cứu, tham khảo gặp nhiều khó khăn. Dự án này giúp số hoá lại cuốn sách dưới định dạng văn bản thân thiện để hỗ trợ nghiên cứu tốt hơn cho bản thân và cộng đồng. Cuối cùng, bản điện tử của cuốn sách gốc có thể tìm thấy [tại đây](/static/Đại%20Số%20Đại%20Cương.pdf).
+Trước hết, tôi không phải là tác giả hay thuộc nhóm tác giả của cuốn sách **Đại số đại cương** này. Riêng bản thân tôi rất thích cuốn sách này vì sự dễ hiểu và trình bày khoa học. Tuy nhiên, cuốn sách được xuất bản dưới định dạng ảnh (nhúng trong PDF) và không hỗ trợ tìm kiếm văn bản dẫn đến việc tra cứu, tham khảo gặp nhiều khó khăn. Dự án này giúp số hoá lại cuốn sách dưới định dạng văn bản thân thiện để hỗ trợ nghiên cứu tốt hơn cho bản thân và cộng đồng. Cuối cùng, bản điện tử của cuốn sách gốc có thể tìm thấy [tại đây](/static/Đại%20Số%20Đại%20Cương.pdf).
 
 _Thành phố Hồ Chí Minh, tháng 8 năm 2020_
 
