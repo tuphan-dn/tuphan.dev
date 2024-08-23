@@ -61,7 +61,7 @@ export default function Menu() {
         </Link>
         <Link
           className="btn btn-ghost btn-sm flex flex-row gap-4 justify-start items-center font-normal"
-          href="/Curriculum_Vitae.pdf"
+          href="/static/Curriculum_Vitae.pdf"
           target="_blank"
         >
           <Clipboard className="w-4 h-4" />
