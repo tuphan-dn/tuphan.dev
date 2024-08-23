@@ -213,7 +213,8 @@ _(v) Phép toán nhân có tính giản ước, nghĩa là với mọi $x,y,z \i
 
 $$
 \begin{aligned}
-(x_1...x_n)(x_n^{-1}...x_1^{-1}) &= (x_1...x_{n-1})(x_nx_n^{-1})(x_{n-1}^{-1}...x_1^{-1})\\
+&(x_1...x_n)(x_n^{-1}...x_1^{-1})\\
+&= (x_1...x_{n-1})(x_nx_n^{-1})(x_{n-1}^{-1}...x_1^{-1})\\
 &= (x_1...x_{n-1})(x_{n-1}^{-1}...x_1^{-1})\\
 &= ...\\
 &= e
@@ -229,6 +230,45 @@ sau đó sử dụng (iii).
 Trong nhóm nhân $(G,\cdot)$ ta dùng ký hiệu $x^{-n}$ để chỉ phần tử $(x^{-1})^n$ với mọi số $n$ nguyên dương và đặt $x^0=e$. Như vậy ta đã định nghĩa luỹ thừa bận $n$ của một phần tử bất kỳ trong một nhóm nhân với $n$ nguyên. Chú ý rằng, do tính chất (iv) trong [Định lý 3.3](#33-định-lý), các công thức $x^mx^n = x^{m+n}$ và $(x^m)^n=x^{mn}$ (hay $mx+nx = (m+n)x$ và $m(nx)=n(mx)$ đối với nhóm cộng) vẫn còn đúng với mọi $m,n$ nguyên.
 
 ### 3.5. Định lý
+
+_Cho $(G,\cdot)$ là một nửa nhóm khác rỗng. Các mệnh đề sau tương đương:_
+
+_(i) $(G,\cdot)$ là một nhóm;_
+
+_(ii) Với mọi $a,b \in G$, các phương trình $ax=b$ và $ya=b$ đều có nghiệm trong $G$;_
+
+_(iii) Trong $G$ có phần tử đơn vị trái $e$ và với mọi $x \in G$, tồn tại $x' \in G$ sao cho $x'x=e$._
+
+_(iv) Trong $G$ có phần tử đơn vị phải $e'$ và với mọi $x \in G$, tồn tại $x' \in G$ sao cho $xx''=e'$._
+
+**Chứng minh.** (i) $\Rightarrow$ (ii) Ta có $x=a^{-1}b$ và $y=ba^{-1}$ lần lượt là các nghiệm của phương trình $ax=b$ và $ya=b$.
+
+(ii) $\Rightarrow$ (iii) Do $G \neq \varnothing$ nên tồn tại $a_0 \in G$. Gọi $e$ là nghiệm của phương trình $ya_0=a_0$. Khi đó $e$ là phần tử đơn vị trái. Thật vậy, với $b$ là một phần tử tuỳ ý của $G$, gọi $c$ là nghiệm của phương trình $a_0x=b$, khi đó $a_0c=b$ nên
+
+$$
+eb=e(a_0c)=(ea_0)c=a_0c=b
+$$
+
+Vậy $e$ là phần tử đơn vị trái. Tính chất sai cùng trong (iii) được suy từ giả thuyết mọi phương trình dạng $ya=e$ đều có nghiệm trong $G$.
+
+(iii) $\Rightarrow$ (ii) Giả sử trong $G$ có phần tử đơn vị trái $e$ và với mọi $x \in G$, tồn tại $x' \in G$ sao cho $x'x=e$. Ta chứng minh $e$ là phần tử đơn vị và $x'$ là phần tử nghịch đảo của $x$. Theo giả thuyết, với $x'$ như trên tồn tại $x'' \in G$ sao cho $x''x'=e$. Do đó
+
+$$
+\begin{aligned}
+xx'&=e(xx')=(x''x')(xx')\\
+&=x''(x'x)x'=x''ex'=x''x'=e
+\end{aligned}
+$$
+
+Suy ra
+
+$$
+xe=x(x'x)=(xx')x=ex=x
+$$
+
+Các kết quả trên chứng tỏ $e$ là phần tử đơn vị và $x'=x^{-1}$. Do đó $(G,\cdot)$ là một nhóm.
+
+Tương tự ta cũng có (i) $\Rightarrow$ (ii); (ii) $\Rightarrow$ (iv) và (iv) $\Rightarrow$ (i). Do đó định lý được chứng minh. $\quad \blacksquare$
 
 ## 4. Nhóm hoán vị
 
