@@ -166,7 +166,7 @@ _Nhóm_ là một vị nhóm mà mọi phần tử đều khả đối xứng. N
 
 $(G_1)$ Với mọi $x,y,z \in G, (xy)z=z(yz)$;
 
-$(G_2)$ Tồn tại $e \in G$ sao cho với mọi $x \in G, ex=xe=x&;
+$(G_2)$ Tồn tại $e \in G$ sao cho với mọi $x \in G, ex=xe=x$;
 
 $(G_3)$ Với mọi $x \in G$, tồn tại $x^{-1} \in G$ sao cho $xx^{-1}=x^{-1}x=e$.
 
@@ -174,7 +174,7 @@ Nếu phép toán trên $G$ là phép cộng thì các tính chất trên trở 
 
 $(G_1)$ Với mọi $x,y,z \in G, (x+y)+z=z+(y+z)$;
 
-$(G_2)$ Tồn tại $0 \in G$ sao cho với mọi $x \in G, 0+x=x+0=x&;
+$(G_2)$ Tồn tại $0 \in G$ sao cho với mọi $x \in G, 0+x=x+0=x$;
 
 $(G_3)$ Với mọi $x \in G$, tồn tại $-x \in G$ sao cho $x+(-x)=(-x)+x=0$.
 
@@ -185,15 +185,16 @@ Nhóm $G$ được gọi là _nhóm hữu hạn_ khi tập hợp $G$ hữu hạn
 ### 3.2. Ví dụ
 
 1. Tập hợp các số nguyên $\mathbb{Z}$ cùng với phpes cộng thông thường là một nhóm giao hoán mà ta gọi là nhóm cộng các số nguyên. Tương tự ta có nhóm công các số hữu tỷ $\mathbb{Q}$, nhóm cộng các số thực $\mathbb{R}$ và nhóm cộng các số phức $\mathbb{C}$.
-2. Tập hợp các số hữu tỷ khác không $\mathbb{Q^*}$ cùng với phép nhan thông thường là một nhóm giao hoán mà ta gọi là nhóm nhân các số hữu tỷ khác không. Tương tự ta có nhóm nhân các số thực khác không $\mathbb{R^*}$ và nhóm nhân các số phức khác không $\mathbb{C^*}$.
-3. Với $X=\{1,2,...,n\}$, đặt..
-
-   $$
-   S_n = {\sigma | \sigma: X \rightarrow X \; \text{là một song ánh}}
-   $$
-
-   Khi đó $S_n$ với phép hợp nối ánh xạ là một nhóm (có phần tử đơn vị là ánh xạ đồng nhất $Id_X$ và phần tử nghịch đảo của $\sigma \in S_n$ chính là ánh xạ ngược $\sigma^{-1}$). Ta gọi $(S_n,\circ)$ là nhóm hoán vị hay nhóm đối xứng bậc $n$. Đây là một nhóm hữu hạn có cấp $n!$ ([xem 4](#4-nhóm-hoán-vị)).
-
-4. Tập hợp $GL(n,\mathbb{R})$ gồm các ma trận vuông cấp $n$, khả nghịch với hệ số thực cùng với phép nhân ma trận là một nhóm không giao hoán với mọi $n \gt 1$ (với phần tử đơn vị là mà trận đơn vị $I_n$ và phần tử nghịch đảo của $A \in GL(n,\mathbb{R})$ chính là ma trận nghịch đảo $A^{-1}$). Ta gọi $GL(n,\mathbb{R})$ là _nhóm tuyế tính đầu đủ_ bậc $n$ (hay _nhóm tuyến tính tổng quát_ bậc $n$) trên $\mathbb{R}$.
+2. Tập hợp các số hữu tỷ khác không $\mathbb{Q^*}$ cùng với phép nhân thông thường là một nhóm giao hoán mà ta gọi là nhóm nhân các số hữu tỷ khác không. Tương tự ta có nhóm nhân các số thực khác không $\mathbb{R^*}$, và nhóm nhân các số phức khác không $\mathbb{C^*}$.
+3. Với $X=\{1,2,...,n\}$, đặt $ S_n = {\sigma | \sigma: X \rightarrow X}$ là một song ánh. Khi đó $S_n$ với phép hợp nối ánh xạ là một nhóm (có phần tử đơn vị là ánh xạ đồng nhất $Id_X$ và phần tử nghịch đảo của $\sigma \in S_n$ chính là ánh xạ ngược $\sigma^{-1}$). Ta gọi $(S_n,\circ)$ là nhóm hoán vị hay nhóm đối xứng bậc $n$. Đây là một nhóm hữu hạn có cấp $n!$ ([xem 4](#4-nhóm-hoán-vị)).
+4. Tập hợp $GL(n,\mathbb{R})$ gồm các ma trận vuông cấp $n$, khả nghịch với hệ số thực cùng với phép nhân ma trận là một nhóm không giao hoán với mọi $n \gt 1$ (với phần tử đơn vị là mà trận đơn vị $I_n$ và phần tử nghịch đảo của $A \in GL(n,\mathbb{R})$ chính là ma trận nghịch đảo $A^{-1}$). Ta gọi $GL(n,\mathbb{R})$ là _nhóm tuyến tính đầu đủ_ bậc $n$ (hay _nhóm tuyến tính tổng quát_ bậc $n$) trên $\mathbb{R}$.
 
 ## 4. Nhóm hoán vị
+
+## 5. Nhóm con
+
+## 6. Nhóm con cyclic và nhóm cyclic
+
+## 7. Nhóm con chuẩn tắc và nhóm thương
+
+## 8. Đồng cấu

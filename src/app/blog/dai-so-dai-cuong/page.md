@@ -38,11 +38,11 @@ _Thành phố Hồ Chí Minh, tháng 8 năm 2020_
 1. [Phép toán hai ngôi](/blog/dai-so-dai-cuong/chuong-i-nhom#1-phép-toán-hai-ngôi)
 2. [Nửa nhóm](/blog/dai-so-dai-cuong/chuong-i-nhom#2-nửa-nhóm)
 3. [Khái niệm về nhóm](/blog/dai-so-dai-cuong/chuong-i-nhom#3-khái-niệm-về-nhóm)
-4. Nhóm hoán vị
-5. Nhóm con
-6. Nhóm con cyclic và nhóm cyclic
-7. Nhóm con chuẩn tắc và nhóm thương
-8. Đồng cấu
+4. [Nhóm hoán vị](/blog/dai-so-dai-cuong/chuong-i-nhom#4-nhóm-hoán-vị)
+5. [Nhóm con](/blog/dai-so-dai-cuong/chuong-i-nhom#5-nhóm-con)
+6. [Nhóm con cyclic và nhóm cyclic](/blog/dai-so-dai-cuong/chuong-i-nhom#6-nhóm-con-cyclic-và-nhóm-cyclic)
+7. [Nhóm con chuẩn tắc và nhóm thương](/blog/dai-so-dai-cuong/chuong-i-nhom#7-nhóm-con-chuẩn-tắc-và-nhóm-thương)
+8. [Đồng cấu](/blog/dai-so-dai-cuong/chuong-i-nhom#8-đồng-cấu)
 
 Chương II. VÀNH VÀ TRƯỜNG
 
