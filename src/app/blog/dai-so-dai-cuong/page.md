@@ -5,7 +5,7 @@ date = "22 August, 2020"
 
 # Đại Số Đại Cương
 
-Nguyễn Viết Đông, Trần Ngọc Hội - Đại học Quốc gia Thành phố Hồ Chí Minh, Trường Đại học Khoa Học Tự Nhiên
+Nguyễn Viết Đông, Trần Ngọc Hội - Đại học Quốc gia Thành phố Hồ Chí Minh, Trường Đại học Khoa Học Tự Nhiên.
 
 ## Lời nói đầu
 

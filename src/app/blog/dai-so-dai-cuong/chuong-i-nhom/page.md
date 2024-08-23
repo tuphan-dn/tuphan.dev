@@ -37,7 +37,7 @@ Cho phép toán $*$ trên tập hợp $X$. Ta nói phép toán $*$:
 
 _Một phép toán có nhiều nhất một phần tử trung hòa._
 
-**Chứng minh.** Giả sử $e'$ và $e''$ là hai phần tử trung hòa của phép toán $*$. Xét phần tử $e'*e''$. Vì $e'$ là phần tử trung hòa trái nên $e' * e'' = e''$. Mặt khác, vì $e''$ là phần tử trung hòa phải nên $e' * e'' = e'$. Suy ra $e'=e''$. $\blacksquare$
+**Chứng minh.** Giả sử $e'$ và $e''$ là hai phần tử trung hòa của phép toán $*$. Xét phần tử $e'*e''$. Vì $e'$ là phần tử trung hòa trái nên $e' * e'' = e''$. Mặt khác, vì $e''$ là phần tử trung hòa phải nên $e' * e'' = e'$. Suy ra $e'=e''$. $\quad \blacksquare$
 
 ### 1.5. Nhận xét
 
@@ -59,7 +59,7 @@ $$
 x' &= x' * e\\
 &= x' * (x * x'')\\
 &= [x' * x) * x''\\
-&= e * x'' = x''. \qquad \blacksquare
+&= e * x'' = x'' \quad \blacksquare
 \end{aligned}
 $$
 
@@ -124,7 +124,7 @@ $$
 &(x_1 ... x_i) (x_{i+1} ... x_j) ... (x_{k+1} ... x_j)\\
 = &(x_1 ... x_i) [(x_{i+1} ... x_j) ... (x_{k+1} ... x_j)]\\
 = &[x_1(x_2 ... x_i)][(x_{i+1} ... x_n)]\\
-= &x_1(x_2 ... x_n) = x_1 ... x_n \qquad \blacksquare
+= &x_1(x_2 ... x_n) = x_1 ... x_n \quad \blacksquare
 \end{aligned}
 $$
 
@@ -154,7 +154,7 @@ x_1...x_n &= (x_1...x_{k-1})[x_k(x_{k+1}...x_n)]\\
 &= (x_1...x_{k-1})[(x_{k+1}...x_n)x_k]\\
 &= (x_1...x_{k-1}x_{k+1}...x_n)x_k\\
 &= (x_{\sigma(1)}...x_{\sigma(n-1)})x_{\sigma(n)}\\
-&= x_{\sigma(1)}...x_{\sigma(n)} \qquad \blacksquare
+&= x_{\sigma(1)}...x_{\sigma(n)} \quad \blacksquare
 \end{aligned}
 $$
 
@@ -188,6 +188,47 @@ Nhóm $G$ được gọi là _nhóm hữu hạn_ khi tập hợp $G$ hữu hạn
 2. Tập hợp các số hữu tỷ khác không $\mathbb{Q^*}$ cùng với phép nhân thông thường là một nhóm giao hoán mà ta gọi là nhóm nhân các số hữu tỷ khác không. Tương tự ta có nhóm nhân các số thực khác không $\mathbb{R^*}$, và nhóm nhân các số phức khác không $\mathbb{C^*}$.
 3. Với $X=\{1,2,...,n\}$, đặt $ S_n = {\sigma | \sigma: X \rightarrow X}$ là một song ánh. Khi đó $S_n$ với phép hợp nối ánh xạ là một nhóm (có phần tử đơn vị là ánh xạ đồng nhất $Id_X$ và phần tử nghịch đảo của $\sigma \in S_n$ chính là ánh xạ ngược $\sigma^{-1}$). Ta gọi $(S_n,\circ)$ là nhóm hoán vị hay nhóm đối xứng bậc $n$. Đây là một nhóm hữu hạn có cấp $n!$ ([xem 4](#4-nhóm-hoán-vị)).
 4. Tập hợp $GL(n,\mathbb{R})$ gồm các ma trận vuông cấp $n$, khả nghịch với hệ số thực cùng với phép nhân ma trận là một nhóm không giao hoán với mọi $n \gt 1$ (với phần tử đơn vị là mà trận đơn vị $I_n$ và phần tử nghịch đảo của $A \in GL(n,\mathbb{R})$ chính là ma trận nghịch đảo $A^{-1}$). Ta gọi $GL(n,\mathbb{R})$ là _nhóm tuyến tính đầu đủ_ bậc $n$ (hay _nhóm tuyến tính tổng quát_ bậc $n$) trên $\mathbb{R}$.
+
+### 3.3. Định lý
+
+_Cho nhóm $(G,\cdot)$ và $x,y,x_1,...,x_n \in G$ Khi đó:_
+
+_(i) Phần tử đơn vị $e$ là duy nhất._
+
+_(ii) Phần từ nghịch đảo $x^{-1}$ của $x$ là duy nhất và $(x^{-1})^{-1}=x$._
+
+_(iii) $xy=e$ khi và chỉ khi $yx=e$. Hơn nữa khi đó $y=x^{-1}$._
+
+_(iv) $(x_1...x_n)^{-1} = x_n^{-1}...x_1^{-1}$. Đặc biệt $(x^n)^{-1}=(x^{-1})^n$ với mọi $n$ nguyên dương._
+
+_(v) Phép toán nhân có tính giản ước, nghĩa là với mọi $x,y,z \in G$, từ dẳng thức $xy=xz$ hay $yx=zx$ đều dẫn đến $y=z$._
+
+**Chứng minh.** (i) Suy từ [Mệnh đề 1.4](#14-mệnh-đề).
+
+(ii) Suy từ [Mệnh đề 1.7](#17-mệnh-đề).
+
+(iii) Suy từ [Nhận xét 1.8](#18-nhận-xét).
+
+(iv) Chỉ cần nhận xét rằng
+
+$$
+\begin{aligned}
+(x_1...x_n)(x_n^{-1}...x_1^{-1}) &= (x_1...x_{n-1})(x_nx_n^{-1})(x_{n-1}^{-1}...x_1^{-1})\\
+&= (x_1...x_{n-1})(x_{n-1}^{-1}...x_1^{-1})\\
+&= ...\\
+&= e
+\end{aligned}
+$$
+
+sau đó sử dụng (iii).
+
+(v) Từ đẳng thức $xy=xz$ ta suy ra $x^{-1}(xy)=x^{-1}(xz)$ hay $(x^{-1}x)y=(x^{-1}x)z$, nghĩa là $y=z$. Tương tự, từ đẳng thức $yx=zx$ cũng dẫn đến $y=z$. $\quad \blacksquare$
+
+### 3.4. Ký hiệu
+
+Trong nhóm nhân $(G,\cdot)$ ta dùng ký hiệu $x^{-n}$ để chỉ phần tử $(x^{-1})^n$ với mọi số $n$ nguyên dương và đặt $x^0=e$. Như vậy ta đã định nghĩa luỹ thừa bận $n$ của một phần tử bất kỳ trong một nhóm nhân với $n$ nguyên. Chú ý rằng, do tính chất (iv) trong [Định lý 3.3](#33-định-lý), các công thức $x^mx^n = x^{m+n}$ và $(x^m)^n=x^{mn}$ (hay $mx+nx = (m+n)x$ và $m(nx)=n(mx)$ đối với nhóm cộng) vẫn còn đúng với mọi $m,n$ nguyên.
+
+### 3.5. Định lý
 
 ## 4. Nhóm hoán vị
 
