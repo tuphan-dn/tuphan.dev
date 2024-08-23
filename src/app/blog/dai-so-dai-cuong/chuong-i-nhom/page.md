@@ -274,7 +274,7 @@ Tương tự ta cũng có (i) $\Rightarrow$ (ii); (ii) $\Rightarrow$ (iv) và (i
 
 ### 4.1. Định nghĩa
 
-Cho tập hợp $X \neq \text{\O}$ gồm $n$ phần tử (ta có thể đồng nhất $X$ với $\{1,2,...,n\}$). Khi đó tập hợ $S_n$ gồm tất cả các song ánh từ $X$ vào $X$ là một nhóm với phép hợp nối ánh xạ. Tạ gọi $S_n$ là _nhóm hoán vị_ bậc $n$.
+Cho tập hợp $X \neq \text{\O}$ gồm $n$ phần tử (ta có thể đồng nhất $X$ với $\{1,2,...,n\}$). Khi đó tập hợp $S_n$ gồm tất cả các song ánh từ $X$ vào $X$ là một nhóm với phép hợp nối ánh xạ. Tạ gọi $S_n$ là _nhóm hoán vị_ bậc $n$.
 
 Nhóm hoán vị $S_n$ là nhóm hữu hạn có cấp $n!$, có phần tử trung hoà là ánh xạ đồng nhất $Id_X$ và phần tử nghịch đảo của $\sigma \in S_n$ là ánh xạ ngược $\sigma^{-1}$. Nhóm này không giao hoán nếu $n \ge 2$.
 
