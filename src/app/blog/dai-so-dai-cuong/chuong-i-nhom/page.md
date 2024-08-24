@@ -280,7 +280,7 @@ Nhóm hoán vị $S_n$ là nhóm hữu hạn có cấp $n!$, có phần tử tru
 
 ### 4.2. Một số thuật ngữ và ký hiệu
 
-1. Mỗi phần tử $\sigma \in S_n$ được gọi là một _phép hoán vị_ hay một _phép thế_ bậc $n$ và có thể được biểu diễn bởi một ma trận loại $2 \times n$:\
+1. Mỗi phần tử $\sigma \in S_n$ được gọi là một _phép hoán vị_ hay một _phép thế_ bậc $n$ và có thể được biểu diễn bởi một ma trận loại $2 \times n$:
    $$
    \begin{pmatrix}
    1 & 2 & \cdots & n\\
@@ -296,7 +296,7 @@ Nhóm hoán vị $S_n$ là nhóm hữu hạn có cấp $n!$, có phần tử tru
 
    Ví dụ:
 
-   a. Trong nhóm hoá vị $S_6$, phép hoá vị $\sigma$ xác định bởi $\sigma(1)=2,\sigma(2)=5,\sigma(3)=4,\sigma(4)=1,\sigma(5)=3,\sigma(6)=6$ được mô tả như sau:
+   a. Trong nhóm hoán vị $S_6$, phép hoá vị $\sigma$ xác định bởi $\sigma(1)=2,\sigma(2)=5,\sigma(3)=4,\sigma(4)=1,\sigma(5)=3,\sigma(6)=6$ được mô tả như sau:
 
    $$
    \sigma =
