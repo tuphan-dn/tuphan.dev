@@ -545,7 +545,28 @@ _(iii) Với mọi $x,y \in H, x^{-1}y \in H$._
 
 (ii) $\Rightarrow$ (iii) Với mọi $x,y \in H$, giả thuyết (ii) cho ta $x^{-1} \in H$ và do đó $x^{-1}y \in H$.
 
-(iii) $\Rightarrow$ (i) Vì $H \ne \text{\O}$ nên tồn tại $a \in H$ vả do đó $e=a^{-1}a \in H$. Bây giờ với mọi $x \in H, x^{-1} = x^{-1}e \in H$. Cuối cùng, với mọi $x,y \in H$, do $x^{-1} \in H$ nên $xy = (x^{-1})^{-1}y \in H$. Suy ra $H le G$. $\quad \blacksquare$
+(iii) $\Rightarrow$ (i) Vì $H \ne \text{\O}$ nên tồn tại $a \in H$ vả do đó $e=a^{-1}a \in H$. Bây giờ với mọi $x \in H, x^{-1} = x^{-1}e \in H$. Cuối cùng, với mọi $x,y \in H$, do $x^{-1} \in H$ nên $xy = (x^{-1})^{-1}y \in H$. Suy ra $H \le G$. $\quad \blacksquare$
+
+### 5.4. Ví dụ
+
+1. Các tập hợp $\{e\}$ và $G$ đều là các nhóm con của $G$. Ta gọi đậy là các _nhóm con tầm thường_ của $G$.
+2. Từ [Ví dụ 3.2](#32-ví-dụ) ta thấy $\mathbb{Z} \le \mathbb{Q} \le \mathbb{R} \le \mathbb{C}$ và $\mathbb{Q}^* \le \mathbb{R}^* \le \mathbb{C}^*$.
+3. Gọi $A_n$ là tập hợp gồm tất cả những hoán vị chẵn trong nhóm hoán vị $S_n$. Khi đó từ [Nhận xét 4.8](#48-nhận-xét) và các [Định lý 4.9](#49-định-lý), [5.3](#53-định-lý) ta thấy $A_n \le S_n$. Ta gọi $A_n$ là nhóm _thay phiên bậc $n$._
+4. Tập hợp $SL(n,\mathbb{R})$ gồm các ma trận vuông cấp $n$ với hệ số thực có định thức bằng 1 là một nhóm con của nhóm tuyến tính đầy đủ $GL(n,\mathbb{R})$. Ta gọi $SL(n,\mathbb{R})$ là _nhóm tuyến tính đặc biệt_ bậc $n$ trên $\mathbb{R}$.
+
+### 5.5. Định lý
+
+_Giao của một họ không rỗng các nhóm con của một nhóm $G$ cũng là nhóm con của $G$._
+
+**Chứng minh.** Giả sử $\{H_i\}_{i \in I}$ là một họ không rỗng các nhóm con của nhóm $(G,\cdot)$. Đặt $H=\cap_{i \in I} H_i$. Khi đó $H \ne \text{\O}$ vì $e \in H$. Với mọi $x,y \in H$ ta có $x,y \in H_i, \forall i \in I$ nên theo [Định lý 5.3](#53-định-lý), $x^{-1}y \in H_i, \forall i in I$, nghĩa là $x^{-1}y \in H$. Suy ra $H \le G$. $\quad \blacksquare$
+
+Bây giờ cho $S$ là một tạp hợp con của nhóm $G$. Ta xét họ tất cả các nhóm con của $G$ chứa $S$. Họ này không rỗng vì chứa $G$. Thẹo [Định lý 5.5](#55-định-lý) giao của họ đó là một nhóm con của $G$. Hiển nhiên đây là một nhóm con nhỏ nhất của $G$ chứa $S$. Ta có định nghĩa sau:
+
+### 5.6. Định nghĩa
+
+Cho $S$ là một tập con của nhóm $G$. _Nhóm con sinh bởi_ $S$ là nhóm con nhỏ nhất của $G$ chứa $S$ và được ký hiệu là $\left< S \right>$. Tập hợ $S$ được gọi là _tập sinh_ của nhóm $\left< S \right>$. Nếu $S$ hữu hạn: $S=\{x_1,...,x_n\}$ thì ta nói $\left< S \right>$ là _nhóm hữu hạn sinh_ với phần tử sinh $x_1,...,x_n$ mà ta thường ký hiệu nhóm này là $\left< x_1,...,x_n \right>$.
+
+Định lý sau đây mô tả các nhóm con sinh bởi một tập hợp:
 
 ## 6. Nhóm con cyclic và nhóm cyclic
 
