@@ -274,13 +274,13 @@ Tương tự ta cũng có (i) $\Rightarrow$ (ii); (ii) $\Rightarrow$ (iv) và (i
 
 ### 4.1. Định nghĩa
 
-Cho tập hợp $X \neq \text{\O}$ gồm $n$ phần tử (ta có thể đồng nhất $X$ với $\{1,2,...,n\}$). Khi đó tập hợ $S_n$ gồm tất cả các song ánh từ $X$ vào $X$ là một nhóm với phép hợp nối ánh xạ. Tạ gọi $S_n$ là _nhóm hoán vị_ bậc $n$.
+Cho tập hợp $X \neq \text{\O}$ gồm $n$ phần tử (ta có thể đồng nhất $X$ với $\{1,2,...,n\}$). Khi đó tập hợp $S_n$ gồm tất cả các song ánh từ $X$ vào $X$ là một nhóm với phép hợp nối ánh xạ. Tạ gọi $S_n$ là _nhóm hoán vị_ bậc $n$.
 
 Nhóm hoán vị $S_n$ là nhóm hữu hạn có cấp $n!$, có phần tử trung hoà là ánh xạ đồng nhất $Id_X$ và phần tử nghịch đảo của $\sigma \in S_n$ là ánh xạ ngược $\sigma^{-1}$. Nhóm này không giao hoán nếu $n \ge 2$.
 
 ### 4.2. Một số thuật ngữ và ký hiệu
 
-1. Mỗi phần tử $\sigma \in S_n$ được gọi là một _phép hoán vị_ hay một _phép thế_ bậc $n$ và có thể được biểu diễn bởi một ma trận loại $2 \times n$:\
+1. Mỗi phần tử $\sigma \in S_n$ được gọi là một _phép hoán vị_ hay một _phép thế_ bậc $n$ và có thể được biểu diễn bởi một ma trận loại $2 \times n$:
    $$
    \begin{pmatrix}
    1 & 2 & \cdots & n\\
@@ -296,7 +296,7 @@ Nhóm hoán vị $S_n$ là nhóm hữu hạn có cấp $n!$, có phần tử tru
 
    Ví dụ:
 
-   a. Trong nhóm hoá vị $S_6$, phép hoá vị $\sigma$ xác định bởi $\sigma(1)=2,\sigma(2)=5,\sigma(3)=4,\sigma(4)=1,\sigma(5)=3,\sigma(6)=6$ được mô tả như sau:
+   a. Trong nhóm hoán vị $S_6$, phép hoá vị $\sigma$ xác định bởi $\sigma(1)=2,\sigma(2)=5,\sigma(3)=4,\sigma(4)=1,\sigma(5)=3,\sigma(6)=6$ được mô tả như sau:
 
    $$
    \sigma =
