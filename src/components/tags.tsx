@@ -44,7 +44,7 @@ export default function Tags({
             'cursor-pointer': !readOnly,
           })}
           onClick={() => !readOnly && push(`/?tag=${tag}`)}
-          initial={{ x: Math.min(8 * (i + 1), 64), opacity: 0 }}
+          initial={{ x: Math.min(4 * (i + 1), 32), opacity: 0 }}
           animate={{ x: 0, opacity: 0.6 }}
           whileHover={{ opacity: 1, transition: { duration: 0 } }}
           transition={{ duration: 0.5 }}
