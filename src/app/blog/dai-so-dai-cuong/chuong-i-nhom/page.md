@@ -385,10 +385,12 @@ _Mọi phép hoán vị bậc $n$ khác ánh xạ đồng nhất đều được
    Trong đó $\sigma_1,\sigma_2,...,\sigma_p$ là các chu trình rời nhau và $\sigma'_1,\sigma'_2,...,\sigma'_p$ cũng là các chu trình rời nhau. Đặt $\sigma_1=(i_1i_2...i_r)$. Khi đó tồn tại $1 \le k \le q$ sao cho
 
    $$
+   \begin{aligned}
    \sigma'_k(i_1)=\sigma(i_1)=\sigma_1(i_1)=i_2,\\
    \sigma'_k(i_2)=\sigma(i_2)=\sigma_1(i_2)=i_3,\\
    \cdots\\
    \sigma'_k(i_r)=\sigma(i_r)=\sigma_1(i_r)=i_1,\\
+   \end{aligned}
    $$
 
    Do đó $\sigma'_k=\sigma_1$. Không mất tính tổng quát ta có thể giả sử $\sigma'_1=\sigma_1$. Khi đó $\sigma_2...\sigma_p=\sigma'_2...\sigma'_q$. Tiếp tục thực hiện như trên, cuối cùng ta được $p=q$ và $\sigma'_i=\sigma_i$ với mọi $1 \le i \le p$. Định lý được chứng minh. $\quad \blacksquare$
@@ -518,6 +520,32 @@ _(i) $sgn(\sigma)=(-1)^{r-1}$;_
 _(ii) $\sigma$ chẵn $\Leftrightarrow$ $r$ lẻ; và $\sigma$ lẻ $\Leftrightarrow$ $r$ chẵn._
 
 ## 5. Nhóm con
+
+### 5.1. Định nghĩa
+
+Một tập con $H$ của nhóm $(G,\cdot)$ được gọi là tập con _ổn định_ của nhóm $G$ nếu với mọi $x,y \in H, xy \in H$. Khi đó phép toán nhân thu hẹp trên $H$ xác định một phép toán trên $H$ mà ta gọi là phép toán cảm sing trên $H$ (từ phép toán trên $G$).
+
+### 5.2. Định nghĩa
+
+_Nhóm con_ $H$ của nhóm $G$ là một tập con ổn định của nhóm $G$ sao cho cùng với phép toán cảm sing $H$ là một nhóm. Ký hiệu $H \le G$ để chỉ $H$ là một nhóm con của $G$.
+
+Định lý sau đây cho ta dấu hiệu để nhận biết nhóm con của một nhóm cho trước.
+
+### 5.3. Định lý
+
+_Cho $H$ là một tập con khác rỗng của nhóm $(G,\cdot)$. Các mệnh đề sau tương đương:_
+
+_(i) $H \le G$;_
+
+_(ii) Với mọi $x,y \in H,xy \in H$ và $x{^-1} \in H$;_
+
+_(iii) Với mọi $x,y \in H, x^{-1}y \in H$._
+
+**Chứng minh.** (i) $\Rightarrow$ (ii) Trước hết ta chứng minh phần tử đơn vị $e'$ của nhóm con $H$ cũng chính là phần tử đơn vị $e$ của $G$. Thật vậy, với mọi $x \in H$ ta có $e'x=x=ex$ nên do tính giản ước ta suy ra $e'=e$. Bây giờ gọi $x'$ là phần tử nghịch đảo của $x$ trong đó nhóm con $H$, ta có $x'x=e=x^{-1}x$, do đó $x^{-1}=x' \in H$. Tính chất $xy \in H$ được suy từ tính chất nhóm con $H$ là tập hợp con ổn định của $G$.
+
+(ii) $\Rightarrow$ (iii) Với mọi $x,y \in H$, giả thuyết (ii) cho ta $x^{-1} \in H$ và do đó $x^{-1}y \in H$.
+
+(iii) $\Rightarrow$ (i) Vì $H \ne \text{\O}$ nên tồn tại $a \in H$ vả do đó $e=a^{-1}a \in H$. Bây giờ với mọi $x \in H, x^{-1} = x^{-1}e \in H$. Cuối cùng, với mọi $x,y \in H$, do $x^{-1} \in H$ nên $xy = (x^{-1})^{-1}y \in H$. Suy ra $H le G$. $\quad \blacksquare$
 
 ## 6. Nhóm con cyclic và nhóm cyclic
 
