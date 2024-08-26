@@ -1,6 +1,6 @@
 +++
 tags = "tản văn, 🇻🇳"
-date = "30 Sempteber, 2022"
+date = "30 September, 2022"
 +++
 
 # Nhớ lắm La Hai
