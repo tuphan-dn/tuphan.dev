@@ -29,4 +29,4 @@ La Hai nay. Đã có phố, có phường; xóm xóm thôn thôn màu ngói đ�
 
 Phố núi hôm nay: Ánh điện sáng lung linh trong sương. Vẫn bóng má, bóng em trên đồng. Gặp em gái La Hai, vẫn nụ cười tươi, hai má ửng hồng. Vẫn những con người một nắng hai sương điểm tô cuộc sống...
 
-Sư tầm: Vũ Hoài - Báo Phú Yên Online - 30/07/2007
+_Sưu tầm: Vũ Hoài - Báo Phú Yên Online - 30/07/2007_
