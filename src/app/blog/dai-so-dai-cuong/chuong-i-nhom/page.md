@@ -594,6 +594,36 @@ Nếu $H$ và $K$ là hai nhóm con của nhóm $G$ thì $H \cup K$ không nhấ
 
 ## 6. Nhóm con cyclic và nhóm cyclic
 
+### 6.1. Định nghĩa
+
+Cho $G$ là một nhóm. Nhóm con $\left< a \right>$ của $G$ sinh bởi phần tử $a \in G$ đuọc gọi là _nhóm con cyclic sinh bởi_ $a$. Nếu tồn tại phần tử $a \in G$ sao cho $\left< a \right> = G$ thì ta nói $G$ là một _nhóm cyclic_ và $a$ là _phần tử sinh_ của $G$.
+
+Từ [Định lý 5.7](#57-định-lý) ta suy ra mệnh đề sau:
+
+### 6.2. Mệnh đề
+
+_Nhóm con cyclic sinh bởi $a$ là tập hợp gồm tất cả các lũ thừa $a^n$ với $n \in \mathbb{Z}$, nghĩa là $\left< a \right> = \{ a^n | n \in \mathbb{Z} \}$._
+
+Cho $(G,\cdot)$ là một nhóm và $a \in G$. Xét nhóm con cyclic $\left< a \right>$. Khi đó có hai trường hợp có thể xảy ra:
+
+**Trường hợp 1.** Tất cả các luỹ thừa $a^n(n \in \mathbb{Z})$ đều khác nhau từng đôi một. Trong trường hợp này $\left< a \right>$ là nhóm vô hạn.
+
+**Trường hợp 2.** Tồn tại những luỹ thừa của $a$ bằng nhau, chẳng hạn $a^k = a^l(k > l)$. Khi đó $a^{k-l}=e$ với $k-l > 0$. Do đó tồn tại những số nguyên dương $m$ sao cho $a^m=e$. Gọi $n$ là số nguyên dương nhỏ nhất sao cho $a^n=e$. Khi đó các phần tử $e,a,...,a^{n-1}$ đôi một khác nhau và $\left< a \right> =\{e,a,...,a^{n-1}\}$, Thật vậy, với $0 \le i < j \le n-1$, vì $0 < j-i < n$ nên do tính chất nhỏ nhất của $n$ suy ra $a^{j-i} \ne e$, nghĩa là $a^j \ne a^i$. Hơn nữa, với $x \in \left< a \right>$, tồn tại $m \in \mathbb{Z}$ sao cho $x=a^m$. Chia $m$ cho $n$ ta tìm được $q,r \in \mathbb{Z}$ với $0 \le r \le n-1$ sao cho $m=qn+r$. Khi đó
+
+$$
+x=a^m=a^{qn+r}=(a^n)^q a^r=e^qa^r=a^r
+$$
+
+và khẳng định trên được chứng minh. $\quad \blacksquare$
+
+Tóm lại, nếu tất cả các luỹ thừa của $a$ đều khách nhau thì $\left< a \right>$ là nhóm vô hạn, còn nếu tồn tại những luý thừa của $a$ bằng nhau thì $\left< a \right>$ là nhóm hữu hạn cấp $n: \left< a \right> = \{e,a,...,a^{n-1}\}$, trong đó $n$ là số nguyên dương nhỏ nhất sao cho $a^n=e$. Từ đây ta có định nghĩa sau:
+
+### 6.3. Định nghĩa
+
+_Cấp_ của một phần tử $a$ trong nhóm $G$ là cấp của nhóm con cyclic $\left< a \right>$. Ta thường ký hiệu $o(a)$ hay $\left| a \right|$ để chỉ cấp của phần tử $a$.
+
+Từ [Định nghĩa 6.3](#63-định-nghĩa) và theo lý luận trên ta có hệ quả sau:
+
 ## 7. Nhóm con chuẩn tắc và nhóm thương
 
 ## 8. Đồng cấu
