@@ -568,6 +568,30 @@ Cho $S$ là một tập con của nhóm $G$. _Nhóm con sinh bởi_ $S$ là nhó
 
 Định lý sau đây mô tả các nhóm con sinh bởi một tập hợp:
 
+### 5.7. Định lý
+
+_CHo $S$ là một tập con của $G$. Khi đó:_
+
+_(i) Nếu $S \ne \text{\O}$ thì $\left< S \right> = \{e\}$._
+
+_(ii) Nếu $S \ne \text{\O}$ thì_
+
+$$
+\left< S \right> = \{ x_1^{\varepsilon_1}...x_n^{\varepsilon_n} | n \in \mathbb{N}^*, x_i \in S, \varepsilon_i=\pm 1 \}
+$$
+
+**Chứng minh.** Khẳng định (i) là hiển nhiên. Ta chứng minh (ii). Thật vậy, ký hiệu vế phải của đẳng thức trong (ii) là $H$. Vì nhóm con $\left< S \right>$ chứa tất cả các phần tử $x_i$ của $S$ nên $\left< S \right>$ chứa $H$. Mặt khác, do cách đặt $H$ ta thấy nếu $x,y \in H$ thì $xy \in H$ và $x^{-1} \in H$ nên $H$ là một nhóm con của $G$. Từ đây, do $H$ chứa $S$ nên ta có $H$ chứa $\left< S \right>$. Suy ra $H = \left< S \right>$. $\quad \blacksquare$
+
+### 5.8. Ví dụ
+
+1. Ta có $\mathbb{Z} = \left< 1 \right>$ và $\mathbb{Q} = \left< \frac{1}{n} | n \in \mathbb{N}^* \right>$.
+2. Ta có $\mathbb{Q}^* = \left< P \right>$, trong đó $P=\{{-1} \cup p \}$ với $p$ nguyên tố dương.
+3. Xét nhóm hoá vị $S_n$. Vì mỗi phpeps hoán vị dều được phân tích thành tích các chuyển vị nên $S_n$ là nhóm sinh bởi các chuyển vị.
+
+### 5.9. Chú ý
+
+Nếu $H$ và $K$ là hai nhóm con của nhóm $G$ thì $H \cup K$ không nhất thiết là một nhóm con của $G$ (Xem [bài tập 1.20](/blog/dai-so-dai-cuong/chuong-i-nhom/bai-tap#bài-120)). Ta ké hiệu $H \vee K$ để chỉ nhóm con sinh bởi $H \cup K$.
+
 ## 6. Nhóm con cyclic và nhóm cyclic
 
 ## 7. Nhóm con chuẩn tắc và nhóm thương
