@@ -624,6 +624,47 @@ _Cấp_ của một phần tử $a$ trong nhóm $G$ là cấp của nhóm con cy
 
 Từ [Định nghĩa 6.3](#63-định-nghĩa) và theo lý luận trên ta có hệ quả sau:
 
+### 6.4. Hệ quả
+
+_Cho $(G,\cdot)$ là một nhóm và $a \in G$. Ta có:_
+
+_(i) $a$ có cấp vô hạn khi và chỉ khi với mọi $k \in \mathbb{Z}$, nếu $a^k=e$ thì $k=0$._
+
+_(ii) $a$ có cấp hữu hạn khi và chỉ khi tông tại $k \in \mathbb{Z}^*$ sao cho $a^k=e$._
+
+_(iii) Nếu $a$ có cấp hữu hạn thì cấp của $a$ là số nguyên dương $n$ nhỏ nhất sao cho $a^n=e$. Hơn nữa, khi đó với mọi $k \in \mathbb{Z}, a^k=e$ khi và chỉ khi $k$ là bội số của $n$._
+
+### 6.5. Ví dụ
+
+1. Nhóm cộng các số nguyên $\mathbb{Z}$ là nhóm cyclic sing bởi 1.
+2. Với mỗi $n$ nguyên dương, quan hệ đồng dư modulo $n$ trên $\mathbb{Z}$ định bởi $z \equiv y \mod n \Leftrightarrow x-y$ chia hết cho $n$.
+
+   Đây là một quan hệ tương đương trên $\mathbb{Z}$ với các lớp tương đương là $\overline{x} = \{x+kn|k \in \mathbb{Z}\}$.
+
+   Tập thương của $\mathbb{Z}$ theo quan hệ đồng dư modulo $n$ định bởi $\mathbb{Z}_n=\{\overline{x}| x \in \mathbb{Z}\}=\{\overline{0},\overline{1},...,\overline{n-1}\}$.
+
+   Trên $\mathbb{Z}_n$ ta định nghĩa phép toán cộng như sau: $\overline{x}+\overline{y}=\overline{x+y}$.
+
+   Kiểm chứng dễ dàng rằng định ghĩa trên được hoàn toàn xác định và $\mathbb{Z}_n$ trở thành một nhóm giao hoán, Hơn nữa, $\mathbb{Z}_n$ là nhóm cyclic hữu hạn cấp $n$ sinh bởi $\overline{1}$. Ta gọi $\mathbb{Z}_n$ là _nhóm cộng các số nguyên modulo $n$._
+
+3. Trong nhóm hoán vị $S_n$, một $r$-chu trình $\sigma=\{i_1 \; i_2 \; ... \; i_r\}$ luôn luôn có cấp $r$ vì $\sigma^r=Id$ và $\sigma^l \ne Id$ với mọi $0<l<r$.
+
+### 6.6. Định lý
+
+_Mọi nhóm con của nhóm cyclic đều là nhóm cyclic. Hơn nữa, nếu $H \le \left< a \right>$ và $H \ne \{e\}$ thì $H=\left< a^n \right>$ trong đó $n$ là số nguyên dương nhỏ nhất sao cho $a^n \in H$._
+
+**Chứng minh.** Giả sử $H \subset \left< a \right>$. Nếu $H=\{e\}$ thì hiển nhiên $H$ là nhóm con cyclic sinh bởi $e$. Xét trường hợp $H \ne \{e\}$. Khi đó tồn tại $k \in \mathbb{Z}^*$ sao cho $a^k \in H$. Vì $a^k$ và $a^{-k}=(a^k)^{-1}$ đều thuộc $H$ nên có thể khẳng định rằng tồn tại $l \in \mathbb{N}^*$ sao cho $a^l \in H$. Gọi $n$ là sô nguyên dương nhỏ nhất sao cho $a^n \in H$. Ta chứng minh $H = \left< a^n \right>$. Thật vậy, hiển nhiên $\left< a^n \right> \subseteq H$. Ngược lại, cho $x=a^m \in H$. Lấy $m$ chia cho $n$ ta tìm được $q,r \in \mathbb{Z}$ sao cho $m=qn+r$ với $0 \le r < n$. Vì $a^r=a^m(a^n)^{-q} \in H$ nên theo định nghĩa của $n$ ta phai có $r=0$, nghĩa là $m=qn$ và $x=(a^n)^q \in \left< a^n \right>$. Điều này chứng tỏ $H \subset \left< a^n \right>$. Vậy $H = \left< a^n \right>$. $\quad \blacksquare$
+
+Từ [Định lý 6.6](#66-định-lý) ta suy ra hệ quả sau:
+
+### 6.7. Hệ quả
+
+$H$ _là một nhóm con của nhóm cộng các số nguyên $\mathbb{Z}$ khi và chỉ khi $H$ có dạng $n \mathbb{Z}$ với $n \in \mathbb{N}$, trong đó_
+
+$$
+n \mathbb{Z} = \{ nk | k \in \mathbb{Z} \}
+$$
+
 ## 7. Nhóm con chuẩn tắc và nhóm thương
 
 ## 8. Đồng cấu
