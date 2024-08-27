@@ -3,7 +3,6 @@ import { useCallback, useEffect, useState } from 'react'
 import ky from 'ky'
 import useSWR from 'swr'
 import { motion } from 'framer-motion'
-import { useSearchParams } from 'next/navigation'
 import clsx from 'clsx'
 
 import { BlogCard } from '@/components/blog'
@@ -12,12 +11,7 @@ import Island from '@/components/island'
 import InfiniteLoading from '@/components/infiniteLoading'
 
 import { useSignalSwitch } from '@/lib/hooks/useSignal'
-
-function useTag() {
-  const params = useSearchParams()
-  const tag = params.get('tag') || ''
-  return tag
-}
+import { useTag } from '@/lib/hooks/useTag'
 
 function TagList() {
   const tag = useTag()
