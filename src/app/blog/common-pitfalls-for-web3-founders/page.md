@@ -7,6 +7,8 @@ date = "12 July, 2024"
 
 > This is a great article written by [qw](https://x.com/QwQiao) from [Alliance](https://alliance.xyz/) - A crypto accelerator & founder community.
 
+![alliance.xyz](./alliance.jpg)
+
 When founders come to our 1:1s and group office hours at [Alliance](https://alliance.xyz/), they often seek our advice on topics that are very specific to their project.
 
 But just as often, their questions are generic enough that they are relevant for many other founders.
