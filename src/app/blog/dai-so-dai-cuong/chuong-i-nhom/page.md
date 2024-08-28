@@ -707,4 +707,57 @@ $$
 
 Suy ra $\overline{x} = \{ y \in G | x \sim y \} = \{ xh | h \in H \} = xh$. $\quad \blacksquare$
 
+### 7.2. Chú ý
+
+Hoàn toàn tương tự, ta định nghĩa được quan hệ $\sim'$ trên $G$ như sau:
+
+$$
+x \sim' y \Leftrightarrow xy^{-1} \in H
+$$
+
+Khi đó $\sim'$ cũng là một quan hệ tương đương trên $G$ và lớp tương đương chứa $x$ là $\overline{x} = Hx$, trong đó $Hx=\{ hx|h \in H \}$. Ta gọi $Hx$ là _lớp ghép phải_ của $H$ (bởi phần tử $x$).
+
+Định lý sau đây cho ta thông tin về cấp của các nhóm con của các nhóm hữu hạn.
+
+### 7.3. Định lý Lagrange
+
+_Cho $G$ là một nhóm hữu hạn và $H$ là một nhóm con của $G$. Khi đó_
+
+$$
+|G| = |H||G:H|
+$$
+
+**Chứng minh.** Trước hết nhận xét rằng nếu $xH$ là một lớp ghép trái thì ánh xạ
+
+$$
+\begin{aligned}
+\varphi: H &\rightarrow xH\\
+h &\mapsto xh
+\end{aligned}
+$$
+
+là một song ánh. Thật vậy, $\varphi$ là toàn ánh do định nghĩa của tập hợp $xH$, $\varphi$ là đơn ánh vì nếu $xh=xk$ thì $h=k$ do tính giản ước của phép toán nhân trong nhóm $G$. Như vậy số phần tử của các lớp ghép trái đều bằng nhau và bằng $|H|$, số lớp ghép là $[G:H]$. Do đó
+
+$$
+|G|=|H||G:H| \quad \blacksquare
+$$
+
+TỪ [Định lý Lagrange](#73-định-lý-lagrange) ta suy ra ngay hệ quả sau:
+
+### 7.5. Hệ quả
+
+_Cho $G$ là một nhóm hữu hạn. Khi đó:_
+
+_(i) Cấp của mỗi nhóm con của $G$ là một ước số của cấp của $G$._
+
+_(ii) Cấp của mỗi phần tử thuộc $G$ là một ước số của cấp của $G$._
+
+_(iii) Nếu $G$ có cấp nguyên tố thì $G$ là nhóm cyclic và $G$ được sinh bởi một phần tử bất kỳ khác $e$._
+
+Chú ý rằng nếu $H$ là một nhóm con tuỳ ý của $G$ thì tập thương $G/H$ như đã xây dựng trong [Định lý 7.1](#71-định-lý) không nhất thiết là một nhóm. Sai đây chúng ta đề cập đến một loại nhóm con đặc biệt mà ứng với nhóm con loại đó tập hợp thương trở thành một nhóm.
+
+### 7.5. Định nghĩa
+
+Một nhóm con $H$ của nhóm $(G,\cdot)$ được gọi là _chuẩn tắc_ nếu với mọi $x \in G$ và $h \in H, x^{-1}hx \in H$. Ký hiệu $H \triangleleft G$ để chỉ $H$ là một nhóm con chuẩn tắc của $G$.
+
 ## 8. Đồng cấu
