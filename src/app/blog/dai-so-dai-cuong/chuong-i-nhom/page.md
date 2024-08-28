@@ -667,7 +667,7 @@ $$
 
 ## 7. Nhóm con chuẩn tắc và nhóm thương
 
-## 7.1. Định lý
+### 7.1. Định lý
 
 _Cho $(G,\cdot)$ là một nhóm và $H$ là một nhóm con của $G$. Xét quan hệ $\sim$ trên $G$ như sau:_
 
