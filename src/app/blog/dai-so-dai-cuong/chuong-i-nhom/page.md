@@ -754,10 +754,39 @@ _(ii) Cấp của mỗi phần tử thuộc $G$ là một ước số của cấ
 
 _(iii) Nếu $G$ có cấp nguyên tố thì $G$ là nhóm cyclic và $G$ được sinh bởi một phần tử bất kỳ khác $e$._
 
-Chú ý rằng nếu $H$ là một nhóm con tuỳ ý của $G$ thì tập thương $G/H$ như đã xây dựng trong [Định lý 7.1](#71-định-lý) không nhất thiết là một nhóm. Sai đây chúng ta đề cập đến một loại nhóm con đặc biệt mà ứng với nhóm con loại đó tập hợp thương trở thành một nhóm.
+Chú ý rằng nếu $H$ là một nhóm con tuỳ ý của $G$ thì tập thương $G/H$ như đã xây dựng trong [Định lý 7.1](#71-định-lý) không nhất thiết là một nhóm. Sau đây chúng ta đề cập đến một loại nhóm con đặc biệt mà ứng với nhóm con loại đó tập hợp thương trở thành một nhóm.
 
 ### 7.5. Định nghĩa
 
 Một nhóm con $H$ của nhóm $(G,\cdot)$ được gọi là _chuẩn tắc_ nếu với mọi $x \in G$ và $h \in H, x^{-1}hx \in H$. Ký hiệu $H \triangleleft G$ để chỉ $H$ là một nhóm con chuẩn tắc của $G$.
+
+### 7.6. Mệnh đề
+
+_Cho $H$ là một nhóm con của nhóm $(G,\cdot)$. Các mệnh đề sau tương đương:_
+
+_(i) $H \triangleleft G$;_
+
+_(ii) $\forall x \in G, x^{-1}Hx \subset H$;_
+
+_(iii) $\forall x \in G, x^{-1}Hx = H$;_
+
+_(iv) $\forall x \in G, xH = Hx$;_
+
+_trong đó $x^{-1}Hx=\{ x^{-1}hx | h \in H \}$._
+
+**Chứng minh.** (i) $\Leftarrow$ (ii) Hiển nhiên do định nghĩa.
+
+(ii) $\Leftarrow$ (iii) Với giả thuyết (ii) ta có $x^{-1}Hx \subset H$. Mặt khác $xHx^{-1} = (x^{-1})^{-1}H(x^{-1}) \subset H$ nên $H \subset x^{-1}Hx$. Từ đó $x^{-1}Hx=H$.
+
+(iii) $\Leftarrow$ (iv) Theo giải thuyết (iii), $x^{-1}Hx=H$ nên $xH=x(x^{-1}Hx)=Hx$.
+
+(iv) $\Leftarrow$ (i) Với mọi $x \in G$ và $h \in H$ ta có $hx \in Hx = xH$ nên tồn tại $k \in H$ sao cho $hx = xk$. Suy ra $x^{-1}hx = k \in H$. Điều này chứng tỏ $H \triangleleft G$. $\quad \blacksquare$
+
+### 7.7. Nhận xét
+
+1. Nếu $G$ giao hoán thì mọi nhóm con của $G$ đều chuẩn tắc.
+2. Các nhóm con tầm thường $\{e\}$ và $G$ đều chuẩn tắc trong $G$.
+
+### 7.8. Ví dụ
 
 ## 8. Đồng cấu
