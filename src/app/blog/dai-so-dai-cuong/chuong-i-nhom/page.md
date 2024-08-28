@@ -667,4 +667,44 @@ $$
 
 ## 7. Nhóm con chuẩn tắc và nhóm thương
 
+## 7.1. Định lý
+
+_Cho $(G,\cdot)$ là một nhóm và $H$ là một nhóm con của $G$. Xét quan hệ $\sim$ trên $G$ như sau:_
+
+$$
+x \sim y \Leftrightarrow x^{-1}y \in H
+$$
+
+_Khi đó_
+
+_(i) $\sim$ là một quan hệ tương đương trên $G$._
+
+_(ii) Lớp tương đương chứa $x$ là $\overline{x} = xH$, trong đó_
+
+$$
+xH = \{ xh | h \in H \}
+$$
+
+Ta gọi $xH$ là _lớp ghép_ của $H$ (bởi phần tử $x$). Tập hợp thương của $G$ theo quan hệ $\sim$, ký hiệu là $G/H$, được gọi là _tập thương_ của $G$ trên $H$ và $\left| G/H \right|$ là _chỉ số_ của nhóm con $H$ trong $G$, ký hiệu là $[G:H]$.
+
+**Chứng minh.** (i) Tính phản xạ: Với mọi $x \in G, x \sim x$ vì $x^{-1}x = e \in H$.
+
+Tính đối xứng: Với mọi $x,y \in G$, nếu $x \sim y$ thì $x^{-1}y \in H$ nên $y^{-1}x = (x^{-1}y)^{-1} \in H$, nghĩa là $y \sim x$.
+
+Tính bắc cầu: Với mọi $x,y,z \in G$, nếu $x \sim y$ và $y \sim z$ thì $x^{-1}y \in H$ và $y^{-1}z \in H$ nên $x^{-1}z = (x^{-1}y)(y^{-1}z) \in H$, nghĩa là $x \sim z$.
+
+Vậy $\sim$ là một quan hệ tương đương trên $G$.
+
+(ii) Ta có
+
+$$
+\begin{aligned}
+x \sim y &\Leftrightarrow x^{-1}y \in H\\
+&\Leftrightarrow \exist h \in H, x^{-1}y = h\\
+&\Leftrightarrow \exist h \in H, y = xh\\
+\end{aligned}
+$$
+
+Suy ra $\overline{x} = \{ y \in G | x \sim y \} = \{ xh | h \in H \} = xh$. $\quad \blacksquare$
+
 ## 8. Đồng cấu
