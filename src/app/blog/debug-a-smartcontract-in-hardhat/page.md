@@ -9,7 +9,7 @@ To inspect a variable's value, the functions like `console.log`, or `print`, or 
 
 ![console.log is one of the selling points in Hardhat. That's why people love Hardhat.](./solidity-errors.jpg)
 
-Today, we will learn how to do it in Hardhat, which is a excellent framework for smartcontract development.
+Today, we will learn how to do it in Hardhat, which is an excellent framework for smartcontract development.
 
 ```solidity label="Counter.sol" group="log"
 // SPDX-License-Identifier: MIT
@@ -35,7 +35,7 @@ contract Counter {
 }
 ```
 
-**Explanation.** The line `import 'hardhat/console.sol';` is to import a Solidity library named `console`. There exists a function name `log` in `console` so that clarify the syntax of `console.log`.
+**Explanation.** The line `import 'hardhat/console.sol';` is to import a Solidity library named `console`. There exists a function name `log` in `console` so that clarifies the syntax of `console.log`.
 
 However, we cannot use it, `console.log`, to print a `bytes` variable. Instead, we must use `console.logBytes`.
 
