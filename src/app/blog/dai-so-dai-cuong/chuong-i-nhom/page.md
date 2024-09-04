@@ -789,4 +789,52 @@ _trong đó $x^{-1}Hx=\{ x^{-1}hx | h \in H \}$._
 
 ### 7.8. Ví dụ
 
+1. Nhóm thay phiên bậc $n$ (Xem [Ví dụ 5.4](#54-ví-dụ)) là nhóm con chuẩn tắc của nhóm hoán vị $S_n$ vì mọt hoán vị chẵn $\tau$ ta có $\sigma^{-1}\tau\sigma$ cũng là hoán vị chẵn với mọi hoán vị $\sigma \in S_n$.
+
+2. Nhóm tuyến tính đặc biệt $SL(n,\mathbb{R})$ (Xem [Ví dụ 5.4](#54-ví-dụ)) là nhóm on chuẩn tắc của nhóm tuyến tính đầy đủ $GL(n,\mathbb{R})$ vì với mọi $X \in GL(n,\mathbb{R})$ và $A \in SL(n,\mathbb{R})$ ta có
+
+   $$
+   \begin{aligned}
+   &\det(X^-1AX)\\
+   &= (\det X)^{-1} (\det A) (\det X)\\
+   &= \det(A) = 1
+   \end{aligned}
+   $$
+
+   nghĩa là $X^{-1}AX \in SL(n,\mathbb{R})$.
+   Khi $H$ là một nhóm con chuẩn tắc của $G$ thì tập thương $G/H$ trở thành một nhóm như trong định lý sau:
+
+### 7.9. Định lý
+
+_Cho $G$ là một nhóm và $H$ là nhóm con chuẩn tắc của $G$. Khi đó:_
+
+_(i) Lớp $xyH$ chỉ phụ thuộc vào các lớp $xH$ và $yH$ mà không phụ thuộc vào sự lựa chọn của các phần tử đại diện $x,y$ của các lớp đó._
+
+_(ii) Tập thương $G/H$ cùng với phép toán nhân định bởi $(xH)(yH) = xyH$ là một nhóm, gọi là nhóm thương của $G$ trên $H$._
+
+**Chứng minh.** (i) Giả sử $x_iH=xH$ và $y_qH=yH$, nghĩa là $x^{-1}x_1 \in H$ và $y^{-1}y_1 \in H$. Ta cần chứng minh $x_1y_1H=xyH$, nghĩa là $(xy)^{-1}(x_1y_1) \in H$. Thật vậy
+
+$$
+\begin{aligned}
+&(xy)^{-1}(x_1y_1)\\
+&= y^{-1}x^{-1}x_1y_1\\
+&= [y^{-1}x^{-1}x_1y](y^{-1}y_1)
+\end{aligned}
+$$
+
+Phần tử sau cùng thuộc $H$ do $x^{-1}x_1$ và $y^{-1}y_1$ đều thuộc $H$ và $H \triangleleft G$.
+
+(ii) Do (i) phép toán nhân được định nghĩa như trong (ii) được hoàn toàn xác định. Tính kết hợp của phép toán nhân trên $G/H$ được suy từ tính kết hợp của phép toán nhân trên $G$. Phần tử đơn vị trong $G/H$ chính là lớp $eH=H$, trong đó $e$ là phần tử đơn vị của $G$, còn phần tử nghịch đảo của lớp $xH$ chính là $x^{-1}H$.
+
+### 7.10. Nhận xét
+
+1. Nếu $G$ là một nhóm giao doán thì nhóm thương $G/H$ cũng giao hoán. Chiều đảo không đúng.
+2. Với $H \le G$, nếu tập thương $G/H$ là một nhóm với phép toán được định nghĩa như trên $((xH)(yH)=xyH)$ thì $H \triangleleft G$. Thật vậy, với mọt $x \in G$ và $h \in H$ ta có $x^{-1}hxH = (x^{-1}H)(hH)(xH) = (x^{-1}H)H(xH) = (x^{-1}H)(xH) = x^{-1}xH = H$ nên $x^{-1}hx \in H$.
+
+### 7.11. Ví dụ
+
+1. Vì nhóm cộng các số nguyên $\mathbb{Z}$ giao hoán nên với mỗi $n$ nguyên dương nhóm con $n\mathbb{Z}$ chuẩn tắc trong $\mathbb{Z}$. Ứng với nhóm con $H=n\mathbb{Z}$, quan hệ $\sim$ trong [Định lý 7.1](#71-định-lý) định bởi $x \sim y \Leftrightarrow x-y \in n\mathbb{Z} \Leftrightarrow x-y$ chia hết cho $n$.
+   Như vậy, $\sim$ chính là quan hệ đồng dư $\mod n$ trên $\mathbb{Z}$ và nhóm thương $\mathbb{Z}/n\mathbb{Z}$ chính là nhóm cộng $\mathbb{Z}_n$ các số nguyên $\mod n$ trong [Ví dụ 6.5](#65-ví-dụ),
+2. Theo [Ví dụ 7.8](#78-ví-dụ), $A_n \triangleleft S_n$. Nếu $\sigma$ và $\tau$ là hai hoán vị lẻ thì $\sigma^{-1}\tau$ là hoán vị chẵn nên $\sigma^{-1}\tau \in A_n$, từ đó $\sigma A_n = \tau A_n$. Điều này chứng tỏ nhóm thương $S_n/A_n$ có đúng hai phần tử: $S_n/A_n = \{A_n, \overline{A_n}\}$, trong đó $\overline{A_n} = S_n \backslash A_n$.
+
 ## 8. Đồng cấu
