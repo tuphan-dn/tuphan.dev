@@ -79,26 +79,26 @@ function BlogList() {
 
 export default function Page() {
   return (
-    <div className="w-full flex flex-col gap-4 items-center">
-      <div className="w-full max-w-a4 flex flex-col gap-6 p-6 my-16">
-        <motion.h1
+    <div className="w-full flex flex-col items-center">
+      <div className="w-full max-w-a4 grid grid-cols-2 gap-4 p-6 my-16">
+        <motion.span
           initial={{ x: 16, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
+          className="col-span-full md:col-span-1 font-black font-satoshi text-9xl mb-8"
         >
           blog
-        </motion.h1>
-        <motion.p
-          className="opacity-60"
-          initial={{ x: 32, opacity: 0 }}
-          animate={{ x: 0, opacity: 0.6 }}
-          transition={{ duration: 0.5 }}
-        >
-          I usually write about Computer Science like Web3, WebDev,
-          Cryptography, and Math, also some MBA stuffs cause I&apos;m learning
-          it.
-        </motion.p>
-        <div className="w-full">
+        </motion.span>
+        <div className="col-span-full md:col-span-1 flex flex-col gap-6">
+          <motion.p
+            initial={{ x: 32, opacity: 0 }}
+            animate={{ x: 0, opacity: 0.6 }}
+            transition={{ duration: 0.5 }}
+          >
+            I usually write about Computer Science like Web3, WebDev,
+            Cryptography, and Math, also some MBA stuffs cause I&apos;m learning
+            it.
+          </motion.p>
           <Island>
             <TagList />
           </Island>

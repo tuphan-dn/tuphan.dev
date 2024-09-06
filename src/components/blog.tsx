@@ -24,7 +24,7 @@ export function BlogCard({ route }: { route: string }) {
       className="w-full grid grid-cols-6 gap-4 py-16 border-t border-base-300 cursor-pointer relative group"
       href={route}
     >
-      <div className="col-span-full sm:col-span-1 sm:mt-1 flex flex-col gap-2">
+      <div className="col-span-full sm:col-span-1 sm:mt-1 flex flex-col gap-3">
         <p className="text-xs opacity-60">
           {dayjs(date).format('DD MMMM, YYYY')}
         </p>
