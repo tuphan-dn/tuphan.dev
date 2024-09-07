@@ -85,11 +85,11 @@ export default function Page() {
           initial={{ x: 16, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="col-span-full md:col-span-1 font-black font-satoshi text-9xl mb-8"
+          className="col-span-full sm:col-span-1 font-black font-satoshi text-9xl mb-8"
         >
           blog
         </motion.span>
-        <div className="col-span-full md:col-span-1 flex flex-col gap-6">
+        <div className="col-span-full sm:col-span-1 flex flex-col gap-6">
           <motion.p
             initial={{ x: 32, opacity: 0 }}
             animate={{ x: 0, opacity: 0.6 }}
