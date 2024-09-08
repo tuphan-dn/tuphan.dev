@@ -22,11 +22,11 @@ For example, Uniswap is designed to work with ERC20 but ETH. In order to let ETH
 Wrap VICTION will follow VRC20 (aka. ERC20) standard. When people send VIC to the WVIC contract (with or without `msg.data`), the contract will mint the same amount WVIC to the sender. To unwrap and withdraw VIC, people call `burn`.
 
 ```mermaid
-graph LR;
-    WVIC-->Wrap;
-    WVIC-->Unwrap;
-    Wrap-->Transfer;
-    Unwrap-->Burn;
+graph LR
+    WVIC-->Wrap
+    WVIC-->Unwrap
+    Wrap-->Transfer
+    Unwrap-->Burn
 ```
 
 For convenience, instead of rewriting the ERC20 contracts, we will use the [`@openzeppelin/contracts`](https://www.npmjs.com/package/@openzeppelin/contracts).
