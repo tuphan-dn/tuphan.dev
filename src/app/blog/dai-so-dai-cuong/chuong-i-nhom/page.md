@@ -887,3 +887,33 @@ _Ánh xạ ngược của một dẳng cấu nhóm là một đẳng cấu nhóm
 ### 8.6. Chú ý
 
 Do các [Mệnh đề 8.4](#84-mệnh-đề) và [8.5](#85-mệnh-đề) ta thấy quan hệ đẵng cấu $\simeq$ giữa các nhóm là một quan hệ tương đương, nghĩa là có ba tính chất phản xạ, đối xứng, và bắc cầu.
+
+### 8.7. Định lý
+
+_Cho đồng cấu nhóm $f: G \rightarrow G'$ và $H$ là một nhóm con của $G$, $H'$ là một nhóm con của $G'$. Khi đó:_
+
+_(i) $f(H) là một nhóm con của $G'$._
+
+_(ii) $f^{-1}(H')$ là một nhóm con củ $G$. Hơn nữa, nếu H' là nhóm con chuẩn tắc của $G'$ thì $f^{-1}(H')$ là nhóm con chuẩn tắc của $G$._
+
+_Đặc biệt, $Imf = f(G)$ là nhóm con của $G'$ và $Kerf = f^{-1}(e')$ là nhóm con chuẩn tắc của $G$._
+
+Ta gọi $Imf$ là _ảnh_ của $f$ và $Kerf$ là _hạt nhân_ của $f$.
+
+**Chứng minh.** (i) Vì $e \in H$ nên $e' = f(e) \in f(H)$. Với mọi $x',y' \in f(H)$, tồn tại $x,y \in H$ sao cho $x'=f(x), y'=f(y)$ nên $(x')^{-1}y'=f(x)^{-1}f(y)=f(x^{-1})f(y)=f(x^{-1}y) \in f(H)$ do $x^{-1}y \in H$. Theo [Định lý 5.3](#53-định-lý), $f(H) \le G'$.
+
+(ii) Vì $f(e)=e' \in H'$ nên $e=f^{-1}(H')$. Với mọi $x,y \in f^{-1}(H')$ ta có $f(x) \in H'$ và $f(y) \in H'$ nên $f(x^{-1}y)=(f(x))^{-1}f(y) \in H'$, nghĩa là $x^{-1}y \in f^{-1}(H')$. Điều này chứng tỏ $f^{-1}(H') \le G$. Bây giờ giả sử $H' \triangleleft G'$. Khi đó với mọi $x \in G$ và $h \in f^{-1}(H')$ ta có $f(h) \in H'$ nên $f(x^{-1}hx)=(f(x))^{-1}f(h)f(x) \in H'$ do $H'$ chuẩn tắc. Từ đó $x^{-1}hx \in f^{-1}(H')$. Lý luận trên chứng tỏ $f^{-1}(H') \triangleleft G$.
+
+Cuối cùng nhận xét rằng $G \le G$ và $\{e'\} \triangleleft G'$ nên theo kết quả trên ta có khẳng định sau cùng của định lý. $\quad \blacksquare$
+
+Theo lý thuyết ánh xạ, hiển nhiên một đồng cấu nhóm $f: G \rightarrow G'$ là toàn cấu khi và chỉ khi $Imf=G'$. Định lý sau đây cho ta một dấu hiệu rất đơn giản để nhận biết một đồng cấu có là đơn cấu hay không.
+
+### 8.8. Định lý
+
+_Đồng cấu nhóm $f: G \rightarrow G'$ là đơn cấu khi và chỉ khi $Kerf=\{e\}$._
+
+**Chứng minh.** Chiều thuận là hiển nhiên vì $Kerf \le G$ và $Kerf$ chứa không quá một phần tử do $f$ là đơn ánh. Đảo lại, giả sử $Kerf=\{e\}$. Khi đó với mọi $x,y \in G$ thoả $f(x)=f(y)$ ta có $f(x^{-1}y)=(f(x))^{-1}f(y)=e'$ nên $x^{-1}y \in Kerf$, suy ra $x^{-1}y=e$, nghĩa là $x=y$. Vậy $f$ đơn ánh. $\quad \blacksquare$
+
+### 8.9. Định lý đẳng cấu 1.
+
+_Cho đồng cấu nhóm $f: G \rightarrow G'$. Khi đó ánh xạ $\overline{f}: G/Kerf \rightarrow G'$ định bởi $\overline{f}(xKerf)=f(x)$ là một đơn cấu. Đặc biệt, $G/Kerf \simeq Imf$._
