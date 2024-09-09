@@ -838,3 +838,52 @@ Phần tử sau cùng thuộc $H$ do $x^{-1}x_1$ và $y^{-1}y_1$ đều thuộc 
 2. Theo [Ví dụ 7.8](#78-ví-dụ), $A_n \triangleleft S_n$. Nếu $\sigma$ và $\tau$ là hai hoán vị lẻ thì $\sigma^{-1}\tau$ là hoán vị chẵn nên $\sigma^{-1}\tau \in A_n$, từ đó $\sigma A_n = \tau A_n$. Điều này chứng tỏ nhóm thương $S_n/A_n$ có đúng hai phần tử: $S_n/A_n = \{A_n, \overline{A_n}\}$, trong đó $\overline{A_n} = S_n \backslash A_n$.
 
 ## 8. Đồng cấu
+
+### 8.1. Định nghĩa
+
+Một ánh xạ $f$ từ nhóm $G$ vào nhóm $G'$ được gọi là _đồng cấu (nhóm)_ nếu $f$ bảo toàn phép toán, nghĩa là với mọi $x,y \in G$,
+
+$$
+f(xy)=f(x)f(y)
+$$
+
+Một dồng cấu từ nhóm $G$ và $G$ được gọi là một _tự đồng cấu_ của $G$. Một đồng cấu đồng thời là đơn ánh, toàn ánh, hay song ánh được gọi lần lượt là _đơn cấu_, _toàn cấu_, hay _đẳng cấu_. Một tự đồng cấu song ánh được gọi là một tự đẳng cấu. Nếu tồn tại một dẳng cấu từ nhóm $G$ vào nhóm $G'$ thì ta nói $G$ đẳng cấu với $G'$, ký hiệu $G \simeq G'$.
+
+### 8.2. Ví dụ
+
+1. Ánh xạ đồng nhất $id_G$ của nhóm $G$ là một tự đẳng cấu, gọi là _tự đẩng cấu đồng nhất_ của $G$.
+2. Giải sử $H$ là một nhóm con của nhóm $G$. Khi đó ánh xạ bao hàm $i_H: H \rightarrow G$ $(i_H(x)=x)$ là một đơn cấu, gọi là _đơn cấu_ chính tắc.
+3. Giả sử $H$ là một nhóm con chuẩn tắc của nhóm $G$. Khi đó ánh xạ $\pi: G \rightarrow G/H$ định bởi $\pi(x)=xH$ là một toàn cấu, gọi là _toàn cấu chính tắc_.
+4. Giả sử $G$ và $G'$ là hai nhóm tuỳ ý. Khi đó ánh xạ $f: G \rightarrow G'$ định bởi $f(x)=w'$ ($e'$ là phần tử trung hoà của $G'$) là một đồng cấu, gọi là _đồng cấu tầm thường_.
+5. Ánh xạ $x \mapsto \cos 2 \pi x + i \sin 2 \pi x$ là một đồng cấu từ nhóm cộng các số thực $\mathbb{R}$ vào nhóm nhân các số phức khách không $\mathbb{C}^*$.
+6. Ánh xạ $x \mapsto e^x$ là một dẳng cấu từ nhóm cộng các số thực $\mathbb{R}$ lên nhóm nhân $\mathbb{R}^+$ các số thực dương.
+7. Ánh xạ $x \mapsto \ln x$ là một đẳng cấu từ nhóm nhân $\mathbb{R}^+$ các số thực dương lên nhóm cộng các số thực $\mathbb{R}$.
+8. Ánh xạ $sgn: S_n \rightarrow (\{-1;1\},.)$ là một đồng cấu.
+9. Ánh xạ $\det: GL(n,\mathbb{R}) \rightarrow \mathbb{R}^*$ là một toàn cấu.
+10. Cho $(G,.)$ là một nhóm và $a \in G$. Ánh xạ $\varphi: G \rightarrow G$ định bởi $\varphi_a(x)=axa^{-1}$ là một tự dẵng cấu của $G$. Thật vậy, $\varphi_a$ là một đồng cấu vì $\forall x,y \in G, \varphi_a(xy)=a(xy)a^{-1}=(axa^{-1})(aya^{-1})=\varphi_a(x)\varphi_a(y)$.
+
+    Mặc khác, $\varphi_a$ là một song ánh vì với mỗi $y \in G$, tồn tại duy nhất $x=a^{-1}ya \in G$ sao cho $y=\varphi_a(x)$. Ta gọi $\varphi_a$ là một _tự dẳng cấu trong_ của nhóm $G$.
+
+Từ [Định nghĩa 8.1](#81-định-nghĩa) ta suy ra các tính chất cơ bản của đồng cấu nhóm như sau:
+
+### 8.3. Mệnh đề
+
+_Nếu $f: G \rightarrow G'$ là một đồng cấu nhóm thì $f(e)=e'$ và $f(x^{-1})=(f(x))^{-1}$ với mọi $x \in G$ ($e$ và $e'$ lần lượt là các phần tử đơn vị của các nhóm $G$ và $G'$)._
+
+**Chứng minh.** Từ đẳng thức $ee=e$ ta có $f(e)f(e)=f(e)$ và tính giản ước của phép nhân trong nhóm $G'$ cho ta $f(e)=e'$. Mặt khác, với mọi $x \in G$, từ đẳng thức $x^{-1}x=w$ ta suy ra $f(x^{-1})f(x)=e'$ nên $f(x^{-1})=(f(x))^{-1}$. $\quad \blacksquare$
+
+### 8.4. Mệnh đề
+
+\_Tích của hai đồng cấu nhóm là một đồng cấu nhóm. Đặc biệt, tích của hai đơn cấu (tương ứng: toàn cấu, đẳng cấu) là một đơn cấu (tương ứng: toàn cấu, đẳng cấu).
+
+**Chứng minh.** Giả sử $f: G \rightarrow G'$ và $g: G' \rightarrow G''$ là các đồng cấu nhóm. Xét ánh xạ tích $g \circ f$, ta có với mọi $x,y \in G$. $(g \circ f)(xy)=g(f(xy))=g(f(x)f(y))=g(f(x))g(f(y))(g \circ f)(x)(g \circ f)(y)$ nên $g \circ f$ vẫn còn là đồng cấu nhóm. $\quad \blacksquare$
+
+### 8.5. Mệnh đề
+
+_Ánh xạ ngược của một dẳng cấu nhóm là một đẳng cấu nhóm._
+
+**Chứng minh.** Giả sử $f: G \rightarrow G'$ là một đẳng cấu nhóm. Vì $f^{-1}: G' \rightarrow G$ cũng là song ánh nên ta chỉ cần chứng minh $f^{-1}$ là đồng cấu. Thật vậy, với mọi $x',y' \in G'$, tồn tại $x,y \in G$ sao cho $x'=f(x)$ và $y'=f(y)$ nên $f^{-1}(x'y')=f^{-1}(f(x)f(y))=f^{-1}(f(xy))=(f^{-1} \circ f)(xy) = xy = f^{-1}(x') f^{-1}(y')$. Vậy $f^{-1}$ là đồng cấu và do đó là đẳng cấu. $\quad \blacksquare$
+
+### 8.6. Chú ý
+
+Do các [Mệnh đề 8.4](#84-mệnh-đề) và [8.5](#85-mệnh-đề) ta thấy quan hệ đẵng cấu $\simeq$ giữa các nhóm là một quan hệ tương đương, nghĩa là có ba tính chất phản xạ, đối xứng, và bắc cầu.
