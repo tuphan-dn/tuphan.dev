@@ -84,7 +84,7 @@ In this benchmark, I will run `autocannon -c 10000 -d 10 http://localhost:3000` 
 xychart-beta
     title "Req/Sec"
     x-axis ["1%", "2.5%",	"50%", "97.5%", Avg]
-    y-axis "x1000" 0 --> 60
+    y-axis "x1000" 0 --> 55
     bar [1.676, 1.676, 3.453, 51.615, 8.838]
     bar [1.123, 1.123, 1.427, 9.407, 2.6012]
 ```
@@ -93,7 +93,7 @@ xychart-beta
 xychart-beta
     title "Bytes/Sec"
     x-axis ["1%", "2.5%",	"50%", "97.5%", Avg]
-    y-axis KB 0 --> 14000
-    bar [401, 401, 825, 12300, 2110]
-    bar [269,	269, 341,	2250, 621]
+    y-axis MB 0 --> 13
+    bar [0.401, 0.401, 0.825, 12.3, 2.11]
+    bar [0.269,	0.269, 0.341,	2.25, 0.621]
 ```
