@@ -7,6 +7,8 @@ date = "8 Septemebr, 2024"
 
 Javascript is single threaded that means if you was running your ExpressJS (or NestJS, HonoJS, etc.), you probably run it on a single core. To take advantages of multiprocessing, you can clusterize your web services by a native package in NodeJS.
 
+To quickly test the demo, have a look at [tuphan-dn/clusterized-express](https://github.com/tuphan-dn/clusterized-express).
+
 ## A "documented" way to run ExpressJS servers
 
 ```ts label="index.ts" group="express"
