@@ -874,7 +874,7 @@ _Nếu $f: G \rightarrow G'$ là một đồng cấu nhóm thì $f(e)=e'$ và $f
 
 ### 8.4. Mệnh đề
 
-\_Tích của hai đồng cấu nhóm là một đồng cấu nhóm. Đặc biệt, tích của hai đơn cấu (tương ứng: toàn cấu, đẳng cấu) là một đơn cấu (tương ứng: toàn cấu, đẳng cấu).
+_Tích của hai đồng cấu nhóm là một đồng cấu nhóm. Đặc biệt, tích của hai đơn cấu (tương ứng: toàn cấu, đẳng cấu) là một đơn cấu (tương ứng: toàn cấu, đẳng cấu)._
 
 **Chứng minh.** Giả sử $f: G \rightarrow G'$ và $g: G' \rightarrow G''$ là các đồng cấu nhóm. Xét ánh xạ tích $g \circ f$, ta có với mọi $x,y \in G$. $(g \circ f)(xy)=g(f(xy))=g(f(x)f(y))=g(f(x))g(f(y))(g \circ f)(x)(g \circ f)(y)$ nên $g \circ f$ vẫn còn là đồng cấu nhóm. $\quad \blacksquare$
 
@@ -892,9 +892,9 @@ Do các [Mệnh đề 8.4](#84-mệnh-đề) và [8.5](#85-mệnh-đề) ta th�
 
 _Cho đồng cấu nhóm $f: G \rightarrow G'$ và $H$ là một nhóm con của $G$, $H'$ là một nhóm con của $G'$. Khi đó:_
 
-_(i) $f(H) là một nhóm con của $G'$._
+_(i) $f(H)$ là một nhóm con của $G'$._
 
-_(ii) $f^{-1}(H')$ là một nhóm con củ $G$. Hơn nữa, nếu H' là nhóm con chuẩn tắc của $G'$ thì $f^{-1}(H')$ là nhóm con chuẩn tắc của $G$._
+_(ii) $f^{-1}(H')$ là một nhóm con củ $G$. Hơn nữa, nếu $H'$ là nhóm con chuẩn tắc của $G'$ thì $f^{-1}(H')$ là nhóm con chuẩn tắc của $G$._
 
 _Đặc biệt, $Imf = f(G)$ là nhóm con của $G'$ và $Kerf = f^{-1}(e')$ là nhóm con chuẩn tắc của $G$._
 
@@ -917,3 +917,33 @@ _Đồng cấu nhóm $f: G \rightarrow G'$ là đơn cấu khi và chỉ khi $Ke
 ### 8.9. Định lý đẳng cấu 1.
 
 _Cho đồng cấu nhóm $f: G \rightarrow G'$. Khi đó ánh xạ $\overline{f}: G/Kerf \rightarrow G'$ định bởi $\overline{f}(xKerf)=f(x)$ là một đơn cấu. Đặc biệt, $G/Kerf \simeq Imf$._
+
+**Chứng minh.** Đặt $H=Kerf$. Vì $H \triangleleft G$ nên ta lập được nhóm thương $G/H$. Xét tương ứng $f: G/H \rightarrow G'$ định bởi $\overline{f}(xH)=f(x)$ ta có với mọi $x,y \in G$:
+
+$$
+\begin{aligned}
+\overline{f}(xH) = \overline{f}(yH) &\Leftrightarrow f(x)=f(y)\\
+&\Leftrightarrow (f(x))^{-1}f(y)=e'\\
+&\Leftrightarrow f(x^{-1})f(y)=e'\\
+&\Leftrightarrow f(x^{-1}y)=e'\\
+&\Leftrightarrow x^{-1}y \in H\\
+&\Leftrightarrow xH=yH\\
+\end{aligned}
+$$
+
+Chiều ($\Leftarrow$) chứng tỏ $\overline{f}$ là một ánh xạ, chiều ($\Rightarrow$) chứng tỏ $\overline{f}$ là một đơn ánh. Bây giờ ta kiểm chứng $\overline{f}$ là một đồng cấu. Thật vậy, với mọi $x,y \in G$:
+
+$$
+\begin{aligned}
+\overline{f}((xH)(yH)) &= \overline{f}(xyH)\\
+&= f(xy)\\
+&= f(x)f(y)\\
+&= \overline{f}((xH)\overline{f}(yH))
+\end{aligned}
+$$
+
+Vậy $\overline{f}$ là đơn cấu. Khẳng định sau cùng trong Định lý được suy tiwf lý thuyết về ánh xạ. $\quad \blacksquare$
+
+### 8.10. Định lý đẳng cấu 2.
+
+\_Cho $G$ là một nhóm và $H$, $K$ là hai nhóm con của $G$, hơn nữa $H$ chuẩn tắc trong $G$. Khi đó $HK \le G$, $H \triangleleft HK$, $H \cap K \triangleleft K$, và $K/H \cap K \simeq HK/H$ qua đẳng cấu $k(H \cap K) \mapsto kH$, trong đó $HK=\{ hk|h \in H, k \in K \}$.
