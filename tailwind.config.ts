@@ -22,6 +22,7 @@ const config: Config = {
       },
       fontFamily: {
         satoshi: "'Satoshi', sans-serif",
+        'clash-display': "'Clash Display', sans-serif",
       },
     },
   },

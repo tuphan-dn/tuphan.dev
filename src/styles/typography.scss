@@ -1,28 +1,5 @@
-@font-face {
-  font-family: Satoshi;
-  font-weight: 300;
-  src: url('./fonts/Satoshi-Light.ttf');
-}
-@font-face {
-  font-family: Satoshi;
-  font-weight: 400;
-  src: url('./fonts/Satoshi-Regular.ttf');
-}
-@font-face {
-  font-family: Satoshi;
-  font-weight: 500;
-  src: url('./fonts/Satoshi-Medium.ttf');
-}
-@font-face {
-  font-family: Satoshi;
-  font-weight: 700;
-  src: url('./fonts/Satoshi-Bold.ttf');
-}
-@font-face {
-  font-family: Satoshi;
-  font-weight: 900;
-  src: url('./fonts/Satoshi-Black.ttf');
-}
+@import './fonts/satoshi/satoshi.scss';
+@import './fonts/clash-display/clash-display.scss';
 
 h1 {
   font-family: 'Satoshi', sans-serif;
