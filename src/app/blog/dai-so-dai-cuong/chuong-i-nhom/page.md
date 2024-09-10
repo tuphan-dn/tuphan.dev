@@ -946,4 +946,4 @@ Vậy $\overline{f}$ là đơn cấu. Khẳng định sau cùng trong Định l�
 
 ### 8.10. Định lý đẳng cấu 2.
 
-\_Cho $G$ là một nhóm và $H$, $K$ là hai nhóm con của $G$, hơn nữa $H$ chuẩn tắc trong $G$. Khi đó $HK \le G$, $H \triangleleft HK$, $H \cap K \triangleleft K$, và $K/H \cap K \simeq HK/H$ qua đẳng cấu $k(H \cap K) \mapsto kH$, trong đó $HK=\{ hk|h \in H, k \in K \}$.
+_Cho $G$ là một nhóm và $H$, $K$ là hai nhóm con của $G$, hơn nữa $H$ chuẩn tắc trong $G$. Khi đó $HK \le G$, $H \triangleleft HK$, $H \cap K \triangleleft K$, và $K/H \cap K \simeq HK/H$ qua đẳng cấu $k(H \cap K) \mapsto kH$, trong đó $HK=\{ hk|h \in H, k \in K \}$._
