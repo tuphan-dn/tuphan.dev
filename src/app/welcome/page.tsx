@@ -66,12 +66,12 @@ export default function Page() {
           transition={{ duration: 0.5 }}
           href="/"
         >
-          <div className="w-8 rounded-full hover:rotate-[-25deg] transition-all">
+          <div className="w-8 rounded-full hover:ring-2 hover:ring-accent transiion-all duration-500">
             <img src="/icon.png" alt="Home" />
           </div>
         </AnimatedLink>
         <motion.span
-          className="col-span-full md:col-span-2 flex flex-row items-baseline gap-0"
+          className="col-span-full md:col-span-2 flex flex-row items-baseline gap-0 cursor-pointer"
           initial={{ y: -48, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -82,7 +82,7 @@ export default function Page() {
           <span className="flex-grow border-b-[1rem] border-base-content" />
         </motion.span>
         <motion.span
-          className="col-span-full md:col-span-2 flex flex-row items-baseline gap-0"
+          className="col-span-full md:col-span-2 flex flex-row items-baseline gap-0 cursor-pointer"
           initial={{ y: -48, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
