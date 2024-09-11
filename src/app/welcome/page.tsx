@@ -1,9 +1,10 @@
 'use client'
 import { ComponentProps, type ReactNode } from 'react'
 import { motion } from 'framer-motion'
+import clsx from 'clsx'
 
 import Link from 'next/link'
-import clsx from 'clsx'
+import { SparklesCore } from '@/components/sparkles'
 
 const AnimatedLink = motion(Link)
 
@@ -13,7 +14,7 @@ function Bullet({ i = 0, children }: { i?: number; children: ReactNode }) {
       className="cursor-pointer font-satoshi"
       initial={{ x: i * 8, opacity: 0 }}
       animate={{ x: 0, opacity: 0.6 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5, delay: i * 0.5 }}
       whileHover={{ opacity: 1 }}
     >
       {children}
@@ -34,7 +35,7 @@ function Social({
       className={clsx('font-satoshi text-3xl hover:underline', className)}
       initial={{ y: 32, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5 }}
       {...props}
     >
       {children}
@@ -48,6 +49,15 @@ export default function Page() {
       className="fixed top-0 left-0 bg-base-100 z-10 w-full h-full p-8 flex flex-col gap-16"
       data-theme="dark"
     >
+      <SparklesCore
+        id="tsparticlesfullpage"
+        background="transparent"
+        minSize={0.6}
+        maxSize={1.4}
+        particleDensity={10}
+        className="w-full h-full fixed top-0 left-0 z-[-1]"
+        particleColor="#FFFFFF"
+      />
       <div className="grid grid-cols-4 gap-0">
         <AnimatedLink
           className="col-span-full avatar flex"
@@ -62,8 +72,8 @@ export default function Page() {
         </AnimatedLink>
         <motion.span
           className="col-span-full md:col-span-2 flex flex-row items-baseline gap-0"
-          initial={{ x: 32, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
+          initial={{ y: -48, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
           <span className="font-clash-display font-bold text-9xl tracking-wide">
@@ -73,8 +83,8 @@ export default function Page() {
         </motion.span>
         <motion.span
           className="col-span-full md:col-span-2 flex flex-row items-baseline gap-0"
-          initial={{ x: 64, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
+          initial={{ y: -48, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
           <span className="font-clash-display font-bold text-9xl tracking-wide">
@@ -85,12 +95,12 @@ export default function Page() {
       </div>
       <div className="flex-grow flex flex-col gap-6">
         <motion.p
-          className="text-xs font-satoshi font-black"
+          className="text-xs font-satoshi font-black tracking-widest"
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.4 }}
           transition={{ duration: 0.5 }}
         >
-          proud of
+          i&apos;m
         </motion.p>
         <div className="flex-grow flex flex-col gap-2">
           <Bullet i={0}>A Blockchain Buidler.</Bullet>
