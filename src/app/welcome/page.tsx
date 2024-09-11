@@ -107,11 +107,7 @@ export default function Page() {
           <Bullet i={2}>A Cryptography Researcher.</Bullet>
           <Bullet i={3}>
             Running{' '}
-            <Link
-              className="hover:underline"
-              href="http://gears.bot"
-              target="_blank"
-            >
+            <Link className="underline" href="http://gears.bot" target="_blank">
               gears.bot
             </Link>
             .
@@ -119,7 +115,7 @@ export default function Page() {
           <Bullet i={4}>
             Ex-Founder of{' '}
             <Link
-              className="hover:underline"
+              className="underline"
               href="https://x.com/SentreProtocol"
               target="_blank"
             >
@@ -127,7 +123,7 @@ export default function Page() {
             </Link>{' '}
             (Acquired by{' '}
             <Link
-              className="hover:underline"
+              className="underline"
               href="https://x.com/saros_xyz"
               target="_blank"
             >
@@ -138,7 +134,7 @@ export default function Page() {
           <Bullet i={5}>
             Owner of{' '}
             <Link
-              className="hover:underline"
+              className="underline"
               href="https://www.facebook.com/profile.php?id=61565796653633"
               target="_blank"
             >
