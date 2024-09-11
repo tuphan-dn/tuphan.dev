@@ -103,9 +103,9 @@ export default function Page() {
           i&apos;m
         </motion.p>
         <div className="flex-grow flex flex-col gap-2">
-          <Bullet i={0}>A Blockchain Buidler.</Bullet>
-          <Bullet i={1}>A Cryptography Researcher.</Bullet>
-          <Bullet i={2}>
+          <Bullet i={1}>A Blockchain Buidler.</Bullet>
+          <Bullet i={2}>A Cryptography Researcher.</Bullet>
+          <Bullet i={3}>
             Running{' '}
             <Link
               className="hover:underline"
@@ -116,7 +116,7 @@ export default function Page() {
             </Link>
             .
           </Bullet>
-          <Bullet i={3}>
+          <Bullet i={4}>
             Ex-Founder of{' '}
             <Link
               className="hover:underline"
@@ -135,7 +135,7 @@ export default function Page() {
             </Link>
             ).
           </Bullet>
-          <Bullet i={4}>
+          <Bullet i={5}>
             Owner of{' '}
             <Link
               className="hover:underline"
