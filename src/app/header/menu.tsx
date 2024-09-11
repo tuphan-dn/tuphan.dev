@@ -2,14 +2,7 @@
 import { motion } from 'framer-motion'
 
 import Link from 'next/link'
-import {
-  ArrowUpRight,
-  Clipboard,
-  HandMetal,
-  Mail,
-  MenuIcon,
-  Rss,
-} from 'lucide-react'
+import { ArrowUpRight, Clipboard, Mail, MenuIcon, Rss } from 'lucide-react'
 import { SiGithub, SiX } from '@icons-pack/react-simple-icons'
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 
@@ -31,13 +24,6 @@ export default function Menu() {
         >
           MENU
         </motion.span>
-        <Link
-          className="btn btn-ghost btn-sm flex flex-row gap-4 justify-start items-center font-normal"
-          href="/welcome"
-        >
-          <HandMetal className="w-4 h-4" />
-          Welcome
-        </Link>
         <Link
           className="btn btn-ghost btn-sm flex flex-row gap-4 justify-start items-center font-normal"
           href="/"

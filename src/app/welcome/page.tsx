@@ -66,7 +66,7 @@ export default function Page() {
           transition={{ duration: 0.5 }}
           href="/"
         >
-          <div className="w-8 rounded-full">
+          <div className="w-8 rounded-full hover:rotate-[-25deg] transition-all">
             <img src="/icon.png" alt="Home" />
           </div>
         </AnimatedLink>
