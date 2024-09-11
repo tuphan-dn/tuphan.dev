@@ -1,5 +1,5 @@
 'use client'
-import { ComponentProps, type ReactNode } from 'react'
+import { type ComponentProps, type ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
 
@@ -15,7 +15,7 @@ function Bullet({ i = 0, children }: { i?: number; children: ReactNode }) {
       initial={{ x: i * 8, opacity: 0 }}
       animate={{ x: 0, opacity: 0.6 }}
       transition={{ duration: 0.5, delay: i * 0.5 }}
-      whileHover={{ opacity: 1 }}
+      whileHover={{ opacity: 1, transition: { delay: 0 } }}
     >
       {children}
     </motion.p>
