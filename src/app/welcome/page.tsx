@@ -76,9 +76,7 @@ export default function Page() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <span className="font-clash-display font-bold text-9xl tracking-wide">
-            tu
-          </span>
+          <span className="font-clash-display font-bold text-9xl">tu</span>
           <span className="flex-grow border-b-[1rem] border-base-content" />
         </motion.span>
         <motion.span
@@ -87,9 +85,7 @@ export default function Page() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <span className="font-clash-display font-bold text-9xl tracking-wide">
-            phan
-          </span>
+          <span className="font-clash-display font-bold text-9xl">phan</span>
           <span className="flex-grow border-b-[1rem] border-base-content" />
         </motion.span>
       </div>
