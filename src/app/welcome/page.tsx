@@ -109,7 +109,7 @@ export default function Page() {
             .
           </Bullet>
           <Bullet i={4}>
-            Ex-Founder of{' '}
+            Founder of{' '}
             <Link
               className="underline"
               href="https://x.com/SentreProtocol"
