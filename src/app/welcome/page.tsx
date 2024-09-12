@@ -128,7 +128,7 @@ export default function Page() {
             ).
           </Bullet>
           <Bullet i={5}>
-            Owner of{' '}
+            Curator of{' '}
             <Link
               className="underline"
               href="https://www.facebook.com/profile.php?id=61565796653633"
