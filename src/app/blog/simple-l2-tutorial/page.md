@@ -7,6 +7,101 @@ date = "28 September, 2024"
 
 In this series, we will learn how to build a very simple Layer 2 based on the ideas of Optimistic Rollup (aka. OP Stack). Thought it's simple, we still learn the core concepts of a layer 2.
 
+# Prerequisite
+
+Cause it's quick to implement things in Javascript, so we will choose JS to build a p2p network too.
+
+```bash label="npm" group="install"
+mkdir simple-l2-tut
+cd simple-l2-tut
+npm i -D typescript
+npx tsc --init
+```
+
+```bash label="yarn" group="install"
+mkdir simple-l2-tut
+cd simple-l2-tut
+yarn add -D typescript
+npx tsc --init
+```
+
+```bash label="pnpm" group="install"
+mkdir simple-l2-tut
+cd simple-l2-tut
+pnpm add -D typescript
+npx tsc --init
+```
+
+Personally, I would like to setup `.prettierrc.json` for auto-indent when saving in VSC. Feel free to skip it.
+
+```json label=".prettierrc.json" group="prettier"
+{
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "semi": false,
+  "singleQuote": true,
+  "printWidth": 80
+}
+```
+
+Next, create an entrypoint for the whole project.
+
+```bash label="npm" group="setup"
+mkdir src
+touch src/index.ts
+npm i -D nodemon
+```
+
+```bash label="yarn" group="setup"
+mkdir src
+touch src/index.ts
+yarn add -D nodemon
+```
+
+```bash label="pnpm" group="setup"
+mkdir src
+touch src/index.ts
+pnpm add -D nodemon
+```
+
+Finally, add `dev` script to `package.json` and test it.
+
+```json label="package.json" group="package.json"
+{
+  "name": "simple-l2-tut",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "typescript": "^5.6.2"
+  }
+}
+```
+
+Run
+
+```bash label="npm" group="run"
+npm run dev
+```
+
+```bash label="yarn" group="run"
+yarn dev
+```
+
+```bash label="pnpm" group="run"
+pnpm dev
+```
+
+![Output](./nodemon.png)
+
 # Table of Contents
 
 1. [P2P Network](/blog/simple-l2-tutorial/part-1-p2p-network)
