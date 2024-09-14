@@ -32,7 +32,7 @@ pnpm add -D typescript
 npx tsc --init
 ```
 
-Personally, I would like to setup `.prettierrc.json` for auto-indent when saving in VSC. Feel free to skip it.
+Personally, I would like to setup `.prettierrc.json` for auto-indent when saving in VSC. And also `.gitignore` for git. Feel free to skip it.
 
 ```json label=".prettierrc.json" group="prettier"
 {
@@ -44,24 +44,33 @@ Personally, I would like to setup `.prettierrc.json` for auto-indent when saving
 }
 ```
 
+```text label=".gitignore" group="git"
+.DS_Store
+node_modules
+dist
+.env
+.env.*
+!.env.example
+```
+
 Next, create an entrypoint for the whole project.
 
 ```bash label="npm" group="setup"
 mkdir src
 touch src/index.ts
-npm i -D nodemon
+npm i -D tsx
 ```
 
 ```bash label="yarn" group="setup"
 mkdir src
 touch src/index.ts
-yarn add -D nodemon
+yarn add -D tsx
 ```
 
 ```bash label="pnpm" group="setup"
 mkdir src
 touch src/index.ts
-pnpm add -D nodemon
+pnpm add -D tsx
 ```
 
 Finally, add `dev` script to `package.json` and test it.
@@ -73,14 +82,14 @@ Finally, add `dev` script to `package.json` and test it.
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.ts",
+    "dev": "tsx watch src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^3.1.4",
+    "tsx": "^4.19.1",
     "typescript": "^5.6.2"
   }
 }
@@ -100,7 +109,7 @@ yarn dev
 pnpm dev
 ```
 
-![Output](./nodemon.png)
+![You're ready to go](./nodemon.png)
 
 # Table of Contents
 
