@@ -1,6 +1,6 @@
 +++
 tags = "layer2"
-date = "28 September, 2024"
+date = "14 September, 2024"
 +++
 
 # Simple Layer2 Tutorial
@@ -8,6 +8,11 @@ date = "28 September, 2024"
 In this series, we will learn how to build a very simple Layer 2 based on the ideas of Optimistic Rollup (aka. OP Stack). Thought it's simple, we still learn the core concepts of a layer 2.
 
 # Prerequisite
+
+```bash label="install" group="node"
+node --version
+v20.12.0
+```
 
 Cause it's quick to implement things in Javascript, so we will choose JS to build a p2p network too.
 
@@ -44,7 +49,7 @@ Personally, I would like to setup `.prettierrc.json` for auto-indent when saving
 }
 ```
 
-```text label=".gitignore" group="git"
+```txt label=".gitignore" group="git"
 .DS_Store
 node_modules
 dist
@@ -81,9 +86,9 @@ Finally, add `dev` script to `package.json` and test it.
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx watch src/index.ts"
   },
   "keywords": [],
   "author": "",
