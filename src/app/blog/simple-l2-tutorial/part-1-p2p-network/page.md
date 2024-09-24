@@ -143,25 +143,25 @@ export default class Swarm {
     // Start
     this.swarm.addEventListener('start', () => {
       swarm.getMultiaddrs().forEach((addr) => {
-        console.log('✅ The node is listening on', addr.toString())
+        console.info('✅ The node is listening on', addr.toString())
       })
     })
     // Discovery
     this.swarm.addEventListener('peer:connect', ({ detail: peer }) => {
-      console.log('🔗 Connected to', peer.toString())
+      console.info('🔗 Connected to', peer.toString())
     })
     this.swarm.addEventListener('peer:discovery', async ({ detail }) => {
-      console.log('🔍 Discovered:', detail.id.toString())
+      console.info('🔍 Discovered:', detail.id.toString())
     })
     this.swarm.addEventListener('peer:identify', ({ detail }) => {
-      console.log('👤 Identify new peer', detail.peerId.toString())
+      console.info('👤 Identify new peer', detail.peerId.toString())
     })
     this.swarm.addEventListener('peer:disconnect', ({ detail }) => {
-      console.log('💔 Disconnected to', detail.toString())
+      console.info('💔 Disconnected to', detail.toString())
     })
     // Stop
     this.swarm.addEventListener('stop', () => {
-      console.log('⛔️ The node is terminated')
+      console.info('⛔️ The node is terminated')
     })
   }
 
