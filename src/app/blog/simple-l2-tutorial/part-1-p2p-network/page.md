@@ -178,7 +178,7 @@ export default class Swarm {
       peerDiscovery: [
         bootstrap({
           list: [
-            '/ip4/13.238.141.54/tcp/8000/p2p/16Uiu2HAmPJ7rawvyJm9BavwwfSCR9sp4e6PnjmnFTygZFooPBnX1',
+            '/ip4/13.238.141.54/tcp/8000/p2p/16Uiu2HAmDeYxA7kGADGhPBHeQTCheqB6qfpWFc1GHJu1niosGyRK',
           ],
         }),
       ],

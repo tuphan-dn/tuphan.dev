@@ -119,6 +119,6 @@ pnpm dev
 # Table of Contents
 
 1. [P2P Network](/blog/simple-l2-tutorial/part-1-p2p-network)
-2. [Layer 2 Contracts & Bridge Implementation](/blog/simple-l2-tutorial/part-2-layer-2-contract-bridge-implementation)
+2. [Layer 2 Contract & Bridge Implementation](/blog/simple-l2-tutorial/part-2-layer-2-contract-bridge-implementation)
 3. [State Trie & Block Proposer](/blog/simple-l2-tutorial/part-3-state-trie-block-proposer)
 4. [Fraud Proof](/blog/simple-l2-tutorial/part-4-fraud-proof)
