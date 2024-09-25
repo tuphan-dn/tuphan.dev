@@ -29,9 +29,9 @@ Due to the dependency of parent to its children, the root will carry all leafs i
 
 ### Code
 
-How to build a merkle trie in a key-value database (e.g. leveldb)?
+How to build a Merkle trie in a key-value database (e.g. leveldb)?
 
-> In Ethereum, merkle tries are organized in ke-value databases.
+> In Ethereum, Merkle tries are organized in key-value databases.
 
 First we define a pairing hash like this. Because most of hash functions do not support `null` value, so we will assign a default for it, `H(null, null) = null`.
 
@@ -44,7 +44,7 @@ function hash(left, right) {
 }
 ```
 
-Due to [Remark](#remark), when we update a leaf's value, we also have to update its parent and all ancestor nodes.
+Due to [Remark](#remark), when we update a leaf value, we also have to update its parent and all ancestor nodes.
 
 ```ts label="set.pseudo" group="merkle"
 function set(key /* i.e. [true, false, false, true, ...] */, value) {
