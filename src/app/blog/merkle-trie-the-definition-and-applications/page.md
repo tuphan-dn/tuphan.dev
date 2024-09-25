@@ -37,10 +37,13 @@ First we define a pairing hash like this. Because most of hash functions do not 
 
 ```ts label="hash.pseudo" group="hash"
 function hash(left, right) {
-  if (left && right) return keccak256(concatBytes(left, right))
-  if (!left) return keccak256(right)
-  if (!right) return keccak256(left)
-  return null
+  if (left) {
+    if (right) return keccak256(concatBytes(left, right))
+    else return keccak256(left)
+  } else {
+    if (right) return keccak256(right)
+    else return null
+  }
 }
 ```
 
