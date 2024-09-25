@@ -11,7 +11,7 @@ Tháng 6 về, những cánh đồng quê tôi đã gặt chỉ còn trơ gốc 
 
 Những ngày này 20 năm về trước, đó là cả một khoảng trời rộng mở đối với lũ trẻ xóm tôi khi chúng vừa kết thúc năm học, khép lại trang vở và bắt đầu những chuỗi ngày mênh mông trên cánh đồng vàng.
 
-Mặc dù cánh đồng lúa ôm trọn cả thôn xóm, nhưng đám trẻ dường như thích chơi thả diều và đá bóng ở khu vực phía cuối xóm hơn. Vì nơi đó có cái lò gạch cũ và trạm bơm hợp tác nên thường có chỗ để chúng ngồi lại ăn quả dâu ta, quả chim chim hoặc dú dẻ khi chiều tàn. Cánh đồng xóm dưới cứ kéo mãi đến tận chân cầu sắt, tạo nên một khoảng không trải dài bất tận. Phí xa xa, đường chân trời dài đột nhiên bị cắt ngang bởi cột khói trắng của nhà máy đường. Dưới chân cầu sắt, sông Cái mùa hè hiền hoà cùng triền cát dài là nơi để đám trẻ tắm táp đùa nghịch trước khi về nhà trong tối mịt.
+Mặc dù cánh đồng lúa ôm trọn cả thôn xóm, nhưng đám trẻ dường như thích chơi thả diều và đá bóng ở khu vực phía cuối xóm hơn. Vì nơi đó có cái lò gạch cũ và trạm bơm hợp tác nên thường có chỗ để chúng ngồi lại ăn quả dâu ta, quả chim chim, hoặc dú dẻ khi chiều tàn. Cánh đồng xóm dưới cứ kéo mãi đến tận chân cầu sắt, tạo nên một khoảng không trải dài bất tận. Phía xa xa, đường chân trời dài đột nhiên bị cắt ngang bởi cột khói trắng của nhà máy đường. Dưới chân cầu sắt, sông Cái mùa hè hiền hoà cùng triền cát dài là nơi để đám trẻ tắm táp đùa nghịch trước khi về nhà trong tối mịt.
 
 Cứ đầu tháng 4 là ve bắt đầu kêu, nhưng râm ran nhất phải là tháng 6, tiếng ve ong ả kết hợp với cái nắng oi bức khiến cho mùa hè trở nên đặc biệt trong ký ức của chúng tôi. Tháng 6, phượng đỏ chót, lá cây xanh mượt, sen súng mọc đầy hồ, cứ như tháng 6 là lúc để mọi vật trở nên thắm đượm nhất trong cuộc đời.
 
