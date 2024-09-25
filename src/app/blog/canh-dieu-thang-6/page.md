@@ -15,7 +15,7 @@ Mặc dù cánh đồng lúa ôm trọn cả thôn xóm, nhưng đám trẻ dư�
 
 Cứ đầu tháng 4 là ve bắt đầu kêu, nhưng râm ran nhất phải là tháng 6, tiếng ve ong ả kết hợp với cái nắng oi bức khiến cho mùa hè trở nên đặc biệt trong ký ức của chúng tôi. Tháng 6, phượng đỏ chót, lá cây xanh mượt, sen súng mọc đầy hồ, cứ như tháng 6 là lúc để mọi vật trở nên thắm đượm nhất trong cuộc đời.
 
-Tầm 5h chiều, một nhóm trẻ cầm diều chạy từ đầy xuống cuối xóm, những đứa trẻ khác dường như chỉ chờ có thế, chúng nhanh chóng ùa ra hoà vào tiếng bước chân lộp bộp trên đường cái, bụi tung mù mịt và không khí bắt đầu náo nức như hội hè.
+Tầm 5h chiều, một nhóm trẻ cầm diều chạy từ đầu xuống cuối xóm, những đứa trẻ khác dường như chỉ chờ có thế, chúng nhanh chóng ùa ra hoà vào tiếng bước chân lộp bộp trên đường cái, bụi tung mù mịt và không khí bắt đầu náo nức như hội hè.
 
 Đám thả diều, đám đá bóng, đám chơi u quạ, rượt bắt, ... trẻ con trong xóm ở đâu ra mà nhiều thế, chúng chạy nhảy, đùa nghịch vang một góc trời. Những người lớn đang đánh bò về đôi khi cũng ngoái nhìn chúng nó mà lòng cảm thấy nhẹ nhõm sau một ngày vất vả.
 
