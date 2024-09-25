@@ -27,7 +27,8 @@ struct Tx {
 }
 
 contract Rollup {
-  bytes32 public latest = keccak256(bytes('rollup-genesis-block'));
+  bytes32 public latest =
+    0xab2344d27f94c1e4753f34becf3bbe88aea4caf33c2380c85b4e4ef6f286e6d1;
   mapping(bytes32 root => Block block) chain;
   mapping(address account => mapping(bytes32 root => bool unlocked)) unlocks;
 
@@ -233,3 +234,20 @@ contract Rollup {
 ## Submit Block Headers
 
 Because a block is produced through the Layer 2 consensus, all nodes agree on a valid submitter and the bundled transactions. As a result, the block header serves as proof of this information.
+
+![Block Header](./block-header.jpg)
+
+Given a hash function $H$:
+
+$$
+\begin{aligned}
+&\text{blockHeader} = H(\\
+&\quad \text{prevBlockHeader},\\
+&\quad H(TxTrieRoot, StateTrieRoot)\\
+&)
+\end{aligned}
+$$
+
+Then, it's possible to provide a strong proof of relationship among the previous state, the transactions, and the next state that is valid to a given block header.
+
+> To learn about [Merkle Trie](/blog/merkle-trie-the-definition-and-applications)
