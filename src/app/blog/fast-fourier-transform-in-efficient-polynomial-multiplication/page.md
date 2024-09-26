@@ -42,4 +42,14 @@ B(x) &= b_0 + b_1x + b_2x^2 + ... + b_nx^n
 \end{aligned}
 $$
 
-Pad zeros to the both coefficient vetors so that they're both length $N \ge n+m+1$ and $N$ is a power of 2.
+After padding zeros to the both coefficient vetors so that they're both length $N \ge n+m+1$ and $N$ is a power of 2, we can transform the padded vectors to $\text{DFT}(A)$ and $\text{DFT}(B)$.
+
+> To improve the efficiency, we can use Fast Fourier Transform, $\text{FFT}(A)$ and $\text{FFT}(B)$.
+
+Now we have the transformed vector $\text{DFT}(C)$ following:
+
+$$
+\text{DFT}(C)[k] = \text{DFT}(A)[k] \times \text{DFT}(B)[k]
+$$
+
+To compute $C$, just apply Inverse DST to $\text{DST}(C)$, $C = \text{DST}^{-1}(\text{DST}(C))$. $\qquad \blacksquare$
