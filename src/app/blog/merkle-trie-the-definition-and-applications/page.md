@@ -73,7 +73,7 @@ function get(key /* i.e. [true, false, false, true, ...] */) {
 
 ### Merkle Distribution
 
-You want to run an 1000-receiver airdrop and the fee of sending one by one is so exspensive. However, you got a idea that you will store the list of receivers onto a smartcontract and let people claim thier tokens by themselves. Unfortunately, the list is quite long and the transaction fee to store the list is not cheap too. How we can solve this problem?
+You want to run a 1000-receiver airdrop and the fee of sending one by one is so exspensive. However, you got a idea that you will store the list of receivers onto a smartcontract and let people claim thier tokens by themselves. Unfortunately, the list is quite long and the transaction fee to store the list is not cheap too. How we can solve this problem?
 
 Remember that a Merkle root is a piece of concealed all leaf values. By storing just the root on-chain and releasing the whole tree data off-chain, it's sufficient to verify whether someone is eligile to claim the tokens.
 
