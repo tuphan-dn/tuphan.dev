@@ -92,15 +92,15 @@ const privkey = keys.privateKeyFromRaw(Buffer.from(PRIVATE_KEY, 'hex'))
 ## Swarm Behavior
 
 ```bash label="npm" group="install-behavior"
-npm i @libp2p/tcp @chainsafe/libp2p-yamux @chainsafe/libp2p-noise @libp2p/identify @chainsafe/libp2p-gossipsub @libp2p/mdns
+npm i @libp2p/tcp @chainsafe/libp2p-yamux @chainsafe/libp2p-noise @libp2p/identify @libp2p/kad-dht @libp2p/bootstrap @chainsafe/libp2p-gossipsub
 ```
 
 ```bash label="yarn" group="install-behavior"
-yarn add @libp2p/tcp @chainsafe/libp2p-yamux @chainsafe/libp2p-noise @libp2p/identify @chainsafe/libp2p-gossipsub @libp2p/mdns
+yarn add @libp2p/tcp @chainsafe/libp2p-yamux @chainsafe/libp2p-noise @libp2p/identify @libp2p/kad-dht @libp2p/bootstrap @chainsafe/libp2p-gossipsub
 ```
 
 ```bash label="pnpm" group="install-behavior"
-pnpm add @libp2p/tcp @chainsafe/libp2p-yamux @chainsafe/libp2p-noise @libp2p/identify @chainsafe/libp2p-gossipsub @libp2p/mdns
+pnpm add @libp2p/tcp @chainsafe/libp2p-yamux @chainsafe/libp2p-noise @libp2p/identify @libp2p/kad-dht @libp2p/bootstrap @chainsafe/libp2p-gossipsub
 ```
 
 | Package                       | To                                                                   |
