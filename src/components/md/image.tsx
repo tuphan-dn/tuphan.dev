@@ -14,6 +14,7 @@ export default function Image({
   className,
   ...props
 }: ImageProps) {
+  console.log(alt, meta, className, props)
   const { src } = useMemo(() => {
     if (typeof meta === 'string') return { src: meta }
     return meta
@@ -22,7 +23,7 @@ export default function Image({
     <>
       <Zoom wrapElement="span">
         <img
-          className={clsx('mb-2 rounded-box', className)}
+          className={clsx('mb-2 rounded-box !cursor-default', className)}
           src={src}
           alt={alt}
           {...props}

@@ -7,6 +7,8 @@ date = "14 September, 2024"
 
 In this series, we will learn how to build a very simple Layer 2 based on the ideas of Optimistic Rollup (aka. OP Stack). Thought it's simple, we still learn the core concepts of a layer 2.
 
+[![](./simple-l2-tut.png)](https://github.com/tuphan-dn/simple-l2-tut)
+
 # Prerequisite
 
 ```bash label="install" group="node"
