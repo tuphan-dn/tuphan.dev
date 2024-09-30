@@ -7,7 +7,7 @@ date = "28 September, 2024"
 
 In a dencentralized network, nodes (aka. peers) connect directly to thier neightbours. They communicate through a complicated network graph and don't reply on any central server. In this tutorial, we will build a p2p network.
 
-[![](../simple-l2-tut.png)](https://github.com/tuphan-dn/simple-l2-tut/tree/p1)
+[@preview](https://github.com/tuphan-dn/simple-l2-tut/tree/p1)
 
 ## Env
 
