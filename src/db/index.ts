@@ -17,11 +17,11 @@ const TableDto: z.ZodType<Blog[]> = z.array(
     children: z.array(z.string()),
   }),
 )
-const data = TableDto.parse(tablejson)
-const unpublished = data
+export const all = TableDto.parse(tablejson)
+const unpublished = all
   .filter(({ date }) => env !== 'development' && date > new Date())
   .map(({ route }) => route)
-export const table = data
+export const published = all
   .filter(({ route }) => !unpublished.includes(route))
   .map(({ children, ...props }) => ({
     children: children.filter((route) => !unpublished.includes(route)),

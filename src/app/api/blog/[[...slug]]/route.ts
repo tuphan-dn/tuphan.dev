@@ -2,7 +2,7 @@ import { Body, Injectable, Params } from '@/interceptor'
 import { type NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { Index } from 'lunr'
-import { index, table } from '@/db'
+import { index, published, all } from '@/db'
 
 const GetDto = z.object({ slug: z.array(z.string()).default([]) })
 const PostDto = z.object({
@@ -23,7 +23,7 @@ class Route {
     @Params(GetDto) { slug }: z.infer<typeof GetDto>,
   ) {
     const pathname = ['/blog', ...slug].join('/')
-    const data = table.find(({ route }) => route === pathname)
+    const data = all.find(({ route }) => route === pathname)
     return NextResponse.json(data)
   }
 
@@ -42,14 +42,14 @@ class Route {
       return NextResponse.json(data)
     }
     if (t) {
-      const data = table
+      const data = published
         .filter(({ tags }) => tags.includes(t))
         .map(({ route }) => route)
         .slice(offset, offset + limit)
       return NextResponse.json(data)
     }
     const { children: data = [] } =
-      table.find(({ route }) => route === '/blog') || {}
+      published.find(({ route }) => route === '/blog') || {}
     return NextResponse.json(data.slice(offset, offset + limit))
   }
 }
