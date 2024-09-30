@@ -11,7 +11,7 @@ export type ScheduleProps = {
 
 export default function Schedule({ children, published }: ScheduleProps) {
   const scheduled = useMemo(
-    () => new Date(published) >= new Date() && env === 'development',
+    () => new Date(published) >= new Date() && env !== 'development',
     [published],
   )
 
