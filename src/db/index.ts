@@ -1,8 +1,8 @@
 import 'server-only'
 import { z } from 'zod'
+import { env } from '@/configs/env'
 import tablejson from './table.json'
 import indexjson from './index.json'
-import { env } from '@/configs/env'
 
 // Database
 const TableDto: z.ZodType<Blog[]> = z.array(

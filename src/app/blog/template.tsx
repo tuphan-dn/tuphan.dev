@@ -14,18 +14,17 @@ import {
 } from 'lucide-react'
 import { BlogCard } from '@/components/blog'
 import Tags from '@/components/tags'
+import Schedule from '@/components/schedule'
 import { FacebookShare, TwitterShare } from './share'
 import Navigation from './navigation'
 
 export default function Template({ children }: { children: ReactNode }) {
   const segments = useSelectedLayoutSegments()
-  const { data: { tags = [], children: routes = [] } = {} } = useSWR(
-    `/api/blog/${segments.join('/')}`,
-    async (api: string) => {
+  const { data: { tags = [], children: routes = [], date = Date.now() } = {} } =
+    useSWR(`/api/blog/${segments.join('/')}`, async (api: string) => {
       const data = await ky.get(api).json<Blog>()
       return data
-    },
-  )
+    })
 
   return (
     <div className="w-full flex flex-col gap-4 items-center">
@@ -79,10 +78,12 @@ export default function Template({ children }: { children: ReactNode }) {
             </motion.button>
           </div>
         </div>
-        <div className="not-prose w-full">
-          <Tags value={tags} />
-        </div>
-        {children}
+        <Schedule published={new Date(date)}>
+          <div className="not-prose w-full">
+            <Tags value={tags} />
+          </div>
+          {children}
+        </Schedule>
       </motion.article>
       <div
         id="question"
