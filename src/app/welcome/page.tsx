@@ -46,7 +46,7 @@ function Social({
 export default function Page() {
   return (
     <div
-      className="fixed top-0 left-0 bg-base-100 z-10 w-full h-full p-8 flex flex-col gap-16 overflow-auto"
+      className="fixed top-0 left-0 bg-base-100 z-10 w-full h-full p-8 flex flex-col gap-16 overflow-x-hidden overflow-y-auto"
       data-theme="dark"
     >
       <SparklesCore
