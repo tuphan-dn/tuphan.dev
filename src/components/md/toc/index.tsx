@@ -55,14 +55,17 @@ function Nav({ className, ...props }: TocProps) {
       className="fixed top-[50%] -translate-y-[50%] right-0 cursor-pointer group z-10"
       ref={ref}
     >
-      <div className="group-hover:hidden animate-pop-in p-1 m-1 flex flex-col gap-1">
+      <div className="group-hover:hidden animate-pop-in p-1 m-1 flex flex-col gap-[0.125rem]">
         {Array.from(headings).map((heading) => (
           <div
             key={heading.id}
-            className={clsx('w-1 h-1 rounded transition-all', {
-              'bg-base-content/10': heading.id !== id,
-              'bg-base-content': heading.id === id,
-            })}
+            className={clsx(
+              'w-[0.375rem] h-[0.125rem] rounded transition-all',
+              {
+                'bg-base-content/10': heading.id !== id,
+                'bg-base-content': heading.id === id,
+              },
+            )}
           />
         ))}
       </div>
