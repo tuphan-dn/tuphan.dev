@@ -6,12 +6,14 @@ import { env } from '@/configs/env'
 
 export type ScheduleProps = {
   children: ReactNode
-  published: Date
+  published?: Date
 }
 
 export default function Schedule({ children, published }: ScheduleProps) {
   const scheduled = useMemo(
-    () => new Date(published) >= new Date() && env !== 'development',
+    () =>
+      new Date(published || Date.now() + 1) > new Date() &&
+      env !== 'development',
     [published],
   )
 
