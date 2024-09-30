@@ -914,7 +914,7 @@ _Đồng cấu nhóm $f: G \rightarrow G'$ là đơn cấu khi và chỉ khi $Ke
 
 **Chứng minh.** Chiều thuận là hiển nhiên vì $Kerf \le G$ và $Kerf$ chứa không quá một phần tử do $f$ là đơn ánh. Đảo lại, giả sử $Kerf=\{e\}$. Khi đó với mọi $x,y \in G$ thoả $f(x)=f(y)$ ta có $f(x^{-1}y)=(f(x))^{-1}f(y)=e'$ nên $x^{-1}y \in Kerf$, suy ra $x^{-1}y=e$, nghĩa là $x=y$. Vậy $f$ đơn ánh. $\quad \blacksquare$
 
-### 8.9. Định lý đẳng cấu 1.
+### 8.9. Định lý đẳng cấu 1
 
 _Cho đồng cấu nhóm $f: G \rightarrow G'$. Khi đó ánh xạ $\overline{f}: G/Kerf \rightarrow G'$ định bởi $\overline{f}(xKerf)=f(x)$ là một đơn cấu. Đặc biệt, $G/Kerf \simeq Imf$._
 
@@ -944,6 +944,75 @@ $$
 
 Vậy $\overline{f}$ là đơn cấu. Khẳng định sau cùng trong Định lý được suy tiwf lý thuyết về ánh xạ. $\quad \blacksquare$
 
-### 8.10. Định lý đẳng cấu 2.
+### 8.10. Định lý đẳng cấu 2
 
 _Cho $G$ là một nhóm và $H$, $K$ là hai nhóm con của $G$, hơn nữa $H$ chuẩn tắc trong $G$. Khi đó $HK \le G$, $H \triangleleft HK$, $H \cap K \triangleleft K$, và $K/H \cap K \simeq HK/H$ qua đẳng cấu $k(H \cap K) \mapsto kH$, trong đó $HK=\{ hk|h \in H, k \in K \}$._
+
+**Chứng minh.**
+
+1. $HK \le G$: Hiển nhiên $e = ee \in HK$. Giả sử $h_1k_1, h_2k_2$ là hai phần tử của $HK$. Khi đó:
+
+   $$
+   \begin{aligned}
+   (h_1k_1)^{-1}(h_2k_2) &= h_1^{-1}k_1^{-1}h_2k_2\\
+   &= [k_1^{-1}(h_1^{-1}h_2)k_1][k_1^{-1}k_2]
+   \end{aligned}
+   $$
+
+   Chú ý rằng $h_1^{-1}h_2 \in H$ nên $k_1^{-1}(h_1^{-1}h_2)k_1 \in H$ do $H \triangleleft G$, hơn nữa $k_1^{-1}k_2 \in K$ do $K \le G$. Do đó $(h_1k_1)^{-1}(h_2k_2) \in HK$. Suy ra $HK \le G$.
+
+2. $H \triangleleft HK$: Vì $H \subset HK$ và $H \triangleleft G$ nên $H \triangleleft HK$.
+
+3. Xét ánh xạ $f: K \rightarrow HK / H$ định bởi $f(k) = kH$. Hiển nhiên $f$ là một đồng cấu nhóm, hơn nữa $f$ còn là toàn cấu vì với mọi $hkH \in HK/H$ ta có $hkH=(hH)(kH)=H(kH)=kH=f(k)$. Mặt khác:
+
+$$
+\begin{aligned}
+\text{Ker} f &= \{ k \in K | f(k)=H \}\\
+&= \{ k \in K | kH=H \}\\
+&= \{ k \in K | k \in H \}\\
+&= H \cap K\\
+\end{aligned}
+$$
+
+Do đó $H \cap K \triangleleft K$ và theo [Định lý 8.9](#89-định-lý-đẳng-cấu-1) ta có đẳng cấu $K/H \cap K \simeq HK/H$, trong đó $k(H \cap K) \mapsto kH$
+
+### 8.11. Định lý đẳng cấu 3
+
+_Cho $G$ là một nhóm và $H$ là một nhóm con chuẩn tắc của $G$. Ta có_
+
+_(i) $\mathcal{K}$ là một nhóm con của $G/H$ khi và chỉ khi $\mathcal{K}$ có dạng $\mathcal{K}=K/H$ và $K \le G$ và $H \le K$._
+
+_(ii) $\mathcal{K}$ là một nhóm con chuẩn tắc của $G/H$ khi và chỉ khi $\mathcal{K}$ có dạng $\mathcal{K}=K/H$ với $K \triangleleft G$ và $H \le K$. Hơn nữa, khi đó $(G/H)/(K/H) \simeq G/K$ qua đẳng cấu $xH(K/H) \mapsto xK$._
+
+**Chứng minh.** Xét toàn cấu chính tắc $\pi: G \rightarrow G/H$. Với $\mathcal{K} \le G/H$, đặt $K = \pi^{-1}(\mathcal{K})$ thì $H \le K \le G$ và $\pi(K)=\mathcal{K}$. Do đó khẳng định (i) được chứng minh. Mặt khác, nếu $\mathcal{K} \triangleleft G/H$ thì $K \triangleleft G$ nên ta có khẳng định đầu trong (ii). Hơn nữa, khi đó xét tương ứng $f: G/H \rightarrow G/K$ định bởi $f(xH)=xK$ ta thấy ngay $f$ là một ánh xạ vì nếu $xH=yH$ thì $x^{-1}y \in H$, từ đó $x^{-1}y \in K$, nghĩa là $xK=yK$. Hiển nhiên $f$ là toàn ánh. Ngoài ra do $f((xH)(yH)) = f(xyH) = xyK = (xK)(yK) = f(xH)f(yH)$ nên $f$ là đồng cấu. Cuối cùng ta có
+
+$$
+\begin{aligned}
+\text{Ker}f &= \{ xH \in G/H | f(xH)=K \}\\
+&= \{ xH \in G/H | xK=K \}\\
+&= \{ xH \in G/H | x \in K \}\\
+&= K/H\\
+\end{aligned}
+$$
+
+nên theo [Định lý 8.9](#89-định-lý-đẳng-cấu-1) $(G/H)/(K/H) \simeq G/K$ trong đó $(xH)(KH)\mapsto xK$. $\quad \blacksquare$
+
+### 8.12. Hệ quả
+
+_Mọi nhóm cyclic vô hạn đều đẳng cấu với nhóm cộng các số nguyên $\mathbb{Z}$. Mọi nhóm cyclic hữu hạn cấp $n$ đều đẳng cấu với nhóm cộng $\mathbb{Z}_n$ các số nguyên $\mod n$._
+
+**Chứng minh.** Giả sử $G$ là nhóm cyclic sinh bởi $x$. Xét ánh xạ $f: \mathbb{Z} \rightarrow G$ định bởi $f(m)=x^m$. Dễ thấy $f$ là một đồng cấu từ nhóm cộng các số nguyên $\mathbb{Z}$ và $G$. Khi đó $\text{Ker}f$ là một nhóm con của $\mathbb{Z}$ nên $\text{Ker}f$ có dạng $\text{Ker}f=n\mathbb{Z}$ với $n \in \mathbb{N}$ ([Hệ quả 6.7](#67-hệ-quả)).
+
+Nếu $n=0$ thì $\text{Ker}f=\{0\}$ nên $f$ là đơn cấu và do đó cũng là đẳng cấu. Trong trường hợp này $G$ vô hạn và $G \simeq \mathbb{Z}$.
+
+Nếu $n \gt 0$ thì theo [Định lý 8.9](#89-định-lý-đẳng-cấu-1) $\mathbb{Z}/n\mathbb{Z} \simeq G$. Vì nhóm thương $\mathbb{Z}/n\mathbb{Z}$ chính là nhòm $\mathbb{Z}_n$ (Xem [Ví dụ 7.11](#711-ví-dụ)) nên trong trường hợp này $G$ hữu hạn cấp $n$ và $G \simeq \mathbb{Z}_n$. $\quad \blacksquare$
+
+### 8.13. Ví dụ
+
+Từ [Ví dụ 8.2](#82-ví-dụ) ta thấy
+
+1. Đồng cấu $f: \mathbb{R} \rightarrow \mathbb{C}^*$ định bởi $f(x) = \cos 2 \pi x + i \sin 2 \pi x$ có $\text{Ker}f = \mathbb{Z}$ và $\text{Im}f = U$ trong đó $U= \{ z \in \mathbb{C}^*, |z| = 1 \}$. Do đó theo [Định lý 8.9](#89-định-lý-đẳng-cấu-1) $\mathbb{R}/\mathbb{Z} \simeq U$.
+
+2. Đồng cấu $f \text{sgn}: S_n \rightarrow (\{-1;1\}, .)$ có $\text{Ker}f=A_n$ và $\text{Im}f=\{\pm 1\}$ nên $S_n/A_n \simeq \{\pm 1\}.$
+
+3. Toàn cấu $f:GL(n,\mathbb{R}) \rightarrow \mathbb{R}^*$ định bởi $f(A)=\det A$ có $\text{Ker}f=\{ A \in GL(n, \mathbb{R}), \det A=1 \} = SL(n,\mathbb{R})$ nên $GL(n,\mathbb{R})/SL(n,\mathbb{R}) \simeq \mathbb{R}^*$.
