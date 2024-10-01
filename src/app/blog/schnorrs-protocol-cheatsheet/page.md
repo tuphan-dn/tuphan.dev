@@ -74,7 +74,7 @@ $$
 
 ## Schnorr Signature
 
-Schnorr Signature is following the same principles of Scnorr's protocol. Giving an order $n$ EC with a generator $G$ over $F_q$, the signer signs a message $m$ with a keypair $(p, P=pG)$:
+Schnorr Signature is following the same principles of Schnorr's protocol. Giving an order $n$ EC with a generator $G$ over $F_q$, the signer signs a message $m$ with a keypair $(p, P=pG)$:
 
 $$
 \begin{array}{ l c r }
