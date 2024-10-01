@@ -1,5 +1,5 @@
 +++
-tags = "evm, layer2, 🇻🇳"
+tags = "evm, web3, layer2, 🇻🇳"
 date = "22 August, 2024"
 +++
 

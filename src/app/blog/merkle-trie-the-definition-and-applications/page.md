@@ -1,5 +1,5 @@
 +++
-tags = "cryptography, evm"
+tags = "cryptography, web3, evm"
 date = "20 September, 2024"
 +++
 

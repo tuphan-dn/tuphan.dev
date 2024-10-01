@@ -1,5 +1,5 @@
 +++
-tags = "evm"
+tags = "web3, evm"
 date = "10 August, 2023"
 +++
 
