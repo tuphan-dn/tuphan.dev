@@ -3,7 +3,7 @@ tags = "math, 🇻🇳"
 date = "22 August, 2020"
 +++
 
-# Bài tập
+# Bài tập Chương I
 
 ## Bài 1.20
 

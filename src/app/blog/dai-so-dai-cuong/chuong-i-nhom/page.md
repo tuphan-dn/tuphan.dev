@@ -590,7 +590,7 @@ $$
 
 ### 5.9. Chú ý
 
-Nếu $H$ và $K$ là hai nhóm con của nhóm $G$ thì $H \cup K$ không nhất thiết là một nhóm con của $G$ (Xem [bài tập 1.20](/blog/dai-so-dai-cuong/chuong-i-nhom/bai-tap#bài-120)). Ta ké hiệu $H \vee K$ để chỉ nhóm con sinh bởi $H \cup K$.
+Nếu $H$ và $K$ là hai nhóm con của nhóm $G$ thì $H \cup K$ không nhất thiết là một nhóm con của $G$ (Xem [bài tập 1.20](/blog/dai-so-dai-cuong/chuong-i-nhom/bai-tap-chuong-i#bài-120)). Ta ké hiệu $H \vee K$ để chỉ nhóm con sinh bởi $H \cup K$.
 
 ## 6. Nhóm con cyclic và nhóm cyclic
 
