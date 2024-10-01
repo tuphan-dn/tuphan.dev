@@ -46,7 +46,7 @@ function Social({
 export default function Page() {
   return (
     <div
-      className="fixed top-0 left-0 bg-base-100 z-10 w-full h-full p-8 flex flex-col gap-16 overflow-x-hidden overflow-y-auto"
+      className="bg-base-100 w-full h-full p-8 flex flex-col gap-16 overflow-x-hidden overflow-y-auto"
       data-theme="dark"
     >
       <SparklesCore
@@ -141,8 +141,15 @@ export default function Page() {
         </div>
       </div>
       <div className="grid grid-cols-4 gap-0">
-        <Social className="col-span-2" href="/">
+        <Social className="col-span-1" href="/">
           blog
+        </Social>
+        <Social
+          className="col-span-1"
+          href="/static/Curriculum_Vitae.pdf"
+          target="_blank"
+        >
+          cv
         </Social>
         <Social
           className="col-span-1"

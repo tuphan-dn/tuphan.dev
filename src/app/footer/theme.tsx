@@ -31,11 +31,11 @@ export default function Theme({ className }: ThemeProps) {
 
   return (
     <button
-      className={clsx('btn btn-square btn-xs btn-ghost', className)}
+      className={clsx('btn btn-circle btn-sm btn-ghost', className)}
       onClick={onTheme}
     >
       <MotionIcon
-        className="w-3 h-3"
+        className="w-4 h-4"
         initial={{ scale: 0, opacity: 0, rotate: 180 }}
         animate={{ scale: 1, opacity: 1, rotate: 0 }}
       />

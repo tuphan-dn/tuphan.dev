@@ -3,8 +3,6 @@ import type { Metadata } from 'next'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 import UiProvider from '@/providers/ui.provider'
-
-import Header from './header'
 import Footer from './footer'
 
 export const metadata: Metadata = {
@@ -41,14 +39,11 @@ export default function Layout({ children }: { children: ReactNode }) {
       </head>
       <body className="overflow-x-hidden">
         <UiProvider>
-          <main className="w-full min-h-dvh bg-base-100 flex flex-col gap-0 justify-center">
-            <header className="w-full sticky top-0 z-10">
-              <Header />
-            </header>
-            <section className="w-full grow grid grid-cols-12 gap-0">
+          <main className="w-full min-h-dvh flex flex-col">
+            <section className="grow grid grid-cols-1">
               <div className="col-span-full">{children}</div>
             </section>
-            <footer className="w-full">
+            <footer className="sticky bottom-2 w-full flex flex-row justify-center">
               <Footer />
             </footer>
           </main>

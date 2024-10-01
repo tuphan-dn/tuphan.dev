@@ -1,37 +1,69 @@
 'use client'
+import { usePathname } from 'next/navigation'
+import clsx from 'clsx'
 
-import { SiGithub, SiX } from '@icons-pack/react-simple-icons'
-import Island from '@/components/island'
-import Theme from './theme'
-import ToTop from './totop'
 import Link from 'next/link'
+import { SiGithub, SiX } from '@icons-pack/react-simple-icons'
+import { Home } from 'lucide-react'
+import { Dock, DockIcon } from '@/components/dock'
+import Island from '@/components/island'
+import Chill from './chill'
+import Theme from './theme'
+import Search from './search'
+
+const BLACKLIST = ['/welcome']
+
+function Menu({ open = true }: { open?: boolean }) {
+  return (
+    <Dock className={clsx({ hidden: !open })} direction="middle">
+      <DockIcon>
+        <Link className="btn btn-sm btn-circle btn-ghost" href="/">
+          <Home className="w-4 h-4" />
+        </Link>
+      </DockIcon>
+      <DockIcon>
+        <Search />
+      </DockIcon>
+      <DockIcon>
+        <Chill />
+      </DockIcon>
+      <DockIcon className="mx-1">
+        <Link className="avatar flex" href="/welcome">
+          <div className="w-8 rounded-full hover:ring-2 hover:ring-accent transiion-all duration-500">
+            <img src="/icon.png" alt="Home" />
+          </div>
+        </Link>
+      </DockIcon>
+      <DockIcon>
+        <Link
+          className="btn btn-sm btn-circle btn-ghost"
+          href="https://x.com/phan_sontu"
+          target="_blank"
+        >
+          <SiX className="w-4 h-4" />
+        </Link>
+      </DockIcon>
+      <DockIcon>
+        <Link
+          className="btn btn-sm btn-circle btn-ghost"
+          href="https://github.com/tuphan-dn"
+          target="_blank"
+        >
+          <SiGithub className="w-4 h-4" />
+        </Link>
+      </DockIcon>
+      <DockIcon>
+        <Theme />
+      </DockIcon>
+    </Dock>
+  )
+}
 
 export default function Footer() {
+  const pathname = usePathname()
   return (
-    <div className="w-full px-6 py-4 border-t-2 border-base-300 flex flex-row gap-2 items-center">
-      <p className="text-sm opacity-60">
-        tuphan.dev © {new Date().getFullYear()}
-      </p>
-      <span className="grow" />
-      <Link
-        className="btn btn-xs btn-ghost btn-square"
-        href="https://x.com/phan_sontu"
-        target="_blank"
-      >
-        <SiX className="w-3 h-3" />
-      </Link>
-      <Link
-        className="btn btn-xs btn-ghost btn-square"
-        href="https://github.com/tuphan-dn"
-        target="_blank"
-      >
-        <SiGithub className="w-3 h-3" />
-      </Link>
-      <span className="divider divider-horizontal m-0" />
-      <Island>
-        <Theme />
-        <ToTop />
-      </Island>
-    </div>
+    <Island>
+      <Menu open={!BLACKLIST.find((e) => pathname.startsWith(e))} />
+    </Island>
   )
 }
