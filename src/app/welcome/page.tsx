@@ -46,7 +46,7 @@ function Social({
 export default function Page() {
   return (
     <div
-      className="bg-base-100 w-full h-full p-8 flex flex-col gap-16 overflow-x-hidden overflow-y-auto"
+      className="w-full h-full p-8 flex flex-col gap-16 overflow-x-hidden overflow-y-auto"
       data-theme="dark"
     >
       <SparklesCore
@@ -55,10 +55,10 @@ export default function Page() {
         minSize={0.6}
         maxSize={1.4}
         particleDensity={10}
-        className="w-full h-full fixed top-0 left-0 z-[-1]"
+        className="w-full h-full absolute top-0 left-0 z-0"
         particleColor="#FFFFFF"
       />
-      <div className="grid grid-cols-4 gap-0">
+      <div className="grid grid-cols-4 gap-0 z-0">
         <AnimatedLink
           className="col-span-full avatar flex"
           initial={{ y: -32, opacity: 0 }}
@@ -89,7 +89,7 @@ export default function Page() {
           <span className="flex-grow border-b-[1rem] border-base-content" />
         </motion.span>
       </div>
-      <div className="flex-grow flex flex-col gap-6">
+      <div className="flex-grow flex flex-col gap-6 z-0">
         <motion.p
           className="text-xs font-satoshi font-black tracking-widest"
           initial={{ opacity: 0 }}
@@ -140,7 +140,7 @@ export default function Page() {
           </Bullet>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-0">
+      <div className="grid grid-cols-4 gap-0 z-0">
         <Social className="col-span-1" href="/">
           blog
         </Social>
