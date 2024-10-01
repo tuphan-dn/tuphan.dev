@@ -1013,6 +1013,6 @@ Từ [Ví dụ 8.2](#82-ví-dụ) ta thấy
 
 1. Đồng cấu $f: \mathbb{R} \rightarrow \mathbb{C}^*$ định bởi $f(x) = \cos 2 \pi x + i \sin 2 \pi x$ có $\text{Ker}f = \mathbb{Z}$ và $\text{Im}f = U$ trong đó $U= \{ z \in \mathbb{C}^*, |z| = 1 \}$. Do đó theo [Định lý 8.9](#89-định-lý-đẳng-cấu-1) $\mathbb{R}/\mathbb{Z} \simeq U$.
 
-2. Đồng cấu $f \text{sgn}: S_n \rightarrow (\{-1;1\}, .)$ có $\text{Ker}f=A_n$ và $\text{Im}f=\{\pm 1\}$ nên $S_n/A_n \simeq \{\pm 1\}.$
+2. Đồng cấu $f = \text{sgn}: S_n \rightarrow (\{-1;1\}, .)$ có $\text{Ker}f=A_n$ và $\text{Im}f=\{\pm 1\}$ nên $S_n/A_n \simeq \{\pm 1\}.$
 
 3. Toàn cấu $f:GL(n,\mathbb{R}) \rightarrow \mathbb{R}^*$ định bởi $f(A)=\det A$ có $\text{Ker}f=\{ A \in GL(n, \mathbb{R}), \det A=1 \} = SL(n,\mathbb{R})$ nên $GL(n,\mathbb{R})/SL(n,\mathbb{R}) \simeq \mathbb{R}^*$.
