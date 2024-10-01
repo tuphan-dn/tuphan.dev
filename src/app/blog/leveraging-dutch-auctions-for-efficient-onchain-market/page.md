@@ -9,7 +9,7 @@ In a fair market (aka. perfectly competitive market, or frictionless market), wh
 
 ## How Dutch auction works?
 
-The seller starts an item with a high price then gradually lowers the price until a buyer accepts current the price. Note that the format contrasts with the traditional auction, where the price starts low and keeps increases as a bidder competes all the others.
+The seller starts an item with a high price then gradually lowers the price until a buyer accepts current the price. Note that the format contrasts with the traditional auction, where the price starts low and keeps increasing as a bidder competes all the others.
 
 With a probable setup, the auction may conclude quicker than the traditional one, due to the nature of decayed price, where the equilibrium is archieved. If you, as a buyer, do not act quickly when the price is favorable, another buyer may seize the opportunity and buy the item before you.
 
@@ -17,10 +17,10 @@ With a probable setup, the auction may conclude quicker than the traditional one
 
 ## The Price Curve
 
-**Linear Decay.** The price will decrease from $\text{startPrice}$ to $\text{floorPrice}$ with an invariant amount through the lifetime $d$
+**Linear Decay.** The price will decrease from $p_{start}$ to $p_{floor}$ with an invariant amount through the lifetime $d$
 
 $$
-\text{price} = \text{startPrice} - t \times \frac{\text{startPrice}-\text{floorPrice}}{d}
+p = p_{start} - t \times \frac{p_{start}-p_{floor}}{d}
 $$
 
 , where $t$ is the timelapsed.
@@ -28,7 +28,7 @@ $$
 **Exponential Decay.** The price will change drastically fast at the beginning ang slow down at the price tail
 
 $$
-\text{price} = \text{startPrice} - (\text{startPrice}-\text{floorPrice}) \times e^{-\lambda t}
+p = p_{start} - (p_{start}-p_{floor}) \times e^{-\lambda t}
 $$
 
 , where $t$ is the timelapsed and $\lambda$ is the exponential decay factor.
