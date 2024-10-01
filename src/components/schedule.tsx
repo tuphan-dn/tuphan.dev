@@ -25,7 +25,11 @@ export default function Schedule({ children, published }: ScheduleProps) {
           <span className="opacity-60">This article will be available in </span>
           <span>{dayjs(published).format('DD MMMM, YYYY.')}</span>
         </p>
-        <img src="/meme-tat-22.jpg" alt="not published yet" />
+        <img
+          className="rounded-box"
+          src="/meme-tat-22.jpg"
+          alt="not published yet"
+        />
       </div>
     )
   return children

@@ -36,7 +36,7 @@ export function BlogCard({ route }: { route: string }) {
       <p className="col-span-full sm:col-span-3 text-sm opacity-60">
         {description}
       </p>
-      <button className="btn btn-circle btn-outline btn-sm absolute bottom-4 left-0 hidden transition-all group-hover:flex">
+      <button className="btn btn-circle btn-outline btn-sm absolute bottom-4 left-0 opacity-0 scale-75 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100">
         <ArrowUpRight className="w-4 h-4" />
       </button>
     </Link>
