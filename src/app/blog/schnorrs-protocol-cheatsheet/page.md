@@ -44,7 +44,7 @@ z = r+cx &  & \\
 \end{array}
 $$
 
-## Key leakage from reused $c$
+## Key leakage from reused $r$
 
 If we try to use a single $c$ for several time, it will leak the secret $x$ in the interactive version. Giving $(z=r+cx,z'=r+c'x)$, we get $z-z'=(c-c')x$ or
 
