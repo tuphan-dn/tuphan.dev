@@ -7,10 +7,7 @@ import remarkFrontmatter from 'remark-frontmatter'
 import rehypeKatex from 'rehype-katex'
 import rehypeMdxImportMedia from 'rehype-mdx-import-media'
 import rehypeToc from '@jsdevtools/rehype-toc'
-import {
-  rehypeExtendedHighlight,
-  rehypeGitContributors,
-} from '@gears-bot/rehype'
+import { rehypeExtendedHighlight } from '@gears-bot/rehype'
 import { all } from 'lowlight'
 import { solidity } from 'highlightjs-solidity'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -39,7 +36,6 @@ const withMDX = createMDX({
         rehypeExtendedHighlight,
         { tabsName: 'Tabs', tabName: 'Tab', languages: { ...all, solidity } },
       ],
-      [rehypeGitContributors, { compName: 'Contributors' }],
       [rehypeAutolinkHeadings, { behavior: 'append' }],
       [rehypeMermaid, { strategy: 'pre-mermaid' }],
     ],

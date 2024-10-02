@@ -1,5 +1,7 @@
-import { readFileSync } from 'fs'
-import { scan, type Dree } from 'dree'
+import fs, { readFileSync, writeFileSync } from 'fs'
+import { relative, resolve, parse } from 'path'
+import { log } from 'isomorphic-git'
+import { scanAsync, type Dree } from 'dree'
 import { fromMarkdown } from 'mdast-util-from-markdown'
 import { select, selectAll } from 'unist-util-select'
 import { toString } from 'mdast-util-to-string'
@@ -7,8 +9,6 @@ import { frontmatter } from 'micromark-extension-frontmatter'
 import { frontmatterFromMarkdown } from 'mdast-util-frontmatter'
 import toml from 'toml'
 import { z } from 'zod'
-import { resolve, parse } from 'path'
-import { writeFileSync } from 'fs'
 import { util } from 'webpack'
 import lunr from 'lunr'
 import { isURL } from '@/lib/utils'
@@ -16,6 +16,7 @@ import { isURL } from '@/lib/utils'
 type ExtendedDree = Omit<Dree, 'children'> & {
   title: string
   image: string
+  authors: string[]
   tags: string[]
   description: string
   content: string
@@ -28,14 +29,15 @@ type Tree = {
   children: Tree[]
   title: string
   image: string
+  authors: string[]
   tags: string[]
   description: string
   content: string
   date: Date
 }
 
-function dreelize(root: string): ExtendedDree | null {
-  const dree = scan<ExtendedDree>(
+async function dreelize(root: string): Promise<ExtendedDree | null> {
+  const dree = await scanAsync<ExtendedDree>(
     root,
     {
       size: false,
@@ -44,7 +46,7 @@ function dreelize(root: string): ExtendedDree | null {
       matches: '**/page.{md,mdx}',
       extensions: ['md', 'mdx'],
     },
-    (node) => {
+    async (node) => {
       const file = readFileSync(node.path)
       const md = fromMarkdown(file, {
         extensions: [frontmatter(['yaml', 'toml'])],
@@ -74,6 +76,16 @@ function dreelize(root: string): ExtendedDree | null {
           return ''
         }
       })
+      const commits = await log({
+        fs,
+        dir: './',
+        filepath: relative('./', node.path),
+        force: true,
+        follow: true,
+      })
+      const authors = commits
+        .map(({ commit: { author } }) => author.name)
+        .filter((e, i, a) => a.indexOf(e) === i)
       const { tags, date } = z
         .object({
           tags: z
@@ -90,6 +102,7 @@ function dreelize(root: string): ExtendedDree | null {
         .parse(toml.parse(toString(matter)))
       node.title = toString(heading)
       node.image = image
+      node.authors = authors
       node.tags = tags
       node.date = date
       node.description = toString(paragraph)
@@ -112,6 +125,7 @@ function trielize(
     only = {
       title: '',
       image: '',
+      authors: [],
       tags: [],
       description: '',
       value: '',
@@ -132,6 +146,7 @@ function trielize(
       }),
     title: only.title,
     image: only.image,
+    authors: only.authors,
     tags: only.tags,
     description: only.description,
     content: only.content || '',
@@ -146,20 +161,23 @@ function flatten({ children = [], ...node }: Tree): Blog[] {
   ]
 }
 
-// Parse data
-const root = resolve(process.cwd(), './src/app/blog')
-const dree = dreelize(root)
-if (!dree) throw new Error('Empty contents')
-const tree = trielize('', dree)
-// Write table
-const table = flatten(tree)
-writeFileSync('src/db/table.json', JSON.stringify(table, null, 2))
-// Write index
-const document = lunr(function () {
-  this.ref('route')
-  this.field('title')
-  this.field('description')
-  this.field('content')
-  table.forEach((doc) => this.add(doc))
-})
-writeFileSync('src/db/index.json', JSON.stringify(document, null, 2))
+async function migrate() {
+  // Parse data
+  const root = resolve(process.cwd(), './src/app/blog')
+  const dree = await dreelize(root)
+  if (!dree) throw new Error('Empty contents')
+  const tree = trielize('', dree)
+  // Write table
+  const table = flatten(tree)
+  writeFileSync('src/db/table.json', JSON.stringify(table, null, 2))
+  // Write index
+  const document = lunr(function () {
+    this.ref('route')
+    this.field('title')
+    this.field('description')
+    this.field('content')
+    table.forEach((doc) => this.add(doc))
+  })
+  writeFileSync('src/db/index.json', JSON.stringify(document, null, 2))
+}
+migrate()

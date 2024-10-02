@@ -26,6 +26,7 @@
     "dayjs": "^1.11.11",
     "framer-motion": "^11.2.12",
     "immer": "^10.1.1",
+    "isomorphic-git": "^1.27.1",
     "keyboardjs": "^2.7.0",
     "ky": "^1.7.0",
     "lucide-react": "^0.399.0",

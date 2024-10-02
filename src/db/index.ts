@@ -9,6 +9,7 @@ const TableDto: z.ZodType<Blog[]> = z.array(
   z.object({
     route: z.string(),
     title: z.string(),
+    authors: z.array(z.string()),
     image: z.string(),
     tags: z.array(z.string()),
     description: z.string(),

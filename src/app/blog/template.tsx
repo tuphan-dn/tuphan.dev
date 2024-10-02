@@ -17,16 +17,16 @@ import Tags from '@/components/tags'
 import Schedule from '@/components/schedule'
 import { FacebookShare, TwitterShare } from './share'
 import Navigation from './navigation'
+import Contributors from '@/components/contributors'
 
 export default function Template({ children }: { children: ReactNode }) {
   const segments = useSelectedLayoutSegments()
-  const { data: { tags = [], children: routes = [], date } = {} } = useSWR(
-    `/api/blog/${segments.join('/')}`,
-    async (api: string) => {
-      const data = await ky.get(api).json<Blog>()
-      return data
-    },
-  )
+  const {
+    data: { authors = [], tags = [], children: routes = [], date } = {},
+  } = useSWR(`/api/blog/${segments.join('/')}`, async (api: string) => {
+    const data = await ky.get(api).json<Blog>()
+    return data
+  })
 
   return (
     <div className="w-full flex flex-col gap-4 items-center">
@@ -81,8 +81,9 @@ export default function Template({ children }: { children: ReactNode }) {
           </div>
         </div>
         <Schedule published={date}>
-          <div className="not-prose w-full">
+          <div className="not-prose w-full flex flex-col gap-1">
             <Tags value={tags} />
+            <Contributors authors={authors} date={date} />
           </div>
           {children}
         </Schedule>
