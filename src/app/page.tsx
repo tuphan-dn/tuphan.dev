@@ -9,6 +9,7 @@ import { BlogCard } from '@/components/blog'
 import Tags from '@/components/tags'
 import Island from '@/components/island'
 import InfiniteLoading from '@/components/infiniteLoading'
+import { DotPattern } from '@/components/patterns'
 
 import { useSignalSwitch } from '@/lib/hooks/useSignal'
 import { useTag } from '@/lib/hooks/useTag'
@@ -67,11 +68,11 @@ function BlogList() {
           <BlogCard route={route} />
         </motion.div>
       ))}
-      <div className="col-span-full flex flex-row justify-center">
-        <InfiniteLoading onLoad={onLoad} disabled={disabled} />
+      <div className="col-span-full flex flex-col items-center justify-center">
         <p className={clsx('text-xs', { hidden: !disabled })}>
           <span className="opacity-25">You reached the bottom</span> 🎉
         </p>
+        <InfiniteLoading onLoad={onLoad} disabled={disabled} />
       </div>
     </>
   )
@@ -80,15 +81,18 @@ function BlogList() {
 export default function Page() {
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="w-full max-w-a4 grid grid-cols-2 gap-4 p-6 my-16">
-        <motion.span
-          initial={{ x: 16, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="col-span-full sm:col-span-1 font-black font-satoshi text-9xl mb-8"
-        >
-          blog
-        </motion.span>
+      <div className="w-full max-w-a4 grid grid-cols-2 gap-4 p-6 my-8">
+        <div className="col-span-full sm:col-span-1 -mx-16 -my-8 px-16 pt-8 pb-16 flex flex-col items-start relative">
+          <DotPattern className="[mask-image:radial-gradient(300px_circle_at_center,white,transparent)] z-0" />
+          <motion.span
+            className="font-black font-satoshi text-9xl leading-normal z-0"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            blog
+          </motion.span>
+        </div>
         <div className="col-span-full sm:col-span-1 flex flex-col gap-6">
           <motion.p
             initial={{ x: 32, opacity: 0 }}
