@@ -46,7 +46,7 @@ $$
 
 ## Key leakage from reused $r$
 
-If we try to use a single $c$ for several time, it will leak the secret $x$ in the interactive version. Giving $(z=r+cx,z'=r+c'x)$, we get $z-z'=(c-c')x$ or
+If we try to use a single $r$ for several time, it will leak the secret $x$ in the interactive version. Giving $(z=r+cx,z'=r+c'x)$, we get $z-z'=(c-c')x$ or
 
 $$
 x=\frac{z-z'}{c-c'}.
