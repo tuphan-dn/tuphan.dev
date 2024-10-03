@@ -23,10 +23,10 @@ export default async function Template({ children }: { children: ReactNode }) {
 
   return (
     <div className="w-full flex flex-col gap-4 items-center relative">
-      <div className="sticky top-0 w-full mb-16 bg-base-100 z-10">
+      <div className="w-full mb-16 bg-base-100">
         <Header />
       </div>
-      <article className="w-full z-0 mb-16 prose prose-p:tracking-[-.25px] prose-table:w-full prose-table:block prose-table:overflow-auto">
+      <article className="w-full mb-16 prose prose-p:tracking-[-.25px] prose-table:w-full prose-table:block prose-table:overflow-auto">
         <Schedule published={date}>
           <div className="not-prose w-full flex flex-col gap-1">
             <Tags value={tags} />
@@ -37,7 +37,7 @@ export default async function Template({ children }: { children: ReactNode }) {
       </article>
       <div
         id="question"
-        className="w-full z-0 bg-base-200 border-2 border-base-300 p-4 rounded-box flex flex-col gap-1"
+        className="w-full bg-base-200 border-2 border-base-300 p-4 rounded-box flex flex-col gap-1"
       >
         <p className="font-bold">You have questions?</p>
         <p>
@@ -54,7 +54,7 @@ export default async function Template({ children }: { children: ReactNode }) {
           </Link>
         </p>
       </div>
-      <div id="suggestion" className="w-full z-0 grid grid-cols-12 gap-4">
+      <div id="suggestion" className="w-full grid grid-cols-12 gap-4">
         {[...routes].reverse().map((route) => (
           <div key={route} className="col-span-full">
             <BlogCard route={route} />
