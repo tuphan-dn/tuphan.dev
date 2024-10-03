@@ -231,23 +231,34 @@ contract Rollup {
 ]
 ```
 
-## Submit Block Headers
+## The Chain of Blocks and The Genesis Block
 
-Because a block is produced through the Layer 2 consensus, all nodes agree on a valid submitter and the bundled transactions. As a result, the block header serves as proof of this information.
+We define a reverse-linked list where the current block will store the previous block header, which is similar to the current structure of blockchain. Additionally, we also record the timestamp of the block's creation.
 
-![Block Header](./block-header.jpg)
+```solidity label="Rollup.sol" group="block"
+struct Block {
+  bytes32 prev;
+  uint256 timestamp;
+}
 
-Given a hash function $H$:
+contract Rollup {
+  bytes32 public latest =
+    0xab2344d27f94c1e4753f34becf3bbe88aea4caf33c2380c85b4e4ef6f286e6d1;
+  mapping(bytes32 root => Block block) chain;
+  ...
+}
+```
 
-$$
-\begin{aligned}
-&\text{blockHeader} = H(\\
-&\quad \text{prevBlockHeader},\\
-&\quad H(TxTrieRoot, StateTrieRoot)\\
-&)
-\end{aligned}
-$$
+Each block header points to this structure of block data thorugh the mapping, except for the genesis block header `0xab...d1`, which has no previous block.
 
-Then, it's possible to provide a strong proof of relationship among the previous state, the transactions, and the next state that is valid to a given block header.
+## Lock
 
-> To learn about [Merkle Trie](/blog/merkle-trie-the-definition-and-applications)
+```solidity label="Rollup.sol" group="lock"
+contract Rollup {
+  event Lock(address indexed account, uint256 amount);
+  ...
+  function lock() public payable {
+    emit Lock(msg.sender, msg.value);
+  }
+}
+```

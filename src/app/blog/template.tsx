@@ -14,10 +14,10 @@ import {
 } from 'lucide-react'
 import { BlogCard } from '@/components/blog'
 import Tags from '@/components/tags'
+import Contributors from '@/components/contributors'
 import Schedule from '@/components/schedule'
 import { FacebookShare, TwitterShare } from './share'
 import Navigation from './navigation'
-import Contributors from '@/components/contributors'
 
 export default function Template({ children }: { children: ReactNode }) {
   const segments = useSelectedLayoutSegments()

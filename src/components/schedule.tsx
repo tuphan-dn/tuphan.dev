@@ -32,5 +32,5 @@ export default function Schedule({ children, published }: ScheduleProps) {
         />
       </div>
     )
-  return children
+  return <>{children}</>
 }
