@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react'
+import { use, type ReactNode } from 'react'
 import { headers } from 'next/headers'
 import ky from 'ky'
 
@@ -10,16 +10,14 @@ import Contributors from '@/components/contributors'
 import Schedule from '@/components/schedule'
 import Header from './header'
 
-export default async function Template({ children }: { children: ReactNode }) {
+export default function Template({ children }: { children: ReactNode }) {
   const pathname = headers().get('x-forwarded-pathname') || ''
   const {
     authors = [],
     tags = [],
     children: routes = [],
     date,
-  } = await ky
-    .get(`${process.env.NEXT_PUBLIC_HOST}/api${pathname}`)
-    .json<Blog>()
+  } = use(ky.get(`${process.env.NEXT_PUBLIC_HOST}/api${pathname}`).json<Blog>())
 
   return (
     <div className="w-full flex flex-col gap-4 items-center relative">
