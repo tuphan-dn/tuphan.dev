@@ -82,7 +82,7 @@ export default function Page() {
   return (
     <div className="w-full flex flex-col items-center">
       <div className="w-full max-w-a4 grid grid-cols-2 gap-4 p-6 my-8">
-        <div className="col-span-full sm:col-span-1 -mx-16 -my-8 px-16 pt-8 pb-16 flex flex-col items-start relative">
+        <div className="col-span-full sm:col-span-1 -m-6 px-6 pt-6 pb-16 flex flex-col items-start relative">
           <DotPattern className="[mask-image:radial-gradient(300px_circle_at_center,white,transparent)] z-0" />
           <motion.span
             className="font-black font-satoshi text-9xl leading-normal z-0"
