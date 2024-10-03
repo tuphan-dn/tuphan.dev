@@ -253,12 +253,54 @@ Each block header points to this structure of block data thorugh the mapping, ex
 
 ## Lock
 
+The `lock` function is a payable function that allows users to send ETH. With each transaction, it emits a `Lock` event to enable recognition by the sequencers.
+
 ```solidity label="Rollup.sol" group="lock"
 contract Rollup {
   event Lock(address indexed account, uint256 amount);
   ...
   function lock() public payable {
     emit Lock(msg.sender, msg.value);
+  }
+}
+```
+
+On a valid `Lock` event, sequencers will mint the exact received ETH to the user. The mint is represented as a `transfer` from the zero address to the user address.
+
+## Propose
+
+In more efficient systems, sequencers submit compressed transaction data to the contract. However, to leverage JS ecosystem to quick development, we define a `Tx` struct and use EVM-native encoding.
+
+Furthermore, to keep the tutorial simple, we eliminate forks by forcing a branchless chain, where each proposed block always attaches to the latest block. Having a close look at the modifier of `referable`, `prev` must match `latest`, and `latest` is reassigned with each sucessful block. If multiple blocks are proposed, the first to arrive invalidates the the `prev` and the `latest` mismatch.
+
+```solidity label="Rollup.sol" group="propose"
+struct Tx {
+  address from;
+  address to;
+  uint256 amount;
+  bytes32 witness;
+}
+
+contract Rollup {
+  event Propose(
+    address indexed account,
+    bytes32 indexed root,
+    bytes32 indexed prev
+  );
+  ...
+  modifier referable(bytes32 root, bytes32 prev) {
+    require(prev == latest, 'Invalid latest block.');
+    _;
+    latest = root;
+  }
+  ...
+  function propose(
+    bytes32 root,
+    bytes32 prev,
+    Tx[] calldata txs
+  ) public referable(root, prev) {
+    chain[root] = Block({prev: prev, timestamp: block.timestamp});
+    emit Propose(msg.sender, root, prev);
   }
 }
 ```
