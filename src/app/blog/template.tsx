@@ -58,7 +58,7 @@ export default function Template({ children }: { children: ReactNode }) {
         </div>
       </div>
       <motion.article
-        className="w-full my-16 prose prose-p:tracking-[-.25px] prose-table:w-full prose-table:block prose-table:overflow-auto"
+        className="w-full mb-16 prose prose-p:tracking-[-.25px] prose-table:w-full prose-table:block prose-table:overflow-auto"
         initial={{ y: 64, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
