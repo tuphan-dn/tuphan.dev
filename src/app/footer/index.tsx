@@ -29,7 +29,7 @@ function Menu({ open = true }: { open?: boolean }) {
       </DockIcon>
       <DockIcon className="mx-1">
         <Link className="avatar flex" href="/welcome">
-          <div className="w-8 rounded-full hover:ring-2 hover:ring-accent transiion-all duration-500">
+          <div className="w-8 rounded-full hover:ring-2 hover:ring-accent transition-all duration-500">
             <img src="/icon.png" alt="Home" />
           </div>
         </Link>
