@@ -6,12 +6,9 @@ import clsx from 'clsx'
 import useSWR from 'swr'
 import ky from 'ky'
 
-import Link from 'next/link'
 import { Play } from 'lucide-react'
 import { SiFacebook, SiX } from '@icons-pack/react-simple-icons'
 import Island from '@/components/island'
-
-const MotionLink = motion(Link)
 
 function NavLink({ href }: { href: string }) {
   const { data: name = '#' } = useSWR(href, async (api: string) => {
@@ -20,9 +17,9 @@ function NavLink({ href }: { href: string }) {
     return data?.title || '#'
   })
   return (
-    <Link className="opacity-60" href={href}>
+    <a className="opacity-60" href={href}>
       {name}
-    </Link>
+    </a>
   )
 }
 
@@ -31,7 +28,7 @@ function ClientFacebookShare({ className = '' }: { className?: string }) {
     u: typeof location !== 'undefined' ? location.href : '#',
   }).toString()
   return (
-    <MotionLink
+    <motion.a
       className={clsx('btn btn-circle btn-sm', className)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -40,7 +37,7 @@ function ClientFacebookShare({ className = '' }: { className?: string }) {
       target="_blank"
     >
       <SiFacebook className="h-4 w-4" />
-    </MotionLink>
+    </motion.a>
   )
 }
 
@@ -49,7 +46,7 @@ function ClientTwitterShare({ className = '' }: { className?: string }) {
     url: typeof location !== 'undefined' ? location.href : '#',
   }).toString()
   return (
-    <MotionLink
+    <motion.a
       className={clsx('btn btn-circle btn-sm', className)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -58,7 +55,7 @@ function ClientTwitterShare({ className = '' }: { className?: string }) {
       target="_blank"
     >
       <SiX className="h-4 w-4" />
-    </MotionLink>
+    </motion.a>
   )
 }
 

@@ -3,7 +3,6 @@ import dayjs from 'dayjs'
 import useSWR from 'swr'
 import ky from 'ky'
 
-import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import Tags from './tags'
 
@@ -20,7 +19,7 @@ export function BlogCard({ route }: { route: string }) {
   } = useBlog(route)
 
   return (
-    <Link
+    <a
       className="w-full grid grid-cols-6 gap-4 py-16 border-t border-base-300 cursor-pointer relative group"
       href={route}
     >
@@ -39,7 +38,7 @@ export function BlogCard({ route }: { route: string }) {
       <button className="btn btn-circle btn-outline btn-sm absolute bottom-4 left-0 opacity-0 scale-75 transition-all duration-500 group-hover:opacity-100 group-hover:scale-100">
         <ArrowUpRight className="w-4 h-4" />
       </button>
-    </Link>
+    </a>
   )
 }
 
@@ -47,7 +46,7 @@ export function LiteBlogCard({ route }: { route: string }) {
   const { data: { title = '', description = '' } = {} } = useBlog(route)
 
   return (
-    <Link
+    <a
       className="w-full grid grid-cols-12 gap-2 py-6 border-t border-base-300 cursor-pointer relative group"
       href={route}
     >
@@ -57,6 +56,6 @@ export function LiteBlogCard({ route }: { route: string }) {
       <p className="col-span-full text-sm opacity-60 line-clamp-2">
         {description}
       </p>
-    </Link>
+    </a>
   )
 }
