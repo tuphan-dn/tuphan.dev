@@ -8,7 +8,7 @@ import { type OgObject } from 'open-graph-scraper/types'
 import NextLink from 'next/link'
 import { ExternalLink } from 'lucide-react'
 
-export type LinkProps = ComponentProps<typeof NextLink>
+export type LinkProps = ComponentProps<'a'>
 
 export default function Link({
   className,
