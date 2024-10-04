@@ -5,9 +5,10 @@ import clsx from 'clsx'
 import ky from 'ky'
 import { type OgObject } from 'open-graph-scraper/types'
 
+import NextLink from 'next/link'
 import { ExternalLink } from 'lucide-react'
 
-export type LinkProps = ComponentProps<'a'>
+export type LinkProps = ComponentProps<typeof NextLink>
 
 export default function Link({
   className,
@@ -40,15 +41,15 @@ export default function Link({
   }, [children, value])
 
   return (
-    <a
+    <NextLink
       className={clsx(
         'transition-all text-info-content decoration-2 underline-offset-2 hover:underline-offset-4 decoration-info-content/20 hover:decoration-info-content/60',
         className,
       )}
-      href={href}
+      href={href || '#'}
       {...props}
     >
       {comp}
-    </a>
+    </NextLink>
   )
 }

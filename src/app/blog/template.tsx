@@ -1,5 +1,7 @@
+'use client'
 import { type ReactNode } from 'react'
-import { headers } from 'next/headers'
+import { usePathname } from 'next/navigation'
+import useSWR from 'swr'
 import ky from 'ky'
 
 import Link from 'next/link'
@@ -10,16 +12,14 @@ import Contributors from '@/components/contributors'
 import Schedule from '@/components/schedule'
 import Header from './header'
 
-export default async function Template({ children }: { children: ReactNode }) {
-  const pathname = headers().get('x-forwarded-pathname') || ''
+export default function Template({ children }: { children: ReactNode }) {
+  const pathname = usePathname()
   const {
-    authors = [],
-    tags = [],
-    children: routes = [],
-    date,
-  } = await ky
-    .get(`${process.env.NEXT_PUBLIC_HOST}/api${pathname}`)
-    .json<Blog>()
+    data: { authors = [], tags = [], children: routes = [], date } = {},
+  } = useSWR(`/api${pathname}`, async (api: string) => {
+    const data = await ky.get(api).json<Blog>()
+    return data
+  })
 
   return (
     <div className="w-full flex flex-col gap-4 items-center relative">
