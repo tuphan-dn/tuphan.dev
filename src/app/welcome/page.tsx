@@ -13,8 +13,11 @@ function Bullet({ i = 0, children }: { i?: number; children: ReactNode }) {
     <motion.p
       className="cursor-pointer font-satoshi"
       initial={{ x: i * 8, opacity: 0 }}
-      animate={{ x: 0, opacity: 0.6 }}
-      transition={{ duration: 0.5, delay: i * 0.5 }}
+      animate={{
+        x: 0,
+        opacity: 0.6,
+        transition: { duration: 0.5, delay: i * 0.5 },
+      }}
       whileHover={{ opacity: 1, transition: { delay: 0 } }}
     >
       {children}

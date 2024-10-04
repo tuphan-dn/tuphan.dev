@@ -9,7 +9,7 @@ In a fair market (aka. perfectly competitive market, or frictionless market), wh
 
 ## How Dutch auction works?
 
-The seller starts an item with a high price then gradually lowers the price until a buyer accepts current the price. Note that the format contrasts with the traditional auction, where the price starts low and keeps increasing as a bidder competes all the others.
+The seller starts an item with a high price then gradually lowers the price until a buyer accepts the current price. Note that the format contrasts with the traditional auction, where the price starts low and keeps increasing as a bidder competes all the others.
 
 With a probable setup, the auction may conclude quicker than the traditional one, due to the nature of decayed price, where the equilibrium is archieved. If you, as a buyer, do not act quickly when the price is favorable, another buyer may seize the opportunity and buy the item before you.
 
