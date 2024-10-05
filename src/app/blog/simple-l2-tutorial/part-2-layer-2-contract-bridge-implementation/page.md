@@ -450,6 +450,8 @@ The code above will listen any `Lock` events, then exacts the transaction data a
 
 ## Appendix
 
+The abstract class of `Tx` that allows us to conviniently transform `Tx` class to contract inputs, and vice versa.
+
 ```ts label="tx.ts" group="tx"
 import { randomBytes } from '@libp2p/crypto'
 import { keccak256 } from 'ethereum-cryptography/keccak'
