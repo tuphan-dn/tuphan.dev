@@ -467,6 +467,11 @@ export type TxLog = {
   witness: Hex
 }
 
+export const bigintToBytes = (bn: bigint) => {
+  const hex = bn.toString(16).padStart(64, '0')
+  return hexToBytes(hex)
+}
+
 export default class Tx {
   constructor(
     public readonly from: Uint8Array,

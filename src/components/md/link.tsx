@@ -25,9 +25,9 @@ export default function Link({
   const comp = useMemo(() => {
     if (!value || !value.ogImage || !value.ogImage[0]) return children
     return (
-      <span className="relative group">
+      <span className="flex flex-row relative group">
         <img
-          className="rounded-box"
+          className="rounded-box m-0"
           src={value.ogImage[0].url}
           alt={value.ogUrl}
         />
