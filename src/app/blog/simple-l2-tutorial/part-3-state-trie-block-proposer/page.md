@@ -7,6 +7,8 @@ date = "12 October, 2024"
 
 A block header contains the information of previous block header, the transaction trie, and the state trie. Because the tries are Merkle, then the block header becomes a strong proof for security. Based on the validation, the transaction trie and the state trie can be stored offchain.
 
+[@preview](https://github.com/tuphan-dn/simple-l2-tut/tree/p3)
+
 ## Trie
 
 We implement a Merkle trie, where values are stored in the leaf nodes, and the key determines the path to these nodes. Each ancestor node contains the hash of its children, computed as $H(L,R)$. On every leaf update, all its accestors must also be updated.
