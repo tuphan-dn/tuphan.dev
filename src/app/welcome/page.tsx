@@ -141,6 +141,28 @@ export default function Page() {
             </Link>
             .
           </Bullet>
+          <Bullet i={6}>
+            Vietnamese Translator of{' '}
+            <Link
+              className="underline"
+              href="https://solanacookbook.com/vi/#%C4%91ong-gop"
+              target="_blank"
+            >
+              Solana Cookbook
+            </Link>
+            .
+          </Bullet>
+          <Bullet i={7}>
+            Author of 50K+ views{' '}
+            <Link
+              className="underline"
+              href="https://medium.com/coinmonks/data-structure-in-ethereum-episode-1-recursive-length-prefix-rlp-encoding-decoding-d1016832f919"
+              target="_blank"
+            >
+              Data Structure in Ethereum
+            </Link>{' '}
+            series in 2017.
+          </Bullet>
         </div>
       </div>
       <div className="grid grid-cols-4 gap-0 z-0">
