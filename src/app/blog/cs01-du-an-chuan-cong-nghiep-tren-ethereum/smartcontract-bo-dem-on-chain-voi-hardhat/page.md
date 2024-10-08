@@ -69,6 +69,8 @@ Bạn sẽ phát triển smartcontract bằng Solidity và biên dịch ra mã m
 
 ## Bộ đếm on-chain
 
+> Có thể xoá contracts mẫu của hardhat, `contracts/Lock.sol`.
+
 Chúng ta sẽ viết một smartcontract đơn giản với biến `counter` được khởi tạo bằng `0` và một hàm `increase` để tăng `+1` cho mỗi lần gọi. Đối với hàm `increase`, ta chỉ cho phép `owner` truy cập và emit một sự kiện `Increase` cho mỗi lần gọi thành công.
 
 ```bash
