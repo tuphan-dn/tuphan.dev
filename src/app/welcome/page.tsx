@@ -80,7 +80,6 @@ export default function Page() {
           <span className="font-clash-display font-bold leading-none text-[8rem] sm:text-[10rem] lg:text-[12rem]">
             tu
           </span>
-          <span className="flex-grow border-b-[1rem] sm:border-b-[1.5rem] lg:border-b-[2rem] border-base-content" />
         </motion.span>
         <motion.span
           className="col-span-full md:col-span-2 flex flex-row items-baseline gap-0"
@@ -91,7 +90,6 @@ export default function Page() {
           <span className="font-clash-display font-bold leading-none text-[8rem] sm:text-[10rem] lg:text-[12rem]">
             phan
           </span>
-          <span className="flex-grow border-b-[1rem] sm:border-b-[1.5rem] lg:border-b-[2rem] border-base-content" />
         </motion.span>
       </div>
       <div className="flex-grow flex flex-col gap-6 z-0">
