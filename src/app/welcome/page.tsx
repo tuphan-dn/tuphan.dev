@@ -77,9 +77,8 @@ export default function Page() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.25 }}
         >
-          <span className="font-clash-display font-bold leading-none text-[8rem] sm:text-[10rem] lg:text-[12rem]">
-            tu
-          </span>
+          <span className="font-clash-display font-bold text-9xl">tu</span>
+          <span className="flex-grow border-b-[1rem] border-base-content" />
         </motion.span>
         <motion.span
           className="col-span-full md:col-span-2 flex flex-row items-baseline gap-0"
@@ -87,9 +86,8 @@ export default function Page() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <span className="font-clash-display font-bold leading-none text-[8rem] sm:text-[10rem] lg:text-[12rem]">
-            phan
-          </span>
+          <span className="font-clash-display font-bold text-9xl">phan</span>
+          <span className="flex-grow border-b-[1rem] border-base-content" />
         </motion.span>
       </div>
       <div className="flex-grow flex flex-col gap-6 z-0">
