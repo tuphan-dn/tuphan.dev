@@ -69,27 +69,39 @@ Bạn sẽ phát triển smartcontract bằng Solidity và biên dịch ra mã m
 
 ## Bộ đếm on-chain
 
-Chúng ta sẽ viết một smartcontract đơn giản với biến `counter` được khởi tạo bằng `0` và một hàm `increase` để tăng `+1` cho mỗi lần gọi. Kèm với đó, ta cũng sẽ emit một sự kiện `Increase`.
+Chúng ta sẽ viết một smartcontract đơn giản với biến `counter` được khởi tạo bằng `0` và một hàm `increase` để tăng `+1` cho mỗi lần gọi. Đối với hàm `increase`, ta chỉ cho phép `owner` truy cập và emit một sự kiện `Increase` cho mỗi lần gọi thành công.
+
+```bash
+pnpm add @openzeppelin/contracts
+```
+
+Đối với logic contract đã được chuẩn hoá cao như `Ownership`, token `ERC20`, thư viện toán `MathSafe`,... thay vì phải viết lại cho mỗi lần phát triển dự án, sẽ an toàn hơn khi ta sử dụng `@openzeppelin/contracts`.
+
+`@openzeppelin/contracts` là một tập hợp các contracts mẫu mực đã được kiểm thử và nâng cấp nhiều lần từ cộng đồng cũng như các công ty đầu ngành. Hiện nay, các contracts phổ biến trong `@openzeppelin/contracts` có độ tin cậy và an toàn cao.
 
 ```solidity label="Counter.sol" group="contract"
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.27;
 
-contract Counter {
+import '@openzeppelin/contracts/access/Ownable.sol';
+
+contract Counter is Ownable {
   uint256 public counter;
 
   event Increase(address indexed account, uint256 counter);
 
-  constructor() {
+  constructor() Ownable(msg.sender) {
     counter = 0;
   }
 
-  function increase() public {
+  function increase() public onlyOwner {
     counter = counter + 1;
     emit Increase(msg.sender, counter);
   }
 }
 ```
+
+Với contract `Counter.sol` bên trên, ta kế thừa lại login của `Ownable.sol`. Điều này cho phép ta có thể quản lý chủ của (`owner`) contract và thiết lập quyền cho các hàm mong muốn (ví dụ như `increase`).
 
 ## ABI
 
@@ -123,7 +135,7 @@ Chạy lại `pnpm build` ta sẽ được folder `abi` chứa tất cả các A
 
 > Lưu ý, vì `abi` là sản phẩm của quá trình build nên hãy thêm nó vào `.gitignore`.
 
-# Appendix
+# Phụ lục
 
 ## VSC Plugins
 
@@ -143,10 +155,4 @@ Chạy lại `pnpm build` ta sẽ được folder `abi` chứa tất cả các A
   "singleQuote": true,
   "printWidth": 80
 }
-```
-
-### Conventional Commitment
-
-```bash
-pnpm add -D husky
 ```
