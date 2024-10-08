@@ -179,14 +179,14 @@ export default function Page() {
           href="https://x.com/phan_sontu"
           target="_blank"
         >
-          twitter
+          x
         </Social>
         <Social
           className="col-span-1"
           href="https://github.com/tuphan-dn"
           target="_blank"
         >
-          github
+          git
         </Social>
       </div>
     </div>

@@ -54,7 +54,7 @@ function ClientTwitterShare({ className = '' }: { className?: string }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      href={`https://twitter.com/intent/tweet?${params}`}
+      href={`https://x.com/intent/tweet?${params}`}
       target="_blank"
     >
       <SiX className="h-4 w-4" />
