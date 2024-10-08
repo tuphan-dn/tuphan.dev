@@ -159,7 +159,7 @@ export default function Page() {
             >
               Data Structure in Ethereum
             </Link>{' '}
-            series in 2017.
+            series in 2018.
           </Bullet>
         </div>
       </div>

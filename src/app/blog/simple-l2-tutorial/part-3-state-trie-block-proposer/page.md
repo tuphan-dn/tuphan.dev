@@ -184,13 +184,15 @@ Due to the simplicity, we implement a `sequencer.ts` that plays 3 roles:
 
 **EVM.** Validate and execute finalized transactions.
 
-### The simplest consensus with randomized timeouts
+### Simple consensus with randomized timeouts
 
 To decide who is eligible to propose a new block, we design a consensus where each participant is assigned a random clock time. The first participant to reach their timeout is eligible to propose the new block.
 
 The transactions for a new block must be carefully validated that it's NOT included in the transaction trie yet.
 
-After having a block of bundled transactions, you must execute them on your local states to compute the next block header (i.e., the global trie root).Then, submit it along with the bundled transactions.
+### Propose
+
+After having a block of bundled transactions, you must execute them on your local states to compute the next block header (i.e., the global trie root). Then, submit it along with the bundled transactions.
 
 Note that while your proposal is not yet confirmed on Layer 1, it’s acceptable for other nodes to reach their timeout and submit another block. At that point, you're in a race condition, meaning the first block accepted by Layer 1 will be considered valid, regardless of the previous proposals.
 
@@ -206,7 +208,7 @@ Retrieve the logs since the latest update, then parse and execute the transactio
 
 Let's say we have 3 functions `propose`, `sync`, `execute` and 1 entry `start`.
 
-The `start` function will recursively call itself after a random timeout (e.g. a random delay). It simulates our simple consensus. After waking up, the process will request all the logs since the latest sync, if logs are found, indicating that other nodes reached their timeout earlier, our node begin the `sync` process. Conversely, we will collect valid transactions in the transaction pool and pass to `execute`. Take the newest block header, call `propose`, and wait for the confirmation on Layer 1.
+The `start` function will recursively call itself after a random timeout (e.g. a random delay). It simulates our simple consensus. After waking up, the process will request all the logs since the latest sync, if logs are found, indicating that other nodes reached their timeout earlier, our node begin the `sync` process. Conversely, we will collect valid transactions in the transaction pool and pass to `execute`. Take the newest block header, call `propose`, and wait for the confirmation on Layer 1. Regard to the race condition, follow the [Propose](#propose).
 
 ```ts label="sequencer.ts" group="proposer"
 import { Level } from 'level'
