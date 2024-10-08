@@ -9,28 +9,56 @@ Bạn có thể tăng tốc quá trình phát triển Web App với Javascript/N
 
 ## Khởi tạo dự án
 
-```bash label="npm" group="setup"
-mkdir cs01
-cd cs01
-npm init
-npm i -D ts-node typescript @types/node tsc-alias
-mkdir src
-```
+Tạo folder dự án `cs01` và cài đặt `hardhat`:
 
-```bash label="yarn" group="setup"
-mkdir cs01
-cd cs01
-yarn init
-yarn add -D ts-node typescript @types/node tsc-alias
-mkdir src
-```
-
-```bash label="pnpm" group="setup"
+```bash
 mkdir cs01
 cd cs01
 pnpm init
-pnpm add -D ts-node typescript @types/node tsc-alias
-mkdir src
+pnpm add -D hardhat
+```
+
+Chúng ta sẽ chọn `Create a TypeScript project (with Viem)` và `y` cho tất cả các cài đặt còn lại. Sau khi hoàn tất, ta được cấu trúc thư mục như bên dưới:
+
+```base
+.
+├── README.md
+├── contracts
+├── hardhat.config.ts
+├── ignition
+├── node_modules
+├── package.json
+├── pnpm-lock.yaml
+├── test
+└── tsconfig.json
+```
+
+Trong đó `hardhat.config.ts` là cài đặt Hardhat, thư mục `contracts` chứa code solidity, thư mục `ignition` chứa scripts triển khai contracts, và thư mục `test` để kiểm thử contracts.
+
+## Thiết lập các câu lệnh làm việc
+
+Trong `scrips` của `package.json`, thay (hoặc thêm mới) 2 lệnh `build` và `test`.
+
+```json label="package.json" group="install"
+{
+  ...
+  "scripts": {
+    "build": "hardhat compile",
+    "test": "pnpm build && hardhat test"
+  },
+  ...
+}
+```
+
+Chạy thử lệnh `build`,
+
+```bash
+pnpm build
+
+> demo@1.0.0 build ~/Desktop/demo
+> hardhat compile
+
+Compiled 1 Solidity file successfully (evm target: paris).
 ```
 
 ## Quan hệ giữa Smartcontract, Solidity, và ABI
@@ -41,65 +69,71 @@ Bạn sẽ phát triển smartcontract bằng Solidity và biên dịch ra mã m
 
 ## Bộ đếm on-chain
 
-Chúng ta sẽ viết một smartcontract đơn giản với biến `counter` được khởi tạo bằng `0` và một hàm `increase` để tăng `+1` cho mỗi lần gọi.
+Chúng ta sẽ viết một smartcontract đơn giản với biến `counter` được khởi tạo bằng `0` và một hàm `increase` để tăng `+1` cho mỗi lần gọi. Kèm với đó, ta cũng sẽ emit một sự kiện `Increase`.
 
 ```solidity label="Counter.sol" group="contract"
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.24;
+pragma solidity ^0.8.27;
 
 contract Counter {
   uint256 public counter;
+
+  event Increase(address indexed account, uint256 counter);
 
   constructor() {
     counter = 0;
   }
 
-  function increase() public returns (uint256) {
+  function increase() public {
     counter = counter + 1;
-    return counter;
+    emit Increase(msg.sender, counter);
   }
 }
 ```
 
-```json label="Counter.json" group="contract"
-[
-  {
-    "inputs": [],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  },
-  {
-    "inputs": [],
-    "name": "counter",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "increase",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  }
-]
+## ABI
+
+Nếu chạy thử `pnpm build` ta sẽ nhận ra một thư mục `artifacts` chứa các sản phẩm `bytecode` và `abi`. Vì ABI sẽ được tái sử dụng nhiều và cho cả SDK, chúng ta nên cần một thư mục riêng để chứa các ABI này.
+
+```bash
+pnpm add -D hardhat-abi-exporter
 ```
 
-## Appendix
+Thêm cài đặt cho `hardhat.config.ts`,
 
-### Autoformat trong VSC
+```ts label="" group="config"
+import type { HardhatUserConfig } from 'hardhat/config'
+import '@nomicfoundation/hardhat-toolbox-viem'
+import 'hardhat-abi-exporter'
+
+const config: HardhatUserConfig = {
+  solidity: '0.8.27',
+  abiExporter: {
+    path: './abi',
+    runOnCompile: true,
+    clear: true,
+    flat: true,
+  },
+}
+
+export default config
+```
+
+Chạy lại `pnpm build` ta sẽ được folder `abi` chứa tất cả các ABI cần thiết.
+
+> Lưu ý, vì `abi` là sản phẩm của quá trình build nên hãy thêm nó vào `.gitignore`.
+
+# Appendix
+
+## VSC Plugins
+
+[🪖 Solidity by Nomic Foundation](https://marketplace.visualstudio.com/items?itemName=NomicFoundation.hardhat-solidity)
+
+[🎨 Prettier - Code formatter by Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
+## Autoformat trong VSC
+
+[❓ How do you format code on save in VS Code - Stackoverflow](https://stackoverflow.com/a/39973431/23764070)
 
 ```json label=".prettierrc.json" group="prettier"
 {
@@ -113,14 +147,6 @@ contract Counter {
 
 ### Conventional Commitment
 
-```bash label="npm" group="husky"
-npm i -D husky
-```
-
-```bash label="yarn" group="husky"
-yarn add -D husky
-```
-
-```bash label="pnpm" group="husky"
+```bash
 pnpm add -D husky
 ```

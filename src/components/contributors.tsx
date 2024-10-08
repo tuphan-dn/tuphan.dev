@@ -10,7 +10,7 @@ export default function Contributors({
   date = new Date(),
 }: ContributorsProps) {
   return (
-    <span className="flex flex-row gap-1 items-center flex-wrap mt-2 mb-10">
+    <span className="flex flex-row gap-1 items-center flex-wrap my-2">
       <p className="text-sm opacity-60">
         {dayjs(date).format('DD MMMM, YYYY')} by
       </p>

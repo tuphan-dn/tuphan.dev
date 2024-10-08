@@ -26,7 +26,7 @@ export default function Template({ children }: { children: ReactNode }) {
       <div className="w-full mb-16 bg-base-100">
         <Header />
       </div>
-      <article className="w-full mb-16 prose prose-p:tracking-[-.25px] prose-table:w-full prose-table:block prose-table:overflow-auto">
+      <article className="w-full mb-16 prose prose-h1:mt-[1.6666667em] prose-p:tracking-[-.25px] prose-table:w-full prose-table:block prose-table:overflow-auto">
         <Schedule published={date}>
           <div className="not-prose w-full flex flex-col gap-1">
             <Tags value={tags} />
