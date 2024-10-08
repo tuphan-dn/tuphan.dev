@@ -1,6 +1,6 @@
 +++
 tags = "web3, evm, solidity, 🇻🇳"
-date = "14 November, 2024"
+date = "16 November, 2024"
 +++
 
 # Triển khai smartcontract và SDK
@@ -76,4 +76,12 @@ Thay dòng `"main": "index.js",` trong `package.json` thành
     "./package.json": "./package.json"
   },
   ...
+```
+
+# Phụ lục
+
+## Conventional Commitment
+
+```bash
+pnpm add -D husky
 ```
