@@ -13,14 +13,12 @@ function Bullet({ i = 0, children }: { i?: number; children: ReactNode }) {
     <motion.p
       className="cursor-pointer font-satoshi"
       initial={{ x: i * 8, opacity: 0 }}
-      animate={{
-        x: 0,
-        opacity: 0.6,
-        transition: { duration: 0.5, delay: i * 0.5 },
-      }}
-      whileHover={{ opacity: 1, transition: { delay: 0 } }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.5, delay: (i + 1) * 0.5 }}
     >
-      {children}
+      <span className="opacity-60 hover:opacity-100 duration-500">
+        {children}
+      </span>
     </motion.p>
   )
 }
@@ -63,30 +61,30 @@ export default function Page() {
       />
       <div className="grid grid-cols-4 gap-0 z-0">
         <AnimatedLink
-          className="col-span-full avatar flex"
-          initial={{ y: -32, opacity: 0 }}
+          className="col-span-full avatar flex flex-row cursor-pointer"
+          initial={{ y: -16, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
           href="/"
         >
-          <div className="w-8 rounded-full hover:ring-2 hover:ring-accent transiion-all duration-500">
+          <div className="w-8 rounded-full hover:ring-2 hover:ring-accent transition-all duration-500">
             <img src="/icon.png" alt="Home" />
           </div>
         </AnimatedLink>
         <motion.span
-          className="col-span-full md:col-span-2 flex flex-row items-baseline gap-0 cursor-pointer"
-          initial={{ y: -48, opacity: 0 }}
+          className="col-span-full md:col-span-2 flex flex-row items-baseline gap-0"
+          initial={{ y: -32, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
         >
           <span className="font-clash-display font-bold text-9xl">tu</span>
           <span className="flex-grow border-b-[1rem] border-base-content" />
         </motion.span>
         <motion.span
-          className="col-span-full md:col-span-2 flex flex-row items-baseline gap-0 cursor-pointer"
-          initial={{ y: -48, opacity: 0 }}
+          className="col-span-full md:col-span-2 flex flex-row items-baseline gap-0"
+          initial={{ y: -64, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
         >
           <span className="font-clash-display font-bold text-9xl">phan</span>
           <span className="flex-grow border-b-[1rem] border-base-content" />
