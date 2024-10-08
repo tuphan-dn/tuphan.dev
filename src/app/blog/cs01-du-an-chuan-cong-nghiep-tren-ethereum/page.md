@@ -19,7 +19,7 @@ Trong loạt bài này, chúng ta sẽ xây dựng một ứng dụng đếm s�
 
 ## Mục lục
 
-1. [Smartcontract bộ đếm on-chain với Hardhat](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/smartcontract-bo-dem-on-chain-voi-hardhat)
+1. [Smartcontract: Bộ đếm on-chain với Hardhat](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/smartcontract-bo-dem-on-chain-voi-hardhat)
 2. [Kiểm thử](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/kiem-thu)
 3. [Triển khai smartcontract và SDK](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/trien-khai-smartcontract-va-sdk)
 4. [Giao diện DApp](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/giao-dien-dapp)
