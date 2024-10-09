@@ -93,7 +93,7 @@ Push the [World State](#world-state) along with other data into a block header.
 
 # Back to Optimism
 
-Instead of executing transactions onchain and relying on the Layer 1's throughput, Optimism just does it offchain then submits the logs onto the Layer 1 (i.e. Ethereum) as a proof of execution and validation to significantly reduce the cost. The logs are states that stored in onchain transactions' `calldata`.
+Instead of executing transactions on-chain and relying on the Layer 1's throughput, Optimism just does it offchain then submits the logs onto the Layer 1 (i.e. Ethereum) as a proof of execution and validation to significantly reduce the cost. The logs are states that stored in on-chain transactions' `calldata`.
 
 The submitted states includes:
 

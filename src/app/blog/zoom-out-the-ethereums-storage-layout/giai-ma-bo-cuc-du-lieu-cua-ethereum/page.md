@@ -119,5 +119,5 @@ $$
 $$
 
 [^1]: Từ này sẽ được giữ nguyên gốc như là một danh từ thay vì dịch ra nghĩa Tiếng Việt.
-[^2]: trực tiếp = onchain.
+[^2]: trực tiếp = on-chain.
 [^3]: gián tiếp = offchain.

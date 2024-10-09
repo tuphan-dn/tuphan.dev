@@ -182,4 +182,4 @@ Vì vậy, `increase one more` trở thành một testcase không chính xác.
 
 ## Chú ý phiên bản `chai-matcher`
 
-Trong tài liệu của Hardhat, `@nomicfoundation/hardhat-chai-matchers` là phiên bản dành cho `hardhat-ethers`. Còn ở trong chuổi bài này, khi đang dùng `hardhat-viem`, ta sẽ sử dụng `hardhat-chai-matchers-viem`.
+Trong tài liệu của Hardhat, `@nomicfoundation/hardhat-chai-matchers` là phiên bản dành cho `hardhat-ethers`. Còn ở trong loạt bài này, khi đang dùng `hardhat-viem`, ta sẽ sử dụng `hardhat-chai-matchers-viem`.
