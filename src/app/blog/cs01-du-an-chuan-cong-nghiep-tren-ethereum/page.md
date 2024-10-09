@@ -11,7 +11,7 @@ Trong loạt bài này, chúng ta sẽ xây dựng một ứng dụng đếm s�
 
 - Học cách phát triển và kiểm thử smartcontract trên **Ethereum** với **Hardhat**?
 - Triển khai smartcontract cùng với một Typescript SDK bằng **Viem**?
-- Xây dựng DApp với **RemixJS** và **TailwindCSS**.
+- Xây dựng DApp với **RemixJS**, **TailwindCSS**, và **DaisyUI**.
 - Cho phép nhiều loại ví kết nối và DApp thông qua **Rainbowkit**.
 - Cài đặt **Github Action** cho DevOps và đẩy DApp lên **Cloudflare Worker**.
 
