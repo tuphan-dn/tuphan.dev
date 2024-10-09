@@ -104,9 +104,9 @@ Combo `emit` và `withArgs` giúp chúng ta nghe và kiểm thử sự kiện t�
 
 > Lưu ý, ta phải dùng `getAddress` để tạo address checksum cho ví (tạo chữ hoa và chữ thường trong địa chỉ ví) trước khi so sánh.
 
-## Kiểm sai
+## Kiểm lỗi
 
-Giả sử ta sử dụng một địa chỉ không phải `owner` để gọi `increase`, ta kỳ vọng rằng contract sẽ cho ra lỗi.
+Giả sử ta sử dụng một địa chỉ không phải `owner` để gọi `increase`, ta kỳ vọng lúc này contract sẽ cho ra lỗi.
 
 ```ts label="test/Counter.ts" group="test-not-interact"
 ...
@@ -147,3 +147,39 @@ Nothing to compile
 
   3 passing (460ms)
 ```
+
+# Phụ lục
+
+## Hiểu cơ chế sandbox
+
+Như đã trình bày ở trên, `loadFixture(deployFixture)` sẽ tạo ra một snapshot cho mỗi lần kiểm thử và reset lại cho các lần khác nhau. Để hiểu điều này ta thử thêm một kiểm thử `increase one more` ngay liền dưới `increase`
+
+```ts label="test/Counter.ts" group="sandbox"
+...
+describe('contract', function () {
+  ...
+
+  describe('interact counter', function () {
+    it('increase', async function () {
+      ...
+    })
+
+    it('increase one more', async function () {
+      const { counter, owner } = await loadFixture(deployFixture)
+      await expect(counter.write.increase())
+        .to.emit(counter, 'Increase')
+        .withArgs(getAddress(owner.account.address), 2n)
+      expect(await counter.read.counter()).equal(2n)
+    })
+
+    ...
+  })
+})
+```
+
+Thì không như bình thường suy nghĩ, đã tăng lên `1` ở `increase` thì "chắc" là phải thành `2` ở `increase one more`. Nhưng thực ra điều này là SAI vì `loadFixture(deployFixture)` đã reset lại trạng thái của `counter` về `0`.
+Vì vậy, `increase one more` trở thành một testcase không chính xác.
+
+## Chú ý phiên bản `chai-matcher`
+
+Trong tài liệu của Hardhat, `@nomicfoundation/hardhat-chai-matchers` là phiên bản dành cho `hardhat-ethers`. Còn ở trong chuổi bài này, khi đang dùng `hardhat-viem`, ta sẽ sử dụng `hardhat-chai-matchers-viem`.
