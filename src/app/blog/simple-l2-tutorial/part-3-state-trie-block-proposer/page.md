@@ -86,32 +86,6 @@ export default class Trie {
     return await this.get([])
   }
 
-  prove = async (key: boolean[]): Promise<Array<Uint8Array | undefined>> => {
-    const relatives = async (
-      key: boolean[],
-    ): Promise<Array<Uint8Array | undefined>> => {
-      if (!key.length) return []
-      const [bit, ...rest] = key
-      return [await this.get([!bit, ...rest]), ...(await relatives(rest))]
-    }
-    const value = await this.get(key)
-    return [value, ...(await relatives(key))]
-  }
-
-  verify = async (
-    key: boolean[],
-    proof: Array<Uint8Array | undefined>,
-  ): Promise<boolean> => {
-    if (key.length + 1 !== proof.length || !proof.length) return false
-    if (proof.length === 1)
-      return proof[0]?.toString() === (await this.root())?.toString()
-    const bit = key.shift()
-    const a = proof.shift()
-    const b = proof.shift()
-    const p = hash({ left: !bit ? a : b, right: !bit ? b : a })
-    return this.verify(key, [p, ...proof])
-  }
-
   reset = async () => {
     await this.state.clear()
     for (const { key, value } of this.init) await this.put(key, value)
