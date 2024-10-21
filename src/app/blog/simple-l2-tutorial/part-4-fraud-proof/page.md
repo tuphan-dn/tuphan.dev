@@ -7,6 +7,8 @@ date = "19 October, 2024"
 
 Based on the block header, we can challenge the block proposers if any faults are identified.
 
+[@preview](https://github.com/tuphan-dn/simple-l2-tut/tree/p4)
+
 ## Prove/Verify in Merkle Trie
 
 We implement 2 important functions `prove` and `verify`, which generate a valid Merkle proof for a leaf and verify the proof, respectively.
@@ -172,11 +174,9 @@ contract Rollup {
     bytes[] calldata nextStateProof
   )
     public
-    view
     merkle(prevState, prevStateProof, chain[root].prev)
     merkle(transaction, txProof, root)
     merkle(nextState, nextStateProof, root)
-    returns (bool)
   {
     uint256 prev = uint256(bytes32(prevState.value));
     Tx memory trans = Tx({
@@ -187,8 +187,8 @@ contract Rollup {
     });
     uint256 next = uint256(bytes32(nextState.value));
     require(prev + trans.amount != next, 'The block is honest');
-    // Rewarded here
-    return true;
+    // Rollback the malicious block
+    latest = chain[root].prev;
   }
 }
 ```
@@ -333,14 +333,8 @@ contract Rollup {
       }
     ],
     "name": "challenge",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "stateMutability": "view",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -431,11 +425,52 @@ contract Rollup {
 
 ## Challenge
 
+[@preview](https://github.com/tuphan-dn/isolated-tests-for-rollups-challenge-games)
+
 The `challenge` function will use `verify` to validate the provided `prevState`, `transition`, and `nextState`. Since the `transition` and `nextState` are reflected by the `root`, and the `prevState` is reflected by the `root.prev`, this creates a stateful transition. We can re-execute the `transition` on the `prevState` and then compare it to the `nextState`.
 
 In the context of the OP Stack, we are building a one-shot proof and an EVM simulation for the re-execution process. The example of `challenge` in [Prove/Verify in Merkle Trie](#proveverify-in-merkle-trie) is to validate the incorrect compuation. Other types of attacks can be validated either through a Merkle proof or by using the EVM simulation.
 
-To test it, we will build a two-actor example where Alice is an honest sequencer and Bob is a malicious sequencer. Alice will challenge the fraudulent block proposed by Bob.
+To test it, we will build a two-actor example where Alice is an honest sequencer and Bob is a malicious sequencer. Alice will challenge the fraudulent block proposed by Bob. First, we create a fraudable version of `sequencer.execute`.
+
+```ts label="sequencer.ts" group="fraud"
+export default class Sequencer extends Contract {
+  ...
+  execute = async (txs: Tx[], fraud = false) => {
+    console.log(txs.map((tx) => tx.decode()))
+    const prev = (await this.contract.read.latest()) as string
+    for (const tx of txs) {
+      await txTrie.put(bytesToBinary(tx.txId), tx.data)
+      const from =
+        (await stateTrie.get(bytesToBinary(tx.from))) ||
+        hexToBytes(''.padStart(64, '0'))
+      const to =
+        (await stateTrie.get(bytesToBinary(tx.to))) ||
+        hexToBytes(''.padStart(64, '0'))
+      await stateTrie.put(
+        bytesToBinary(tx.from),
+        fraud ? from : bigintToBytes(bytesToBigInt(from) - tx.amount), // If the sequencer is malicious, he doesn't minus the amount
+      )
+      await stateTrie.put(
+        bytesToBinary(tx.to),
+        bigintToBytes(bytesToBigInt(to) + tx.amount),
+      )
+    }
+    const root: Hex = `0x${bytesToHex(
+      hash({
+        left: hexToBytes(prev.substring(2)),
+        right: hash({
+          left: await txTrie.root(),
+          right: await stateTrie.root(),
+        }),
+      })!!,
+    )}`
+    return root
+  }
+}
+```
+
+In addition, `execute` we recompute the `root` and return it on every steps.
 
 ## Unlock
 
