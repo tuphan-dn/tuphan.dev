@@ -7,6 +7,8 @@ date = "19 October, 2024"
 
 Based on the block header, we can challenge the block proposers if any faults are identified.
 
+![OP Challenge Game from Paul Veradittakit](./op-challenge-game.webp)
+
 [@preview](https://github.com/tuphan-dn/simple-l2-tut/tree/p4)
 
 ## Prove/Verify in Merkle Trie
