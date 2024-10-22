@@ -1,6 +1,6 @@
 +++
 tags = "cryptography, math"
-date = "1 October, 2024"
+date = "5 October, 2024"
 +++
 
 # Schnorr's Procotol Cheatsheet
