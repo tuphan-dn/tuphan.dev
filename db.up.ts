@@ -48,7 +48,7 @@ async function dreelize(root: string): Promise<ExtendedDree | null> {
     },
     async (node) => {
       const file = readFileSync(node.path)
-      const md = fromMarkdown(file, {
+      const md = fromMarkdown(Uint8Array.from(file), {
         extensions: [frontmatter(['yaml', 'toml'])],
         mdastExtensions: [frontmatterFromMarkdown(['yaml', 'toml'])],
       })
@@ -57,7 +57,7 @@ async function dreelize(root: string): Promise<ExtendedDree | null> {
       const paragraph = select('root > paragraph', md) || {}
       const text = selectAll('heading, paragraph', md)
       const images = selectAll('image', md)
-      const [image = '/og.jpg'] = images.map((image) => {
+      const [image = ''] = images.map((image) => {
         try {
           const { url } = Object.assign({ url: '' }, image)
           if (isURL(url)) return url
