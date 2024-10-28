@@ -21,10 +21,11 @@ Trong loạt bài này, chúng ta sẽ xây dựng một ứng dụng đếm s�
 
 1. [Smartcontract: Bộ đếm on-chain với Hardhat](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/smartcontract-bo-dem-on-chain-voi-hardhat)
 2. [Kiểm thử](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/kiem-thu)
-3. [Triển khai smartcontract và SDK](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/trien-khai-smartcontract-va-sdk)
-4. [Giao diện DApp](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/giao-dien-dapp)
-5. [Kết nối ví](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/ket-noi-vi)
-6. [DevOps và hạ tầng](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/devops-va-ha-tang)
+3. [Triển khai smartcontract](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/trien-khai-smartcontract)
+4. [Triển khai SDK](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/trien-khai-sdk)
+5. [Giao diện DApp](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/giao-dien-dapp)
+6. [Kết nối ví](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/ket-noi-vi)
+7. [DevOps và hạ tầng](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/devops-va-ha-tang)
 
 ## Trước khi bắt đầu
 

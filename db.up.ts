@@ -57,7 +57,7 @@ async function dreelize(root: string): Promise<ExtendedDree | null> {
       const paragraph = select('root > paragraph', md) || {}
       const text = selectAll('heading, paragraph', md)
       const images = selectAll('image', md)
-      const [image = ''] = images.map((image) => {
+      const [image = '/og.jpg'] = images.map((image) => {
         try {
           const { url } = Object.assign({ url: '' }, image)
           if (isURL(url)) return url
