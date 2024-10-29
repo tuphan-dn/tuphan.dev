@@ -18,7 +18,7 @@ export default function Link({
 }: LinkProps) {
   const { value } = useAsync(async () => {
     if (children !== '@preview') return undefined
-    const data = await ky.get<OgObject>(`/api/og?url=${href}`).json()
+    const data = await ky.get<OgObject>(`/proxy/og?url=${href}`).json()
     return data
   }, [children, href])
 
