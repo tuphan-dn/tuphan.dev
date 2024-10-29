@@ -104,7 +104,7 @@ CounterModule#Counter - 0x08921A367D5B3902Ff8f6Cc597Bd37C5fEEdC1a5
 
 💸 Kiểm tra số dư của bạn có lớn hơn 0.005 Holesky-ETH.
 
-⚙️ Lưu ý tuỳ chọn `--network holesky` trong câu lên triển khai on-chain.
+⚙️ Lưu ý tuỳ chọn `--network holesky` trong câu lệnh triển khai on-chain.
 
 ## Conventional Commitment
 

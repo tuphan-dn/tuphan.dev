@@ -1,12 +1,16 @@
 import { MetadataRoute } from 'next'
 
+export const name = 'tuphan.dev'
+export const description =
+  "I usually write about Computer Science like Web3, WebDev, Cryptography, and Math, also some MBA stuffs cause I'm learning it."
+export const host = process.env.NEXT_PUBLIC_HOST || '/'
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'tuphan.dev',
-    short_name: 'tuphan.dev',
-    description:
-      "I usually write about Computer Science like Web3, WebDev, Cryptography, and Math, also some MBA stuffs cause I'm learning it.",
-    start_url: '/',
+    name: name,
+    short_name: name,
+    description: description,
+    start_url: host,
     display: 'standalone',
     background_color: '#ffffff',
     theme_color: '#ffffff',

@@ -5,11 +5,12 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 import UiProvider from '@/providers/ui.provider'
 import Footer from './footer'
 
+import { name, description, host } from './manifest'
+
 export const metadata: Metadata = {
-  title: 'tuphan.dev',
-  description:
-    'The markdown 📜 template blog with 👀-pleasant colors and animation; Especially, 🎉 open-source and 🔋 batteries-included.',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_HOST || ''),
+  title: name,
+  description: description,
+  metadataBase: new URL(host),
 }
 
 export const viewport = {

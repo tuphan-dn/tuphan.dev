@@ -84,12 +84,6 @@ Thay dòng `"main": "index.js",` trong `package.json` thành
 
 # Phụ lục
 
-## Troubleshoot
-
-💸 Kiểm tra số dư của bạn có lớn hơn 0.005 Holesky-ETH.
-
-⚙️ Lưu ý tuỳ chọn `--network holesky` trong câu lên triển khai on-chain.
-
 ## Conventional Commitment
 
 ```bash
