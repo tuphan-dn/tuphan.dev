@@ -5,7 +5,7 @@ date = "18 November, 2024"
 
 # Triển khai SDK
 
-Việc gửi trực tiếp ABI cho các phòng ban ví dụ Frontend, Backend, Data Analysis để có thể tương tác với smartcontract một các thủ công sẽ dẫn đến nhiều bất tiện (Quản lý phiên bản không đồng nhất, các hàm side-effect không được chia sẻ,...). Vì vậy, việc phát triển một [npm](https://www.npmjs.com/) package sẽ tăng tốc quá trình hợp tác giữa các team sẽ tốt hơn rất nhiều.
+Việc gửi trực tiếp ABI cho các phòng ban ví dụ Frontend, Backend, Data Analysis để có thể tương tác với smartcontract một các thủ công sẽ dẫn đến nhiều bất tiện (Quản lý phiên bản không đồng nhất, các hàm side-effect không được chia sẻ,...). Vì vậy, việc phát triển một [npm](https://www.npmjs.com/) package sẽ tăng tốc quá trình hợp tác giữa các team.
 
 ![npmjs.com](./npmjs.webp)
 
