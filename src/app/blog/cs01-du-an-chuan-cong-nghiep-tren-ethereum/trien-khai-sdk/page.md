@@ -1,6 +1,6 @@
 +++
 tags = "web3, evm, solidity, 🇻🇳"
-date = "20 November, 2024"
+date = "18 November, 2024"
 +++
 
 # Triển khai SDK

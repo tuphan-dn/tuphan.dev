@@ -1,6 +1,6 @@
 +++
 tags = "web3, evm, solidity, 🇻🇳"
-date = "12 November, 2024"
+date = "10 November, 2024"
 +++
 
 # Kiểm thử

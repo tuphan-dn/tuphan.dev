@@ -1,6 +1,6 @@
 +++
 tags = "web3, evm, solidity, 🇻🇳"
-date = "8 November, 2024"
+date = "2 November, 2024"
 +++
 
 # CS01: Dự án chuẩn công nghiệp trên Ethereum

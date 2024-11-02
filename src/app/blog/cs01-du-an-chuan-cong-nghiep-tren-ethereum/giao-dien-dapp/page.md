@@ -1,6 +1,6 @@
 +++
 tags = "web3, evm, solidity, 🇻🇳"
-date = "24 November, 2024"
+date = "22 November, 2024"
 +++
 
 # Giao diện DApp
