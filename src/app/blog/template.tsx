@@ -65,13 +65,10 @@ export default function Template({ children }: { children: ReactNode }) {
           </Link>
         </p>
       </div>
-      <div
-        id="prev-next"
-        className="w-full flex flex-row justify-between gap-4"
-      >
+      <div id="prev-next" className="w-full grid grid-cols-2 gap-4">
         <Link
           className={clsx(
-            'flex-1 p-4 flex flex-col gap-1 items-start rounded-box bg-base-200 transition-all border-2 border-base-300',
+            'col-span-1 p-4 flex flex-col gap-1 items-start rounded-box bg-base-200 transition-all border-2 border-base-300',
             {
               'cursor-not-allowed opacity-60': !prev,
               'hover:bg-base-300': prev,
@@ -84,7 +81,7 @@ export default function Template({ children }: { children: ReactNode }) {
         </Link>
         <Link
           className={clsx(
-            'flex-1 p-4 flex flex-col gap-1 items-end rounded-box bg-base-200 transition-all border-2 border-base-300',
+            'col-span-1 p-4 flex flex-col gap-1 items-end rounded-box bg-base-200 transition-all border-2 border-base-300',
             {
               'cursor-not-allowed opacity-60': !next,
               'hover:bg-base-300': next,
