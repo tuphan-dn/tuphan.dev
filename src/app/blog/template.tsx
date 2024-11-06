@@ -25,10 +25,10 @@ export default function Template({ children }: { children: ReactNode }) {
   } = useBlog(pathname)
 
   const { data: { children: siblings = [] } = {} } = useBlog(parent)
-  const { data: { route: prev = '', title: left = '' } = {} } = useBlog(
+  const { data: { route: prev = '', title: left = '←' } = {} } = useBlog(
     siblings[siblings.findIndex((e) => e === route) + 1],
   )
-  const { data: { route: next = '', title: right = '' } = {} } = useBlog(
+  const { data: { route: next = '', title: right = '→' } = {} } = useBlog(
     siblings[siblings.findIndex((e) => e === route) - 1],
   )
 
@@ -71,20 +71,26 @@ export default function Template({ children }: { children: ReactNode }) {
       >
         <Link
           className={clsx(
-            'flex-1 p-4 flex flex-col gap-1 items-start rounded-box bg-base-200 hover:bg-base-300 transition-all border-2 border-base-300',
-            { hidden: !prev },
+            'flex-1 p-4 flex flex-col gap-1 items-start rounded-box bg-base-200 transition-all border-2 border-base-300',
+            {
+              'cursor-not-allowed opacity-60': !prev,
+              'hover:bg-base-300': prev,
+            },
           )}
-          href={prev}
+          href={prev || '#'}
         >
           <span className="text-xs opacity-60">Old Post</span>
           <span className="font-semibold text-left">{left}</span>
         </Link>
         <Link
           className={clsx(
-            'flex-1 p-4 flex flex-col gap-1 items-end rounded-box bg-base-200 hover:bg-base-300 transition-all border-2 border-base-300',
-            { hidden: !next },
+            'flex-1 p-4 flex flex-col gap-1 items-end rounded-box bg-base-200 transition-all border-2 border-base-300',
+            {
+              'cursor-not-allowed opacity-60': !next,
+              'hover:bg-base-300': next,
+            },
           )}
-          href={next}
+          href={next || '#'}
         >
           <span className="text-xs opacity-60">Next Post</span>
           <span className="font-semibold text-right">{right}</span>
