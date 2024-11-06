@@ -76,7 +76,7 @@ export default function Template({ children }: { children: ReactNode }) {
           )}
           href={prev}
         >
-          <span className="text-xs opacity-60">Previous</span>
+          <span className="text-xs opacity-60">Old Post</span>
           <span className="font-semibold text-left">{left}</span>
         </Link>
         <Link
@@ -86,7 +86,7 @@ export default function Template({ children }: { children: ReactNode }) {
           )}
           href={next}
         >
-          <span className="text-xs opacity-60">Next</span>
+          <span className="text-xs opacity-60">Next Post</span>
           <span className="font-semibold text-right">{right}</span>
         </Link>
       </div>
