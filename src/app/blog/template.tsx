@@ -1,6 +1,7 @@
 'use client'
 import { type ReactNode } from 'react'
 import { usePathname } from 'next/navigation'
+import clsx from 'clsx'
 
 import Link from 'next/link'
 import { ExternalLink } from 'lucide-react'
@@ -24,10 +25,10 @@ export default function Template({ children }: { children: ReactNode }) {
   } = useBlog(pathname)
 
   const { data: { children: siblings = [] } = {} } = useBlog(parent)
-  const { data: { route: back, title: left = '' } = {} } = useBlog(
+  const { data: { route: prev = '', title: left = '' } = {} } = useBlog(
     siblings[siblings.findIndex((e) => e === route) + 1],
   )
-  const { data: { route: next, title: right = '' } = {} } = useBlog(
+  const { data: { route: next = '', title: right = '' } = {} } = useBlog(
     siblings[siblings.findIndex((e) => e === route) - 1],
   )
 
@@ -68,24 +69,26 @@ export default function Template({ children }: { children: ReactNode }) {
         id="prev-next"
         className="w-full flex flex-row justify-between gap-4"
       >
-        {back && (
-          <Link
-            className="flex-1 p-4 flex flex-col gap-1 items-start rounded-box bg-base-200 hover:bg-base-300 transition-all border-2 border-base-300"
-            href={back}
-          >
-            <span className="text-sm opacity-60">Previous</span>
-            <span className="font-semibold text-left">{left}</span>
-          </Link>
-        )}
-        {next && (
-          <Link
-            className="flex-1 p-4 flex flex-col gap-1 items-end rounded-box bg-base-200 hover:bg-base-300 transition-all border-2 border-base-300"
-            href={next}
-          >
-            <span className="text-sm opacity-60">Next</span>
-            <span className="font-semibold text-right">{right}</span>
-          </Link>
-        )}
+        <Link
+          className={clsx(
+            'flex-1 p-4 flex flex-col gap-1 items-start rounded-box bg-base-200 hover:bg-base-300 transition-all border-2 border-base-300',
+            { hidden: !prev },
+          )}
+          href={prev}
+        >
+          <span className="text-xs opacity-60">Previous</span>
+          <span className="font-semibold text-left">{left}</span>
+        </Link>
+        <Link
+          className={clsx(
+            'flex-1 p-4 flex flex-col gap-1 items-end rounded-box bg-base-200 hover:bg-base-300 transition-all border-2 border-base-300',
+            { hidden: !next },
+          )}
+          href={next}
+        >
+          <span className="text-xs opacity-60">Next</span>
+          <span className="font-semibold text-right">{right}</span>
+        </Link>
       </div>
       <div id="suggestion" className="w-full grid grid-cols-12 gap-4">
         {[...routes].reverse().map((route) => (
