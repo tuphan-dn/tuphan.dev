@@ -7,8 +7,9 @@ import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import Tags from './tags'
 
-export function useBlog(route: string) {
+export function useBlog(route?: string) {
   return useSWR(`/api${route}`, async (api: string) => {
+    if (!route) return undefined
     const data = await ky.get(api).json<Blog>()
     return data
   })

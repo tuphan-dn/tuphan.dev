@@ -16,6 +16,7 @@ const TableDto: z.ZodType<Blog[]> = z.array(
     content: z.string(),
     date: z.coerce.date(),
     children: z.array(z.string()),
+    parent: z.string(),
   }),
 )
 export const all = TableDto.parse(tablejson)

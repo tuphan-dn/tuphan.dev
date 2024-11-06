@@ -26,6 +26,7 @@ type ExtendedDree = Omit<Dree, 'children'> & {
 
 type Tree = {
   route: string
+  parent: string
   children: Tree[]
   title: string
   image: string
@@ -115,11 +116,8 @@ async function dreelize(root: string): Promise<ExtendedDree | null> {
   return dree
 }
 
-function trielize(
-  parentRoute: string,
-  { name, children = [] }: ExtendedDree,
-): Tree {
-  const route = `${parentRoute}/${name}`
+function trielize(parent: string, { name, children = [] }: ExtendedDree): Tree {
+  const route = `${parent}/${name}`
   const index = children.findIndex(({ type }) => type === 'file')
   const [
     only = {
@@ -135,6 +133,7 @@ function trielize(
   ] = index >= 0 ? children.splice(index, 1) : []
   return {
     route,
+    parent,
     children: children
       .map((child) => trielize(route, child))
       .sort((a, b) => {
