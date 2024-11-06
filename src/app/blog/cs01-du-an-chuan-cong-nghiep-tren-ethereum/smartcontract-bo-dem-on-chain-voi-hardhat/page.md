@@ -3,7 +3,7 @@ tags = "web3, evm, solidity, 🇻🇳"
 date = "6 November, 2024"
 +++
 
-# Smartcontrac: Bộ đếm on-chain với Hardhat
+# Smartcontract: Bộ đếm on-chain với Hardhat
 
 Bạn có thể tăng tốc quá trình phát triển Web App với Javascript/NextJS, Web Server với Rust/Rocket.rs, Mobile App với Dash/Flutter, và cùng nguyên tắc đó ta có phát triển smartcontract với Solidity/Hardhat.
 
