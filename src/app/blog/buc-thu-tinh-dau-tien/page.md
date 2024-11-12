@@ -21,4 +21,4 @@ Và tiếng lòng, anh lại nói “vì chúng ta đang phải chiến đấu, 
 Anh sẽ nói “em muốn ăn gì không?”.
 Bằng tất cả tình yêu, anh lại nói “những giận dữ, trách móc đó đã qua rồi, chúng ta sẽ hối hận thật nhiều nếu đã để mất nhau bằng một cách nào đó quá dễ dàng. May thay, qua mỗi ngày, người ngồi ăn tối phía bên kia chiếc bàn vẫn là em, giọng nói “anh có thương em không” vẫn là của em, và người lắng nghe anh nói có một cách ngại ngùng vẫn luôn là em”.
 
-Cảm ơn em ❤️
+Thương em ❤️

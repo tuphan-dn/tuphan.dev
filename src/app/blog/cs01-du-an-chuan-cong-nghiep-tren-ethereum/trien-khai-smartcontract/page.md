@@ -7,7 +7,7 @@ date = "14 November, 2024"
 
 Trong các trường hợp đơn giản [Remix](https://remix.ethereum.org/)[^1] là đủ cho quá trình triển khai on-chain. Tuy nhiên, với các contracts có giá trị đầu vào tính toán phức tạp thì `ignition` trong Hardhat lại phát huy điểm mạnh.
 
-`ignition` cho phép chúng ta có thể viết các kịch bản triển khia on-chain.
+`ignition` cho phép chúng ta có thể viết các kịch bản triển khai on-chain.
 
 [^1]: Remix là một webapp IDE cho phép phát triển smartcontract và khác với [RemixJS](https://remix.run/).
 
