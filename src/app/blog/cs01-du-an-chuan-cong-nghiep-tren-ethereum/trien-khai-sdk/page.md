@@ -13,6 +13,8 @@ Việc gửi trực tiếp ABI cho các phòng ban ví dụ Frontend, Backend, D
 
 Chúng ta sẽ thiết lập file `tsconfig.json` để hỗ trợ cả `commonjs` và `esmodule`.
 
+> `commonjs` giúp chúng ta tương thích ngược với các phiên bản cũ, trong khi đó `esmodule` giúp chúng ta tận dụng các cải tiến mới như tree-shaking, lazy import...
+
 ```json label="tsconfig.json" group="ts"
 {
   "compilerOptions": {

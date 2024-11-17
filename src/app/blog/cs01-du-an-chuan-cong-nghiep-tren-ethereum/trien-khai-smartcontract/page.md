@@ -93,7 +93,7 @@ Batch #1
 
 Deployed Addresses
 
-CounterModule#Counter - 0x08921A367D5B3902Ff8f6Cc597Bd37C5fEEdC1a5
+CounterModule#Counter - 0x25d731D13CFd24e2B9EC02229595BE7b5d1E1d6e
 ```
 
 > Tìm hiểu các cài đặt khác [`ignition/module`](https://hardhat.org/ignition/docs/getting-started#creating-your-first-module).
@@ -105,9 +105,3 @@ CounterModule#Counter - 0x08921A367D5B3902Ff8f6Cc597Bd37C5fEEdC1a5
 💸 Kiểm tra số dư của bạn có lớn hơn 0.005 Holesky-ETH.
 
 ⚙️ Lưu ý tuỳ chọn `--network holesky` trong câu lệnh triển khai on-chain.
-
-## Conventional Commitment
-
-```bash
-pnpm add -D husky
-```

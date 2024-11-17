@@ -18,7 +18,13 @@ pnpm init
 pnpm add -D hardhat
 ```
 
-Chúng ta sẽ chọn `Create a TypeScript project (with Viem)` và `y` cho tất cả các cài đặt còn lại. Sau khi hoàn tất, ta được cấu trúc thư mục như bên dưới:
+Khởi tạo hardhat. Lưu ý, chúng ta phải chọn `Create a TypeScript project (with Viem)` và `y` cho tất cả các cài đặt còn lại.
+
+```bash
+npx hardhat init
+```
+
+Sau khi hoàn tất, ta được cấu trúc thư mục như bên dưới:
 
 ```base
 .
@@ -118,10 +124,11 @@ Thêm cài đặt cho `hardhat.config.ts`,
 ```ts label="" group="config"
 import type { HardhatUserConfig } from 'hardhat/config'
 import '@nomicfoundation/hardhat-toolbox-viem'
-import 'hardhat-abi-exporter'
+import 'hardhat-abi-exporter' // NEW
 
 const config: HardhatUserConfig = {
   solidity: '0.8.27',
+  // NEW
   abiExporter: {
     path: './abi',
     runOnCompile: true,

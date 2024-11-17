@@ -52,7 +52,7 @@ describe('contract', function () {
     return { counter, owner, attacker }
   }
 
-  describe('deploy Counter', function () {
+  describe('deploy counter', function () {
     it('deploy', async function () {
       const { counter, owner } = await loadFixture(deployFixture)
       expect(await counter.read.counter()).equal(0n)
@@ -88,7 +88,7 @@ import { getAddress } from 'viem'
 
 describe('contract', function () {
   ...
-  describe('interact counter', function () {
+  describe('interact with counter', function () {
     it('increase', async function () {
       const { counter, owner } = await loadFixture(deployFixture)
       await expect(counter.write.increase())
@@ -114,7 +114,7 @@ import { getAddress } from 'viem'
 
 describe('contract', function () {
   ...
-  describe('interact counter', function () {
+  describe('interact with counter', function () {
     it('increase', async function () {
       ...
     })
@@ -141,7 +141,7 @@ Nothing to compile
   contract
     deploy counter
       ✔ deploy (441ms)
-    interact counter
+    interact with counter
       ✔ increase
       ✔ not increase
 
@@ -159,7 +159,7 @@ Như đã trình bày ở trên, `loadFixture(deployFixture)` sẽ tạo ra mộ
 describe('contract', function () {
   ...
 
-  describe('interact counter', function () {
+  describe('interact with counter', function () {
     it('increase', async function () {
       ...
     })
@@ -177,7 +177,7 @@ describe('contract', function () {
 })
 ```
 
-Thì không như bình thường suy nghĩ, đã tăng lên `1` ở `increase` thì "chắc" là phải thành `2` ở `increase one more`. Nhưng thực ra điều này là SAI vì `loadFixture(deployFixture)` đã reset lại trạng thái của `counter` về `0`.
+Không như suy nghĩ bình thường, đã tăng lên `1` ở `increase` thì "chắc" là phải thành `2` ở `increase one more`. Nhưng thực ra điều này là SAI vì `loadFixture(deployFixture)` đã reset lại trạng thái của `counter` về `0`.
 Vì vậy, `increase one more` trở thành một testcase không chính xác.
 
 ## Chú ý phiên bản `chai-matcher`

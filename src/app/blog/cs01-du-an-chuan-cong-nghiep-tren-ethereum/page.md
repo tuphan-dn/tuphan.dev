@@ -17,6 +17,8 @@ Trong loạt bài này, chúng ta sẽ xây dựng một ứng dụng đếm s�
 
 Đặc biệt, toàn bộ quá trình phát triển và bảo trì ứng dụng sẽ tốn 0 đồng.
 
+[@preview](https://github.com/tuphan-dn/cs01-2024)
+
 ## Mục lục
 
 1. [Smartcontract: Bộ đếm on-chain với Hardhat](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/smartcontract-bo-dem-on-chain-voi-hardhat)
