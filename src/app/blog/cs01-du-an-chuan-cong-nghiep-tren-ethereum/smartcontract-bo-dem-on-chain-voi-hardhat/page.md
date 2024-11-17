@@ -41,28 +41,10 @@ Sau khi hoàn tất, ta được cấu trúc thư mục như bên dưới:
 
 Trong đó `hardhat.config.ts` là cài đặt Hardhat, thư mục `contracts` chứa code solidity, thư mục `ignition` chứa scripts triển khai contracts, và thư mục `test` để kiểm thử contracts.
 
-## Thiết lập các câu lệnh làm việc
-
-Trong `scrips` của `package.json`, thay (hoặc thêm mới) 2 lệnh `build` và `test`.
-
-```json label="package.json" group="install"
-{
-  ...
-  "scripts": {
-    "build": "hardhat compile",
-    "test": "pnpm build && hardhat test"
-  },
-  ...
-}
-```
-
-Chạy thử lệnh `build`,
+Chạy thử lệnh `npx hardhat compile`,
 
 ```bash
-pnpm build
-
-> demo@1.0.0 build ~/Desktop/demo
-> hardhat compile
+npx hardhat compile
 
 Compiled 1 Solidity file successfully (evm target: paris).
 ```
@@ -122,15 +104,33 @@ pnpm add -D hardhat-abi-exporter
 Thêm cài đặt cho `hardhat.config.ts`,
 
 ```ts label="" group="config"
-import type { HardhatUserConfig } from 'hardhat/config'
+import { readFileSync, readdirSync, writeFileSync } from 'fs'
+import { join } from 'path'
+import { task, type HardhatUserConfig } from 'hardhat/config'
 import '@nomicfoundation/hardhat-toolbox-viem'
-import 'hardhat-abi-exporter' // NEW
+import 'hardhat-abi-exporter'
+
+const abiExporterPath = './abi'
+
+task('abi', 'Build typechain ABI').setAction(async () => {
+  readdirSync(abiExporterPath)
+    .filter((name) => /(\.json)$/.test(name))
+    .forEach((name) => {
+      const file = join(abiExporterPath, name)
+      const abi = readFileSync(file, 'utf8')
+      writeFileSync(
+        file.replace(/(\.json)$/, '.ts'),
+        abi
+          .replace(/^\[/, 'export const ABI = [')
+          .replace(/\]\n$/, '] as const'),
+      )
+    })
+})
 
 const config: HardhatUserConfig = {
   solidity: '0.8.27',
-  // NEW
   abiExporter: {
-    path: './abi',
+    path: abiExporterPath,
     runOnCompile: true,
     clear: true,
     flat: true,
@@ -140,11 +140,45 @@ const config: HardhatUserConfig = {
 export default config
 ```
 
-Chạy lại `pnpm build` ta sẽ được folder `abi` chứa tất cả các ABI cần thiết.
+## Thiết lập các câu lệnh làm việc
 
-> Lưu ý, vì `abi` là sản phẩm của quá trình build nên hãy thêm nó vào `.gitignore`.
+Trong `scrips` của `package.json`, thay (hoặc thêm mới) 2 lệnh `build` và `test`.
+
+```json label="package.json" group="install"
+{
+  ...
+  "scripts": {
+    "build": "hardhat compile && hardhat abi",
+    "test": "pnpm build && hardhat test"
+  },
+  ...
+}
+```
+
+Chạy thử lệnh `build`,
+
+```bash
+pnpm build
+
+> demo@1.0.0 build ~/Desktop/demo
+> hardhat compile && hardhat abi
+
+Compiled 1 Solidity file successfully (evm target: paris).
+```
+
+Đồng thời, ta sẽ được folder `abi` chứa tất cả các ABI cần thiết. Lưu ý, vì `abi` là sản phẩm của quá trình `build` nên hãy thêm nó vào `.gitignore`.
+
+```text label=".gitignore" group="gitignore"
+...
+# Build
+abi
+```
 
 # Phụ lục
+
+## Tại sao chúng ta phải tạo các file `ts` cho ABI?
+
+Để `viem` có thể suy diễn được `interface` của contract, `viem` cần [const assertion](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions). Đó là lý do tại sao ta có `as const` ở cuối các file `ts` cho ABI. Các bạn có thể bắt gặp công dụng của nó ở bài [Triển khai SDK](/blog/cs01-du-an-chuan-cong-nghiep-tren-ethereum/trien-khai-sdk).
 
 ## VSC Plugins
 
