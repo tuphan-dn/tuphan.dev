@@ -1,5 +1,5 @@
 +++
-tags = "layer2"
+tags = "web3, evm"
 date = "19 October, 2024"
 +++
 
