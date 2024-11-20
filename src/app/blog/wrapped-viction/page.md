@@ -1,5 +1,5 @@
 +++
-tags = "evm, hardhat, web3, solidity"
+tags = "evm, hardhat, web3"
 date = "17 August, 2024"
 +++
 
