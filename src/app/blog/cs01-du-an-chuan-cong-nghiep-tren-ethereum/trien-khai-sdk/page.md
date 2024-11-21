@@ -72,7 +72,7 @@ Chúng ta sẽ thiết lập file `tsconfig.json` để hỗ trợ cả `commonj
 Thay dòng `"main": "index.js",` trong `package.json` thành
 
 ```json label="package.json" group="package"
-  ...
+  // ...
   "main": "./dist/cjs/src/index.js",
   "module": "./dist/esm/src/index.js",
   "files": [
@@ -85,7 +85,7 @@ Thay dòng `"main": "index.js",` trong `package.json` thành
     },
     "./package.json": "./package.json"
   },
-  ...
+  // ...
 ```
 
 Đồng thời, thêm `dist` vào `.gitignore`.
@@ -108,14 +108,14 @@ export const ADDRESS = '0x25d731D13CFd24e2B9EC02229595BE7b5d1E1d6e'
 
 ```json label="package.json" group="build"
 {
-  ...
+  // ...
   "scripts": {
     "build": "hardhat compile && hardhat abi && pnpm build:cjs && pnpm build:esm",
     "build:cjs": "tsc -p ./tsconfig.cjs.json && tsc-alias -p ./tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > ./dist/cjs/package.json",
     "build:esm": "tsc -p ./tsconfig.esm.json && tsc-alias -p ./tsconfig.esm.json && echo '{\"type\":\"module\"}' > ./dist/esm/package.json",
     "test": "pnpm build && hardhat test"
-  },
-  ...
+  }
+  // ...
 }
 ```
 

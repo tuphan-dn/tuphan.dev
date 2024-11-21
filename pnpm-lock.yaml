@@ -158,8 +158,8 @@ devDependencies:
     specifier: ^8.2.2
     version: 8.2.2
   daisyui:
-    specifier: ^4.12.10
-    version: 4.12.10(postcss@8.4.39)
+    specifier: ^4.12.14
+    version: 4.12.14(postcss@8.4.39)
   dotenv:
     specifier: ^16.4.5
     version: 16.4.5
@@ -2463,8 +2463,8 @@ packages:
       d3: 7.9.0
       lodash-es: 4.17.21
 
-  /daisyui@4.12.10(postcss@8.4.39):
-    resolution: {integrity: sha512-jp1RAuzbHhGdXmn957Z2XsTZStXGHzFfF0FgIOZj3Wv9sH7OZgLfXTRZNfKVYxltGUOBsG1kbWAdF5SrqjebvA==}
+  /daisyui@4.12.14(postcss@8.4.39):
+    resolution: {integrity: sha512-hA27cdBasdwd4/iEjn+aidoCrRroDuo3G5W9NDKaVCJI437Mm/3eSL/2u7MkZ0pt8a+TrYF3aT2pFVemTS3how==}
     engines: {node: '>=16.9.0'}
     dependencies:
       css-selector-tokenizer: 0.8.0

@@ -146,12 +146,12 @@ Trong `scrips` của `package.json`, thay (hoặc thêm mới) 2 lệnh `build` 
 
 ```json label="package.json" group="install"
 {
-  ...
+  // ...
   "scripts": {
     "build": "hardhat compile && hardhat abi",
     "test": "pnpm build && hardhat test"
-  },
-  ...
+  }
+  // ...
 }
 ```
 

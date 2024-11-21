@@ -32,7 +32,7 @@ export default function Link({
           alt={value.ogUrl}
         />
         <ExternalLink className="w-4 h-4 absolute top-2 right-2 transition-all opacity-20 group-hover:opacity-100" />
-        <span className="absolute left-0 w-full rounded-b-box p-4 transition-all -bottom-8 group-hover:bottom-0 opacity-0 group-hover:opacity-100 flex flex-col gap-1 bg-gradient-to-t from-base-300 to-base-300/10 backdrop-blur text-base-content">
+        <span className="absolute left-0 w-full rounded-b-box p-4 transition-all duration-500 bottom-0 opacity-0 group-hover:opacity-100 flex flex-col gap-1 bg-gradient-to-t from-base-300 to-base-300/10 backdrop-blur text-base-content">
           <span className="text-xs opacity-60">{value.ogTitle}</span>
           <span>{value.ogDescription}</span>
         </span>
