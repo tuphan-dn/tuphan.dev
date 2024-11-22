@@ -13,6 +13,8 @@ Trong phạm vi series, chúng ta sẽ sử dụng RemixJS để xây dựng m�
 
 > Điều này càng được khẳng định khi ChatGPT đã chuyển từ NextJS sang RemixJS.
 
+[@preview](https://github.com/tuphan-dn/cs01-app-2024)
+
 ## Khởi tạo RemixJS
 
 Chúng ta sử dụng câu lệnh [create-remix](https://remix.run/docs/en/main/other-api/create-remix) với các cài đặt mặc định.
