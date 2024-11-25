@@ -24,13 +24,7 @@ Tạo file `wallet.provider.tsx` trong thư mục `providers` vừa được t�
 import { type ReactNode } from 'react'
 import { getDefaultConfig, RainbowKitProvider } from '@rainbow-me/rainbowkit'
 import { WagmiProvider } from 'wagmi'
-import {
-  mainnet,
-  polygon,
-  optimism,
-  arbitrum,
-  base,
-} from 'wagmi/chains'
+import { mainnet, holesky } from 'wagmi/chains'
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 
 import '@rainbow-me/rainbowkit/styles.css';
@@ -38,8 +32,8 @@ import '@rainbow-me/rainbowkit/styles.css';
 const config = getDefaultConfig({
   appName: 'Onchain Counter',
   projectId: 'YOUR_PROJECT_ID',
-  chains: [mainnet, polygon, optimism, arbitrum, base],
-  ssr: true, // If your dApp uses server side rendering (SSR)
+  chains: [mainnet, holesky],
+  ssr: true,
 });
 const queryClient = new QueryClient();
 
@@ -87,9 +81,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
 Tạo file `header.tsx` trong `app`
 
 ```tsx label="app/header.tsx" group="header"
+import { ConnectButton } from '@rainbow-me/rainbowkit'
+
 export default function Header () {
   return <div className="w-full sticky t-0 bg-base-100 p-4 flex flex-row gap-4 items-center">
-    
+    <div className="bg-slate-900 w-64 h-64 rounded-full" />
+    <div className="grow">
+    <ConnectButton />
   </div>
 }
 ```
