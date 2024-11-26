@@ -222,7 +222,7 @@ export default function Index() {
   }, [fetchCounter])
 
   return (
-    <div className="w-full min-h-dvh flex flex-col gap-4 items-center justify-center">
+    <div className="w-full h-full flex flex-col gap-4 items-center justify-center">
       <p>
         <span className="opacity-60">Counter: </span>
         <span className="font-black">{counter}</span>
