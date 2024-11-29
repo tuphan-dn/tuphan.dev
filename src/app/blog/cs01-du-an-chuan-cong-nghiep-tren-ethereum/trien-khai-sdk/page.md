@@ -119,7 +119,7 @@ export const ADDRESS = '0x25d731D13CFd24e2B9EC02229595BE7b5d1E1d6e'
 }
 ```
 
-Chạy thử `npm build` ta sẽ được:
+Chạy thử `pnpm build` ta sẽ được:
 
 ```bash
 pnpm build
@@ -139,10 +139,10 @@ Compiled 3 Solidity files successfully (evm target: paris).
 
 ## Xuất bản SDK
 
-Chạy lệnh `npm publish --access public`
+Chạy lệnh `pnpm publish --access public`
 
 ```bash
-npm publish --access public
+pnpm publish --access public
 
 npm notice
 npm notice 📦  cs01-2024@1.0.0

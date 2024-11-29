@@ -239,6 +239,26 @@ Kết quả sẽ được:
 
 # Phụ lục
 
+## The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0
+
+Cập nhật bộ biên dịch mới cho `scss` trong `vite.config.ts`.
+
+```ts labe="vite.config.ts" group="config"
+// ...
+export default defineConfig({
+  plugins: [
+    /* ... */
+  ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler',
+      },
+    },
+  },
+})
+```
+
 ## Autoformat trong VSC
 
 [🎨 Prettier - Code formatter by Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)

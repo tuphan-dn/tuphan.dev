@@ -24,6 +24,7 @@ Ngoài ra ta cũng sẽ định nghĩa mạng `holesky` testnet. Ta có thể đ
 
 ```ts label="hardhat.config.ts" group="install"
 import type { HardhatUserConfig } from 'hardhat/config'
+import { generatePrivateKey } from 'viem/accounts' // NEW
 import '@nomicfoundation/hardhat-toolbox-viem'
 import 'hardhat-abi-exporter'
 import 'hardhat-chai-matchers-viem'
@@ -41,8 +42,8 @@ const config: HardhatUserConfig = {
   // NEW
   networks: {
     holesky: {
-      url: process.env.RPC,
-      accounts: [process.env.PRIVKEY || ''],
+      url: process.env.RPC || '',
+      accounts: [process.env.PRIVKEY || generatePrivateKey()],
     },
   },
 }
