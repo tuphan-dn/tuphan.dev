@@ -113,7 +113,7 @@ export default defineConfig({
 ### Kết nối Cloudflare
 
 1. Đăng nhập [Cloudflare Dashboard](https://dash.cloudflare.com/).
-2. Chọn Workers& Pages.
+2. Chọn Workers & Pages.
 3. Chọn Create.
 4. Chọn Pages.
 5. Chọn Connect to Git và kết nối đến repo `cs01-app-2024` của bạn.
@@ -122,4 +122,4 @@ export default defineConfig({
 8. Chọn Save & Deploy.
 9. Chọn Continue to project.
 
-Sau khi triển khai thành công, DApp sẽ chạy ở tên miền của `pages.dev`, ví dụ [https://cs01-app-2024.pages.dev/](https://cs01-app-2024.pages.dev/).
+Sau khi triển khai thành công, DApp sẽ chạy ở tên miền của `pages.dev`, ví dụ [https://cs01-app-2024.pages.dev/](https://cs01-app-2024.pages.dev/). Giờ đây, với mỗi cập nhật ở nhánh `master`, Cloudflare sẽ tự động cập nhật trực tiếp lên DApp thay bạn.
