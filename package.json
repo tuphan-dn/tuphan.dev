@@ -15,6 +15,7 @@
     "migrate:watch": "nodemon --watch db.up.ts --watch src --ext md,mdx --exec 'pnpm migrate' --signal SIGTERM"
   },
   "dependencies": {
+    "@egjs/react-view360": "4.0.0-beta.7",
     "@headlessui/react": "^2.1.2",
     "@icons-pack/react-simple-icons": "^9.6.0",
     "@next/third-parties": "^14.2.5",
