@@ -6,7 +6,7 @@ FROM node:20.12.0-slim as base
 FROM base as builder
 WORKDIR /app
 # Install deps
-RUN npm install -g pnpm@8.15.6
+RUN npm install -g pnpm@9
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 # Build source
