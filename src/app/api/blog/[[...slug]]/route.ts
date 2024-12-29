@@ -20,6 +20,7 @@ class Route {
   @Injectable()
   static async GET(
     _req: NextRequest,
+    _: { params: Promise<object> },
     @Params(GetDto) { slug }: z.infer<typeof GetDto>,
   ) {
     const pathname = ['/blog', ...slug].join('/')
@@ -30,6 +31,7 @@ class Route {
   @Injectable()
   static async POST(
     _req: NextRequest,
+    _: { params: Promise<object> },
     @Body(PostDto) { q, t, limit, offset }: z.infer<typeof PostDto>,
   ) {
     if (q) {

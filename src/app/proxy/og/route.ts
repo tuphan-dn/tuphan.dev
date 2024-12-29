@@ -11,6 +11,7 @@ class Route {
   @Injectable()
   static async GET(
     _req: NextRequest,
+    _: { params: Promise<object> },
     @Query(GetDto) { url }: z.infer<typeof GetDto>,
   ) {
     const { result } = await ogs({ url })

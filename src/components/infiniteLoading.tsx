@@ -14,7 +14,7 @@ export default function InfiniteLoading({
   onLoad,
   disabled = false,
 }: InfiniteLoadingProps) {
-  const ref = useRef<HTMLSpanElement>(null)
+  const ref = useRef<HTMLElement>(document.body)
   const intersection = useIntersection(ref, {
     root: null,
     rootMargin: '0px',
