@@ -13,7 +13,7 @@ import '@/styles/global.scss'
 
 export default function UiProvider({ children }: { children: ReactNode }) {
   return (
-    <ThemeProvider enableSystem>
+    <ThemeProvider>
       {children}
       <AppProgressBar
         color="#0086fc"

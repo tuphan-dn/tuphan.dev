@@ -27,7 +27,7 @@ export function Injectable() {
     // Wrapped function
     descriptor.value = async function (
       req: NextRequest,
-      { params: nextParams }: { params: object },
+      { params: nextParams }: { params: Promise<object> },
     ) {
       try {
         const args: [NextRequest, ...any[]] = [req]
@@ -77,7 +77,7 @@ export function Injectable() {
           propertyKey,
         )
         if (metaparams && metaparams.dto) {
-          const params = metaparams.dto.safeParse(nextParams)
+          const params = metaparams.dto.safeParse(await nextParams)
           if (!params.success)
             return NextResponse.json(fromZodError(params.error).toString(), {
               status: 400,

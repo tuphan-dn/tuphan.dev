@@ -4,7 +4,7 @@ import { headers } from 'next/headers'
 import { all } from '@/db'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const pathname = headers().get('x-forwarded-pathname') || ''
+  const pathname = (await headers()).get('x-forwarded-pathname') || ''
   const { title, image, description } =
     all.find(({ route }) => route === pathname) || {}
   const metadata = { title, description }

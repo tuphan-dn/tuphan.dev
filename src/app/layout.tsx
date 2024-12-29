@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 import UiProvider from '@/providers/ui.provider'
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(host),
 }
 
-export const viewport = {
+export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
@@ -21,7 +21,7 @@ export const viewport = {
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
