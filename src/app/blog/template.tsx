@@ -26,10 +26,11 @@ export default function Template({ children }: { children: ReactNode }) {
 
   const { data: { children: siblings = [] } = {} } = useBlog(parent)
   const { data: { route: prev = '', title: left = '←' } = {} } = useBlog(
-    siblings[siblings.findIndex((e) => e === route) + 1],
+    siblings[siblings.findIndex((e) => e === route) + 1] ||
+      (parent !== '/blog' ? parent : '/404'),
   )
   const { data: { route: next = '', title: right = '→' } = {} } = useBlog(
-    siblings[siblings.findIndex((e) => e === route) - 1],
+    routes.at(-1) || siblings[siblings.findIndex((e) => e === route) - 1],
   )
 
   return (
@@ -70,11 +71,12 @@ export default function Template({ children }: { children: ReactNode }) {
           className={clsx(
             'col-span-1 p-4 flex flex-col gap-1 items-start rounded-box bg-base-200 transition-all border-2 border-base-300',
             {
-              'cursor-not-allowed opacity-60': !prev,
+              'pointer-events-none opacity-60': !prev,
               'hover:bg-base-300': prev,
             },
           )}
           href={prev || '#'}
+          aria-disabled={!prev}
         >
           <span className="text-xs opacity-60">Old Post</span>
           <span className="font-semibold text-left">{left}</span>
@@ -83,11 +85,12 @@ export default function Template({ children }: { children: ReactNode }) {
           className={clsx(
             'col-span-1 p-4 flex flex-col gap-1 items-end rounded-box bg-base-200 transition-all border-2 border-base-300',
             {
-              'cursor-not-allowed opacity-60': !next,
+              'pointer-events-none opacity-60': !next,
               'hover:bg-base-300': next,
             },
           )}
           href={next || '#'}
+          aria-disabled={!next}
         >
           <span className="text-xs opacity-60">Next Post</span>
           <span className="font-semibold text-right">{right}</span>
