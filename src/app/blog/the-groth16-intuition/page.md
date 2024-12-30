@@ -9,7 +9,7 @@ _"Hi, saw you on twitter. I'm trying to understand groth16. I have a quick quest
 
 ![The twitter Saksham Thapa mentioned.](./twitter-me.jpg)
 
-Hostnestly, I just followed the paper without asking the motivation behind $\alpha, \beta$ and $\gamma, \delta$ furthermore. In this article, I won't go through the math details cause the assumption that the readers was familiar with Eliptic Curve, Pairing-based Cryptosystem, R1CS, QAP, Lagrange Intherpolation, ...
+Honestly, I just followed the paper without asking the motivation behind $\alpha, \beta$ and $\gamma, \delta$ furthermore. In this article, I won't go through the math details cause the assumption that the readers was familiar with Eliptic Curve, Pairing-based Cryptosystem, R1CS, QAP, Lagrange Intherpolation, ...
 
 ## Notation
 
