@@ -21,6 +21,9 @@ body {
   #headlessui-portal-root {
     @apply relative z-0;
   }
+  .katex-display {
+    @apply w-full overflow-x-auto overflow-y-hidden;
+  }
 }
 
 input[type='number']::-webkit-inner-spin-button,
