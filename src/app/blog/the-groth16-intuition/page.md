@@ -148,7 +148,7 @@ $$
 w(x) = u(x) \circ v(x) \Leftrightarrow w(x) + h(x)t(x) = u(x)v(x)
 $$
 
-However, we can make the verification process succint by the Schwartz-Zippel Lemma. Roughly speaking, if 2 polynomials $f(x)$ and $g(x)$ with the same degree $d$ both aggree on a random $\tau$, i.e. $f(\tau)=g(\tau)$, then $f(x)=g(x)$ with a very high probability.
+However, we can make the verification process succint by the Schwartz-Zippel Lemma. Roughly speaking, if 2 polynomials $f(x)$ and $g(x)$ with the same degree $d$ both agree on a random $\tau$, i.e. $f(\tau)=g(\tau)$, then $f(x)=g(x)$ with a very high probability.
 
 It means we don't have to compute every coefficients of $w(x) + h(x)t(x)$ and $u(x)v(x)$ for comparison, instead evaluating the equation at a random $\tau$,
 
