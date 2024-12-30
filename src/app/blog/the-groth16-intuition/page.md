@@ -142,7 +142,7 @@ where $u_i(x)$ is the $m$-degree polynomial interpolating the $i$-th column vect
 
 It's clear to see that the matrix production equation verification is equivalent to the polynomial evaluation at $x = 1, \dots, m$.
 
-Let's $t(x)=(x-1) \dots (x-m)$, then $w(x) = \sum_{i=1}^n w_i(x)a_i | t(x)$, $u(x) = \sum_{i=1}^n u_i(x)a_i | t(x)$, and $v(x) = \sum_{i=1}^n v_i(x)a_i | t(x)$ due to the factor theorem. Now, we are able to translate the $\circ$ to a polinomial multiplcation.
+Let's $t(x)=(x-1) \dots (x-m)$, then $w(x) = \sum_{i=1}^n w_i(x)a_i \mid t(x)$, $u(x) = \sum_{i=1}^n u_i(x)a_i \mid t(x)$, and $v(x) = \sum_{i=1}^n v_i(x)a_i \mid t(x)$ due to the factor theorem. Now, we are able to translate the $\circ$ to a polinomial multiplcation.
 
 $$
 w(x) = u(x) \circ v(x) \Leftrightarrow w(x) + h(x)t(x) = u(x)v(x)
