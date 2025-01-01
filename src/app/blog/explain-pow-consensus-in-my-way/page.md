@@ -9,7 +9,7 @@ The first time I read the definition of Proof-of-Work (PoW), it was explained as
 
 ## Consensus is not originally a native definition in web3
 
-In fact, the term of consensus was first introduced in Distributed Systems[^1] (i.e. database sharding, world clock synchronization, .etc), where multiple machines (also known as nodes) collaborate to perform tasks.
+In fact, the term of consensus was first introduced in Distributed Systems[^1] (i.e., database sharding, world clock synchronization, .etc), where multiple machines (also known as nodes) collaborate to perform tasks.
 
 To keep the process synchorized (a common strategy in blockchains), nodes need to appoint a leader somehow so that the leader can tell them when/how the collaboration should start.
 

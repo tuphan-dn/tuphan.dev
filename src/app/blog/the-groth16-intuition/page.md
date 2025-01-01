@@ -23,11 +23,11 @@ Finally, $\mathbb{F}_q$ refers a finite field with order $q$.
 
 ## Completeness & Succinctness
 
-It's necessary to recall that Groth16 is a ZK framework. It can "zk-ish" problems that can be defined under the form of algebraic circuits (i.e. binary inputs and NAND gates).
+It's necessary to recall that Groth16 is a ZK framework. It can "zk-ish" problems that can be defined under the form of algebraic circuits (i.e., binary inputs and NAND gates).
 
 ### R1CS
 
-However, we can computationally improve the performance of proving and verifying by tranforming the algebraic circuit to a Rank-1 Constraint System (R1CS), which is a basic arithmetic circuit (i.e. interger inputs and adddition/multiplication gates).
+However, we can computationally improve the performance of proving and verifying by tranforming the algebraic circuit to a Rank-1 Constraint System (R1CS), which is a basic arithmetic circuit (i.e., interger inputs and adddition/multiplication gates).
 
 For example, you know the tuple $(x,y)$ so that $z = xy + 7y - 5$ where $z$ is public and a product of 2 large primes. Importantly, all computation is in $\mathbb{F}_q$. Then you can transform both the problem and the solution to R1CS.
 
@@ -259,8 +259,8 @@ Recall the previous trusted setup,
 
 $$
 \begin{align*}
-[w(\tau) + \beta u(\tau) + \alpha v(\tau) + h(\tau)t(\tau)]_1 &= \sum_{i=1}^n a_i (w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)) G_1 \\
-&+ h_0 t(\tau) G_1 +  h_1 \tau t(\tau) G_1 + \dots + h_{m-2} \tau^{m-2} t(\tau) G_1\\
+&[w(\tau) + \beta u(\tau) + \alpha v(\tau) + h(\tau)t(\tau)]_1\\
+&= \sum_{i=1}^n a_i (w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)) G_1 + h_0 t(\tau) G_1 +  h_1 \tau t(\tau) G_1 + \dots + h_{m-2} \tau^{m-2} t(\tau) G_1\\
 \end{align*}
 $$
 
@@ -268,17 +268,16 @@ $$
 
 $$
 \begin{align*}
-\sum_{i=1}^n a_i (w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)) G_1 &= \sum_{i=1}^\ell a_i (w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)) G_1\\
-&+ \sum_{i=\ell+1}^n a_i (w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)) G_1\\
-&= \sum_{i=1}^\ell a_i \frac{(w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau))}{\gamma} \gamma G_1\\
-&+ \sum_{i=\ell+1}^n a_i \frac{(w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau))}{\delta} \delta G_1
-\end{align*}\\
+&\sum_{i=1}^n a_i (w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)) G_1\\
+&= \sum_{i=1}^\ell a_i (w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)) G_1 + \sum_{i=\ell+1}^n a_i (w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)) G_1\\
+&= \sum_{i=1}^\ell a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\gamma} \gamma G_1 + \sum_{i=\ell+1}^n a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\delta} \delta G_1
+\end{align*}
 $$
 
 The we can rewrite $e([w(\tau) + \beta u(\tau) + \alpha v(\tau) + h(\tau)t(\tau)]_1, G_2)$ as:
 
 $$
-e([\sum_{i=1}^\ell a_i \frac{(w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau))}{\gamma}]_1, [\gamma]_2) + e([\sum_{i=\ell+1}^n a_i \frac{(w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau))}{\delta} + \frac{h(\tau)t(\tau)}{\delta}]_1, [\delta]_2)
+e([\sum_{i=1}^\ell a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\gamma}]_1, [\gamma]_2) + e([\sum_{i=\ell+1}^n a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\delta} + \frac{h(\tau)t(\tau)}{\delta}]_1, [\delta]_2)
 $$
 
 **Trusted Setup.** A third-party securely choose random scalars $\gamma, \delta$ and open the common reference strings (CRS) as:
@@ -291,8 +290,81 @@ $$
 \end{align*}
 $$
 
-So now, the public part is not only associate with the private part in the original problem, but also in the "hidden" problems by $\gamma$ and $\delta$ in the current trusted setup. $\quad \blacksquare$
+So now, the public part is not only appropriate with the private part in the original problem, but also in the "hidden" problems by $\gamma$ and $\delta$ in the current trusted setup. $\quad \blacksquare$
 
 ## More Zero-knowledge
 
 The protocol now appears to address most critical pitfalls. However, let's assume that there are 2 provers. After the first prover open his valid proofs, the second one will replay that proof and become a valid prover. To prevent such replay attacks, Groth16 allows provers to includes randomness into thier own proofs.
+
+Let's say the prover will choose 2 randoms $r$, $s$ and inject into the term of
+
+$$
+e([u(\tau)+\alpha]_1, [v(\tau)+\beta]_2) \overset{r, s}{\rightarrow} e([u(\tau)+\alpha+r]_1, [v(\tau)+\beta+s]_2)
+$$
+
+, which seems a good approach. However, we can image that $r$ and $s$ is too "free" so an attacker can make up a proof $[A]_1 = [u(\tau)+\alpha+r]_1$ and $[B]_2 = [v(\tau)+\beta+s]_2$.
+
+To prevent that potentially negative results, I strongly beleive that Groth16 was heavily inspired by Diffie-Hellman key exchange. Groth16 allows provers to includ randomnesses but not really control them. Groth16 utilize the randomess $\delta$ to merge with $r$ and $s$.
+
+$$
+\begin{align*}
+[A]_1 &= [u(\tau)+\alpha+r\delta]_1 &&(= [u(\tau)+\alpha]_1+r[\delta]_1)\\
+[B]_2 &= [v(\tau)+\beta+s\delta]_2 &&(= [v(\tau)+\beta]_2+s[\delta]_2)\\
+\end{align*}
+$$
+
+Because the prover doesn't know the value of $\delta$, it's safe for the prover to still add the randomnesses $r[\delta]_1$ and $s[\delta]_2$ without knowing the actual values. $\quad \blacksquare$
+
+Due to the updates in term of $[A]_1$ and $[B]_2$, we will do some math stuffs to balance the QAP equation.
+
+$$
+\begin{align*}
+e([A]_1,[B]_2) &= e([u(\tau)+\alpha+r\delta]_1,[v(\tau)+\beta+s\delta]_2)\\
+&= e([(u(\tau)+\alpha+r\delta)(v(\tau)+\beta+s\delta)]_1, G_2)\\
+&= e([(u(\tau)+\alpha)(v(\tau)+\beta) + (u(\tau)+\alpha+r\delta)s\delta + (v(\tau)+\beta+s\delta)r\delta - rs\delta^2]_1, G_2)\\
+&= e([(u(\tau)+\alpha)(v(\tau)+\beta)]_1, G_2) + e([(u(\tau)+\alpha+r\delta)s + (v(\tau)+\beta+s\delta)r - rs\delta]_1, [\delta]_2)\\
+&= e([w(\tau)+u(\tau)\beta+v(\tau)\alpha]_1, G_2) + e([\alpha]_1, [\beta]_2) + e([(u(\tau)+\alpha+r\delta)s + (v(\tau)+\beta+s\delta)r - rs\delta]_1, [\delta]_2)\\
+
+&= e([\sum_{i=1}^\ell a_i \frac{(w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau))}{\gamma}]_1, [\gamma]_2) + e([\sum_{i=\ell+1}^n a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\delta} + \frac{h(\tau)t(\tau)}{\delta}]_1, [\delta]_2) + e([\alpha]_1, [\beta]_2) + e([As + Br - rs\delta]_1, [\delta]_2)\\
+
+&= e([\alpha]_1, [\beta]_2) + e([\sum_{i=1}^\ell a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\gamma}]_1, [\gamma]_2) + e([\sum_{i=\ell+1}^n a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\delta} + \frac{h(\tau)t(\tau)}{\delta} + As + Br - rs\delta]_1, [\delta]_2)\\
+
+&= e([\alpha]_1, [\beta]_2) + e([\sum_{i=1}^\ell a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\gamma}]_1, [\gamma]_2) + e([C]_1, [\delta]_2)\\
+\end{align*}
+$$
+
+, where $C = \sum_{i=\ell+1}^n a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\delta} + \frac{h(\tau)t(\tau)}{\delta} + As + Br - rs\delta$.
+
+# The Groth16 Protocol
+
+**Trusted Setup.** A third party chooses random scalars $\alpha, \beta, \tau, \gamma, \delta \leftarrow \mathbb{F}_q$ and open the CRS:
+
+$$
+\begin{align*}
+&\{[1]_1, [\tau]_1, \dots, [\tau^{m-1}]_1, [\tau^m]_1\}\\
+&\{[1]_2, [\tau]_2, \dots, [\tau^{m-1}]_2, [\tau^m]_2\}\\
+&[\alpha]_1, [\beta]_1, [\beta]_2, [\gamma]_2, [\delta]_1, [\delta]_2\\
+&\{[\alpha v_i(\tau) + \beta u_i(\tau) + w_i(\tau)]_1\}_{i=1..n}\\
+&\{[\frac{t(\tau)}{\delta}]_1, [\frac{\tau t(\tau)}{\delta}]_1, \dots, [\frac{\tau^{m-2} t(\tau)}{\delta}]_1\}\\
+&\{[\frac{\alpha v_i(\tau) + \beta u_i(\tau) + w_i(\tau)}{\gamma}]_1\}_{i=1..\ell}, \{[\frac{\alpha v_i(\tau) + \beta u_i(\tau) + w_i(\tau)}{\delta}]_1\}_{i=\ell+1..n}\\
+\end{align*}
+$$
+
+**Prover.** The prover generates the proofs:
+
+$$
+\begin{align*}
+&[A]_1 = \sum_{i=0}^m u_i [\tau^i]_1 + [\alpha]_1 + r[\delta]_1\\
+&\textcolor{red}{[B]_1} = \sum_{i=0}^m v_i [\tau^i]_1 + [\beta]_1 + s[\delta]_1\\
+&[B]_2 = \sum_{i=0}^m v_i [\tau^i]_2 + [\beta]_2 + s[\delta]_2\\
+&[C]_1 = \sum_{i=\ell+1}^n a_i [\frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\delta}]_1 + \sum_{i=0}^{m-2} h_i [\frac{\tau^i t(\tau)}{\delta}]_1 + [A]_1s + \textcolor{red}{[B]_1}r - rs[\delta]_1\\
+\end{align*}
+$$
+
+**Verifier.** The verifier checks the equations:
+
+$$
+e([A]_1, [B]_2) \overset{?}{=} e([\alpha]_1, [\beta]_2) + e([\sum_{i=1}^\ell a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\gamma}]_1, [\gamma]_2) + e([C]_1, [\delta]_)
+$$
+
+> Happy new year, 2025, guys 🎉

@@ -5,7 +5,7 @@ date = "17 August, 2024"
 
 # Wrapped Native Token
 
-I have played around the Viction ecosystem (an EVM-compatible layer 1) and figured out they have no wrapped token (i.e. WVIC) on thier own blockchain. Interestedly, I used many wrapped tokens like WETH, WSOL but nener wonder how was it implemented? So I decide to build one on Viction.
+I have played around the Viction ecosystem (an EVM-compatible layer 1) and figured out they have no wrapped token (i.e., WVIC) on thier own blockchain. Interestedly, I used many wrapped tokens like WETH, WSOL but nener wonder how was it implemented? So I decide to build one on Viction.
 
 ![A wrapped token illustration from Tangem Wallet](./wrapped-token.png)
 
