@@ -22,6 +22,7 @@ export default function Template({ children }: { children: ReactNode }) {
       children: routes = [],
       date,
     } = {},
+    isLoading,
   } = useBlog(pathname)
 
   const { data: { children: siblings = [] } = {} } = useBlog(parent)
@@ -39,7 +40,7 @@ export default function Template({ children }: { children: ReactNode }) {
         <Header />
       </div>
       <article className="w-full mb-16 prose prose-h1:mt-[1.6666667em] prose-p:tracking-[-.25px] prose-table:w-full prose-table:block prose-table:overflow-auto">
-        <Schedule published={date}>
+        <Schedule published={date} loading={isLoading}>
           <div className="not-prose w-full flex flex-col gap-1">
             <Tags value={tags} />
             <Contributors authors={authors} date={date} />
