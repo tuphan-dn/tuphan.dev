@@ -290,3 +290,9 @@ $$
 &\{\frac{t(\tau)}{\delta} G_1, \frac{\tau t(\tau)}{\delta} G_1, \dots, \frac{\tau^{m-2} t(\tau)}{\delta} G_1\}\\
 \end{align*}
 $$
+
+So now, the public part is not only associate with the private part in the original problem, but also in the "hidden" problems by $\gamma$ and $\delta$ in the current trusted setup. $\quad \blacksquare$
+
+## More Zero-knowledge
+
+The protocol now appears to address most critical pitfalls. However, let's assume that there are 2 provers. After the first prover open his valid proofs, the second one will replay that proof and become a valid prover. To prevent such replay attacks, Groth16 allows provers to includes randomness into thier own proofs.
