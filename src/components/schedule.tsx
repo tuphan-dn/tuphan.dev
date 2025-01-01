@@ -1,5 +1,4 @@
-'use client'
-import { useMemo, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import dayjs from 'dayjs'
 
 import { env } from '@/configs/env'
@@ -15,13 +14,6 @@ export default function Schedule({
   published,
   loading = false,
 }: ScheduleProps) {
-  const scheduled = useMemo(
-    () =>
-      new Date(published || Date.now() + 1) > new Date() &&
-      env !== 'development',
-    [published],
-  )
-
   if (loading)
     return (
       <div className="not-prose w-full flex flex-col gap-4 items-start">
@@ -42,7 +34,10 @@ export default function Schedule({
         <span className="w-2/3 h-6 skeleton" />
       </div>
     )
-  if (scheduled)
+  if (
+    new Date(published || Date.now() + 1) > new Date() &&
+    env !== 'development'
+  )
     return (
       <div className="not-prose w-full flex flex-col gap-4 items-center text-base-content">
         <h1>Not Published Yet!</h1>
