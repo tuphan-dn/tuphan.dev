@@ -11,7 +11,7 @@ export type ScheduleProps = {
 
 export default function Schedule({
   children,
-  published,
+  published = new Date(Date.now() + 1),
   loading = false,
 }: ScheduleProps) {
   if (loading)
@@ -34,10 +34,7 @@ export default function Schedule({
         <span className="w-2/3 h-6 skeleton" />
       </div>
     )
-  if (
-    new Date(published || Date.now() + 1) > new Date() &&
-    env !== 'development'
-  )
+  if (new Date(published) > new Date() && env !== 'development')
     return (
       <div className="not-prose w-full flex flex-col gap-4 items-center text-base-content">
         <h1>Not Published Yet!</h1>
