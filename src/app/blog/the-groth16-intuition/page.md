@@ -174,7 +174,7 @@ $$
 
 Thus, we need to give him corressponding "encoded" values of $(\tau, \dots, \tau^m)$ to help the prover able to compute those values.
 
-**Trusted Setup.** A third-party securely choose a random scalar $\tau$ and open the common reference strings (CRS) as:
+**Trusted Setup.** A third-party securely choose a random scalar $\tau$ and open the structured reference strings (SRS) as:
 
 $$
 \begin{align*}
@@ -207,7 +207,7 @@ If there exists no mechanisms to ensure that, the prover just randomly pick a va
 
 To prevent forged proofs, Groth16 tries to create a relationship between $w(x)$, $u(x)$, and $v(x)$ while the trusted setup by injecting 2 randoms, $\alpha$ and $\beta$. The relationship must be computable under the pairing-based cryptosystem.
 
-**Trusted Setup.** A third-party securely choose random scalars $\alpha, \beta$ and open the common reference strings (CRS) as:
+**Trusted Setup.** A third-party securely choose random scalars $\alpha, \beta$ and open the SRS as:
 
 $$
 \alpha G_1, \beta G_2, \{(\alpha v_i(x) + \beta u_i(x) + w_i(x)) G_1\}_{i=1..n}
@@ -280,7 +280,7 @@ $$
 e([\sum_{i=1}^\ell a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\gamma}]_1, [\gamma]_2) + e([\sum_{i=\ell+1}^n a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\delta} + \frac{h(\tau)t(\tau)}{\delta}]_1, [\delta]_2)
 $$
 
-**Trusted Setup.** A third-party securely choose random scalars $\gamma, \delta$ and open the common reference strings (CRS) as:
+**Trusted Setup.** A third-party securely choose random scalars $\gamma, \delta$ and open the SRS as:
 
 $$
 \begin{align*}
@@ -337,7 +337,7 @@ $$
 
 # The Groth16 Protocol
 
-**Trusted Setup.** A third party chooses random scalars $\alpha, \beta, \tau, \gamma, \delta \leftarrow \mathbb{F}_q$ and open the CRS:
+**Trusted Setup.** A third party chooses random scalars $\alpha, \beta, \tau, \gamma, \delta \leftarrow \mathbb{F}_q$ and open the SRS:
 
 $$
 \begin{align*}
