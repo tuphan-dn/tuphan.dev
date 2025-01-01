@@ -29,13 +29,13 @@ contract C {
 Storage slot của `data[4][9]` sẽ bắt đầu tại:
 
 $$
-\begin{aligned}
+\begin{align*}
 &x = \textcolor{red}{keccak256(}\\
 & \quad uint256(9) | \textcolor{green}{keccak256(}\\
 & \qquad uint256(4) | uint256(1)\\
 & \quad \textcolor{green}{)}\\
 &\textcolor{red}{)}
-\end{aligned}
+\end{align*}
 $$
 
 Ngoài ra, dữ liệu của `data[4][9].a` sẽ đặt tại $x$ và dữ liệu của `data[4][9].b` sẽ đặt tại $x+1$.
@@ -59,7 +59,7 @@ Một Account State[^1] bao gồm $nonce$, $balance$, $storageRoot$, và $codeHa
 Một [Account State](#account-state) sẽ được giữ bởi một địa chỉ dài 20 bytes. Điều đó sẽ cho ra một tài khoản dưới dạng:
 
 $$
-\begin{aligned}
+\begin{align*}
 &(\\
 &\quad keccak256(addr),\\
 &\quad RLP(\\
@@ -69,7 +69,7 @@ $$
 &\qquad codeHash\\
 &\quad)\\
 &)
-\end{aligned}
+\end{align*}
 $$
 
 Tất cả các tài khoản trên thế giới sẽ được tổ chức vào trong một cây MPT và cuối cùng cho ra một $stateRoot$.
@@ -97,17 +97,17 @@ Các trạng thái được lưu:
 **Output Root.**[^1] Nó là một chuỗi 32 bytes với giá trị là $keccak256(versionByte | payload)$. Trong đó, $versionByte$ sẽ là một chuỗi 32 bytes đơn giản thể hiện phiên bản của [L2 Output Commitment](https://specs.optimism.io/protocol/proposals.html#l2-output-root-proposals-specification), và $payload$ là
 
 $$
-\begin{aligned}
+\begin{align*}
 payload =& \; stateRoot\\
 |& \; withdrawalStorageRoot\\
 |& \; latestBlockHash
-\end{aligned}
+\end{align*}
 $$
 
 **Batch.**[^1] Nó là kết quả của phép nối mảng $(batchVersion|content)$ với
 
 $$
-\begin{aligned}
+\begin{align*}
 &content = RLP(\\
 & \quad parentHash,\\
 & \quad epochNumber,\\
@@ -115,7 +115,7 @@ $$
 & \quad timestamp,\\
 & \quad transactionList\\
 &)
-\end{aligned}
+\end{align*}
 $$
 
 [^1]: Từ này sẽ được giữ nguyên gốc như là một danh từ thay vì dịch ra nghĩa Tiếng Việt.

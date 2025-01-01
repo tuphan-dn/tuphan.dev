@@ -32,13 +32,13 @@ contract C {
 The slot of `data[4][9]` will start at:
 
 $$
-\begin{aligned}
+\begin{align*}
 &x = \textcolor{red}{keccak256(}\\
 & \quad uint256(9) | \textcolor{green}{keccak256(}\\
 & \qquad uint256(4) | uint256(1)\\
 & \quad \textcolor{green}{)}\\
 &\textcolor{red}{)}
-\end{aligned}
+\end{align*}
 $$
 
 Additionally, the data of `data[4][9].a` is locate at $x$ and the data of `data[4][9].b` is locate at $x+1$.
@@ -62,7 +62,7 @@ The account state consists of $nonce$, $balance$, $storageRoot$, and $codeHash$.
 Every [Account State](#account-state) will be hold by an 20-byte-length address. It will form an account
 
 $$
-\begin{aligned}
+\begin{align*}
 &(\\
 &\quad keccak256(addr),\\
 &\quad RLP(\\
@@ -72,7 +72,7 @@ $$
 &\qquad codeHash\\
 &\quad)\\
 &)
-\end{aligned}
+\end{align*}
 $$
 
 All accounts in the world will be organized into an MPT and yield out a $stateRoot$.
@@ -100,17 +100,17 @@ The submitted states includes:
 **Output Root.** It is a 32-byte string of $keccak256(versionByte | payload)$ where $versionByte$ is a 32-byte simple string of the [L2 Output Commitment](https://specs.optimism.io/protocol/proposals.html#l2-output-root-proposals-specification) version, and $payload$ is
 
 $$
-\begin{aligned}
+\begin{align*}
 payload =& \; stateRoot\\
 |& \; withdrawalStorageRoot\\
 |& \; latestBlockHash
-\end{aligned}
+\end{align*}
 $$
 
 **Batch.** It is a concatenation of $(batchVersion|content)$ where
 
 $$
-\begin{aligned}
+\begin{align*}
 &content = RLP(\\
 & \quad parentHash,\\
 & \quad epochNumber,\\
@@ -118,5 +118,5 @@ $$
 & \quad timestamp,\\
 & \quad transactionList\\
 &)
-\end{aligned}
+\end{align*}
 $$

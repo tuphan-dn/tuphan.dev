@@ -44,10 +44,10 @@ _Giving 2 polynomials $A(x)$ and $B(x)$ with high degrees $m$ and $n$ respective
 **Solution.** Let's represent polynomials as coefficient vectors $A=[a_0,a_1,...,a_{m-1}], B=[b_0,b_1,...,b_{n-1}]$, where:
 
 $$
-\begin{aligned}
+\begin{align*}
 A(x) &= a_0 + a_1x + a_2x^2 + ... + a_{m-1}x^{m-1}\\
 B(x) &= b_0 + b_1x + b_2x^2 + ... + b_{n-1}x^{n-1}
-\end{aligned}
+\end{align*}
 $$
 
 After padding zeros to the both coefficient vetors so that they're both length $N \ge n+m-1$ and $N$ is a power of 2, we can transform the padded vectors to $\text{DFT}(A) = [ A(\sigma^0), A(\sigma^1),... , A(\sigma^{n-1}) ]$ where $0 \le k \le N, \sigma = e^{-i2 \pi k/n}$ is a $n$-th root of unity, and $\text{DFT}(B)$ similarly.

@@ -10,10 +10,10 @@ date = "22 August, 2020"
 _Phép toán hai ngôi_ (gọi tắt là phép toán) trên tập hợp $X$ là một ánh xạ
 
 $$
-\begin{aligned}
+\begin{align*}
 f: X \times X &\rightarrow X\\
 (x,y) &\mapsto f(x,y)
-\end{aligned}
+\end{align*}
 $$
 
 ### 1.1. Định nghĩa
@@ -55,12 +55,12 @@ _Nếu phép toán $*$ kết hợp thì một phần tử có nhiều nhất m�
 $x' * x = e$ và $x * x'' = e$. Do đó
 
 $$
-\begin{aligned}
+\begin{align*}
 x' &= x' * e\\
 &= x' * (x * x'')\\
 &= [x' * x) * x''\\
 &= e * x'' = x'' \quad \blacksquare
-\end{aligned}
+\end{align*}
 $$
 
 ### 1.8. Nhận xét
@@ -120,12 +120,12 @@ _trong đó $1 \le i \lt j ... \lt k \lt n$._
 **Chứng minh.** Vì $X$ là một nửa nhóm nên định lý đúng với $n=3$. Xét $n \lt 3$, giả sử định lý dúng cho mọi tích có $m$ phần tử với $3 \le m \lt n$. Khi đó sử dụng giả thuyết quy nạp và tính kết hợp ta có
 
 $$
-\begin{aligned}
+\begin{align*}
 &(x_1 ... x_i) (x_{i+1} ... x_j) ... (x_{k+1} ... x_j)\\
 = &(x_1 ... x_i) [(x_{i+1} ... x_j) ... (x_{k+1} ... x_j)]\\
 = &[x_1(x_2 ... x_i)][(x_{i+1} ... x_n)]\\
 = &x_1(x_2 ... x_n) = x_1 ... x_n \quad \blacksquare
-\end{aligned}
+\end{align*}
 $$
 
 ### 2.5. Ký hiệu
@@ -149,13 +149,13 @@ _Trong nửa nhóm giao hoán, tích của $n$ phần tử tuỳ ý không phụ
 **Chứng minh.** Vì phép toán giao hoán nên định lý đúng với $n=2$. Xét $n \gt 2$. Giả sử định lý đúng với mọi tích của $m$ phần tử với $m \lt n$. Ta chứng minh $x_1 ... x_n = x_{\sigma(1)} ... x_{\sigma(n)}$ với mọi phép hoán vị $\sigma$ của tập hợp $\{1,2,...,n\}$. Thật vậy, đặt $k=\sigma(n)$, bằng cách sử dụng giải thuyết quy nạp và các tính chất giao hoán, kết hợp của phép nhân ta có:
 
 $$
-\begin{aligned}
+\begin{align*}
 x_1...x_n &= (x_1...x_{k-1})[x_k(x_{k+1}...x_n)]\\
 &= (x_1...x_{k-1})[(x_{k+1}...x_n)x_k]\\
 &= (x_1...x_{k-1}x_{k+1}...x_n)x_k\\
 &= (x_{\sigma(1)}...x_{\sigma(n-1)})x_{\sigma(n)}\\
 &= x_{\sigma(1)}...x_{\sigma(n)} \quad \blacksquare
-\end{aligned}
+\end{align*}
 $$
 
 ## 3. Khái niệm về nhóm
@@ -212,13 +212,13 @@ _(v) Phép toán nhân có tính giản ước, nghĩa là với mọi $x,y,z \i
 (iv) Chỉ cần nhận xét rằng
 
 $$
-\begin{aligned}
+\begin{align*}
 &(x_1...x_n)(x_n^{-1}...x_1^{-1})\\
 &= (x_1...x_{n-1})(x_nx_n^{-1})(x_{n-1}^{-1}...x_1^{-1})\\
 &= (x_1...x_{n-1})(x_{n-1}^{-1}...x_1^{-1})\\
 &= ...\\
 &= e
-\end{aligned}
+\end{align*}
 $$
 
 sau đó sử dụng (iii).
@@ -254,10 +254,10 @@ Vậy $e$ là phần tử đơn vị trái. Tính chất sai cùng trong (iii) �
 (iii) $\Rightarrow$ (ii) Giả sử trong $G$ có phần tử đơn vị trái $e$ và với mọi $x \in G$, tồn tại $x' \in G$ sao cho $x'x=e$. Ta chứng minh $e$ là phần tử đơn vị và $x'$ là phần tử nghịch đảo của $x$. Theo giả thuyết, với $x'$ như trên tồn tại $x'' \in G$ sao cho $x''x'=e$. Do đó
 
 $$
-\begin{aligned}
+\begin{align*}
 xx'&=e(xx')=(x''x')(xx')\\
 &=x''(x'x)x'=x''ex'=x''x'=e
-\end{aligned}
+\end{align*}
 $$
 
 Suy ra
@@ -329,20 +329,20 @@ Nhóm hoán vị $S_n$ là nhóm hữu hạn có cấp $n!$, có phần tử tru
    d. Trong nhóm hoán vị $S_5$, cho
 
    $$
-   \begin{aligned}
+   \begin{align*}
    \sigma&=(1\;2\;5\;3)\\
    \tau&=
    \begin{pmatrix}
    1&2&3&4&5\\
    4&3&5&1&2
    \end{pmatrix}
-   \end{aligned}
+   \end{align*}
    $$
 
    Ta có
 
    $$
-   \begin{aligned}
+   \begin{align*}
    \sigma\tau&=
    \begin{pmatrix}
    1&2&3&4&5\\
@@ -359,7 +359,7 @@ Nhóm hoán vị $S_n$ là nhóm hữu hạn có cấp $n!$, có phần tử tru
    1&2&3&4&5\\
    4&5&2&1&3
    \end{pmatrix}\\
-   \end{aligned}
+   \end{align*}
    $$
 
 ### 4.3. Nhận xét
@@ -385,12 +385,12 @@ _Mọi phép hoán vị bậc $n$ khác ánh xạ đồng nhất đều được
    Trong đó $\sigma_1,\sigma_2,...,\sigma_p$ là các chu trình rời nhau và $\sigma'_1,\sigma'_2,...,\sigma'_p$ cũng là các chu trình rời nhau. Đặt $\sigma_1=(i_1i_2...i_r)$. Khi đó tồn tại $1 \le k \le q$ sao cho
 
    $$
-   \begin{aligned}
+   \begin{align*}
    \sigma'_k(i_1)=\sigma(i_1)=\sigma_1(i_1)=i_2,\\
    \sigma'_k(i_2)=\sigma(i_2)=\sigma_1(i_2)=i_3,\\
    \cdots\\
    \sigma'_k(i_r)=\sigma(i_r)=\sigma_1(i_r)=i_1,\\
-   \end{aligned}
+   \end{align*}
    $$
 
    Do đó $\sigma'_k=\sigma_1$. Không mất tính tổng quát ta có thể giả sử $\sigma'_1=\sigma_1$. Khi đó $\sigma_2...\sigma_p=\sigma'_2...\sigma'_q$. Tiếp tục thực hiện như trên, cuối cùng ta được $p=q$ và $\sigma'_i=\sigma_i$ với mọi $1 \le i \le p$. Định lý được chứng minh. $\quad \blacksquare$
@@ -398,14 +398,14 @@ _Mọi phép hoán vị bậc $n$ khác ánh xạ đồng nhất đều được
    Ví dụ: Trong nhốm hoán vị $S_{10}$ ta có
 
    $$
-   \begin{aligned}
+   \begin{align*}
    \sigma &=
    \begin{pmatrix}
    1&2&3&4&5&6&7&8&9&10\\
    3&2&7&9&1&4&8&5&6&10\\
    \end{pmatrix}\\
    &= (1\;3\;7\;8\;5)(4\;9\;6)
-   \end{aligned}
+   \end{align*}
    $$
 
 ### 4.5. Bổ đề
@@ -498,7 +498,7 @@ _với $l$ là số chuyển vị trong phân tích $\sigma$ thành tích các c
 Ví dụ: Xét tính chẵn lẻ của phép hoán vị $\sigma \in S_{10}$ sau:
 
 $$
-\begin{aligned}
+\begin{align*}
 \sigma &=
 \begin{pmatrix}
 1&2&3&4&5&6&7&8&9&10\\
@@ -506,7 +506,7 @@ $$
 \end{pmatrix}\\
 &= (1\;3\;6)(2\;5\;8\;10\;9\;)\\
 &= (1\;6)(1\;3)(2\;9)(2\;10)(2\;8)(2\;5)
-\end{aligned}
+\end{align*}
 $$
 
 Vì $\sigma$ được viết dưới dạng tích của 6 chuyển vị nên $sgn(\sigma)=1$ nghĩa là $\sigma$ là một hoán vị chẵn.
@@ -698,11 +698,11 @@ Vậy $\sim$ là một quan hệ tương đương trên $G$.
 (ii) Ta có
 
 $$
-\begin{aligned}
+\begin{align*}
 x \sim y &\Leftrightarrow x^{-1}y \in H\\
 &\Leftrightarrow \exist h \in H, x^{-1}y = h\\
 &\Leftrightarrow \exist h \in H, y = xh\\
-\end{aligned}
+\end{align*}
 $$
 
 Suy ra $\overline{x} = \{ y \in G | x \sim y \} = \{ xh | h \in H \} = xh$. $\quad \blacksquare$
@@ -730,10 +730,10 @@ $$
 **Chứng minh.** Trước hết nhận xét rằng nếu $xH$ là một lớp ghép trái thì ánh xạ
 
 $$
-\begin{aligned}
+\begin{align*}
 \varphi: H &\rightarrow xH\\
 h &\mapsto xh
-\end{aligned}
+\end{align*}
 $$
 
 là một song ánh. Thật vậy, $\varphi$ là toàn ánh do định nghĩa của tập hợp $xH$, $\varphi$ là đơn ánh vì nếu $xh=xk$ thì $h=k$ do tính giản ước của phép toán nhân trong nhóm $G$. Như vậy số phần tử của các lớp ghép trái đều bằng nhau và bằng $|H|$, số lớp ghép là $[G:H]$. Do đó
@@ -794,11 +794,11 @@ _trong đó $x^{-1}Hx=\{ x^{-1}hx | h \in H \}$._
 2. Nhóm tuyến tính đặc biệt $SL(n,\mathbb{R})$ (Xem [Ví dụ 5.4](#54-ví-dụ)) là nhóm on chuẩn tắc của nhóm tuyến tính đầy đủ $GL(n,\mathbb{R})$ vì với mọi $X \in GL(n,\mathbb{R})$ và $A \in SL(n,\mathbb{R})$ ta có
 
    $$
-   \begin{aligned}
+   \begin{align*}
    &\det(X^-1AX)\\
    &= (\det X)^{-1} (\det A) (\det X)\\
    &= \det(A) = 1
-   \end{aligned}
+   \end{align*}
    $$
 
    nghĩa là $X^{-1}AX \in SL(n,\mathbb{R})$.
@@ -815,11 +815,11 @@ _(ii) Tập thương $G/H$ cùng với phép toán nhân định bởi $(xH)(yH)
 **Chứng minh.** (i) Giả sử $x_iH=xH$ và $y_qH=yH$, nghĩa là $x^{-1}x_1 \in H$ và $y^{-1}y_1 \in H$. Ta cần chứng minh $x_1y_1H=xyH$, nghĩa là $(xy)^{-1}(x_1y_1) \in H$. Thật vậy
 
 $$
-\begin{aligned}
+\begin{align*}
 &(xy)^{-1}(x_1y_1)\\
 &= y^{-1}x^{-1}x_1y_1\\
 &= [y^{-1}x^{-1}x_1y](y^{-1}y_1)
-\end{aligned}
+\end{align*}
 $$
 
 Phần tử sau cùng thuộc $H$ do $x^{-1}x_1$ và $y^{-1}y_1$ đều thuộc $H$ và $H \triangleleft G$.
@@ -921,25 +921,25 @@ _Cho đồng cấu nhóm $f: G \rightarrow G'$. Khi đó ánh xạ $\overline{f}
 **Chứng minh.** Đặt $H=Kerf$. Vì $H \triangleleft G$ nên ta lập được nhóm thương $G/H$. Xét tương ứng $f: G/H \rightarrow G'$ định bởi $\overline{f}(xH)=f(x)$ ta có với mọi $x,y \in G$:
 
 $$
-\begin{aligned}
+\begin{align*}
 \overline{f}(xH) = \overline{f}(yH) &\Leftrightarrow f(x)=f(y)\\
 &\Leftrightarrow (f(x))^{-1}f(y)=e'\\
 &\Leftrightarrow f(x^{-1})f(y)=e'\\
 &\Leftrightarrow f(x^{-1}y)=e'\\
 &\Leftrightarrow x^{-1}y \in H\\
 &\Leftrightarrow xH=yH\\
-\end{aligned}
+\end{align*}
 $$
 
 Chiều ($\Leftarrow$) chứng tỏ $\overline{f}$ là một ánh xạ, chiều ($\Rightarrow$) chứng tỏ $\overline{f}$ là một đơn ánh. Bây giờ ta kiểm chứng $\overline{f}$ là một đồng cấu. Thật vậy, với mọi $x,y \in G$:
 
 $$
-\begin{aligned}
+\begin{align*}
 \overline{f}((xH)(yH)) &= \overline{f}(xyH)\\
 &= f(xy)\\
 &= f(x)f(y)\\
 &= \overline{f}((xH)\overline{f}(yH))
-\end{aligned}
+\end{align*}
 $$
 
 Vậy $\overline{f}$ là đơn cấu. Khẳng định sau cùng trong Định lý được suy tiwf lý thuyết về ánh xạ. $\quad \blacksquare$
@@ -953,10 +953,10 @@ _Cho $G$ là một nhóm và $H$, $K$ là hai nhóm con của $G$, hơn nữa $H
 1. $HK \le G$: Hiển nhiên $e = ee \in HK$. Giả sử $h_1k_1, h_2k_2$ là hai phần tử của $HK$. Khi đó:
 
    $$
-   \begin{aligned}
+   \begin{align*}
    (h_1k_1)^{-1}(h_2k_2) &= h_1^{-1}k_1^{-1}h_2k_2\\
    &= [k_1^{-1}(h_1^{-1}h_2)k_1][k_1^{-1}k_2]
-   \end{aligned}
+   \end{align*}
    $$
 
    Chú ý rằng $h_1^{-1}h_2 \in H$ nên $k_1^{-1}(h_1^{-1}h_2)k_1 \in H$ do $H \triangleleft G$, hơn nữa $k_1^{-1}k_2 \in K$ do $K \le G$. Do đó $(h_1k_1)^{-1}(h_2k_2) \in HK$. Suy ra $HK \le G$.
@@ -966,12 +966,12 @@ _Cho $G$ là một nhóm và $H$, $K$ là hai nhóm con của $G$, hơn nữa $H
 3. Xét ánh xạ $f: K \rightarrow HK / H$ định bởi $f(k) = kH$. Hiển nhiên $f$ là một đồng cấu nhóm, hơn nữa $f$ còn là toàn cấu vì với mọi $hkH \in HK/H$ ta có $hkH=(hH)(kH)=H(kH)=kH=f(k)$. Mặt khác:
 
 $$
-\begin{aligned}
+\begin{align*}
 \text{Ker} f &= \{ k \in K | f(k)=H \}\\
 &= \{ k \in K | kH=H \}\\
 &= \{ k \in K | k \in H \}\\
 &= H \cap K\\
-\end{aligned}
+\end{align*}
 $$
 
 Do đó $H \cap K \triangleleft K$ và theo [Định lý 8.9](#89-định-lý-đẳng-cấu-1) ta có đẳng cấu $K/H \cap K \simeq HK/H$, trong đó $k(H \cap K) \mapsto kH$
@@ -987,12 +987,12 @@ _(ii) $\mathcal{K}$ là một nhóm con chuẩn tắc của $G/H$ khi và chỉ 
 **Chứng minh.** Xét toàn cấu chính tắc $\pi: G \rightarrow G/H$. Với $\mathcal{K} \le G/H$, đặt $K = \pi^{-1}(\mathcal{K})$ thì $H \le K \le G$ và $\pi(K)=\mathcal{K}$. Do đó khẳng định (i) được chứng minh. Mặt khác, nếu $\mathcal{K} \triangleleft G/H$ thì $K \triangleleft G$ nên ta có khẳng định đầu trong (ii). Hơn nữa, khi đó xét tương ứng $f: G/H \rightarrow G/K$ định bởi $f(xH)=xK$ ta thấy ngay $f$ là một ánh xạ vì nếu $xH=yH$ thì $x^{-1}y \in H$, từ đó $x^{-1}y \in K$, nghĩa là $xK=yK$. Hiển nhiên $f$ là toàn ánh. Ngoài ra do $f((xH)(yH)) = f(xyH) = xyK = (xK)(yK) = f(xH)f(yH)$ nên $f$ là đồng cấu. Cuối cùng ta có
 
 $$
-\begin{aligned}
+\begin{align*}
 \text{Ker}f &= \{ xH \in G/H | f(xH)=K \}\\
 &= \{ xH \in G/H | xK=K \}\\
 &= \{ xH \in G/H | x \in K \}\\
 &= K/H\\
-\end{aligned}
+\end{align*}
 $$
 
 nên theo [Định lý 8.9](#89-định-lý-đẳng-cấu-1) $(G/H)/(K/H) \simeq G/K$ trong đó $(xH)(KH)\mapsto xK$. $\quad \blacksquare$

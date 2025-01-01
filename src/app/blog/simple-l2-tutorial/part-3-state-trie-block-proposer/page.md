@@ -138,12 +138,12 @@ Because a block is produced through the Layer 2 consensus, all nodes agree on a 
 Given a hash function $H$:
 
 $$
-\begin{aligned}
+\begin{align*}
 &\text{blockHeader} = H(\\
 &\quad \text{prevBlockHeader},\\
 &\quad H(TxTrieRoot, StateTrieRoot)\\
 &)
-\end{aligned}
+\end{align*}
 $$
 
 Then, it's possible to provide a strong proof of relationship among the previous state, the transactions, and the next state that is valid to a given block header.
