@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 
 export const name = 'tuphan.dev'
 export const description =
-  "I usually write about Computer Science like Web3, WebDev, Cryptography, and Math, also some MBA stuffs cause I'm learning it."
+  "I usually write about Computer Science like Web3, WebDev, Cryptography, Math, and also some MBA stuff cause I'm learning it."
 export const host = process.env.NEXT_PUBLIC_HOST || '/'
 
 export default function manifest(): MetadataRoute.Manifest {

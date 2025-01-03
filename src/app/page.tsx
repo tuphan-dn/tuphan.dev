@@ -13,6 +13,7 @@ import { DotPattern } from '@/components/patterns'
 
 import { useSignalSwitch } from '@/lib/hooks/useSignal'
 import { useTag } from '@/lib/hooks/useTag'
+import { description } from './manifest'
 
 function TagList() {
   const tag = useTag()
@@ -99,9 +100,7 @@ export default function Page() {
             animate={{ x: 0, opacity: 0.6 }}
             transition={{ duration: 0.5 }}
           >
-            I usually write about Computer Science like Web3, WebDev,
-            Cryptography, and Math, also some MBA stuffs cause I&apos;m learning
-            it.
+            {description}
           </motion.p>
           <Island>
             <TagList />

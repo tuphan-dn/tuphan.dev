@@ -315,7 +315,7 @@ $$
 
 Because the prover doesn't know the value of $\delta$, it's safe for the prover to still add the randomnesses $r[\delta]_1$ and $s[\delta]_2$ without knowing the actual values. $\quad \blacksquare$
 
-Due to the updates in term of $[A]_1$ and $[B]_2$, we will do some math stuffs to balance the QAP equation.
+Due to the updates in term of $[A]_1$ and $[B]_2$, we will do some math stuff to balance the QAP equation.
 
 $$
 \begin{align*}
