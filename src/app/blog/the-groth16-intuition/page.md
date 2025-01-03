@@ -169,7 +169,7 @@ What if we can prove the QAP statement, $w(\tau) +h(\tau)t(\tau) = u(\tau)v(\tau
 To stop people learning the polynomials, we can map the computation in the current finite field to a pairing-based cryptosystem.
 
 $$
-e([w(\tau) + h(\tau)t(\tau)]_1, G_2) = e([u(\tau)]_1, [v(\tau)]_2)
+\mathbf{e}([w(\tau) + h(\tau)t(\tau)]_1, G_2) = \mathbf{e}([u(\tau)]_1, [v(\tau)]_2)
 $$
 
 Thus, we need to give him corressponding "encoded" values of $(\tau, \dots, \tau^m)$ to help the prover able to compute those values.
@@ -217,14 +217,14 @@ We update the pairing proof to
 
 $$
 \begin{align*}
-e([u(\tau)+\alpha]_1,[v(\tau)+\beta]_2) &= e([(u(\tau)+\alpha)(v(\tau)+\beta)]_1, G_2)\\
-&= e([u(\tau)v(\tau) + \beta u(\tau) + \alpha v(\tau) + \alpha\beta]_1, G_2)\\
-&= e([w(\tau) + h(\tau)t(\tau) + \beta u(\tau) + \alpha v(\tau) + \alpha\beta]_1, G_2)\\
-&= e([w(\tau) + \beta u(\tau) + \alpha v(\tau) + h(\tau)t(\tau)]_1, G_2) + e([\alpha]_1,[\beta]_2)\\
+\mathbf{e}([u(\tau)+\alpha]_1,[v(\tau)+\beta]_2) &= \mathbf{e}([(u(\tau)+\alpha)(v(\tau)+\beta)]_1, G_2)\\
+&= \mathbf{e}([u(\tau)v(\tau) + \beta u(\tau) + \alpha v(\tau) + \alpha\beta]_1, G_2)\\
+&= \mathbf{e}([w(\tau) + h(\tau)t(\tau) + \beta u(\tau) + \alpha v(\tau) + \alpha\beta]_1, G_2)\\
+&= \mathbf{e}([w(\tau) + \beta u(\tau) + \alpha v(\tau) + h(\tau)t(\tau)]_1, G_2) + \mathbf{e}([\alpha]_1,[\beta]_2)\\
 \end{align*}
 $$
 
-> In some articles they write $e(A+B,G) = e(A,G) \cdot e(B,G)$. However, because $e(\cdot, \cdot)$ is also an element in the elliptic curve group $G_T$ then I prefer $e(A+B,G) = e(A,G) + e(B,G)$ for consistency.
+> In some articles they write $\mathbf{e}(A+B,G) = \mathbf{e}(A,G) \cdot \mathbf{e}(B,G)$. However, because $\mathbf{e}(\cdot, \cdot)$ is also an element in the elliptic curve group $G_T$ then I prefer $\mathbf{e}(A+B,G) = \mathbf{e}(A,G) + \mathbf{e}(B,G)$ for consistency.
 
 By the trusted setup, the prover can open the genuine proof
 
@@ -274,10 +274,10 @@ $$
 \end{align*}
 $$
 
-The we can rewrite $e([w(\tau) + \beta u(\tau) + \alpha v(\tau) + h(\tau)t(\tau)]_1, G_2)$ as:
+The we can rewrite $\mathbf{e}([w(\tau) + \beta u(\tau) + \alpha v(\tau) + h(\tau)t(\tau)]_1, G_2)$ as:
 
 $$
-e([\sum_{i=1}^\ell a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\gamma}]_1, [\gamma]_2) + e([\sum_{i=\ell+1}^n a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\delta} + \frac{h(\tau)t(\tau)}{\delta}]_1, [\delta]_2)
+\mathbf{e}([\sum_{i=1}^\ell a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\gamma}]_1, [\gamma]_2) + \mathbf{e}([\sum_{i=\ell+1}^n a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\delta} + \frac{h(\tau)t(\tau)}{\delta}]_1, [\delta]_2)
 $$
 
 **Trusted Setup.** A third-party securely choose random scalars $\gamma, \delta$ and open the SRS as:
@@ -299,7 +299,7 @@ The protocol now appears to address most critical pitfalls. However, let's assum
 Let's say the prover will choose 2 randoms $r$, $s$ and inject into the term of
 
 $$
-e([u(\tau)+\alpha]_1, [v(\tau)+\beta]_2) \overset{r, s}{\rightarrow} e([u(\tau)+\alpha+r]_1, [v(\tau)+\beta+s]_2)
+\mathbf{e}([u(\tau)+\alpha]_1, [v(\tau)+\beta]_2) \overset{r, s}{\rightarrow} \mathbf{e}([u(\tau)+\alpha+r]_1, [v(\tau)+\beta+s]_2)
 $$
 
 , which seems a good approach. However, we can image that $r$ and $s$ is too "free" so an attacker can make up a proof $[A]_1 = [u(\tau)+\alpha+r]_1$ and $[B]_2 = [v(\tau)+\beta+s]_2$.
@@ -319,17 +319,17 @@ Due to the updates in term of $[A]_1$ and $[B]_2$, we will do some math stuffs t
 
 $$
 \begin{align*}
-e([A]_1,[B]_2) &= e([u(\tau)+\alpha+r\delta]_1,[v(\tau)+\beta+s\delta]_2)\\
-&= e([(u(\tau)+\alpha+r\delta)(v(\tau)+\beta+s\delta)]_1, G_2)\\
-&= e([(u(\tau)+\alpha)(v(\tau)+\beta) + (u(\tau)+\alpha+r\delta)s\delta + (v(\tau)+\beta+s\delta)r\delta - rs\delta^2]_1, G_2)\\
-&= e([(u(\tau)+\alpha)(v(\tau)+\beta)]_1, G_2) + e([(u(\tau)+\alpha+r\delta)s + (v(\tau)+\beta+s\delta)r - rs\delta]_1, [\delta]_2)\\
-&= e([w(\tau)+u(\tau)\beta+v(\tau)\alpha]_1, G_2) + e([\alpha]_1, [\beta]_2) + e([(u(\tau)+\alpha+r\delta)s + (v(\tau)+\beta+s\delta)r - rs\delta]_1, [\delta]_2)\\
+\mathbf{e}([A]_1,[B]_2) &= \mathbf{e}([u(\tau)+\alpha+r\delta]_1,[v(\tau)+\beta+s\delta]_2)\\
+&= \mathbf{e}([(u(\tau)+\alpha+r\delta)(v(\tau)+\beta+s\delta)]_1, G_2)\\
+&= \mathbf{e}([(u(\tau)+\alpha)(v(\tau)+\beta) + (u(\tau)+\alpha+r\delta)s\delta + (v(\tau)+\beta+s\delta)r\delta - rs\delta^2]_1, G_2)\\
+&= \mathbf{e}([(u(\tau)+\alpha)(v(\tau)+\beta)]_1, G_2) + \mathbf{e}([(u(\tau)+\alpha+r\delta)s + (v(\tau)+\beta+s\delta)r - rs\delta]_1, [\delta]_2)\\
+&= \mathbf{e}([w(\tau)+u(\tau)\beta+v(\tau)\alpha]_1, G_2) + \mathbf{e}([\alpha]_1, [\beta]_2) + \mathbf{e}([(u(\tau)+\alpha+r\delta)s + (v(\tau)+\beta+s\delta)r - rs\delta]_1, [\delta]_2)\\
 
-&= e([\sum_{i=1}^\ell a_i \frac{(w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau))}{\gamma}]_1, [\gamma]_2) + e([\sum_{i=\ell+1}^n a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\delta} + \frac{h(\tau)t(\tau)}{\delta}]_1, [\delta]_2) + e([\alpha]_1, [\beta]_2) + e([As + Br - rs\delta]_1, [\delta]_2)\\
+&= \mathbf{e}([\sum_{i=1}^\ell a_i \frac{(w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau))}{\gamma}]_1, [\gamma]_2) + \mathbf{e}([\sum_{i=\ell+1}^n a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\delta} + \frac{h(\tau)t(\tau)}{\delta}]_1, [\delta]_2) + \mathbf{e}([\alpha]_1, [\beta]_2) + \mathbf{e}([As + Br - rs\delta]_1, [\delta]_2)\\
 
-&= e([\alpha]_1, [\beta]_2) + e([\sum_{i=1}^\ell a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\gamma}]_1, [\gamma]_2) + e([\sum_{i=\ell+1}^n a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\delta} + \frac{h(\tau)t(\tau)}{\delta} + As + Br - rs\delta]_1, [\delta]_2)\\
+&= \mathbf{e}([\alpha]_1, [\beta]_2) + \mathbf{e}([\sum_{i=1}^\ell a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\gamma}]_1, [\gamma]_2) + \mathbf{e}([\sum_{i=\ell+1}^n a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\delta} + \frac{h(\tau)t(\tau)}{\delta} + As + Br - rs\delta]_1, [\delta]_2)\\
 
-&= e([\alpha]_1, [\beta]_2) + e([\sum_{i=1}^\ell a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\gamma}]_1, [\gamma]_2) + e([C]_1, [\delta]_2)\\
+&= \mathbf{e}([\alpha]_1, [\beta]_2) + \mathbf{e}([\sum_{i=1}^\ell a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\gamma}]_1, [\gamma]_2) + \mathbf{e}([C]_1, [\delta]_2)\\
 \end{align*}
 $$
 
@@ -364,7 +364,7 @@ $$
 **Verifier.** The verifier checks the equations:
 
 $$
-e([A]_1, [B]_2) \overset{?}{=} e([\alpha]_1, [\beta]_2) + e([\sum_{i=1}^\ell a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\gamma}]_1, [\gamma]_2) + e([C]_1, [\delta]_)
+\mathbf{e}([A]_1, [B]_2) \overset{?}{=} \mathbf{e}([\alpha]_1, [\beta]_2) + \mathbf{e}([\sum_{i=1}^\ell a_i \frac{w_i(\tau) + \beta u_i(\tau) + \alpha v_i(\tau)}{\gamma}]_1, [\gamma]_2) + \mathbf{e}([C]_1, [\delta]_)
 $$
 
 > Happy new year, 2025, guys 🎉
