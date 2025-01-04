@@ -602,7 +602,7 @@ Từ [Định lý 5.7](#57-định-lý) ta suy ra mệnh đề sau:
 
 ### 6.2. Mệnh đề
 
-_Nhóm con cyclic sinh bởi $a$ là tập hợp gồm tất cả các lũ thừa $a^n$ với $n \in \mathbb{Z}$, nghĩa là $\left< a \right> = \{ a^n | n \in \mathbb{Z} \}$._
+_Nhóm con cyclic sinh bởi $a$ là tập hợp gồm tất cả các lũy thừa $a^n$ với $n \in \mathbb{Z}$, nghĩa là $\left< a \right> = \{ a^n | n \in \mathbb{Z} \}$._
 
 Cho $(G,\cdot)$ là một nhóm và $a \in G$. Xét nhóm con cyclic $\left< a \right>$. Khi đó có hai trường hợp có thể xảy ra:
 
@@ -630,13 +630,13 @@ _Cho $(G,\cdot)$ là một nhóm và $a \in G$. Ta có:_
 
 _(i) $a$ có cấp vô hạn khi và chỉ khi với mọi $k \in \mathbb{Z}$, nếu $a^k=e$ thì $k=0$._
 
-_(ii) $a$ có cấp hữu hạn khi và chỉ khi tông tại $k \in \mathbb{Z}^*$ sao cho $a^k=e$._
+_(ii) $a$ có cấp hữu hạn khi và chỉ khi tồn tại $k \in \mathbb{Z}^*$ sao cho $a^k=e$._
 
 _(iii) Nếu $a$ có cấp hữu hạn thì cấp của $a$ là số nguyên dương $n$ nhỏ nhất sao cho $a^n=e$. Hơn nữa, khi đó với mọi $k \in \mathbb{Z}, a^k=e$ khi và chỉ khi $k$ là bội số của $n$._
 
 ### 6.5. Ví dụ
 
-1. Nhóm cộng các số nguyên $\mathbb{Z}$ là nhóm cyclic sing bởi 1.
+1. Nhóm cộng các số nguyên $\mathbb{Z}$ là nhóm cyclic sinh bởi 1.
 2. Với mỗi $n$ nguyên dương, quan hệ đồng dư modulo $n$ trên $\mathbb{Z}$ định bởi $z \equiv y \mod n \Leftrightarrow x-y$ chia hết cho $n$.
 
    Đây là một quan hệ tương đương trên $\mathbb{Z}$ với các lớp tương đương là $\overline{x} = \{x+kn|k \in \mathbb{Z}\}$.
