@@ -44,9 +44,9 @@ _Thành phố Hồ Chí Minh, tháng 8 năm 2020_
 7. [Nhóm con chuẩn tắc và nhóm thương](/blog/dai-so-dai-cuong/chuong-i-nhom#7-nhóm-con-chuẩn-tắc-và-nhóm-thương)
 8. [Đồng cấu](/blog/dai-so-dai-cuong/chuong-i-nhom#8-đồng-cấu)
 
-Chương II. VÀNH VÀ TRƯỜNG
+[Chương II. VÀNH VÀ TRƯỜNG](/blog/dai-so-dai-cuong/chuong-ii-vanh-va-truong)
 
-1. Khái niệm về vành
+1. [Khái niệm về vành](/blog/dai-so-dai-cuong/chuong-ii-vanh-va-truong#1-khai-niem-ve-vanh)
 2. Vành con, Ideal và vành thương
 3. Đồng cấu
 4. Miền nguyên và trường

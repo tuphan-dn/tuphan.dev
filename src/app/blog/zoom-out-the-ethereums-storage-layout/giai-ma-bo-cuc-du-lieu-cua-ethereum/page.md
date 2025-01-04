@@ -31,8 +31,8 @@ Storage slot của `data[4][9]` sẽ bắt đầu tại:
 $$
 \begin{align*}
 &x = \textcolor{red}{keccak256(}\\
-& \quad uint256(9) | \textcolor{green}{keccak256(}\\
-& \qquad uint256(4) | uint256(1)\\
+& \quad uint256(9) \mid \textcolor{green}{keccak256(}\\
+& \qquad uint256(4) \mid uint256(1)\\
 & \quad \textcolor{green}{)}\\
 &\textcolor{red}{)}
 \end{align*}
@@ -94,17 +94,17 @@ Thay vì thực thi giao dịch trực tiếp[^2] trên Layer 1[^1] và phụ th
 
 Các trạng thái được lưu:
 
-**Output Root.**[^1] Nó là một chuỗi 32 bytes với giá trị là $keccak256(versionByte | payload)$. Trong đó, $versionByte$ sẽ là một chuỗi 32 bytes đơn giản thể hiện phiên bản của [L2 Output Commitment](https://specs.optimism.io/protocol/proposals.html#l2-output-root-proposals-specification), và $payload$ là
+**Output Root.**[^1] Nó là một chuỗi 32 bytes với giá trị là $keccak256(versionByte \mid payload)$. Trong đó, $versionByte$ sẽ là một chuỗi 32 bytes đơn giản thể hiện phiên bản của [L2 Output Commitment](https://specs.optimism.io/protocol/proposals.html#l2-output-root-proposals-specification), và $payload$ là
 
 $$
 \begin{align*}
 payload =& \; stateRoot\\
-|& \; withdrawalStorageRoot\\
-|& \; latestBlockHash
+\mid& \; withdrawalStorageRoot\\
+\mid& \; latestBlockHash
 \end{align*}
 $$
 
-**Batch.**[^1] Nó là kết quả của phép nối mảng $(batchVersion|content)$ với
+**Batch.**[^1] Nó là kết quả của phép nối mảng $(batchVersion \mid content)$ với
 
 $$
 \begin{align*}

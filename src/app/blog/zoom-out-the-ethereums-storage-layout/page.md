@@ -34,8 +34,8 @@ The slot of `data[4][9]` will start at:
 $$
 \begin{align*}
 &x = \textcolor{red}{keccak256(}\\
-& \quad uint256(9) | \textcolor{green}{keccak256(}\\
-& \qquad uint256(4) | uint256(1)\\
+& \quad uint256(9) \mid \textcolor{green}{keccak256(}\\
+& \qquad uint256(4) \mid uint256(1)\\
 & \quad \textcolor{green}{)}\\
 &\textcolor{red}{)}
 \end{align*}
@@ -97,17 +97,17 @@ Instead of executing transactions on-chain and relying on the Layer 1's throughp
 
 The submitted states includes:
 
-**Output Root.** It is a 32-byte string of $keccak256(versionByte | payload)$ where $versionByte$ is a 32-byte simple string of the [L2 Output Commitment](https://specs.optimism.io/protocol/proposals.html#l2-output-root-proposals-specification) version, and $payload$ is
+**Output Root.** It is a 32-byte string of $keccak256(versionByte \mid payload)$ where $versionByte$ is a 32-byte simple string of the [L2 Output Commitment](https://specs.optimism.io/protocol/proposals.html#l2-output-root-proposals-specification) version, and $payload$ is
 
 $$
 \begin{align*}
 payload =& \; stateRoot\\
-|& \; withdrawalStorageRoot\\
-|& \; latestBlockHash
+\mid& \; withdrawalStorageRoot\\
+\mid& \; latestBlockHash
 \end{align*}
 $$
 
-**Batch.** It is a concatenation of $(batchVersion|content)$ where
+**Batch.** It is a concatenation of $(batchVersion \mid content)$ where
 
 $$
 \begin{align*}

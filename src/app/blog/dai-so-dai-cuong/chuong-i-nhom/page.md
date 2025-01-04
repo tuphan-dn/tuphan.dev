@@ -186,7 +186,7 @@ Nhóm $G$ được gọi là _nhóm hữu hạn_ khi tập hợp $G$ hữu hạn
 
 1. Tập hợp các số nguyên $\mathbb{Z}$ cùng với phpes cộng thông thường là một nhóm giao hoán mà ta gọi là nhóm cộng các số nguyên. Tương tự ta có nhóm công các số hữu tỷ $\mathbb{Q}$, nhóm cộng các số thực $\mathbb{R}$ và nhóm cộng các số phức $\mathbb{C}$.
 2. Tập hợp các số hữu tỷ khác không $\mathbb{Q^*}$ cùng với phép nhân thông thường là một nhóm giao hoán mà ta gọi là nhóm nhân các số hữu tỷ khác không. Tương tự ta có nhóm nhân các số thực khác không $\mathbb{R^*}$, và nhóm nhân các số phức khác không $\mathbb{C^*}$.
-3. Với $X=\{1,2,...,n\}$, đặt $ S_n = {\sigma | \sigma: X \rightarrow X}$ là một song ánh. Khi đó $S_n$ với phép hợp nối ánh xạ là một nhóm (có phần tử đơn vị là ánh xạ đồng nhất $Id_X$ và phần tử nghịch đảo của $\sigma \in S_n$ chính là ánh xạ ngược $\sigma^{-1}$). Ta gọi $(S_n,\circ)$ là nhóm hoán vị hay nhóm đối xứng bậc $n$. Đây là một nhóm hữu hạn có cấp $n!$ ([xem 4](#4-nhóm-hoán-vị)).
+3. Với $X=\{1,2,...,n\}$, đặt $S_n = {\sigma \mid \sigma: X \rightarrow X}$ là một song ánh. Khi đó $S_n$ với phép hợp nối ánh xạ là một nhóm (có phần tử đơn vị là ánh xạ đồng nhất $Id_X$ và phần tử nghịch đảo của $\sigma \in S_n$ chính là ánh xạ ngược $\sigma^{-1}$). Ta gọi $(S_n,\circ)$ là nhóm hoán vị hay nhóm đối xứng bậc $n$. Đây là một nhóm hữu hạn có cấp $n!$ ([xem 4](#4-nhóm-hoán-vị)).
 4. Tập hợp $GL(n,\mathbb{R})$ gồm các ma trận vuông cấp $n$, khả nghịch với hệ số thực cùng với phép nhân ma trận là một nhóm không giao hoán với mọi $n \gt 1$ (với phần tử đơn vị là mà trận đơn vị $I_n$ và phần tử nghịch đảo của $A \in GL(n,\mathbb{R})$ chính là ma trận nghịch đảo $A^{-1}$). Ta gọi $GL(n,\mathbb{R})$ là _nhóm tuyến tính đầu đủ_ bậc $n$ (hay _nhóm tuyến tính tổng quát_ bậc $n$) trên $\mathbb{R}$.
 
 ### 3.3. Định lý
@@ -577,14 +577,14 @@ _(i) Nếu $S \ne \text{\O}$ thì $\left< S \right> = \{e\}$._
 _(ii) Nếu $S \ne \text{\O}$ thì_
 
 $$
-\left< S \right> = \{ x_1^{\varepsilon_1}...x_n^{\varepsilon_n} | n \in \mathbb{N}^*, x_i \in S, \varepsilon_i=\pm 1 \}
+\left< S \right> = \{ x_1^{\varepsilon_1}...x_n^{\varepsilon_n} \mid n \in \mathbb{N}^*, x_i \in S, \varepsilon_i=\pm 1 \}
 $$
 
 **Chứng minh.** Khẳng định (i) là hiển nhiên. Ta chứng minh (ii). Thật vậy, ký hiệu vế phải của đẳng thức trong (ii) là $H$. Vì nhóm con $\left< S \right>$ chứa tất cả các phần tử $x_i$ của $S$ nên $\left< S \right>$ chứa $H$. Mặt khác, do cách đặt $H$ ta thấy nếu $x,y \in H$ thì $xy \in H$ và $x^{-1} \in H$ nên $H$ là một nhóm con của $G$. Từ đây, do $H$ chứa $S$ nên ta có $H$ chứa $\left< S \right>$. Suy ra $H = \left< S \right>$. $\quad \blacksquare$
 
 ### 5.8. Ví dụ
 
-1. Ta có $\mathbb{Z} = \left< 1 \right>$ và $\mathbb{Q} = \left< \frac{1}{n} | n \in \mathbb{N}^* \right>$.
+1. Ta có $\mathbb{Z} = \left< 1 \right>$ và $\mathbb{Q} = \left< \frac{1}{n} \mid n \in \mathbb{N}^* \right>$.
 2. Ta có $\mathbb{Q}^* = \left< P \right>$, trong đó $P=\{{-1} \cup p \}$ với $p$ nguyên tố dương.
 3. Xét nhóm hoá vị $S_n$. Vì mỗi phpeps hoán vị dều được phân tích thành tích các chuyển vị nên $S_n$ là nhóm sinh bởi các chuyển vị.
 
@@ -602,7 +602,7 @@ Từ [Định lý 5.7](#57-định-lý) ta suy ra mệnh đề sau:
 
 ### 6.2. Mệnh đề
 
-_Nhóm con cyclic sinh bởi $a$ là tập hợp gồm tất cả các lũy thừa $a^n$ với $n \in \mathbb{Z}$, nghĩa là $\left< a \right> = \{ a^n | n \in \mathbb{Z} \}$._
+_Nhóm con cyclic sinh bởi $a$ là tập hợp gồm tất cả các lũy thừa $a^n$ với $n \in \mathbb{Z}$, nghĩa là $\left< a \right> = \{ a^n \mid n \in \mathbb{Z} \}$._
 
 Cho $(G,\cdot)$ là một nhóm và $a \in G$. Xét nhóm con cyclic $\left< a \right>$. Khi đó có hai trường hợp có thể xảy ra:
 
@@ -639,9 +639,9 @@ _(iii) Nếu $a$ có cấp hữu hạn thì cấp của $a$ là số nguyên dư
 1. Nhóm cộng các số nguyên $\mathbb{Z}$ là nhóm cyclic sinh bởi 1.
 2. Với mỗi $n$ nguyên dương, quan hệ đồng dư modulo $n$ trên $\mathbb{Z}$ định bởi $z \equiv y \mod n \Leftrightarrow x-y$ chia hết cho $n$.
 
-   Đây là một quan hệ tương đương trên $\mathbb{Z}$ với các lớp tương đương là $\overline{x} = \{x+kn|k \in \mathbb{Z}\}$.
+   Đây là một quan hệ tương đương trên $\mathbb{Z}$ với các lớp tương đương là $\overline{x} = \{x+kn \mid k \in \mathbb{Z}\}$.
 
-   Tập thương của $\mathbb{Z}$ theo quan hệ đồng dư modulo $n$ định bởi $\mathbb{Z}_n=\{\overline{x}| x \in \mathbb{Z}\}=\{\overline{0},\overline{1},...,\overline{n-1}\}$.
+   Tập thương của $\mathbb{Z}$ theo quan hệ đồng dư modulo $n$ định bởi $\mathbb{Z}_n=\{\overline{x} \mid x \in \mathbb{Z}\}=\{\overline{0},\overline{1},...,\overline{n-1}\}$.
 
    Trên $\mathbb{Z}_n$ ta định nghĩa phép toán cộng như sau: $\overline{x}+\overline{y}=\overline{x+y}$.
 
@@ -662,7 +662,7 @@ Từ [Định lý 6.6](#66-định-lý) ta suy ra hệ quả sau:
 $H$ _là một nhóm con của nhóm cộng các số nguyên $\mathbb{Z}$ khi và chỉ khi $H$ có dạng $n \mathbb{Z}$ với $n \in \mathbb{N}$, trong đó_
 
 $$
-n \mathbb{Z} = \{ nk | k \in \mathbb{Z} \}
+n \mathbb{Z} = \{ nk \mid k \in \mathbb{Z} \}
 $$
 
 ## 7. Nhóm con chuẩn tắc và nhóm thương
@@ -682,7 +682,7 @@ _(i) $\sim$ là một quan hệ tương đương trên $G$._
 _(ii) Lớp tương đương chứa $x$ là $\overline{x} = xH$, trong đó_
 
 $$
-xH = \{ xh | h \in H \}
+xH = \{ xh \mid h \in H \}
 $$
 
 Ta gọi $xH$ là _lớp ghép_ của $H$ (bởi phần tử $x$). Tập hợp thương của $G$ theo quan hệ $\sim$, ký hiệu là $G/H$, được gọi là _tập thương_ của $G$ trên $H$ và $\left| G/H \right|$ là _chỉ số_ của nhóm con $H$ trong $G$, ký hiệu là $[G:H]$.
@@ -705,7 +705,7 @@ x \sim y &\Leftrightarrow x^{-1}y \in H\\
 \end{align*}
 $$
 
-Suy ra $\overline{x} = \{ y \in G | x \sim y \} = \{ xh | h \in H \} = xh$. $\quad \blacksquare$
+Suy ra $\overline{x} = \{ y \in G \mid x \sim y \} = \{ xh \mid h \in H \} = xh$. $\quad \blacksquare$
 
 ### 7.2. Chú ý
 
@@ -715,7 +715,7 @@ $$
 x \sim' y \Leftrightarrow xy^{-1} \in H
 $$
 
-Khi đó $\sim'$ cũng là một quan hệ tương đương trên $G$ và lớp tương đương chứa $x$ là $\overline{x} = Hx$, trong đó $Hx=\{ hx|h \in H \}$. Ta gọi $Hx$ là _lớp ghép phải_ của $H$ (bởi phần tử $x$).
+Khi đó $\sim'$ cũng là một quan hệ tương đương trên $G$ và lớp tương đương chứa $x$ là $\overline{x} = Hx$, trong đó $Hx=\{ hx \mid h \in H \}$. Ta gọi $Hx$ là _lớp ghép phải_ của $H$ (bởi phần tử $x$).
 
 Định lý sau đây cho ta thông tin về cấp của các nhóm con của các nhóm hữu hạn.
 
@@ -772,7 +772,7 @@ _(iii) $\forall x \in G, x^{-1}Hx = H$;_
 
 _(iv) $\forall x \in G, xH = Hx$;_
 
-_trong đó $x^{-1}Hx=\{ x^{-1}hx | h \in H \}$._
+_trong đó $x^{-1}Hx=\{ x^{-1}hx \mid h \in H \}$._
 
 **Chứng minh.** (i) $\Leftarrow$ (ii) Hiển nhiên do định nghĩa.
 
@@ -946,7 +946,7 @@ Vậy $\overline{f}$ là đơn cấu. Khẳng định sau cùng trong Định l�
 
 ### 8.10. Định lý đẳng cấu 2
 
-_Cho $G$ là một nhóm và $H$, $K$ là hai nhóm con của $G$, hơn nữa $H$ chuẩn tắc trong $G$. Khi đó $HK \le G$, $H \triangleleft HK$, $H \cap K \triangleleft K$, và $K/H \cap K \simeq HK/H$ qua đẳng cấu $k(H \cap K) \mapsto kH$, trong đó $HK=\{ hk|h \in H, k \in K \}$._
+_Cho $G$ là một nhóm và $H$, $K$ là hai nhóm con của $G$, hơn nữa $H$ chuẩn tắc trong $G$. Khi đó $HK \le G$, $H \triangleleft HK$, $H \cap K \triangleleft K$, và $K/H \cap K \simeq HK/H$ qua đẳng cấu $k(H \cap K) \mapsto kH$, trong đó $HK=\{ hk \mid h \in H, k \in K \}$._
 
 **Chứng minh.**
 
@@ -967,9 +967,9 @@ _Cho $G$ là một nhóm và $H$, $K$ là hai nhóm con của $G$, hơn nữa $H
 
 $$
 \begin{align*}
-\text{Ker} f &= \{ k \in K | f(k)=H \}\\
-&= \{ k \in K | kH=H \}\\
-&= \{ k \in K | k \in H \}\\
+\text{Ker} f &= \{ k \in K \mid f(k)=H \}\\
+&= \{ k \in K \mid kH=H \}\\
+&= \{ k \in K \mid k \in H \}\\
 &= H \cap K\\
 \end{align*}
 $$
@@ -988,9 +988,9 @@ _(ii) $\mathcal{K}$ là một nhóm con chuẩn tắc của $G/H$ khi và chỉ 
 
 $$
 \begin{align*}
-\text{Ker}f &= \{ xH \in G/H | f(xH)=K \}\\
-&= \{ xH \in G/H | xK=K \}\\
-&= \{ xH \in G/H | x \in K \}\\
+\text{Ker}f &= \{ xH \in G/H \mid f(xH)=K \}\\
+&= \{ xH \in G/H \mid xK=K \}\\
+&= \{ xH \in G/H \mid x \in K \}\\
 &= K/H\\
 \end{align*}
 $$
