@@ -13,7 +13,7 @@ export default function Island({ children, Loading = Fragment }: IslandProps) {
       dynamic(
         () =>
           Promise.resolve(({ children }: { children: ReactNode }) => {
-            return <Fragment>{children}</Fragment>
+            return <>{children}</>
           }),
         {
           ssr: false,

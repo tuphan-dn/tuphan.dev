@@ -1,7 +1,6 @@
 'use client'
 import {
   DetailedHTMLProps,
-  Fragment,
   HTMLAttributes,
   useEffect,
   type ReactNode,
@@ -80,7 +79,7 @@ export function Tab({
   defaultChecked = false,
 }: TabProps) {
   return (
-    <Fragment>
+    <>
       <input
         type="radio"
         role="tab"
@@ -94,6 +93,6 @@ export function Tab({
           <div className="col-span-full">{children}</div>
         </div>
       </div>
-    </Fragment>
+    </>
   )
 }
