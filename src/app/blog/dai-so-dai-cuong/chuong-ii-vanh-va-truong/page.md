@@ -249,7 +249,7 @@ Chứ ý rằng $x'b, ay'$ và $ab$ đều thuộc $I$ vì $I$ là ideal của v
 
 ### 2.12. Ví dụ
 
-Vành thương của vành các số nguyên $,athbb{Z}$ trên ideal $n\mathbb{Z}$ chính là vành $\mathbb{Z}_n$ các số nguyên modulo $n$, trong đó ngoài phép cộng đã biết, ta có phép toán nhân định bởi
+Vành thương của vành các số nguyên $\mathbb{Z}$ trên ideal $n\mathbb{Z}$ chính là vành $\mathbb{Z}_n$ các số nguyên modulo $n$, trong đó ngoài phép cộng đã biết, ta có phép toán nhân định bởi
 
 $$
 (x+n\mathbb{Z})(y+n\mathbb{Z}) = xy +n\mathbb{Z}.
