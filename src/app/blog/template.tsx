@@ -1,38 +1,46 @@
-'use client'
 import { type ReactNode } from 'react'
-import { usePathname } from 'next/navigation'
+import { headers } from 'next/headers'
+import { connection } from 'next/server'
 import clsx from 'clsx'
 
 import Link from 'next/link'
 import { ExternalLink } from 'lucide-react'
-import { BlogCard, useBlog } from '@/components/blog'
+import { BlogCard } from '@/components/blog'
 import Tags from '@/components/tags'
 import Contributors from '@/components/contributors'
 import Schedule from '@/components/schedule'
 import Header from './header'
 
-export default function Template({ children }: { children: ReactNode }) {
-  const pathname = usePathname()
-  const {
-    data: {
-      route = '',
-      authors = [],
-      tags = [],
-      parent,
-      children: routes = [],
-      date,
-    } = {},
-    isLoading,
-  } = useBlog(pathname)
+import { all } from '@/db'
 
-  const { data: { children: siblings = [] } = {} } = useBlog(parent)
-  const { data: { route: prev = '', title: left = '←' } = {} } = useBlog(
-    siblings[siblings.findIndex((e) => e === route) + 1] ||
-      (parent !== '/blog' ? parent : '/404'),
-  )
-  const { data: { route: next = '', title: right = '→' } = {} } = useBlog(
-    routes.at(-1) || siblings[siblings.findIndex((e) => e === route) - 1],
-  )
+export default async function Template({ children }: { children: ReactNode }) {
+  await connection() // To force template keeps rerendering
+
+  const pathname = (await headers()).get('x-forwarded-pathname') || ''
+  const {
+    authors = [],
+    tags = [],
+    parent,
+    children: routes = [],
+    date,
+  } = all.find(({ route }) => route === pathname) || {}
+
+  const { children: siblings = [] } =
+    all.find(({ route }) => route === parent) || {}
+  const { route: prev = '', title: left = '←' } =
+    all.find(
+      ({ route }) =>
+        route ===
+        (siblings[siblings.findIndex((e) => e === pathname) + 1] ||
+          (parent !== '/blog' ? parent : '/404')),
+    ) || {}
+  const { route: next = '', title: right = '→' } =
+    all.find(
+      ({ route }) =>
+        route ===
+        (routes.at(-1) ||
+          siblings[siblings.findIndex((e) => e === pathname) - 1]),
+    ) || {}
 
   return (
     <div className="w-full flex flex-col gap-4 items-center relative">
@@ -40,7 +48,7 @@ export default function Template({ children }: { children: ReactNode }) {
         <Header />
       </div>
       <article className="w-full mb-16 prose prose-h1:mt-[1.6666667em] prose-p:tracking-[-.25px] prose-table:w-full prose-table:block prose-table:overflow-auto">
-        <Schedule published={date} loading={isLoading}>
+        <Schedule published={date}>
           <div className="not-prose w-full flex flex-col gap-1">
             <Tags value={tags} />
             <Contributors authors={authors} date={date} />
