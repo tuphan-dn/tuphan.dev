@@ -46,10 +46,10 @@ _Thành phố Hồ Chí Minh, tháng 8 năm 2020_
 
 [Chương II. VÀNH VÀ TRƯỜNG](/blog/dai-so-dai-cuong/chuong-ii-vanh-va-truong)
 
-1. [Khái niệm về vành](/blog/dai-so-dai-cuong/chuong-ii-vanh-va-truong#1-khai-niem-ve-vanh)
-2. Vành con, Ideal và vành thương
-3. Đồng cấu
-4. Miền nguyên và trường
+1. [Khái niệm về vành](/blog/dai-so-dai-cuong/chuong-ii-vanh-va-truong#1-khái-niệm-về-vành)
+2. [Vành con, Ideal và vành thương](/blog/dai-so-dai-cuong/chuong-ii-vanh-va-truong#2-vành-con-ideal-và-vành-thương)
+3. [Đồng cấu](/blog/dai-so-dai-cuong/chuong-ii-vanh-va-truong#3-đồng-cấu)
+4. [Miền nguyên và trường](/blog/dai-so-dai-cuong/chuong-ii-vanh-va-truong#4-miền-nguyên-và-trường)
 
 Chương III. VÀNH ĐA THỨC
 
