@@ -1,46 +1,38 @@
+'use client'
 import { type ReactNode } from 'react'
-import { headers } from 'next/headers'
-import { connection } from 'next/server'
+import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 
 import Link from 'next/link'
 import { ExternalLink } from 'lucide-react'
-import { BlogCard } from '@/components/blog'
+import { BlogCard, useBlog } from '@/components/blog'
 import Tags from '@/components/tags'
 import Contributors from '@/components/contributors'
 import Schedule from '@/components/schedule'
 import Header from './header'
 
-import { all } from '@/db'
+export default function Template({ children }: { children: ReactNode }) {
+  const pathname = usePathname()
 
-export default async function Template({ children }: { children: ReactNode }) {
-  await connection() // To force template keeps rerendering
-
-  const pathname = (await headers()).get('x-forwarded-pathname') || ''
   const {
-    authors = [],
-    tags = [],
-    parent,
-    children: routes = [],
-    date,
-  } = all.find(({ route }) => route === pathname) || {}
+    data: {
+      route = '',
+      authors = [],
+      tags = [],
+      parent,
+      children: routes = [],
+      date,
+    } = {},
+  } = useBlog(pathname)
 
-  const { children: siblings = [] } =
-    all.find(({ route }) => route === parent) || {}
-  const { route: prev = '', title: left = '←' } =
-    all.find(
-      ({ route }) =>
-        route ===
-        (siblings[siblings.findIndex((e) => e === pathname) + 1] ||
-          (parent !== '/blog' ? parent : '/404')),
-    ) || {}
-  const { route: next = '', title: right = '→' } =
-    all.find(
-      ({ route }) =>
-        route ===
-        (routes.at(-1) ||
-          siblings[siblings.findIndex((e) => e === pathname) - 1]),
-    ) || {}
+  const { data: { children: siblings = [] } = {} } = useBlog(parent)
+  const { data: { route: prev = '', title: left = '←' } = {} } = useBlog(
+    siblings[siblings.findIndex((e) => e === route) + 1] ||
+      (parent !== '/blog' ? parent : '/404'),
+  )
+  const { data: { route: next = '', title: right = '→' } = {} } = useBlog(
+    routes.at(-1) || siblings[siblings.findIndex((e) => e === route) - 1],
+  )
 
   return (
     <div className="w-full flex flex-col gap-4 items-center relative">
