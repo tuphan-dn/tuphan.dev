@@ -18,10 +18,10 @@ $(R_2)$ $(R,.)$ là nửa nhóm;
 $(R_3)$ Phép nhân phân phối đối với phép cộng, nghĩa là với mọi $x,y,z \in R$, ta có
 
 $$
-\begin{align*}
+\begin{gather*}
 x(y+z) = xy+xz;\\
 (y+z)x = yx+zx.
-\end{align*}
+\end{gather*}
 $$
 
 Phần tử trung hoà của phép cộng được gọi là _phần tử không_, ký hiệu là 0; phần tử đối xứng của phần tử $x \in R$ là _phần tử đối_ của $x$ ký hiệu là $-x$. Nếu phép nhân giao hoán thì ta nói vành $R$ _giao hoán_; nếu phép nhân có phần tử đơn vị thì vành $R$ được gọi là _vành có đơn vị_. Phần tử đơn vị được ký hiệu là $e$ hay $1$.
@@ -144,10 +144,10 @@ _(iii) VỚi mọi $x,y \in I$ và $r \in R, x-y \in I, xr \in I$ và $rx \in I$
 4. Với $I,J$ à hai ideal của $R$, đặt
 
 $$
-\begin{align*}
+\begin{gather*}
 I+J = \{ x+y \mid x\in I, y \in J \}\\
 IJ = \{ \sum_{i=1}^n x_iy_i \mid x_i \in I, y_i \in J, n \in \mathbb{N}^* \}
-\end{align*}
+\end{gather*}
 $$
 
 Khi đó $I+J$ và $IJ$ cũng là các ideal của $R$, gọi là _tổng_ và _tích_ của các ideal $I$ và $J$.
@@ -258,5 +258,62 @@ $$
 Đây chính là vành mà ta đã xét trong [Ví dụ 1.3](#13-ví-dụ).
 
 ## 3. Đồng cấu
+
+### 3.1. Định nghĩa
+
+Một ánh xạ $f$ từ vành $R$ vào vành $R'$ được gọi là _đồng cấu vành_ nêys $f$ bảo toàn các phép toán, nghĩa là vói mọi $x,y \in R$
+
+$$
+\begin{gather*}
+f(x+y)=f(x)+f(y)\\
+f(xy)f(x)f(y)
+\end{gather*}
+$$
+
+Một đồng cấu từ $R$ vào $R$ được gọi là một _tự đồng cấu_ của $R$. Một đồng cấu đồng thời là đơn ánh, toàn ánh, xong ánh gọi lần lượt là _đơn cấu_, _toàn cấu_, _đẳng cấu_. Một tự đồng cấu song ánh được lại là một _tự đẳng cấu_. Nếu tồn tại một đẳng cấu từ $R$ vào $R'$ thì ta nói $R$ đẳng cấu với $R'$, ký hiệu là $R \simeq R'$.
+
+### 3.2. Ví dụ
+
+1. Ánh xạ đồng nhất $id_R$ của vành $R$ là một tự đẳng cấu, gọi là _tự đẳng cấu đồng nhất_ của $R$.
+2. Giả sử $A$ là một vành con của vành $R$. Khi đó ánh xạ bao hàm: $i_A: A \rightarrow R$ định bởi $i_a(x)=x$ là một đơn cấu, gọi là _đơn cấu chính tắc_.
+3. Giả sử $I$ là một ideal của vành $R$. Khi đó ánh xạ $\pi: R \rightarrow R/I$ định bởi $\pi(x)=x+I$ là một toàn cấu, gọi là _toàn cấu chính tắc_.
+4. Giả sử $R$, $R'$ là hai vành. Khi đó ánh xạ $f: R \rightarrow R'$ định bởi $f(x)=0_{R'}$ ($0_{R'}$ là phần tử không của vành R') là một đồng cấu, gọi là _đồng cấu tầm thường_.
+5. Cho $R$ là một vành có đơn vị và $a \in R$ khả nghịch. Khi đó ánh xạ $f: R \rightarrow R$ định bởi $f(x)=axa^{-1}$ là một tự đẳng cấu của $R$. Thật vậy, dễ thấy $f$ là một song ánh, hơn nữa $f$ là đồng cấu vì
+
+$$
+\begin{gather*}
+f(x+y) = a(x+y)a^{-1} = axa^{-1} + aya^{-1} = f(x)+f(y),\\
+f(xy) = a(xy)a^{-1} = (axa^{-1})(aya^{-1}) = f(x)f(y);
+\end{gather*}
+$$
+
+vậy $f$ là đẳng cấu.
+
+6. Xét ánh xạ: $f: \mathbb{Z}_6 \rightarrow \mathbb{Z}_6$ định bởi $f(\bar{x}) = 4\bar{x}$. Khi đó $f$ là đồng cấu vành vì
+
+$$
+\begin{gather*}
+f(\bar{x}+\bar{y}) = f(\overline{x+y}) = 4(\overline{x+y}) = 4\bar{x}+4\bar{y} = f(\bar{x})+f(\bar{y}),\\
+f(\bar{x}\bar{y}) = f(\overline{xy}) = 4\overline{xy} = 4\bar{x}\bar{y}+12\bar{x}\bar{y} = 16\bar{x}\bar{y} = (4\bar{x})(4\bar{y}) = f(\bar{x})f(\bar{y}).\\
+\end{gather*}
+$$
+
+Từ [Định nghĩa 3.1](#31-định-nghĩa), lý luận tương tự như đối với đồng cấu nhóm ta thấy đồng cấu vành có các tính chất sau:
+
+### 3.3. Mệnh đề
+
+_Nếu $f: R \rightarrow R'$ là một đồng cấu vành thì_ $f(0_R)=0_{R'}$ _và $f(-x)=-f(x)$ với mọi $x \in R$._
+
+### 3.4. Mệnh đề
+
+_Tích của hai đồng cấu vành là một đồng cấu vành. Đặc biệt, tích của hai đơn cấu (tương ứng, toàn cấu, đẳng cấu) vành cũng là đơn cấu (tương ứng, toàn cấu, đẳng cấu) vành._
+
+### 3.5. Mệnh đề
+
+_Ánh xạ ngược của một dẳng cấu vành cũng là dẳng cấu vành._
+
+### 3.6. Chú ý
+
+Do các mệnh đề [3.4](#34-mệnh-đề) và [3.5](#35-mệnh-đề) ta thấy quan hệ dẳng cấu $\simeq$ giữa các vành là một quan hệ tương đương, nghĩa là thoả ba tính chất: phản xạ, đối xứng và bắc cầu.
 
 ## 4. Miền nguyên và trường
