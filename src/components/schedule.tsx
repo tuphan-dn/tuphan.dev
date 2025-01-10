@@ -2,15 +2,18 @@ import { type ReactNode } from 'react'
 import dayjs from 'dayjs'
 
 import { env } from '@/configs/env'
+import clsx from 'clsx'
 
 export type ScheduleProps = {
   children: ReactNode
   published?: Date
+  loading?: boolean
 }
 
 export default function Schedule({
   children,
-  published = new Date(Date.now() + 1),
+  published = new Date(Date.now()),
+  loading = false,
 }: ScheduleProps) {
   if (new Date(published) > new Date() && env !== 'development')
     return (
@@ -27,5 +30,5 @@ export default function Schedule({
         />
       </div>
     )
-  return <>{children}</>
+  return <div className={clsx({ blur: loading })}>{children}</div>
 }
