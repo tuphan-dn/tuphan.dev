@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import ky from 'ky'
 import useSWR from 'swr'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import clsx from 'clsx'
 
 import { BlogCard } from '@/components/blog'

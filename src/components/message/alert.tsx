@@ -2,7 +2,7 @@
 import { CSSProperties, useState } from 'react'
 import { useInterval } from 'react-use'
 import clsx from 'clsx'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 
 import {
   AlertTriangle,

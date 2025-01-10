@@ -1,7 +1,7 @@
 'use client'
 import { useMemo } from 'react'
 import { useSelectedLayoutSegments } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
 import clsx from 'clsx'
 import useSWR from 'swr'
 import ky from 'ky'
