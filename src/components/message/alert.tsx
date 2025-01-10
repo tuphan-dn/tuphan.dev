@@ -44,10 +44,13 @@ export default function Alert({
 
   return (
     <div
+      role="button"
+      tabIndex={0}
       className={clsx('cursor-pointer alert max-w-sm shadow-xl', type)}
       onClick={() => onClick()}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      onKeyDown={() => onClick()}
     >
       <AlertIcon type={type} />
       <p className="whitespace-normal">{message}</p>
