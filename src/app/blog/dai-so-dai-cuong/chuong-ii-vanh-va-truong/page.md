@@ -316,4 +316,14 @@ _Ánh xạ ngược của một dẳng cấu vành cũng là dẳng cấu vành.
 
 Do các mệnh đề [3.4](#34-mệnh-đề) và [3.5](#35-mệnh-đề) ta thấy quan hệ dẳng cấu $\simeq$ giữa các vành là một quan hệ tương đương, nghĩa là thoả ba tính chất: phản xạ, đối xứng và bắc cầu.
 
+### 3.7. Định lý
+
+_Cho đồng cấu vành $f: R \rightarrow R'$ và $A$ là một vành con của $R$, $A'$ là một vành con của $R'$. Khi đó_
+
+_(i) $f(A)$ là một vành con của $R'$._
+
+_(ii) $f^{-1}(A')$ là một vành con của $R$. Hơn nữa, nếu $A'$ là một ideal của $R'$ thì $f^{-1}(A')$ cũng là ideal của $R$._
+
+_Đặc biệt, $\text{Im} f = f(R)$ là vành con của $R'$ và_ $\text{Ker} f = f^{-1}(0_{R'})$ _là ideal của $R$. Ta gọi $\text{Im}f$ là ảnh của $f$ và $\text{Ker}f$ là hạt nhân của $f$._
+
 ## 4. Miền nguyên và trường

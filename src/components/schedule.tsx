@@ -1,8 +1,8 @@
 import { type ReactNode } from 'react'
 import dayjs from 'dayjs'
+import clsx from 'clsx'
 
 import { env } from '@/configs/env'
-import clsx from 'clsx'
 
 export type ScheduleProps = {
   children: ReactNode
