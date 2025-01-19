@@ -245,9 +245,9 @@ Now, the malicious prover must know $\alpha$ and/or $\beta$ to manipulate the QA
 
 ### gamma & delta
 
-With 2 different tuples $(x, y, z)$, $(x', y', z')$ that satisfy $z = xy+7y−5$ and $z'=x'y'+7y'−5$ respectively, the structure of $w(x)$, $u(x)$, and $v(x)$ is the identical to each other. So the previous trusted setup can't detect if the macilious prover tries to replace an "easier" $z'$ to $z$ in the witness vector to find $x'$, $y'$. Eventually, the malicious prover will provide a fake valid proof $[1, z', t', x', y']^{\top}$ to a naive verifier.
+With 2 different tuples $(x, y, z)$, $(x', y', z')$ that satisfy $z = xy+7y−5$ and $z'=x'y'+7y'−5$ respectively, the structure of $w(x)$, $u(x)$, and $v(x)$ is the identical to each other. So the previous trusted setup can't detect if the macilious prover tries to replace a trivial $z'$ (i.e. to $z$ in the witness vector) to find $x'$, $y'$ easier. Eventually, the malicious prover can provide a fake valid proof $[1, z', t', x', y']^{\top}$ to naive verifiers.
 
-There 2 segments in the witness vector $a$. The segment $(1,z)$ in the witness is public and the segment $(t,x,y)$ is private. To stop the prover forging the public segment in $a$, Groth16 injects $\gamma$ and $\delta$ into the trusted setup.
+There are 2 segments in the witness vector $a$. The segment $(1,z)$ in the witness is public and the segment $(t,x,y)$ is private. To stop the prover forging the public segment in $a$, Groth16 injects $\gamma$ and $\delta$ into the trusted setup.
 
 Let's say the first $\ell$ elements in $a$ are public and the rest is private.
 
