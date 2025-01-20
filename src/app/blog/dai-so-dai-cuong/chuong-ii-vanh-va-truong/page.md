@@ -326,4 +326,36 @@ _(ii) $f^{-1}(A')$ là một vành con của $R$. Hơn nữa, nếu $A'$ là m�
 
 _Đặc biệt, $\text{Im} f = f(R)$ là vành con của $R'$ và_ $\text{Ker} f = f^{-1}(0_{R'})$ _là ideal của $R$. Ta gọi $\text{Im}f$ là ảnh của $f$ và $\text{Ker}f$ là hạt nhân của $f$._
 
+**Chứng minh.** (i) Vì $(A,+) \le (R,+)$ nên theo [Định lý 8.7, Chương I](/blog/dai-so-dai-cuong/chuong-i-nhom#87-định-lý), $f(A)$ là nhóm con của nhóm cộng $R'$. Mặt khác, với mọi $x',y' \in f(A)$, tồn tại $x,y \in A$ sao cho $f(x)=x'$, $f(y)=y'$ nên $x'y' = f(x)f(y) = f(xy) \in f(A)$. Điều này chứng tỏ $f(A)$ là vành con của $R'$.
+
+(ii) Vì $(A,+) \le (R,+)$ nên theo [Định lý 8.7, Chương I](/blog/dai-so-dai-cuong/chuong-i-nhom#87-định-lý), $f^{-1}(A')$ là nhóm con của nhóm cộng $R$. Mặt khác, với mọi $x,y \in f^{-1}(A')$, $f(x),f(y) \in A'$ nên $f(xy)=f(x)f(y) \in A'$, nghĩa là $xy \in f^{-1} (A')$. Điều này chứng tỏ $f^{-1} (A')$ là vành con của $R$. Giả sử $A'$ là một ideal của $R'$. Khi đó theo chứng minh trên $f^{-1} (A')$ là vành con của $R$; hơn nữa với mọi $r \in R$ và $x \in f^{-1} (A')$ ta có $f(rx) = f(r)f(x) \in A'$ (do $f(x) \in A'$ và $A'$ là ideal của $R'$), nghĩa là $rx \in f^{-1} (A')$; tương tự $xr \in f^{-1} (A')$. Điều này chứng tỏ $f^{-1} (A')$ là ideal của $R$.
+
+Cuối cùng, nhận xét rằng $R$ là vành con của $R$ và $\{0_{R'}\}$ là ideal của $R'$ nên theo kết quả trên ta có khẳng định sau cùng trong định lý. $\quad \blacksquare$
+
+Theo lý thuyết ánh xạ, hiển nhiên một đồng cấu vành $f: R \rightarrow R'$ là toàn cấu khi và chỉ khi $\text{Im} f = R'$. Mặt khác, do mọi đồng cấu vành đều thoả tính chất của đồng cấu nhóm cộng nên từ [Định lý 8.8, Chương I](/blog/dai-so-dai-cuong/chuong-i-nhom#88-định-lý), ta có định lý sau:
+
+### 3.8. Định lý
+
+_Đồng cấu vàng $f: R \rightarrow R'$ là đơn cấu khi và chỉ khi $\text{Ker}f = \{0_R\}$._
+
+Tương tự như trong lý thuyết nhóm ta cũng có các định lý đẳng cấu vành như sau:
+
+### 3.9. Định lý đẳng cấu 1
+
+_Cho đồng cấu vành $f: R \rightarrow R'$. Khi đó ánh xạ $\overline{f}: R/\text{Ker}f \rightarrow R'$ định bởi $\overline{f}(x + \text{Ker}f) = f(x)$ là đơn cấu vành. Đặc biệt, $R/\text{Ker}f \simeq \text{Im}f$._
+
+**Chứng minh.** Theo [Định lý 3.7](#37-định-lý) $\text{Ker}f$ là ideal của $R$ nên ta lập được vành thương $R/\text{Ker}f$. Theo [Định lý 8.9, Chương I](/blog/dai-so-dai-cuong/chuong-i-nhom#89-định-lý), $\overline{f}$ là đơn cấu nhóm cộng. Ta chỉ cần kiểm chứng $\overline{f}$ bảo toàn phép nhân. Thật vậy, đặt $I=\text{Ker}f$, khi đó với mọi $x,y \in R$, ta có
+
+$$
+\overline{f}((x+I)(y+I)) = \overline{f}(xy+I) = f(xy) = f(x)f(y) = \overline{f}(x+I)\overline{f}(y+I)
+$$
+
+Điều này chứng tỏ $\overline{f}$ là đơn cấu vành. $\quad \blacksquare$
+
+### 3.10. Định lý đẳng cấu 2
+
+_Cho $R$ là một vành và $I$ là một ideal, $A$ là một vành con của $R$. Khi đó $I+A$ là vành con của $R$; $I$ là ideal của $I+A$; $I \cap A$ là ideal của $A$ và $A/I \cap A \simeq (I+A)/I$ qua đẳng cấu vành $x+I \cap A \mapsto x+I$._
+
+**Chứng minh.** Vì mọi vành con của vành $R$ đều là nhóm con của nhóm cộng $R$ nên theo [Định lý 8.11, Chương I](/blog/dai-so-dai-cuong/chuong-i-nhom#811-định-lý), mọi vành con của $\mathcal{A}$ của $R/I$ đều có dạng $A/I$ với $A$ là nhóm con của nhóm cộng $R$ và $A$ chứa $I$. Mặt khác, dễ kiểm chứng rằng $\mathcal{A}$ là vành (tương ứng, ideal) của $R/I$ khi và chỉ khi $A$ là vành con (tương ứng, ideal) của $R$. Như vậy, khi $\mathcal{A} = A/I$ là ideal của vành thương $R/I$, ta lập được các vành thương $(R/I)/(A/I)$ và $R/A$. Theo [Định lý 8.11, Chương I](/blog/dai-so-dai-cuong/chuong-i-nhom#811-định-lý), ánh xạ từ $(R/I)/(A/I)$ vào $R/A$ được xác định bởi $(x+I) +(A/I) \mapsto x+A$ là đẳng cấu nhóm cộng. Mặt khác, ý luận tương tự như trong chứng minh của các [Định lý 3.9](#39-định-lý-đẳng-cấu-1) và [3.10](#310-định-lý-đẳng-cấu-2) ta thấy ánh xạ trên cũng bảo toàn phép nhân và do đó cũng là đẳng cấu vành. $\quad \blacksquare$
+
 ## 4. Miền nguyên và trường
