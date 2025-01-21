@@ -17,7 +17,7 @@ $$
 Q_{\text{Left}} a + Q_{\text{Right}} b + Q_{\text{Output}} c + Q_{\text{Multiply}} ab + Q_{\text{Constant}} = 0
 $$
 
-**Example.** You know the tuple $(x,y)$ so that $xy +7y -5 = 0$. The polynomial is equivanlent to
+**Example.** You know the tuple $(x,y)$ so that $xy +7y -5 = 0$. The polynomial is equivalent to
 
 $$
 \begin{align*}
@@ -49,7 +49,7 @@ $$
 
 which is divided by $t(x)=(x-1)...(x-n)$ (i.e. $f(x) = 0, \forall x \in \{1,...,n\}$).
 
-The completeness and zero-knowledge in Plonk is mostly achieved by [KZG Commitment Scheme](https://scroll.io/blog/kzg). The rough protocol is depicted below.
+The completeness and zero-knowledge in Plonk are mostly achieved by [KZG Commitment Scheme](https://scroll.io/blog/kzg). The rough protocol is depicted below.
 
 $$
 \begin{matrix}
