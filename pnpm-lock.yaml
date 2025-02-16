@@ -115,8 +115,8 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0
       '@gears-bot/rehype':
-        specifier: ^1.1.2
-        version: 1.1.2
+        specifier: ^2.1.0
+        version: 2.1.0
       '@jsdevtools/rehype-toc':
         specifier: ^3.0.2
         version: 3.0.2
@@ -473,8 +473,8 @@ packages:
     resolution: {integrity: sha512-60G28ke/sXdtS9KZCpZSHHkCbdsOGEhIUGlwq6yhY74UpTiToIh8np7A8yphhM4BWsvNFtIvLpi4co+h9Mr9Ow==}
     engines: {node: '>=6'}
 
-  '@gears-bot/rehype@1.1.2':
-    resolution: {integrity: sha512-f4QRHan2pfApWuqV+UyW/dfUOYAGpNNI+W8l7BBj6jIsjEqmbr+OjGRAKwDRXYo7ud5qKn6hHeh5Wj3b4HCpzQ==}
+  '@gears-bot/rehype@2.1.0':
+    resolution: {integrity: sha512-pBs2vYBQtRfZMkIjLhJI9nc09+5AA2rahgRKrAzIH/ncYHjAAXBTdJwmpusjqpP0o1pJShWSP0sLdwHv+aRsnA==}
     engines: {node: '20'}
 
   '@headlessui/react@2.1.2':
@@ -2784,8 +2784,8 @@ packages:
   micromark-extension-gfm-tagfilter@2.0.0:
     resolution: {integrity: sha512-xHlTOmuCSotIA8TW1mDIM6X2O1SiX5P9IuDtqGonFhEK0qgRI4yeC6vMxEV2dgyr2TiD+2PQ10o+cOhdVAcwfg==}
 
-  micromark-extension-gfm-task-list-item@2.0.1:
-    resolution: {integrity: sha512-cY5PzGcnULaN5O7T+cOzfMoHjBW7j+T9D2sucA5d/KbsBTPcYdebm9zUd9zzdgJGCwahV+/W78Z3nbulBYVbTw==}
+  micromark-extension-gfm-task-list-item@2.1.0:
+    resolution: {integrity: sha512-qIBZhqxqI6fjLDYFTBIa4eivDMnP+OZqsNwmQ3xNLE4Cxwc+zfQEfbs6tzAo2Hjq+bh6q5F+Z8/cksrLFYWQQw==}
 
   micromark-extension-gfm@3.0.0:
     resolution: {integrity: sha512-vsKArQsicm7t0z2GugkCKtZehqUm31oeGBV/KVSorWSy8ZlNAv7ytjFhvaryUiCUJYqs+NoE6AFhpQvBTM6Q4w==}
@@ -4301,10 +4301,11 @@ snapshots:
 
   '@fortawesome/fontawesome-free@6.6.0': {}
 
-  '@gears-bot/rehype@1.1.2':
+  '@gears-bot/rehype@2.1.0':
     dependencies:
       attributes-parser: 2.2.2
       isomorphic-git: 1.27.1
+      mdast-util-to-string: 4.0.0
       rehype-highlight: 7.0.0
       unist-util-visit: 5.0.0
 
@@ -7347,7 +7348,7 @@ snapshots:
     dependencies:
       micromark-util-types: 2.0.0
 
-  micromark-extension-gfm-task-list-item@2.0.1:
+  micromark-extension-gfm-task-list-item@2.1.0:
     dependencies:
       devlop: 1.1.0
       micromark-factory-space: 2.0.0
@@ -7362,7 +7363,7 @@ snapshots:
       micromark-extension-gfm-strikethrough: 2.0.0
       micromark-extension-gfm-table: 2.0.0
       micromark-extension-gfm-tagfilter: 2.0.0
-      micromark-extension-gfm-task-list-item: 2.0.1
+      micromark-extension-gfm-task-list-item: 2.1.0
       micromark-util-combine-extensions: 2.0.0
       micromark-util-types: 2.0.0
 
