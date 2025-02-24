@@ -129,15 +129,14 @@ export default function Page() {
             ).
           </Bullet>
           <Bullet i={5}>
-            Curator of{' '}
             <Link
               className="underline"
-              href="https://www.facebook.com/profile.php?id=61565796653633"
+              href="/static/Thank you Letter - Mr. Tu Phan.pdf"
               target="_blank"
             >
-              Mastering Blockchain in 100 Words
-            </Link>
-            .
+              Visiting lecturer
+            </Link>{' '}
+            at Blockchain Enabled Blockchain, RMIT University.
           </Bullet>
           <Bullet i={6}>
             Vietnamese Translator of{' '}
