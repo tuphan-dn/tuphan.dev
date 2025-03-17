@@ -100,16 +100,25 @@ export default function Page() {
           i&apos;m
         </motion.p>
         <div className="flex-grow flex flex-col gap-2">
-          <Bullet i={1}>A Blockchain Buidler.</Bullet>
-          <Bullet i={2}>A Cryptography Researcher.</Bullet>
-          <Bullet i={3}>
+          <Bullet i={1}>
+            <Link
+              className="hover:underline"
+              href="https://coursera.org/share/822da73af2a1ac20dec8d9d76a1b7dbc"
+              target="_blank"
+            >
+              A Google-Certified Project Manager.
+            </Link>
+          </Bullet>
+          <Bullet i={2}>A Blockchain Buidler.</Bullet>
+          <Bullet i={3}>A Cryptography Researcher.</Bullet>
+          <Bullet i={4}>
             Running{' '}
             <Link className="underline" href="http://gears.bot" target="_blank">
               gears.bot
             </Link>
             .
           </Bullet>
-          <Bullet i={4}>
+          <Bullet i={5}>
             Founder of{' '}
             <Link
               className="underline"
@@ -128,7 +137,7 @@ export default function Page() {
             </Link>
             ).
           </Bullet>
-          <Bullet i={5}>
+          <Bullet i={6}>
             <Link
               className="underline"
               href="/static/Thank you Letter - Mr. Tu Phan.pdf"
@@ -138,7 +147,7 @@ export default function Page() {
             </Link>{' '}
             at Blockchain Enabled Blockchain, RMIT University.
           </Bullet>
-          <Bullet i={6}>
+          <Bullet i={7}>
             Vietnamese Translator of{' '}
             <Link
               className="underline"
@@ -149,7 +158,7 @@ export default function Page() {
             </Link>
             .
           </Bullet>
-          <Bullet i={7}>
+          <Bullet i={8}>
             Author of 50K+ views{' '}
             <Link
               className="underline"
