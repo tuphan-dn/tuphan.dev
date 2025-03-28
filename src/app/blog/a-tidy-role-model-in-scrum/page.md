@@ -15,9 +15,9 @@ They can be users, developers, or anyone with ideas to improve the product. They
 
 In a project, we may need one PO.
 
-## Project Management (PM)
+## Project Manager (PM)
 
-> Some documents mention them as ScrumMasters
+> Some documents mention them as Scrum Masters
 
 They're mastered and able to run the Scrum structure. In addition, they also train new developers to be familiar with Scrum and help them to experience it.
 

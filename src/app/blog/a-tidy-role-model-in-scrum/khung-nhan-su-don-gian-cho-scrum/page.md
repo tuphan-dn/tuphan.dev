@@ -17,7 +17,7 @@ Họ có thể là khách hàng, nhà phát triển, hay bất kỳ ai sở hữ
 
 Trong một dự án, chúng ta có thể có một PO.
 
-## Project Management (PM)
+## Project Manager (PM)
 
 > Một vài tài liệu cũng gọi PM là ScrumMaster.
 
