@@ -4,7 +4,7 @@ import clsx from 'clsx'
 
 import Link from 'next/link'
 import { SiGithub, SiX } from '@icons-pack/react-simple-icons'
-import { Home } from 'lucide-react'
+import { SquareUserRound } from 'lucide-react'
 import { Dock, DockIcon } from '@/components/dock'
 import Island from '@/components/island'
 import Chill from './chill'
@@ -17,8 +17,8 @@ function Menu({ open = true }: { open?: boolean }) {
   return (
     <Dock className={clsx({ hidden: !open })} direction="middle">
       <DockIcon>
-        <Link className="btn btn-sm btn-circle btn-ghost" href="/">
-          <Home className="w-4 h-4" />
+        <Link className="btn btn-sm btn-circle btn-ghost" href="/welcome">
+          <SquareUserRound className="w-4 h-4" />
         </Link>
       </DockIcon>
       <DockIcon>
@@ -28,7 +28,7 @@ function Menu({ open = true }: { open?: boolean }) {
         <Chill />
       </DockIcon>
       <DockIcon className="mx-1">
-        <Link className="avatar flex" href="/welcome">
+        <Link className="avatar flex" href="/">
           <div className="w-8 rounded-full hover:ring-2 hover:ring-accent transition-all duration-500">
             <img src="/icon.png" alt="Home" />
           </div>
