@@ -103,7 +103,7 @@ export default function Page() {
           <Bullet i={1}>
             <Link
               className="hover:underline"
-              href="https://coursera.org/share/822da73af2a1ac20dec8d9d76a1b7dbc"
+              href="https://www.coursera.org/account/accomplishments/professional-cert/BJM4N6DQROMF"
               target="_blank"
             >
               A Google-Certified Project Manager.
