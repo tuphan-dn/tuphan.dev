@@ -145,7 +145,7 @@ export default function Page() {
             >
               Visiting lecturer
             </Link>{' '}
-            at Blockchain Application Project, RMIT University.
+            at Blockchain Application Projects, RMIT University.
           </Bullet>
           <Bullet i={7}>
             Vietnamese Translator of{' '}
