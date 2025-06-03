@@ -7,10 +7,10 @@ import AnimatedLink from './alink'
 import Bullet from './bullet'
 import Social from './social'
 
-export default function Page() {
+export default function Welcome() {
   return (
     <div
-      className="w-full h-full p-8 flex flex-col gap-16 overflow-x-hidden overflow-y-auto"
+      className="w-full min-h-dvh p-8 flex flex-col gap-16 overflow-x-hidden overflow-y-auto"
       data-theme="dark"
     >
       <SparklesCore

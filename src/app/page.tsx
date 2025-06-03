@@ -11,7 +11,7 @@ import Island from '@/components/island'
 import InfiniteLoading from '@/components/infiniteLoading'
 import { DotPattern } from '@/components/patterns'
 
-import { useSignalSwitch } from '@/lib/hooks/useSignal'
+import { useSwitchSignal } from '@/lib/hooks/useSignal'
 import { useTag } from '@/lib/hooks/useTag'
 import { description } from './manifest'
 
@@ -28,7 +28,7 @@ function TagList() {
 
 function BlogList() {
   const tag = useTag()
-  const reset = useSignalSwitch(tag)
+  const reset = useSwitchSignal(tag)
   const [{ disabled, blogs }, setData] = useState<{
     disabled: boolean
     blogs: string[]

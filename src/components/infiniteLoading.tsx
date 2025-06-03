@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 import { useAsyncFn, useIntersection } from 'react-use'
 import clsx from 'clsx'
 
-import { useSignalEdge } from '@/lib/hooks/useSignal'
+import { useEdgeSignal } from '@/lib/hooks/useSignal'
 
 export type InfiniteLoadingProps = {
   onLoad: () => Promise<void>
@@ -20,7 +20,7 @@ export default function InfiniteLoading({
     rootMargin: '0px',
     threshold: 1,
   })
-  const loadable = useSignalEdge(
+  const loadable = useEdgeSignal(
     intersection?.intersectionRatio === 1 && !disabled,
     false,
     true,
