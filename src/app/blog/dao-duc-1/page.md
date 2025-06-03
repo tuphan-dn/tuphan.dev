@@ -3,7 +3,9 @@ tags = "tản văn, 🇻🇳"
 date = "3 June, 2025"
 +++
 
-# Đạo đức - Tập 1
+# Đạo đức 1
+
+"Với những đường nét và màu sắc nghệ thuật, tập tranh trong tay các cháu sẽ giúp các cháu dễ hiểu, dễ nhớ các bài học đạo đức hơn. Chắc chắn các cháu cũng mong muốn rằng mình phải là các con ngoan, cháu ngoan trong gia đình, là các trò ngoan, trò giởi của các thầy cô.", trích Đạo Đức 1. Ôi kỷ niệm tuổi thơ ngày đầu tới trường sao mà xao xuyến, bồi hồi quá.
 
 ![Trang 1](./1.jpg)
 ![Trang 2](./2.jpg)
