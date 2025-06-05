@@ -1,5 +1,5 @@
 'use client'
-import { type ReactNode } from 'react'
+import { useMemo, type ReactNode } from 'react'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 
@@ -11,6 +11,70 @@ import Contributors from '@/components/contributors'
 import Schedule from '@/components/schedule'
 import Header from './header'
 
+function PrevBlog({ route }: { route?: string }) {
+  const { data: { parent } = {} } = useBlog(route)
+  const { data: { children: siblings = [] } = {} } = useBlog(parent)
+  const brother = useMemo(() => {
+    const index = siblings.findIndex((r) => r === route)
+    return siblings[index + 1]
+  }, [route, siblings])
+  const { data: { route: prev = '', title: left = '←' } = {} } = useBlog(
+    brother || (parent !== '/blog' ? parent : ''),
+  )
+
+  return (
+    <Link
+      className={clsx(
+        'w-full h-full p-4 flex flex-col gap-1 items-start rounded-box bg-base-200 transition-all border-2 border-base-300',
+        {
+          'pointer-events-none opacity-60': !prev,
+          'hover:bg-base-300': prev,
+        },
+      )}
+      href={prev || '#'}
+      aria-disabled={!prev}
+    >
+      <span className="text-xs opacity-60">Old Post</span>
+      <span className="font-semibold text-left">{left}</span>
+    </Link>
+  )
+}
+
+function NextBlog({ route }: { route?: string }) {
+  const { data: { parent, children = [] } = {} } = useBlog(route)
+  const { data: { parent: grand, children: siblings = [] } = {} } =
+    useBlog(parent)
+  const brother = useMemo(() => {
+    const index = siblings.findIndex((r) => r === route)
+    return siblings[index - 1]
+  }, [route, siblings])
+  const { data: { children: uncles = [] } = {} } = useBlog(grand)
+  const uncle = useMemo(() => {
+    const index = uncles.findIndex((r) => r === parent)
+    return uncles[index - 1]
+  }, [parent, uncles])
+  const { data: { route: next = '', title: right = '→' } = {} } = useBlog(
+    children.at(-1) || brother || uncle,
+  )
+
+  return (
+    <Link
+      className={clsx(
+        'w-full h-full p-4 flex flex-col gap-1 items-end rounded-box bg-base-200 transition-all border-2 border-base-300',
+        {
+          'pointer-events-none opacity-60': !next,
+          'hover:bg-base-300': next,
+        },
+      )}
+      href={next || '#'}
+      aria-disabled={!next}
+    >
+      <span className="text-xs opacity-60">Next Post</span>
+      <span className="font-semibold text-right">{right}</span>
+    </Link>
+  )
+}
+
 export default function Template({ children }: { children: ReactNode }) {
   const pathname = usePathname()
 
@@ -19,21 +83,11 @@ export default function Template({ children }: { children: ReactNode }) {
       route = '',
       authors = [],
       tags = [],
-      parent,
       children: routes = [],
       date,
     } = {},
     isLoading,
   } = useBlog(pathname)
-
-  const { data: { children: siblings = [] } = {} } = useBlog(parent)
-  const { data: { route: prev = '', title: left = '←' } = {} } = useBlog(
-    siblings[siblings.findIndex((e) => e === route) + 1] ||
-      (parent !== '/blog' ? parent : '/404'),
-  )
-  const { data: { route: next = '', title: right = '→' } = {} } = useBlog(
-    routes.at(-1) || siblings[siblings.findIndex((e) => e === route) - 1],
-  )
 
   return (
     <div className="w-full flex flex-col gap-4 items-center relative">
@@ -68,34 +122,12 @@ export default function Template({ children }: { children: ReactNode }) {
         </p>
       </div>
       <div id="prev-next" className="w-full grid grid-cols-2 gap-4">
-        <Link
-          className={clsx(
-            'col-span-1 p-4 flex flex-col gap-1 items-start rounded-box bg-base-200 transition-all border-2 border-base-300',
-            {
-              'pointer-events-none opacity-60': !prev,
-              'hover:bg-base-300': prev,
-            },
-          )}
-          href={prev || '#'}
-          aria-disabled={!prev}
-        >
-          <span className="text-xs opacity-60">Old Post</span>
-          <span className="font-semibold text-left">{left}</span>
-        </Link>
-        <Link
-          className={clsx(
-            'col-span-1 p-4 flex flex-col gap-1 items-end rounded-box bg-base-200 transition-all border-2 border-base-300',
-            {
-              'pointer-events-none opacity-60': !next,
-              'hover:bg-base-300': next,
-            },
-          )}
-          href={next || '#'}
-          aria-disabled={!next}
-        >
-          <span className="text-xs opacity-60">Next Post</span>
-          <span className="font-semibold text-right">{right}</span>
-        </Link>
+        <div className="col-span-1">
+          <PrevBlog route={route} />
+        </div>
+        <div className="col-span-1">
+          <NextBlog route={route} />
+        </div>
       </div>
       <div id="suggestion" className="w-full grid grid-cols-12 gap-4">
         {[...routes].reverse().map((route) => (
