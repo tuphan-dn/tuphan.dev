@@ -44,7 +44,7 @@ export default function Layout({ children }: { children: ReactNode }) {
             <section className="grow grid grid-cols-1">
               <div className="col-span-full">{children}</div>
             </section>
-            <footer className="sticky bottom-2 w-full flex flex-row justify-center">
+            <footer className="fixed bottom-2 w-full flex flex-row justify-center">
               <Footer />
             </footer>
           </main>

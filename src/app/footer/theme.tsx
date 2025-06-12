@@ -15,11 +15,11 @@ export default function Theme({ className }: ThemeProps) {
   const MotionIcon = useMemo(() => {
     switch (theme) {
       case 'light':
-        return motion(Sun)
+        return motion.create(Sun)
       case 'dark':
-        return motion(Moon)
+        return motion.create(Moon)
       default:
-        return motion(Monitor)
+        return motion.create(Monitor)
     }
   }, [theme])
 

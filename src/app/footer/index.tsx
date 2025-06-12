@@ -1,5 +1,7 @@
 'use client'
+import { useState } from 'react'
 import { usePathname } from 'next/navigation'
+import { useMotionValueEvent, useScroll, motion } from 'motion/react'
 import clsx from 'clsx'
 
 import Link from 'next/link'
@@ -61,9 +63,22 @@ function Menu({ open = true }: { open?: boolean }) {
 
 export default function Footer() {
   const pathname = usePathname()
+  const [scroll, setScroll] = useState({ y: 0, diff: 0 })
+  const { scrollY } = useScroll()
+
+  useMotionValueEvent(scrollY, 'change', (y) => {
+    setScroll(({ y: prev }) => ({ y, diff: y - prev }))
+  })
   return (
-    <Island>
-      <Menu open={!BLACKLIST.find((e) => pathname.startsWith(e))} />
-    </Island>
+    <motion.div
+      initial="open"
+      animate={scroll.diff > 0 ? 'closed' : 'open'}
+      variants={{ open: { y: '0%' }, closed: { y: 'calc(100% + 0.5rem)' } }}
+      transition={{ duration: 0.3 }}
+    >
+      <Island>
+        <Menu open={!BLACKLIST.find((e) => pathname.startsWith(e))} />
+      </Island>
+    </motion.div>
   )
 }
