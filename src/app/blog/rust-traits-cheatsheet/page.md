@@ -5,6 +5,12 @@ date = "13 June, 2025"
 
 # Rust Traits Cheatsheet
 
+## Trait
+
+| build-time | run-time |
+| ---------- | -------- |
+| impl       | dyn      |
+
 ## Iteraction
 
 | sync      | async  |
