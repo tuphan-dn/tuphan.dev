@@ -7,7 +7,7 @@ date = "13 June, 2025"
 
 I mean I don't know. The cheatsheet looks stupid but it might cover 80% of ideas supporting the Rust fundamental.
 
-## Trait
+## Trait Implementation
 
 | build-time | run-time |
 | ---------- | -------- |
