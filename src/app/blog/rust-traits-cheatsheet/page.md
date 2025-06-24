@@ -28,11 +28,11 @@ I mean I don't know. The cheatsheet looks stupid but it might cover 80% of ideas
 
 ## Send & Sync
 
-In Rust, Send and Sync are marker traits used to ensure thread safety in concurrent programs. Munualy implementing them is unsafe.
+In Rust, `Send` and `Sync` are marker traits used to ensure thread safety in concurrent programs. Manualy implementing them is unsafe.
 
 ## Pin & Unpin
 
-Pin & Unpin are to guarantee that the memory address of a value doesn't change, which is especially important for things like self-referential structs and async/await.
+`Pin` & `Unpin` are to guarantee that the memory address of a value doesn't change, which is especially important for things like self-referential structs and async/await.
 
 ```rust label="Example" group="move"
 let mut vec = vec![1, 2, 3];
