@@ -5,7 +5,7 @@ date = "13 June, 2025"
 
 # Rust Traits Cheatsheet
 
-I mean I don't know. The cheatsheet looks stupid but it might cover 80% of ideas supporting the Rust fundamental.
+I mean... I don't know!!! The cheatsheet looks stupid but it might cover 80% of ideas supporting the Rust fundamental.
 
 ## Trait Implementation
 
