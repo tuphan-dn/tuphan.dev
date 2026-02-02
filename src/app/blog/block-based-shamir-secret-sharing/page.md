@@ -11,9 +11,9 @@ Block-based Shamir Secret Sharing (Blocked-based SSS) uses $\mathrm{GF}(2^8)$ as
 
 You have a secret $S$. You want:
 
-    •	Split into $n$ shares
-    •	Any $t$ shares can recover $S$
-    •	Fewer than $t$ shares reveal nothing
+- Split into $n$ shares
+- Any $t$ shares can recover $S$
+- Fewer than $t$ shares reveal nothing
 
 This is achieved with polynomials over a field.
 
@@ -99,6 +99,8 @@ s &= p(0)\\
 $$
 
 , where $s \in \{s_1,\dots,s_k\}$ and $p \in \{p_1,\dots,p_k\}$.
+
+Finally, $S = s_1 \Vert s_2 \Vert ... \Vert s_k$.
 
 ## Take-Away
 
